@@ -1,0 +1,12 @@
+// Place all the styles related to the about controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.grid {
+	overflow: hidden;
+	text-align:center;
+	.col-3-1 {
+		width: 25%;
+		padding:5% 2%;
+	}
+}
+
