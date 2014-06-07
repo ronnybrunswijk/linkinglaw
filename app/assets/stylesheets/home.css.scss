@@ -10,4 +10,127 @@
 	 	padding-left:20%;
 	 	font-weight:normal;
 	}
+
+	>img {
+		margin-bottom:5%;
+	}
+
+	#quick-info {
+		text-align:left;
+		position: relative;
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
 }
+
+.col-left {
+	position: relative;
+	margin-left: 0;
+	left: 0;
+	display: inline-block;
+	width: 57%;
+	margin-bottom:5%;
+} 
+
+.col-right {
+	position: absolute;
+	margin-right: 0;
+	right: 0;
+	display: inline-block;
+	width: 37%;
+}
+
+.col-left>.review {
+	float: left;
+	width: 50%;
+	box-sizing:border-box;
+	padding-right:4%;
+}
+
+.col-left>.review:last-child {
+	padding-right:0;
+	padding-left: 4%;
+}
+
+h2 {
+    padding-top:4px;
+    line-height:1.5em;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+h3 {
+	font-size: 0.9em;
+	line-height:1.7em;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding-bottom:0.7em;
+}
+
+h4 {
+    line-height:1.5em;
+    font-size:0.8em;
+    font-weight:bold;
+    text-transform:uppercase;
+    margin-bottom:0.5em;
+}
+
+.separator-title {
+    padding-bottom:0;
+    margin-bottom:-5px;
+}
+
+.intro {
+    font-size:1.5em;
+    line-height:1.5em;
+    margin-bottom:1.5em;
+}
+
+.review p {
+    line-height:1.4em;    
+}
+
+ul {
+    list-style-image:image-url("check_mark_2_20x20.png");
+    margin-bottom:2em;
+    list-style-position: outside;
+    margin-left:30px;
+}
+
+li {
+    line-height:1.5em;
+    font-size:0.9em;
+    padding:0.5em 0;
+    
+}
+
+hr {
+    background-color:#EA3852;
+    margin-bottom:1.5em;
+    height:3px;
+    border:none;
+}
+.horizontal-button-container {
+	position:relative;
+	bottom:0;
+	margin-bottom:100px;
+	a {
+		position:absolute;
+		background-color:#cccbc7;
+		color:rgb(58, 58, 58);
+	}
+
+	a:first-child {
+		width:57%;
+	}
+	a:last-child {
+		width:37%;
+		right:0;
+	}
+}
+a {
+	text-align:center;
+}
+
+}		
+

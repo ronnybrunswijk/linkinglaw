@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+  resources :questions
+
   get 'contact/index'
 
   root 'home#index'
 
-  get 'about/index', as: :about
+  get 'about' => 'about#index', as: :about
 
-  get 'home/index', as: :home
+  get 'home' => 'home#index', as: :home
 
-  get 'contact/index', as: :contact
+  get 'contact' => 'contact#index', as: :contact
 
   get "opdracht/plaatsen", to: "assignment#new", as: :place
 

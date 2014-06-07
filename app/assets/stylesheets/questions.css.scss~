@@ -1,0 +1,23 @@
+// Place all the styles related to the Questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#new-question-content {
+        h1 {
+		width:100%;
+	        text-align:center;
+	}
+}
+
+#new_question {
+	width:50%;
+	margin-right:auto;
+	margin-left:auto;
+	padding:2%;
+	background-color:red;
+        border-radius: 6px;
+}
+
+input, textarea {
+        border-radius: 3px;
+	border:none;
+}

@@ -49,10 +49,7 @@ a.button-big {
 	    width: 40%;
 	    background-color: #EA3852;
 	    color: white;
-	    border-top-right-radius: 6px;
-	    border-bottom-right-radius: 6px;
-	    border-bottom-left-radius: 6px;
-	    border-top-left-radius: 6px;
+	    border-radius: 6px;
 	    line-height: 2.7em;
 	    vertical-align: middle;
 	    cursor: pointer;
@@ -64,7 +61,3 @@ a.button-big:visited {
             color:white;
 }
 
-.horizontal-button-container {
-	margin-top:50px;
-	margin-bottom:50px;
-}

@@ -14,5 +14,6 @@
  *= require layout
  *= require home
  *= require about
+ *= require questions
  *= require_self
  */
