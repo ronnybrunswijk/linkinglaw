@@ -6,4 +6,4 @@ deploy:
   provider: heroku
   api_key: "7c03744a91dcaea828329dfb5d45246a727b412f"
   app: linkinglaw
-  run: "rake db:migrate"
+  run: "rake db:create db:migrate"
