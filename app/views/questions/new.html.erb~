@@ -1,7 +1,0 @@
-<div id="new-question-content">
-<h1>Plaats hier gratis en geheel vrijblijvend jouw juridische vraag</h1>
-<%= render 'form' %>
-<% if false #TODO: indien admin dan tonen %>
-  <%= link_to 'Back', questions_path  %>
-<% end %>
-</div>
