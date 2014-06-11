@@ -1,6 +1,11 @@
 <%= form_for(@question) do |f| %>
+<fieldset>
+<legend>
+Plaats hier gratis en geheel vrijblijvend jouw juridische vraag
+</legend>
+
   <% if @question.errors.any? %>
-    <div id="error_explanation">
+  <div id="error_explanation">
       <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
 
       <ul>
@@ -22,4 +27,6 @@
   <div class="actions">
     <%= f.submit "Plaats nieuwe vraag" %>
   </div>
+</fieldset>
 <% end %>
+
