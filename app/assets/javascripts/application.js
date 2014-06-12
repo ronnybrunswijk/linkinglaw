@@ -14,13 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(document).ready(initMenu)
-$(document).on('page:load', initMenu)
-
-function initMenu(){
-	$('a.selected').removeClass()
-	pageId = $('#pageId').val()
-	console.log(pageId)
-	$('#' + pageId).addClass('selected')
-}
 
