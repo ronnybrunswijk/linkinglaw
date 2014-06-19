@@ -75,3 +75,52 @@ textarea  {
 	height:8em;
 	font-size:1em;
 }
+
+.speech-bubble {
+    position:absolute;
+    top:-1px;
+    width:65%;
+    border:3px solid #EA3852;
+    margin-left:30px;
+    left:100%;
+    border-radius:6px;
+    padding:10px 10px 10px 12px;
+    background-color:#E9E8E3;
+    z-index:999;
+    h5 {
+       font-size:1.1em;
+       padding:0.6em 0; 
+    }
+    p {
+      margin-top:10px;
+      font-size:0.9em;
+      line-height:1.3em;
+    } 
+}
+
+.speech-bubble:before {
+        content: "";
+	position:absolute;
+	left:-50px;
+	width: 0; 
+	height: 0; 
+	border-top: 13px solid transparent;
+	border-bottom: 13px solid transparent; 
+	border-right:50px solid #EA3852; 
+}
+
+.speech-bubble:after {
+        content: "";
+	position:absolute;
+	left:-42px;
+	top:14px;
+	width: 0; 
+	height: 0; 
+	border-top: 9px solid transparent;
+	border-bottom: 9px solid transparent; 
+	border-right:42px solid #E9E8E3; 
+}
+
+b {
+	font-weight:bold;
+}

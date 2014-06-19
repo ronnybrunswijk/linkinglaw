@@ -15,10 +15,21 @@ Plaats hier gratis en geheel vrijblijvend jouw juridische vraag
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :subject, "Vraag" %>
     <%= f.text_field :subject %>
+<div id="input-hint" class="speech-bubble">
+<h5>Tips voor het stellen van een goede vraag</h5>
+<p>
+ <b>Wees kort en to-the-point -</b> Zorg dat je vraag helder en bondig geformuleerd is. De details kun je later bij de omschrijving kwijt. 
+</p>
+<p>
+  <b>Blijf gefocust -</b> Stel niet meerdere vragen tegelijk, maar beperk je tot 1 vraag.
+</p>
+<p>
+  <b>Geef geen persoonlijke gegevens prijs -</b> Noem geen namen van personen of bedrijven.
+</p>
+</div>
   </div>
   <div class="field textarea">
     <%= f.label :description, "Omschrijving" %>
@@ -29,4 +40,5 @@ Plaats hier gratis en geheel vrijblijvend jouw juridische vraag
   </div>
 </fieldset>
 <% end %>
+
 
