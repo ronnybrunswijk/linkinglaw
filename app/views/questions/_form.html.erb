@@ -18,18 +18,8 @@ Plaats hier gratis en geheel vrijblijvend jouw juridische vraag
   <div class="field">
     <%= f.label :subject, "Vraag" %>
     <%= f.text_field :subject %>
-<div id="input-hint" class="speech-bubble">
-<h5>Tips voor het stellen van een goede vraag</h5>
-<p>
- <b>Wees kort en to-the-point -</b> Zorg dat je vraag helder en bondig geformuleerd is. De details kun je later bij de omschrijving kwijt. 
-</p>
-<p>
-  <b>Blijf gefocust -</b> Stel niet meerdere vragen tegelijk, maar beperk je tot 1 vraag.
-</p>
-<p>
-  <b>Geef geen persoonlijke gegevens prijs -</b> Noem geen namen van personen of bedrijven.
-</p>
-</div>
+    <div id="input-hint" class="speech-bubble">
+    </div>
   </div>
   <div class="field textarea">
     <%= f.label :description, "Omschrijving" %>
@@ -42,3 +32,24 @@ Plaats hier gratis en geheel vrijblijvend jouw juridische vraag
 <% end %>
 
 
+<div id="hint_question_subject">
+  <h5>Tips voor het stellen van een goede vraag</h5>
+  <p>
+    <b>Wees kort en to-the-point -</b> Zorg dat je vraag helder en bondig geformuleerd is. De details kun je later bij de omschrijving kwijt. 
+  </p>
+  <p>
+    <b>Blijf gefocust -</b> Stel niet meerdere vragen tegelijk, maar beperk je tot 1 vraag.
+  </p>
+  <p>
+    <b>Geef geen persoonlijke gegevens prijs -</b> Noem geen namen van personen of bedrijven.
+  </p>
+</div>
+<div id="hint_question_description">
+  <h5>Tips voor het toevoegen van details</h5>
+  <p>
+    <b>Wees concreet -</b> Voeg alleen de details toe die relevant zijn voor het kunnen beantwoorden van je vraag. Noem daarbij nooit namen van personen of bedrijven. 
+  </p>
+  <p>
+    <b>Lees je vraag door -</b> Wanneer je alle details hebt toegevoegd, lees je vraag dan nog eens vanaf het begin tot het eind door. Is je vraag helder geformuleerd? Is de vraag makkelijk leesbaar en te begrijpen?
+  </p>
+</div>
