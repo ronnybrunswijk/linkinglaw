@@ -5,7 +5,7 @@
        background-color:#3A3A3A;
        border-bottom:8px solid #E8213E;
        color:#fff;
-       padding:4% 8%;
+       padding:4% 13%;
        h1 {
        	  text-align:center;
 	  text-transform:uppercase;
@@ -15,7 +15,55 @@
        }
        p {
           font-size:1.1em;
-       	  line-height:1.5em;
+       	  line-height:1.6em;
        }
+}
+
+#how_it_works {
+	      color:#E8213E;
+	      margin-left:auto;
+	      margin-right:auto;
+	      width:90%;
+	      section {
+	      	 float:left;
+		 width:25%;
+ 		 margin-bottom:50px;
+	      }
+	      h6, h2 {
+	      	  text-align:center;
+		  text-transform:uppercase;
+		  font-weight:bold;
+	      }
+	      h6 {
+	      	 font-family:Roboto-Black;
+	      	 font-size:5em;
+		 margin-top:1em;
+		 color:#fff;
+              }
+	      h2 {
+	      	font-size:1.1em;
+		margin-top:2em;
+	      }
+	      .ruler {
+	         width:40%;
+		 margin-top:1.5em;
+		 margin-left:auto;
+		 margin-right:auto;
+		 height:6px;
+		 background-color:#fff;	      
+	      }
+	      p {
+	      	margin-top:1.5em;
+	      	padding:0 1.8em;
+		line-height:1.6em;
+		text-align:center;
+	      }
 }      
 
+#contact_data {
+       position:absolute;
+       bottom:0;
+       left:0;
+       right:0;
+       background-color:#E8213E;
+}
