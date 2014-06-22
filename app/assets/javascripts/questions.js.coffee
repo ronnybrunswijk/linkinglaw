@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'ready page:load', ->
 	       $('#question_subject').focus()
+	       $('#input-hint').empty().html($('#hint_question_subject').html())	       
 	       $('#question_subject').focus -> move('question_subject', -1)
 	       $('#question_description').focus -> move('question_description', 94)
 
