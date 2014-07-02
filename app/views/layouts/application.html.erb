@@ -8,6 +8,7 @@
 </head>
 
 <body>
+<header>
 <nav>
 	<ul>
 		<li><%= link_to "Home", home_path, id: "home" %></li>
@@ -15,10 +16,11 @@
 		<li><%= link_to "Contact", contact_path, id: "contact" %></li>
 	</ul>
 </nav>
+</header>
 <main>
-	<%= yield %>	
+  <%= yield %>
 </main>
-
-
+<footer>
+</footer>
 </body>
 </html>

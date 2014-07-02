@@ -24,10 +24,10 @@
 	      margin-left:auto;
 	      margin-right:auto;
 	      width:90%;
-	      section {
-	      	 float:left;
+	      ul li {
+	       	 display:inline-block;
 		 width:25%;
- 		 margin-bottom:50px;
+		 vertical-align:top;
 	      }
 	      h2 {
 	      	  text-align:center;
