@@ -1,5 +1,5 @@
 class ContactController < ApplicationController
   def index
-    @question = Question.new
+    @enquiry = Enquiry.new
   end
 end

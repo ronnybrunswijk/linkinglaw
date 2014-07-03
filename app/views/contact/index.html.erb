@@ -1,42 +1,80 @@
-C<input id="pageId" type="hidden" value="contact">
+<input id="pageId" type="hidden" value="contact">
+<div id="map_canvas"></div>
 <div id="content_container">
 <section>
-<p>Massa, eget egestas purus viverra accumsan in nisl nisi, scelerisque?</p>
-<p>Vitae sapien pellentesque habitant morbi tristique senectus et netus et.</p>
-<p>Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare.</p>
-<p>Pulvinar neque laoreet suspendisse interdum consectetur libero, id faucibus nisl?</p>
-<p>At in tellus integer feugiat scelerisque varius morbi enim nunc.</p>
-</section><section>
-<%= form_for(@question) do |f| %>
+<address>
+	<p>Admiraal de Ruijterweg 304 II</p>
+	<p>Amsterdam</p>
+	<p>+31 6 50 60 78 67</p>
+</address>
+<article>
+	<h2>Algemene informatie</h2>
+	<p>Heb je een vraag of opmerking? Stuur dan een e-mail of maak gebruik van het contactformulier. Wij helpen je graag verder!</p>
+	<p>
+	  <a href="">info@linkinglaw.com</a>
+	</p>
+</article>
+<article>
+	<h2>Samenwerken</h2>
+	<p>Ben je een juridisch professional met een geldige inschrijving bij de KvK en heb je interesse om samen te werken? Neem dan contact met ons op! Wij nemen graag de verschillende mogelijkheden met je door.</p>
+	<p>
+	    <a href="">samenwerken@linkinglaw.com</a>
+	</p>
+</article>
+<article>
+	<h2>Vacatures/Stage</h2>
+	<p>Wij zijn een snel groeiende young start-up waar altijd ruimte is voor leergierige vriendelijke stagiairs met affiniteit voor IT en/of marketing. Ben je ge&#239;nteresseerd? Stuur dan je CV en overtuig ons waarom jij van toegevoegde waarde kunt zijn.</p>
+	<p>
+	  <a href="">stage@linkinglaw.com</a>
+	</p>
+</article>
+<article>
+	<h2>Media/Pers</h2>
+	<p>Ben je ge&#239;nteresseerd in het verhaal achter LinkingLaw? Wij vertellen je graag wat onze drijfveer is en hoe het idee achter ons bedrijf is ontstaan. Mail ons voor een afspraak.</p>
+	<p>
+           <a href="">media@linkinglaw.com</a>
+	</p>
+</article>
+</section><section> 
+<%= form_for(@enquiry) do |f| %>
 <fieldset>
 <legend>
-Plaats hier gratis en geheel vrijblijvend jouw juridische vraag
+Contact
 </legend>
 
-  <% if @question.errors.any? %>
-  <div id="error_explanation">
-      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+  <% if @enquiry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@enquiry.errors.count, "error") %> prohibited this enquiry from being saved:</h2>
 
       <ul>
-      <% @question.errors.full_messages.each do |message| %>
+      <% @enquiry.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+
   <div class="field">
-    <%= f.label :subject, "Vraag" %>
-    <%= f.text_field :subject %>
+    <%= f.label :name, "Naam" %>
+    <%= f.text_field :name %>
   </div>
-  <div class="field textarea">
-    <%= f.label :description, "Omschrijving" %>
-    <%= f.text_area :description %>
+  <div class="field">
+    <%= f.label :email, "E-mail" %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone, "Telefoonnummer" %>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :message, "Vraag" %> 
+    <%= f.text_area :message %>
   </div>
   <div class="actions">
-    <%= f.submit "Plaats nieuwe vraag" %>
+    <%= f.submit "Verzenden" %>
   </div>
 </fieldset>
 <% end %>
 
 </section>
-</div>
+</div> 
