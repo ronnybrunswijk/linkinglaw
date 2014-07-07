@@ -45,8 +45,20 @@
          		   	 font-size:1.6em;
 	         		 line-height:1.4em;
 			 }
-			 p:last-child {
-			 	 font-style:italic;
-			 }
 		   } 
+				 ul {
+				    margin-top:5%;
+				    width:50%;
+				 }
+		   		 ul li {
+				    width:33%;
+				    display:inline-block;
+				 }
+				 .social_media_icon {
+					    width:60%;
+					    fill: #EA3852;
+					    svg {
+					    	height:20%;
+					    }
+				 }		   
 }
