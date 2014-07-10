@@ -3,13 +3,30 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #home-content {
 	text-align:center;
-	h1 {
-	 	margin:4% 10% 6%;
-	 	font-size:2em;
-	 	font-weight:bold;
+	#intro_header {
+		     padding:3% 0 7%;
+		     background:image-url('team-background.jpg') no-repeat;
+		     background-size:100% auto;
+		     color:#fff;
+		     margin-bottom:4%;
+		     h1 {
+	 	     	padding:0 10%;
+	 	     	font-size:2.5em;
+			font-weight:bold;
+			line-height:1.2em;
+			margin-bottom:2%;
+		     }
+         	      .minor-intro-text {
+		         font-size:1.2em;
+			 margin-bottom:4%;
+		      }
+		      .major-intro-text {
+		          font-size:1.5em;
+			  margin-bottom:2%;
+		      }
 	}
-
 	>img {
+		width:100%;
 		margin-bottom:5%;
 	}
 

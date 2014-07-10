@@ -1,7 +1,11 @@
 <div id="home-content">
 	<input id="pageId" type="hidden" value="home">
+<section id="intro_header">
 	<h1>LinkingLaw is een online platform dat juridische professionals en potenti&#235;le gebruikers van juridische diensten verbindt</h1>
-	<%= image_tag "team-background.png" %>
+	<p class="minor-intro-text">Et odio pellentesque diam volutpat commodo sed egestas egestas fringilla?</p>
+	<p class="major-intro-text">Urna, id volutpat lacus laoreet non curabitur!</p>
+        <%= link_to 'Stel een gratis vraag', new_question_path,id: "question", class: "button-big" %>
+</section>
 		<section id="quick-info">
 			<section class="col-left"><article><p class="intro">
 Op LinkingLaw kun je gratis en geheel vrijblijvend een juridische vraag plaatsen. Vervolgens ontvang je van verschillende ervaren professionals antwoord op je vraag. Kun je verder? Laat dan een beoordeling achter voor de professional. Heb je behoefte aan meer hulp? Zoek dan zelf naar de professional die het beste bij jouw opdracht past!			</p>
@@ -32,7 +36,6 @@ Op LinkingLaw kun je gratis en geheel vrijblijvend een juridische vraag plaatsen
 
 			</aside>
 			<div class="horizontal-button-container">
-			  <%= link_to 'Stel een gratis vraag', new_question_path,id: "question", class: "button-big" %>
 	  		  <%= link_to 'Zoek een juridisch professional', place_path,id: "search", class: "button-big" %>
 			</div>
 		</section>
