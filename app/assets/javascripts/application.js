@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require gmap3.min
 //= require turbolinks
-//= require gmap3
 //= require_tree .
+
 

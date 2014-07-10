@@ -38,4 +38,3 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 # extra  tafoege
-gem 'jquery-gmap3-rails', '~> 0.1.0'

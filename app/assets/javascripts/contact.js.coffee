@@ -4,12 +4,17 @@
 $(document).on 'ready page:load', ->
         $("#map_canvas").gmap3({
                 map:{
-                        options:{
-                                center: [52.37997, 4.85574],
-                                zoom: 12
+                    options:{
+                              center:[52.37997, 4.85574],
+                              zoom: 12,
+                              mapTypeId: google.maps.MapTypeId.ROADMAP,
+                              mapTypeControlOptions: {
+                                      mapTypeIds: [google.maps.MapTypeId.ROADMAP, "map_style"]
+                             }                              
                         }
-                },
+                },                
                 marker:{
-                        latLng: [52.37997, 4.85574],
+                        latLng: [52.37997, 4.85574]
                 }
         });
+
