@@ -2,152 +2,148 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #home-content {
-	text-align:center;
 	#intro_header {
 		     padding:3% 0 7%;
 		     background:image-url('team-background.jpg') no-repeat;
 		     background-size:100% auto;
 		     color:#fff;
-		     margin-bottom:4%;
+		     margin-bottom:2%;
 		     h1 {
 	 	     	padding:0 10%;
 	 	     	font-size:2.5em;
 			font-weight:bold;
 			line-height:1.2em;
 			margin-bottom:2%;
+			text-align:center;
 		     }
          	      .minor-intro-text {
 		         font-size:1.2em;
 			 margin-bottom:4%;
+			 width:100%;
+			 text-align:center;
 		      }
 		      .major-intro-text {
 		          font-size:1.5em;
 			  margin-bottom:2%;
+			  width:100%;
+			  text-align:center;
+		      }
+		      a {
+		      	margin-left:auto;
+			margin-right:auto;
 		      }
 	}
 	>img {
 		width:100%;
 		margin-bottom:5%;
 	}
-
-	#quick-info {
-		text-align:left;
-		position: relative;
-		width: 80%;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.col-left {
-		position: relative;
-		margin-left: 0;
-		left: 0;
-		display: inline-block;
-		width: 57%;
-		margin-bottom:5%;
-	} 
-
-	.col-right {
-		position: absolute;
-		margin-right: 0;
-		right: 0;
-		display: inline-block;
-		width: 37%;
-	}
-
-	.col-left>.review {
-		float: left;
-		width: 50%;
-		box-sizing:border-box;
-		padding-right:4%;
-	}
-
-	.col-left>.review:last-child {
-		padding-right:0;
-		padding-left: 4%;
-	}
-
-	h2 {
-	    padding-top:4px;
-	    line-height:1.5em;
-	    font-weight:bold;
-	    text-transform:uppercase;
-	}
-
-	h3 {
-		font-size: 0.9em;
-		line-height:1.7em;
-		text-transform: uppercase;
-		font-weight: bold;
-		padding-bottom:0.7em;
-	}
-
-	h4 {
-	    line-height:1.5em;
-	    font-size:0.8em;
-	    font-weight:bold;
-	    text-transform:uppercase;
-	    margin-bottom:0.5em;
-	}
-
-	.separator-title {
-	    padding-bottom:0;
-	    margin-bottom:-5px;
-	}
-
-	.intro {
-	    font-size:1.5em;
-	    line-height:1.5em;
-	    margin-bottom:1.5em;
-	}
-
-	.review p {
-	    line-height:1.4em;    
-	}
-
-	ul {
-	    list-style-image:image-url("check_mark_2_20x20.png");
-	    margin-bottom:2em;
-	    list-style-position: outside;
-	    margin-left:30px;
-	}
-
-	li {
-	    line-height:1.5em;
-	    font-size:0.9em;
-	    padding:0.5em 0;
-	    
-	}
-
-	hr {
-	    background-color:#EA3852;
-	    margin-bottom:1.5em;
-	    height:3px;
-	    border:none;
-	}
-	.horizontal-button-container {
-		position:relative;
-		bottom:0;
-		margin-bottom:100px;
-		a {
-			position:absolute;
+	#linkinglaw_advantages {
+			       h2 {
+			       	  width:100%;
+				  text-align:center;
+				  font-size:2.5em;
+				  color:#255280;
+				  padding-bottom:2%;
+			       }
+			       
+			       >div {
+			       	    display:inline-block;
+				    width:50%;
+				    vertical-align:top;
+				    >div {
+				        .advantages_container {
+					        color:#255280;
+						display:inline-block;
+				    		background-color:#ECF0F1;
+						h4 {
+					   	   text-align:center;
+						   font-size:1.3em;
+						   text-transform:none;
+						   padding:5% 0 2%;
+						}
+				        }
+				    }
+			       }
+			       div.left_column {
+				     >div {
+				        float:right;
+				     	margin-right:6%;
+				  }
+			       }
+			       div.right_column {
+  			          >div {
+			             margin-left:6%;
+				     display:inline-block;
+			          }
+			       }
+			       .icon-advantage {
+			             display:inline-block;
+				     fill:#2BDE73;
+				     vertical-align:-0.3em;
+ 			             height:25px;
+				     width:25px;
+				     svg {
+				       height:25px;
+				       width:25px;
+				     }
+			       }
+			       .button-container {
+			       			 text-align:center;
+						 margin-top:12%;
+			       }
+			       ul li {
+			       	  line-height:1.8em;
+			       }
+			       a {
+				    background-color: #E46A32;
+				    color: white;
+				    cursor: pointer;
+				    font-weight:bold;
+				    font-size:1em;
+				    padding:2% 8%;
+			       }	      
+	}		       
+#reviews {
+	 background-color:#ECF0F1;
+	 padding:3% 5%;
+		.review {
+			position:relative;
+			display: inline-block;
+			vertical-align:top;
+		        width: 33.333333%;
+			>div {
+			     margin:5%;
+			     padding:5%;
+			     background-color:#fff;
+			}
 		}
-
-		a:first-child {
-			width:57%;
-			background-color:#EA3852;
-			color:#fff;
+		h2 {
+			padding-top:4px;
+			line-height:1.5em;
+			font-weight:bold;
 		}
-
-		a:last-child {
-			width:37%;
-			right:0;
-			background-color:#cccbc7;
-			color:rgb(58, 58, 58);
+		h3 {
+			font-size: 0.9em;
+			line-height:1.7em;
+			font-weight: bold;
+			padding:0 5%;
 		}
-	}
-	a {
-		text-align:center;
-	}
+		.review p {
+			overflow:hidden;
+			height:14em;
+	    	  	line-height:1.4em;    
+	    	}
+		.review>div:after {
+			content: "";
+			position: absolute;
+			bottom: 1%;
+			left: 8%;
+			border-width: 25px 25px 0;
+			border-style: solid;
+			border-color: #fff transparent;
+			display: block;
+			width: 0;
+		}
+ 	 }
 }		
 

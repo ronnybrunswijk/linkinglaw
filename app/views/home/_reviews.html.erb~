@@ -1,0 +1,8 @@
+<section id="reviews">
+			<h2 class="separator-title">Recente reviews</h2>
+			<hr />
+				<article class="review">					<h3>Lorem ipsum dolor sit amet, consectetur</h3>
+<p class="review">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aliquid nihil recusandae expedita aperiam dolore rerum id esse sapiente quidem. Nemo dignissimos alias itaque culpa amet neque blanditiis harum reiciendis.</p></article>
+					<article class="review">					<h3>Lorem ipsum dolor sit amet, consectetur</h3>
+<p class="review">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, amet, illum, nulla quidem tempora delectus excepturi aperiam architecto quisquam quas consequatur voluptate aliquam ducimus. Facere suscipit dignissimos quas recusandae ratione.</p></article>
+</section>

@@ -1,42 +1,7 @@
 <div id="home-content">
-	<input id="pageId" type="hidden" value="home">
-<section id="intro_header">
-	<h1>LinkingLaw is een online platform dat juridische professionals en potenti&#235;le gebruikers van juridische diensten verbindt</h1>
-	<p class="minor-intro-text">Et odio pellentesque diam volutpat commodo sed egestas egestas fringilla?</p>
-	<p class="major-intro-text">Urna, id volutpat lacus laoreet non curabitur!</p>
-        <%= link_to 'Stel een gratis vraag', new_question_path,id: "question", class: "button-big" %>
-</section>
-		<section id="quick-info">
-			<section class="col-left"><article><p class="intro">
-Op LinkingLaw kun je gratis en geheel vrijblijvend een juridische vraag plaatsen. Vervolgens ontvang je van verschillende ervaren professionals antwoord op je vraag. Kun je verder? Laat dan een beoordeling achter voor de professional. Heb je behoefte aan meer hulp? Zoek dan zelf naar de professional die het beste bij jouw opdracht past!			</p>
-			</article>
-			<h2 class="separator-title">Recente reviews</h2>
-			<hr />
-				<article class="review">					<h3>Lorem ipsum dolor sit amet, consectetur</h3>
-<p class="review">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aliquid nihil recusandae expedita aperiam dolore rerum id esse sapiente quidem. Nemo dignissimos alias itaque culpa amet neque blanditiis harum reiciendis.</p></article>
-					<article class="review">					<h3>Lorem ipsum dolor sit amet, consectetur</h3>
-<p class="review">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, amet, illum, nulla quidem tempora delectus excepturi aperiam architecto quisquam quas consequatur voluptate aliquam ducimus. Facere suscipit dignissimos quas recusandae ratione.</p></article>
-			</section>
-			<aside class="col-right">
-			  <h2>Alle voordelen van LinkingLaw op een rijtje</h2>
-			  <hr />
-			  <h4>Voor gebruikers</h4>
-				<ul>
-					<li>gratis vragen stellen aan ervaren juridische professionals </li>
-					<li>zoek professionals aan de hand van reviews van andere gebruikers</li>
-					<li>vragen worden anoniem geplaatst, zodat je privacy altijd gewaarborgd is</li>
-				</ul>
-			  <h4>Voor professionals</h4>
-				<ul>
-					<li>toegang tot interessante potentiele nieuwe klanten</li>
-					<li>gratis online profiel aanmaken</li>
-					<li>vergroot je naamsbekendheid</li>
-					<li>werk aan je online-reputatie</li>
-				</ul>
-
-			</aside>
-			<div class="horizontal-button-container">
-	  		  <%= link_to 'Zoek een juridisch professional', place_path,id: "search", class: "button-big" %>
-			</div>
-		</section>
+<input id="pageId" type="hidden" value="home">
+<%= render 'intro' %>
+<%= render 'advantages' %>
+<%= render 'about/how_it_works' %>
+<%= render 'reviews' %>
 </div>

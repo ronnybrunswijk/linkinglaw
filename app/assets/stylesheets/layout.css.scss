@@ -9,7 +9,7 @@
 }
 
 body {
-	background-color: #E9E8E3;
+//	background-color: #E9E8E3;
 	font-family:Roboto;
 }
 
@@ -36,6 +36,14 @@ footer {
        background-color:#15425D;
        height:50%;
        margin-top:100px;
+}
+
+h2 {
+	width: 100%;
+	text-align: center;
+	font-size: 2.5em;
+	color: #255280;
+	padding-bottom: 2%;
 }
 
 a {
@@ -67,7 +75,7 @@ nav {
 }
 
 a.button-big {
-	    display: inline-block;
+	    display: block;
 	    width: 40%;
 	    background-color: #E46A32;
 	    color: white;
@@ -77,6 +85,7 @@ a.button-big {
 	    cursor: pointer;
 	    font-weight:bold;
 	    font-size:1.5em;
+	    text-align:center;
 }
 
 a.button-big:visited {
