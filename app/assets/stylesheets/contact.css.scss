@@ -26,12 +26,16 @@
 		      color:#EA3852;
 		      font-weight:bold;
 		      padding:35px 0 15px;
+		      text-align:left;
+		      font-size:1.5em;
+		   }
+		   p, ul, h2 {
+		     padding-left:10%;
 		   }
 		   article {
 		     p {
 		        font-size:0.9em;
 		        line-height:1.5em;
-		        padding-right:8%;
 		     }
 		     p:last-child {
 		        padding-top:10px;
