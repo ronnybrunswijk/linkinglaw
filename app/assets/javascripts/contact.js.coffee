@@ -6,48 +6,55 @@ $(document).on 'ready page:load', ->
                 map:{
                     options:{
                               center:[52.37997, 4.85574],
-                              zoom: 12,
-                              mapTypeId: google.maps.MapTypeId.ROADMAP,
+                              zoom: 15,
+                              mapTypeId: "Kaart",
                               mapTypeControlOptions: {
-                                      mapTypeIds: [google.maps.MapTypeId.ROADMAP, "Gray"]
+                                      mapTypeIds: ["Kaart"]
                              }                              
                         }
                 },
                 styledmaptype:{
-                        id: "Gray",
+                        id: "Kaart",
                         options:{
-                                name: "Gray"
+                                name: "Kaart"
                         },
                         styles: [
-                                {
-                                        featureType: "road.highway",
-                                        elementType: "geometry",
-                                        stylers: [
-                                                { hue: "#ff0022" },
-                                                { saturation: 60 },
-                                                { lightness: -20 }
-                                                ]
-                                },
-                                {
-                                        featureType: "road.arterial",
-                                        elementType: "all",
-                                        stylers: [
-                                                { hue: "#2200ff" },
-                                                { lightness: -40 },
-                                                { visibility: "simplified" },
-                                                { saturation: 30 }
-                                                ]
-                                },
-                                {
-                                        featureType: "road.local",
-                                        elementType: "all",
-                                        stylers: [
-                                                { hue: "#f6ff00" },
-                                                { saturation: 50 },
-                                                { gamma: 0.7 },
-                                                { visibility: "simplified" }
-                                                ]
-                                        }
+                                 {
+                                  featureType: "road.highway",
+                                  stylers: [
+                                    { color: "#ffffff" }
+                                    ]
+                                  },
+                                  {
+                                  elementType: "labels.text.fill",
+                                  stylers: [
+                                    { color: "#808080" }
+                                    ]
+                                  },                                  
+                                  {
+                                  featureType: "water",
+                                  stylers: [
+                                    { color: "#B4B4B4" }
+                                    ]
+                                  },
+                                  {
+                                  featureType: "landscape",
+                                  stylers: [
+                                    { color: "#E3E3E3" }
+                                    ]
+                                  },
+                                  {
+                                  featureType: "poi",
+                                  stylers: [
+                                    { color: "#E3E3E3" }
+                                    ]
+                                  },                               
+                                  {
+                                  featureType: "poi.park",
+                                  stylers: [
+                                    { color: "#46CF78" }
+                                    ]
+                                  }                                  
                                 ]
                 },
                 marker:{

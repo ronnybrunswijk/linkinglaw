@@ -17,23 +17,22 @@ Contact
   <% end %>
 
   <div class="field">
-    <%= f.label :name, "Naam" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: 'Naam' %>
   </div>
   <div class="field">
-    <%= f.label :email, "E-mail" %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, placeholder: 'E-mail' %>
   </div>
   <div class="field">
-    <%= f.label :phone, "Telefoonnummer" %>
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone, placeholder: 'Telefoonnummer' %>
   </div>
   <div class="field">
-    <%= f.label :message, "Vraag" %> 
-    <%= f.text_area :message %>
+    <%= f.text_area :message, placeholder: 'Vraag' %>
   </div>
   <div class="actions">
     <%= f.submit "Verzenden" %>
   </div>
 </fieldset>
 <% end %>
+
+
+

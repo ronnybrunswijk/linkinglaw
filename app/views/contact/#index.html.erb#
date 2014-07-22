@@ -1,9 +1,0 @@
-<input id="pageId" type="hidden" value="contact">
-<div id="map_canvas"></div>
-<div id="content_container">
-<section>
-  <%= render 'form' %>
-</section><section> 
-  <%= render 'info' %>
-</section>
-</div> 
