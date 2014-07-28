@@ -11,11 +11,17 @@
 <body>
 <header>
 <nav>
-	<ul>
-		<li><%= link_to "Home", home_path, id: "home" %></li>
-		<li><%= link_to "Over LinkinLaw", about_path, id: "about" %></li>
-		<li><%= link_to "Contact", contact_path, id: "contact" %></li>
+   <div>
+	<ul class="user_nav">
+		<li>registreren</li>
+		<li>aanmelden</li>
 	</ul>
+   </div>
+   <ul class="main_nav">
+	<li><%= link_to "Home", home_path, id: "home" %></li>
+	<li><%= link_to "Over LinkinLaw", about_path, id: "about" %></li>
+	<li><%= link_to "Contact", contact_path, id: "contact" %></li>
+   </ul>
 </nav>
 </header>
 <main>

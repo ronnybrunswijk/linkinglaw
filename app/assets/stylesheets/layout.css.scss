@@ -13,16 +13,23 @@ html, body {
       font-family:Roboto;
 }
 
-header, main, footer {
+main, footer {
 	position:relative;
 	width:100%;
 }
 
 header {
-	height:10%;
+        top:0;
+	margin-top:0;
+        position:fixed;
+	height:100px;
+	width:100%;
+	background-color:#fff;
+	z-index:9999;
 }
 
 main {
+     margin-top:100px;
      min-height:80%;
 }
 
@@ -56,15 +63,30 @@ a:hover, a.selected {
 nav {
 	position:absolute;
 	width:100%;
-	ul {
-	 	float:right;
-		margin-right:5%;
-		li 
-			{
-				list-style-type:none;
-			 	display:inline-block;
-			 	padding:20px 30px;
-			}
+	li {
+		   list-style-type:none;
+		   display:inline-block;
+	}
+	.main_nav {
+		margin-left:10%;
+		li {
+		   padding:20px 60px 20px 0;
+		}
+	}
+	div {
+	    height:40px;
+	    background-color:#000;
+	    .user_nav {
+	    	     float:right;
+	    	     color:#fff;
+		     margin-right:10%;
+		     li {
+				     padding-left:15px;
+				     line-height:40px;
+		     		     font-size:0.8em;
+				     text-transform:capitalize;
+		     }
+	    }
 	}
 }
 
