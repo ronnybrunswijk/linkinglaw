@@ -114,7 +114,6 @@
 		h2 {
 			padding-top:4px;
 			line-height:1.5em;
-			font-weight:bold;
 		}
 		h3 {
 			font-size: 0.9em;
@@ -141,3 +140,10 @@
  	 }
 }		
 
+#press {
+       padding:0 5%;
+       h2 {
+       	  padding:35px 0 25px;
+       }
+       text-align:justify;
+}
