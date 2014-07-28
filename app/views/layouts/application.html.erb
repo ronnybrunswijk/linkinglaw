@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Linkinlaw</title>
+  <title>LinkingLaw</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'http://maps.googleapis.com/maps/api/js?sensor=true' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -18,9 +18,7 @@
 	</ul>
    </div>
    <ul class="main_nav">
-	<li><%= link_to "Home", home_path, id: "home" %></li>
-	<li><%= link_to "Over LinkinLaw", about_path, id: "about" %></li>
-	<li><%= link_to "Contact", contact_path, id: "contact" %></li>
+	<li><%= link_to "Home", home_path, id: "home" %></li><li><%= link_to "Over LinkingLaw", about_path, id: "about" %></li><li><%= link_to "Contact", contact_path, id: "contact" %></li>
    </ul>
 </nav>
 </header>

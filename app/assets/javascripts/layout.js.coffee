@@ -1,4 +1,4 @@
 $(document).on 'ready page:load', ->
-	$('a.selected').removeClass()
+	$('li.selected').removeClass()
 	pageId = $('#pageId').val()
-	$('#' + pageId).addClass('selected')
+	$('#' + pageId).parent('li').addClass('selected')
