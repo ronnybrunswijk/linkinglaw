@@ -2,12 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #home-content {
+	section {
+	   margin-bottom:50px;
+	}
 	#intro_header {
-		     padding:3% 0 7%;
+		     padding:4% 0 7%;
 		     background:image-url('team-background.jpg') no-repeat;
 		     background-size:100% auto;
 		     color:#fff;
-		     margin-bottom:2%;
 		     h1 {
 	 	     	padding:0 10%;
 	 	     	font-size:2.5em;
@@ -19,12 +21,14 @@
          	      .minor-intro-text {
 		         font-size:1.2em;
 			 margin-bottom:4%;
-			 width:100%;
+			 margin-left:auto;
+			 margin-right:auto;
+			 width:50%;
 			 text-align:center;
 		      }
 		      .major-intro-text {
 		          font-size:1.5em;
-			  margin-bottom:2%;
+			  margin-bottom:3%;
 			  width:100%;
 			  text-align:center;
 		      }
@@ -38,64 +42,45 @@
 		margin-bottom:5%;
 	}
 	#linkinglaw_advantages {
+			       padding:50px 8%;
+			       background-color:#EFEFEF;
+			       color:#255280;
+			       font-family:Roboto;
 			       h2 {
-			       	  width:100%;
+			          padding:0;
+			       	  margin-bottom:25px;
 				  text-align:center;
 				  font-size:2.5em;
-				  color:#255280;
-				  padding-bottom:2%;
 			       }
-			       h4 {
-			   	   text-align:center;
+			       p {
+			          margin-bottom:30px;
+				  line-height:1.5em;
+				  font-size:1.1em;
+			       }
+			       h3 {
 				   font-size:1.3em;
-				   text-transform:none;
-				   padding:4% 0 4%;
-			       }
-			       >div {
-			       	    display:inline-block;
-				    width:50%;
-				    vertical-align:top;
-			       }
-   			       .advantages_container {
-				    color:#255280;
-				    display:inline-block;
-				    background-color:#ECF0F1;
-			       	    padding:5% 35px 10%;
-			       }
-			       .left_column>div {
-				        float:right;
-					margin-right:8%;
-			       }
-			       .right_column>div {
-			             margin-left:8%;
-				     display:inline-block;
+				   margin-bottom:15px;
 			       }
 			       .icon-advantage {
 			             display:inline-block;
-				     fill:#2BDE73;
+				     fill:#46CF78;
 				     vertical-align:-0.3em;
- 			             height:25px;
-				     width:25px;
+ 			             height:30px;
+				     width:30px;
+				     margin-right:18px;
 				     svg {
-				       height:25px;
-				       width:25px;
+				       height:30px;
+				       width:30px;
 				     }
 			       }
-			       .button-container {
-			       			 text-align:center;
-						 margin-top:13%;
-			       }
 			       ul li {
-			       	  line-height:2em;
+			       	  line-height:2.2em;
+				  font-size:1.1em;
 			       }
-			       a {
-				    background-color: #E46A32;
-				    color: white;
-				    cursor: pointer;
-				    font-weight:bold;
-				    font-size:1em;
-				    padding:2% 8%;
-			       }	      
+			       #advantages_container {
+			       		background-color:#fff;
+					padding:30px;	    
+			       }
 	}		       
 #reviews {
 	 background-color:#ECF0F1;
@@ -141,9 +126,24 @@
 }		
 
 #press {
-       padding:0 5%;
+       padding:50px 5% 0;
        h2 {
-       	  padding:35px 0 25px;
+          text-align:center;
+	  margin-bottom:20px;
        }
        text-align:justify;
+       article {
+       	 h4 {
+	    text-align:center;
+	    color:#255280;
+	    font-size:1.2em;
+	    margin-bottom:10px;
+	 }
+         padding:0 25%;
+	 line-height:1.5em;
+	 p {
+	    font-size:0.9em;
+	    text-align:center;
+	 }
+       }
 }

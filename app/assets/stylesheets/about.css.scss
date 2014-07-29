@@ -19,7 +19,6 @@
 }
 
 #how_it_works {
-	      margin:5% 0;
 	      background-color:#3A70A4;
 	      color:#ECF0F1;
 	      padding:2% 2%;
@@ -33,25 +32,23 @@
 	      }
 	      h3 {
                 text-align:center;
-	  	font-weight:bold;
-   	      	font-size:2em;
-	      }
-	      h3 {
-	      	 font-size:1.5em;
+   	      	font-size:1.5em;
+		text-transform:capitalize;
 	      }
 	      .ruler {
 	         width:40%;
 		 margin-top:1.5em;
 		 margin-left:auto;
 		 margin-right:auto;
-		 height:6px;
-		 background-color:#fff;	      
+		 height:2px;
+		 background-color:#ECF0F1;	      
 	      }
 	      p {
 	      	margin-top:1.5em;
 	      	padding:0 1.8em;
 		line-height:1.7em;
 		text-align:center;
+		color:#b3e4ff;
 	      }
 }      
 
@@ -70,7 +67,8 @@
 .iconmelon {
 	   margin-left:auto;
 	   margin-right:auto;
+	   margin-bottom:1.5em;
 	   width:30%;
 	   height:30%;
-	   fill:#46CF78;
+	   fill:#15425D;
 }
