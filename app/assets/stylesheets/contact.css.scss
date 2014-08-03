@@ -8,29 +8,48 @@
 }
 
 #contact_channels {
-              position:relative;
-	      background-color:#3A70A4;
+	      h2 {
+	      	  line-height:2em;
+	          color:#fff;
+                  background-color:#3A70A4;
+		  padding-bottom:0;
+		  margin-bottom:50px;
+	      }
+	      h3 {
+		       margin-left:5%;
+		       padding-bottom:1em;
+		       color:#255280;
+		       font-size:1.1em;
+	      }
+	      >div {
+	          display:inline-block;
+		  width:50%;
+		  position:relative;
+		  vertical-align:top;
+	      }
 	      color:#ECF0F1;
 	      width:100%;
-	      form, ul {
-		width:50%;
+	      form {
+	        width:100%;
 		input[type=submit] {
 		   background-color:#E46A32;
 		}
+		fieldset {
+		    width:100%;
+		    margin-left:10%;
+		}
 	      }
 	      ul {
-	        position:absolute;
-		top:0;
-		right:0;
-		margin:6% 0;
-		font-size:1.5em;
-		line-height:3em;
+	        margin-left:15%;
+		font-size:1.3em;
+		line-height:2.5em;
+		color:#255280;
 		.social_media_icon {
 		  display:inline-block;
-		  margin-right:5%;
-		  width:10%;
-		  fill:#ECF0F1;
-		  vertical-align:-1.2em;
+		  margin-right:15px;
+		  width:50px;
+		  fill:#3A70A4;
+		  vertical-align:-18px;
 		}
 	      }
 }

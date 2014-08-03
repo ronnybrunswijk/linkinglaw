@@ -1,9 +1,5 @@
 <%= form_for(@enquiry) do |f| %>
 <fieldset>
-<legend>
-Contact
-</legend>
-
   <% if @enquiry.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@enquiry.errors.count, "error") %> prohibited this enquiry from being saved:</h2>
