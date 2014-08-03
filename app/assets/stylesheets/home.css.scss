@@ -90,10 +90,38 @@
 			display: inline-block;
 			vertical-align:top;
 		        width: 33.333333%;
-			>div {
+			>article {
+			     position:relative;
 			     margin:5%;
+			     margin-bottom:10%;
 			     padding:5%;
 			     background-color:#fff;
+			}
+			table {
+			    width:90%;
+			    margin:0 5%;
+			    td {
+			       vertical-align:middle;
+			       font-size:1.1em;
+			    }
+			    .passphoto {
+			    	width:15%;
+				img {
+				   border-radius:100%;
+				}
+			    }
+			    .name_position {
+			        width:60%;
+			    }
+			    .company_logo {
+				text-align:right;
+			    }
+			    img {
+			    	height:2.5em;
+			    }
+			    .position {
+			        font-size:0.7em;
+			    }
 			}
 		}
 		h2 {
@@ -111,10 +139,10 @@
 			height:12.6em;
 	    	  	line-height:1.4em;    
 	    	}
-		.review>div:after {
+		.review>article>p:after {
 			content: "";
 			position: absolute;
-			bottom: 1%;
+			bottom: -25px;
 			left: 8%;
 			border-width: 25px 25px 0;
 			border-style: solid;
