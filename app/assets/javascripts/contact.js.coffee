@@ -10,8 +10,11 @@ $(document).on 'ready page:load', ->
                               mapTypeId: "Kaart",
                               mapTypeControlOptions: {
                                       mapTypeIds: ["Kaart"]
-                             }                              
-                        }
+                             },
+                             panControl: false,
+                             scaleControl: false,
+                             zoomControl: false,
+                             streetViewControl: false                                                    }
                 },
                 styledmaptype:{
                         id: "Kaart",
@@ -57,12 +60,20 @@ $(document).on 'ready page:load', ->
                                   }                                  
                                 ]
                 },
-                marker:{
-                        latLng: [52.37997, 4.85574]
-                        options: {
-                          icon: "/assets/marker_orange.png"
+                overlay:{
+                      latLng: [52.37997, 4.85574],
+                      options:{
+                        content:  '<address class="speech_bubble_small">' +
+                                  'LinkingLaw B.V.<br>' +
+                                  'Admiraal de Ruijterweg 304 II<br>' +
+                                  '1055 MT Amsterdam<br>' 
+                                  '</address>',
+                        offset:{
+                          y:-130,
+                          x:-38
                         }
-                }
+                      }
+                    }                
         });
 
 

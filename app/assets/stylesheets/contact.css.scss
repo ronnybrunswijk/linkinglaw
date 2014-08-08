@@ -13,18 +13,45 @@
 	    background:image-url('contact/amsterdam_boats_2.jpg') no-repeat 0px -50px/cover;
 }
 
+.button-container {
+		  text-align:center;
+}
+
+.anchor{
+  display: block;
+  height: 115px; /*same height as header*/
+  margin-top: -115px; /*same height as header*/
+  visibility: hidden;
+}
+
+.button-x {
+	      line-height: 1.8em;
+	      border: none;
+	      background-color: #46CF78;
+	      color: #fff !important;
+	      padding: 0.5em 2em;
+	      vertical-align: middle;
+	      cursor: pointer;
+	      font-weight: bold;
+	      font-size: 1.1em;
+	      font-family: Roboto;
+}
+
 #contact_channels {
+	      background-color:#7589A1;
+	      margin:50px 0;
+	      color:#fff !important;
+	      padding-bottom:50px;
 	      h2 {
 	      	  line-height:2em;
-	          color:#3A70A4;
-//                  background-color:#3A70A4;
-		  padding-bottom:0;
-		  margin-bottom:50px;
+	          color:#fff; //#3A70A4;
+//                  background-color: #3A70A4;
+		  padding:0.3em 0 0.3em;
 	      }
 	      p {
 		       margin-left:5%;
 		       padding-bottom:1em;
-		       color:#255280;
+		       color:#fff;//#255280;
 		       font-size:1.1em;
 	      }
 	      >div {
@@ -33,6 +60,10 @@
 		  position:relative;
 		  vertical-align:top;
 	      }
+	      input, textarea {
+	      	     border:none;
+	      }	      
+
 	      color:#ECF0F1;
 	      width:100%;
 	      form {
@@ -49,13 +80,33 @@
 	        margin-left:15%;
 		font-size:1.3em;
 		line-height:2.5em;
-		color:#255280;
+		color:#fff; //#255280;
 		.social_media_icon {
 		  display:inline-block;
 		  margin-right:15px;
 		  width:50px;
-		  fill:#3A70A4;
+		  fill:#BEC4C8;  //#3A70A4;
 		  vertical-align:-18px;
 		}
 	      }
+}
+
+.speech_bubble_small {
+			background-color:#46CF78;
+			color:#fff;		     
+			padding:1em;
+			font-size:1.4em;
+			line-height:1.6em;
+}
+
+.speech_bubble_small:after {
+	content: "";
+	position: absolute;
+	bottom: -15px;
+	left: 10%;
+	border-width: 15px 15px 0;
+	border-style: solid;
+	border-color: #46CF78 transparent;
+	display: block;
+	width: 0;
 }
