@@ -16,14 +16,12 @@ Plaats hier gratis en geheel vrijblijvend jouw juridische vraag
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :subject, "Vraag" %>
-    <%= f.text_field :subject %>
+    <%= f.text_field :subject, placeholder: 'Vraag' %>
     <div id="input-hint" class="speech-bubble">
     </div>
   </div>
   <div class="field textarea">
-    <%= f.label :description, "Omschrijving" %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, placeholder: 'Omschrijving' %>
   </div>
   <div class="actions">
     <%= f.submit "Plaats nieuwe vraag" %>

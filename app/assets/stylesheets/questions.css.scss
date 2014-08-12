@@ -2,18 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #new-question-content {
+        padding:25px 0;
+        color:#fff;
         position:relative;
-	form {
-	     width:40%;
-             float:left;
-	     margin-left:10%;
+	background-color:#3A70A4;
+	h2 {
+	   color:#fff;
 	}
-	article {
-	     border-radius:6px;
-	     background-color:#EA3852;
-	     width:30%;
-             float:right;
-	     margin-right:10%;
+	form {
+	     width:50%;
+	     margin-left:5%;
+	}
+	legend {
+	      padding-bottom:1em;
 	}
 }
 
@@ -53,12 +54,9 @@ textarea  {
     position:absolute;
     top:-1px;
     width:65%;
-    border:3px solid #EA3852;
-    margin-left:30px;
-    left:100%;
-    border-radius:6px;
+    left:93%;
     padding:10px 10px 10px 12px;
-    background-color:#E9E8E3;
+    background-color:#BEC4C8;
     z-index:999;
     h5 {
        font-size:1.1em;
@@ -79,19 +77,7 @@ textarea  {
 	height: 0; 
 	border-top: 13px solid transparent;
 	border-bottom: 13px solid transparent; 
-	border-right:50px solid #EA3852; 
-}
-
-.speech-bubble:after {
-        content: "";
-	position:absolute;
-	left:-42px;
-	top:14px;
-	width: 0; 
-	height: 0; 
-	border-top: 9px solid transparent;
-	border-bottom: 9px solid transparent; 
-	border-right:42px solid #E9E8E3; 
+	border-right:50px solid #BEC4C8; 
 }
 
 b {
