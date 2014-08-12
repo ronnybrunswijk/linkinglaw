@@ -29,10 +29,25 @@ header {
 	box-shadow: 0 4px 4px -2px #707372;
 }
 
-.phone_icon {
-	    display:inline-block;
-	    width:10%;
+.phone-number {
+	line-height:40px;
+	color:#fff;
+	display:inline-block;
 }
+
+.call-info {
+	   margin-left:55%;
+	   display:inline-block;
+	   font-size:0.8em;
+	   span {
+	      padding:0 0.6em;
+	   }
+	   img, span {
+	   	vertical-align:middle;
+	   }
+}
+
+
 
 main {
      margin-top:100px;
