@@ -137,3 +137,16 @@ a.button-big:visited {
             color:white;
 }
 
+footer {
+       color:#b3e4ff;
+       .footer-divider {
+          border:1px solid red;
+	  >div {
+	      display:inline-block;
+	  }
+       }
+       .line {
+       	     height:1px;
+	     background-color:#b3e4ff;
+       }
+}

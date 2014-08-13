@@ -11,10 +11,9 @@ $(document).on 'ready page:load', ->
                               mapTypeControlOptions: {
                                       mapTypeIds: ["Kaart"]
                              },
-                             panControl: false,
-                             scaleControl: false,
-                             zoomControl: false,
-                             streetViewControl: false                                                    }
+                             disableDefaultUI: true,
+                             draggable: false
+                             }
                 },
                 styledmaptype:{
                         id: "Kaart",
