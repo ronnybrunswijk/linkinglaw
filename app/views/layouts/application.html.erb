@@ -13,7 +13,7 @@
 <nav>
    <div>
 	<div class="call-info">
-          <%= image_tag "icons/phone.svg", class: "phone-icon" %>
+          <%= image_tag "contact/phone.svg", class: "phone-icon" %>
 	  <span class="phone-number">06-50607867</span>
 	</div>
 	<ul class="user_nav">
@@ -30,13 +30,12 @@
   <%= yield %>
 </main>
 <footer>
-
-<div class="footer-divider">
-  <div class="line"></div>
-  <div>&#169; 2014 LinkingLaw B.V. - Alle rechten voorbehouden</div>
-  <div class="line"></div>
-</div>
-<p>Non nisi est, sit amet facilisis magna etiam tempor, orci? Dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien, faucibus.</p>
+  <section id="sitemap">
+    <%= render partial: 'layouts/sitemap' %>
+  </section>
+  <section id="disclaimer">
+    <%= render partial: 'layouts/disclaimer' %>
+  </section>
 </footer>
 </body>
 </html>
