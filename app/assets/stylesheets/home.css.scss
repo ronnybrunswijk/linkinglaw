@@ -161,8 +161,48 @@
           text-align:center;
 	  margin-bottom:20px;
        }
-       text-align:justify;
+       #gallery {
+       		position: relative;
+		width: 90%;
+		height:110px;
+		margin-left: auto;
+		margin-right: auto;
+		overflow:hidden;
+		white-space:nowrap;
+		.items-container {
+		    width:100%;
+		    height:100%;
+		    position: absolute;
+		    left:1093px;
+		 }
+		 .items-container:first-child {
+		     left:0;
+		  }
+		 .gallery-item {
+		     position:relative;
+		     width:33.3333%;
+		     height:100%;
+		     white-space:normal;
+    		     float:left;
+		     img {
+		     	 opacity:0.3;
+		         position:absolute;
+			 display:block;
+		     	 top:0;
+			 bottom:0;
+			 right:0;
+			 left:0;
+			 margin:auto;
+			 height:50%;
+			 max-width:100%;
+		     }
+		     img:hover {
+		     	      opacity:1;
+		     }
+		  }
+       }
        article {
+         margin-top:2em;
        	 h4 {
 	    text-align:center;
 	    color:#255280;
@@ -178,3 +218,5 @@
 	 }
        }
 }
+
+
