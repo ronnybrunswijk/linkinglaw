@@ -6,6 +6,7 @@
         color:#fff;
         position:relative;
 	background-color:#3A70A4;
+	margin-bottom:50px;
 	h2 {
 	   color:#fff;
 	}
@@ -89,3 +90,31 @@ b {
 		      display:none;
 }
 
+#question-explanation {
+	      padding:2% 2%;
+	      .process-icon {
+	      		     width:25%;	
+			     margin:2em 0;	     
+	      }
+	      h2 {
+		 margin:0;
+		 padding:0;
+	      }
+	      h3 {
+                text-align:center;
+   	      	font-size:1.5em;
+		text-transform:capitalize;
+	      }
+	      ul li {
+	       	 display:inline-block;
+	         width:33.33333%;
+		 vertical-align:top;
+		 text-align:center;
+	      }
+	      p {
+	      	margin-top:1.5em;
+	      	padding:0 1.8em;
+		line-height:1.7em;
+		text-align:center;
+	      }
+}      
