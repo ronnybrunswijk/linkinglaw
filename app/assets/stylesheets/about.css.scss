@@ -19,15 +19,16 @@
 }
 
 #how_it_works {
-	      background-color:#3A70A4;
-	      color:#ECF0F1;
+	      margin-bottom:0 !important;
+	      background-color:#6a9093;
+	      color:#fff;
 	      padding:2% 2%;
 	      .process-icon {
 	      		     width:25%;	
 			     margin:2em 0;	     
 	      }
 	      h2 {
-	      	 color:#ECF0F1;
+	      	 color:#fff;
 		 margin:0;
 		 padding:0;
 	      } 
@@ -58,7 +59,6 @@
 	      	padding:0 1.8em;
 		line-height:1.7em;
 		text-align:center;
-		color:#b3e4ff;
 	      }
 }      
 
@@ -81,4 +81,111 @@
 	   width:30%;
 	   height:30%;
 	   fill:#15425D;
+}
+
+#the-industry {
+	      position:relative;
+	      padding:2em 5%;
+	      .centered {
+	      	      text-align:center;
+	      }
+	      .windmill-icon {
+	      		     width:7%;
+	      }
+	      .justice-icon {
+	      		    width:17%;
+			    vertical-align:-1.1em;
+	      }
+	      .industry-figure {
+	      		       font-size:4em;
+			       vertical-align:0.1em;
+
+	      }
+	      .big-text {
+	      		font-size:1.5em;
+			font-weight:bold;
+	      }
+	      p {
+	      	font-size:1.1em;
+	      }
+}
+
+.inline-block {
+	      display:inline-block;
+}
+
+
+.industry-facts>li:first-child {
+			      text-align:right;
+} 
+
+.industry-facts li {
+		display:inline-block;
+		width:44%;
+		padding:1.5em 3%;
+}
+
+.vert-ruler-1em {
+	   font-size:1em;
+	   width:1em;
+}
+
+#us {
+    padding:2em 0;
+    ul {
+       vertical-align:top;
+    }
+    ul li {
+       width:50%;
+       display:inline-block;
+       text-align:center;
+    }
+    .personal-info {
+    		    position:relative;
+    		    width:30%;
+		    left:20%;
+		    text-align:center;
+		    h3 {
+		       padding:1em 0 0.5em 0;
+		    }
+		    p {
+		      font-size:0.8em;
+		    }
+    }
+    ul li:first-child>div.personal-info {
+			        position:relative;
+				right:0;
+				left:auto;
+				margin-right:20%;
+				margin-left:auto;
+    }
+    .passphoto-wrap {
+    		    width:100%;
+    }
+    .passphoto-overlay {
+    		       overflow:hidden;
+		       padding:-5px;
+    		       position:absolute;
+		       top:0;
+    		       width:100%;
+		       height:100%;
+//    		       background-color:#dfeaf2;
+		       opacity:0;
+		       border-radius:100%;
+    }
+    .passphoto-overlay:hover { 
+    			     opacity:0.8;
+    }   
+    img {
+    	width:100%;
+    	border-radius:100%;
+    }
+}
+
+.pink {
+      background-color:#dfeaf2;
+}
+
+.height100{
+	height:100px;
 }
