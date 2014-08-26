@@ -2,19 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #mission-statement {
-       background-color:#ECF0F1;
+       background-image:image-url('save_money.jpg');
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-position:0 -475px;
        color:#3a3a3a;
        padding:4% 13%;
        h1 {
-       	  text-align:center;
+       	  width:50%;
 	  text-transform:uppercase;
 	  font-weight:bold;
 	  font-size:1.7em;
-	  padding-bottom:2%;
+	  padding:0 0 1em 0;
        }
        p {
           font-size:1.1em;
        	  line-height:1.6em;
+	  width:50%;
        }
 }
 
@@ -86,8 +90,8 @@
 #the-industry {
 	      position:relative;
 	      padding:2em 5%;
-	      .centered {
-	      	      text-align:center;
+	      h2 {
+	      	 color:#000;
 	      }
 	      .windmill-icon {
 	      		     width:7%;
@@ -96,17 +100,24 @@
 	      		    width:17%;
 			    vertical-align:-1.1em;
 	      }
+	      .people-icon {
+	      		   width:20%;
+			    vertical-align:-1em;
+	      }
 	      .industry-figure {
-	      		       font-size:4em;
+	      		       font-size:3em;
 			       vertical-align:0.1em;
 
 	      }
 	      .big-text {
-	      		font-size:1.5em;
+	      		font-size:1.3em;
 			font-weight:bold;
 	      }
 	      p {
 	      	font-size:1.1em;
+		width:45em;
+		margin:0.5em auto;
+		line-height:1.5em;
 	      }
 }
 
@@ -182,10 +193,21 @@
     }
 }
 
-.pink {
+.baby-blue {
       background-color:#dfeaf2;
 }
 
-.height100{
-	height:100px;
+.height150{
+	height:150px;
+}
+
+.centered {
+    	      text-align:center;
+}
+
+.quote {
+       text-align:center;
+       color:#777;
+       font-size:1.6em;
+       line-height:150px;
 }
