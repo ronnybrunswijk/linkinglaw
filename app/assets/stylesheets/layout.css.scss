@@ -8,6 +8,11 @@
      src: font-url('Roboto-Black.ttf');	   
 }
 
+@font-face {
+	 font-family: Dragon ;
+	 src: font-url('dragon_is_coming/dragon.otf');	   
+}
+
 html, body {
       height:100%;
       font-family:Roboto;
@@ -47,8 +52,6 @@ header {
 	   }
 }
 
-
-
 main {
      margin-top:100px;
      min-height:80%;
@@ -79,24 +82,45 @@ nav {
 		   display:inline-block;
 	}
 	.main_nav {
+		position:relative;
+		background-color:#fff;
 		height:60px;
-		margin-left:10%;
-		li {
-		   line-height:60px;
-		   height:100%;
-		   padding:0 30px;
+		margin-left:5%;
+		.linking, .law, ul {
+		       display:inline-block;
 		}
-		li:hover {
+		.linking {
+		      vertical-align:middle;
+		      font-size:2em;
+		      margin-right:90px;
+		 }
+    	         .law {
+			position:absolute;
+			top:-34px;
+			left:90px;
+		      	   font-size:6em;
+		           color:#7F4040;
+		      	   font-style:italic;
+		           font-family:Dragon;
+	        }
+		ul {
+		   li {
+		      line-height:60px;
+		      height:100%;
+		      padding:0 30px;
+		    }
+		    li:hover {
 			background-color:#efefef;
-		}
-		li.selected {
+		    }
+		    li.selected {
 			background-color:#000;
 			a {
 			    color:#fff;
 			}
-		}
+		     }
+	      }
 	}
-	div {
+	>div {
 	    height:40px;
 	    background-color:#000;
 	    .user_nav {
