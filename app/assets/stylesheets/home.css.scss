@@ -24,9 +24,6 @@
 		      }
 
 
-section {
-	   margin-bottom:50px;
-}
 #intro_header {
 	     padding:0% 0 7%;
 	     background:image-url('team-background.jpg') no-repeat;
@@ -38,15 +35,24 @@ section {
 	      }
 }
 
-#linkinglaw_advantages {
-		       padding:0px 8%;
-		       color:#255280;
+.centered {
+	  text-align:center;
+}
+
+.margin-top-65 {
+	       margin-top:65px;
+}
+
+#advantages {
+		       padding:50px 8%;
 		       font-family:Roboto;
 		       h2 {
 		          padding:0;
-		       	  margin-bottom:35px;
+		       	  margin-bottom:50px;
 			  text-align:center;
-			  font-size:2.5em;
+			  font-size:2.2em;
+			  color:#222;
+			  font-family:arial;
 		       }
 		       p {
 		          margin-bottom:30px;
@@ -54,42 +60,52 @@ section {
 			  font-size:1.1em;
 			  text-align:center;
 		       }
-		       h3 {
-		           text-align:center;
-			   font-size:1.5em;
-			   margin-bottom:15px;
-		       }
-		       .icon-advantage {
-		             display:inline-block;
-			     fill:#dd969a;
-			     vertical-align:-0.3em;
-		             height:30px;
-			     width:30px;
-			     margin-right:18px;
-			     svg {
-			       height:30px;
-			       width:30px;
-			     }
-		       }
-		       ul {
-		         vertical-align:top;
-		         width:50%;
-			 display:inline-block;
+		       .col {
+		       	    display:inline-block;
+		            position:relative;
+		       	    width:50%;
+			    vertical-align:top;
 		       }
 		       ul li {
+		          color:#555;
 		          padding-left:40px;
 		       	  line-height:2.2em;
 			  font-size:1.1em;
-			  background:image-url('advantages/tick.svg') no-repeat;
+			  background:image-url('advantages/tick.svg') 0 12px no-repeat;
+		       }
+		       .bordered-left {
+		       		      width:49%;
+		       		      border-left:1px solid #bbb;
+		       }
+		       .left-col {
+		       		 position:absolute;
+				 right:10%;
+				 top:0;
+		       }
+		       .right-col {
+		       		  margin-left:10%;
+		       }
+		       #tell-me-more {
+		       		     margin-top:2em;
+		       		     color:#222;
+				     font-size:1.1em;
+				     font-weight:bold;
+				     border:2px solid #000;
+				     border-radius:7px;
+				     padding:0.5em 2em;
+				     letter-spacing:1px;
 		       }
 }		       
 
 
 #home-content {
-	>img {
+	      section {
+	      	      margin-bottom:50px;
+	      }
+  	      >img {
 		width:100%;
 		margin-bottom:5%;
-	}
+	      }
 }
 #reviews {
 	 background-color:#ECF0F1;
