@@ -24,70 +24,73 @@
 		      }
 
 
+section {
+	   margin-bottom:50px;
+}
+#intro_header {
+	     padding:0% 0 7%;
+	     background:image-url('team-background.jpg') no-repeat;
+	     background-size:100% auto;
+	     color:#fff;
+	      a {
+	      	margin-left:auto;
+		margin-right:auto;
+	      }
+}
+
+#linkinglaw_advantages {
+		       padding:0px 8%;
+		       color:#255280;
+		       font-family:Roboto;
+		       h2 {
+		          padding:0;
+		       	  margin-bottom:35px;
+			  text-align:center;
+			  font-size:2.5em;
+		       }
+		       p {
+		          margin-bottom:30px;
+			  line-height:1.5em;
+			  font-size:1.1em;
+			  text-align:center;
+		       }
+		       h3 {
+		           text-align:center;
+			   font-size:1.5em;
+			   margin-bottom:15px;
+		       }
+		       .icon-advantage {
+		             display:inline-block;
+			     fill:#dd969a;
+			     vertical-align:-0.3em;
+		             height:30px;
+			     width:30px;
+			     margin-right:18px;
+			     svg {
+			       height:30px;
+			       width:30px;
+			     }
+		       }
+		       ul {
+		         vertical-align:top;
+		         width:50%;
+			 display:inline-block;
+		       }
+		       ul li {
+		          padding-left:40px;
+		       	  line-height:2.2em;
+			  font-size:1.1em;
+			  background:image-url('advantages/tick.svg') no-repeat;
+		       }
+}		       
+
 
 #home-content {
-	section {
-	   margin-bottom:50px;
-	}
-	#intro_header {
-		     padding:0% 0 7%;
-		     background:image-url('team-background.jpg') no-repeat;
-		     background-size:100% auto;
-		     color:#fff;
-		      a {
-		      	margin-left:auto;
-				margin-right:auto;
-		      }
-	}
 	>img {
 		width:100%;
 		margin-bottom:5%;
 	}
-	#linkinglaw_advantages {
-			       padding:0px 8%;
-			       color:#255280;
-			       font-family:Roboto;
-			       h2 {
-			          padding:0;
-			       	  margin-bottom:35px;
-				  text-align:center;
-				  font-size:2.5em;
-			       }
-			       p {
-			          margin-bottom:30px;
-				  line-height:1.5em;
-				  font-size:1.1em;
-				  text-align:center;
-			       }
-			       h3 {
-			           text-align:center;
-				   font-size:1.5em;
-				   margin-bottom:15px;
-			       }
-			       .icon-advantage {
-			             display:inline-block;
-				     fill:#dd969a;
-				     vertical-align:-0.3em;
- 			             height:30px;
-				     width:30px;
-				     margin-right:18px;
-				     svg {
-				       height:30px;
-				       width:30px;
-				     }
-			       }
-			       ul {
-			         vertical-align:top;
-			         width:50%;
-				 display:inline-block;
-			       }
-			       ul li {
-			          padding-left:40px;
-			       	  line-height:2.2em;
-				  font-size:1.1em;
-				  background:image-url('advantages/tick.svg') no-repeat;
-			       }
-	}		       
+}
 #reviews {
 	 background-color:#ECF0F1;
 	 padding:3% 5%;
@@ -156,8 +159,7 @@
 			display: block;
 			width: 0;
 		}
- 	 }
-}		
+}
 
 #press {
        padding:50px 5% 0;
