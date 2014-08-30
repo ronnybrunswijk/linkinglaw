@@ -1,38 +1,53 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-		     h1 {
-	 	     	padding:1.5em 10% 1em;
-	 	     	font-size:2.5em;
-			font-weight:bold;
-			line-height:1.2em;
-			text-align:center;
-		     }
-         	      .minor-intro-text {
-		         font-size:1.2em;
-			 margin-bottom:4%;
-			 margin-left:auto;
-			 margin-right:auto;
-			 width:50%;
-			 text-align:center;
-		      }
-		      .major-intro-text {
+h1 {
+     	padding:1.5em 10% 1em;
+     	font-size:2.5em;
+	font-weight:bold;
+	line-height:1.2em;
+	text-align:center;
+}
+.minor-intro-text {
+         font-size:1.2em;
+	 margin-bottom:4%;
+	 margin-left:auto;
+	 margin-right:auto;
+	 width:50%;
+	 text-align:center;
+}
+.major-intro-text {
 		          font-size:1.5em;
 			  margin-bottom:3%;
 			  width:100%;
 			  text-align:center;
-		      }
-
-
+}
 #intro_header {
 	     padding:0% 0 7%;
 	     background:image-url('team-background.jpg') no-repeat;
 	     background-size:100% auto;
 	     color:#fff;
-	      a {
-	      	margin-left:auto;
-		margin-right:auto;
-	      }
+	     .btn-container {
+	     		       width:70%;
+			       margin:0 auto;
+			       div {
+			       	   width:50%;
+			       	   display:inline-block;
+				   a {
+				     display:inline-block;
+			             width:90%;
+				     color:#fff;
+				     background-color:#bf6060;
+				     font-size:1.5em;
+				     line-height:2em;
+				     text-align:center;
+			       	   }
+			       }
+			       div:last-child {
+			       		      text-align:right;
+			       }
+
+	     }
 }
 
 .centered {
@@ -94,6 +109,10 @@
 				     border-radius:7px;
 				     padding:0.5em 2em;
 				     letter-spacing:1px;
+		       }
+		       #tell-me-more:hover {
+		       		     background-color:#000;
+				     color:#fff;
 		       }
 }		       
 

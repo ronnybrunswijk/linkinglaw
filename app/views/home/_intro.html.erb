@@ -1,6 +1,11 @@
 <section id="intro_header">
 	<h1>D&#233; Q&#38;A site voor ondernemers met juridische vragen</h1>
 	<p class="minor-intro-text">Stel gratis vragen aan ervaren juridische professionals of huur een professional in voor een specifieke juridische dienst</p>
-	<p class="major-intro-text">Snel en gemakkelijk betrouwbaar juridisch advies voor ondernemers</p>
-        <%= link_to 'Plaats een vraag', new_question_path, class: "button-big" %>
+	<div class="btn-container">
+	  <div>
+            <%= link_to 'Plaats een vraag', new_question_path %>
+	  </div><div>
+	    <%= link_to 'Zoek een juridische professional', new_question_path %>
+	  </div>
+	</div>
 </section>

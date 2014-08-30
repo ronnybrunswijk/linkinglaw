@@ -38,13 +38,11 @@
 }
 
 #contact_channels {
-//	      background-color:#3A70A4;
 	      margin:50px 0;
 	      padding-bottom:50px;
 	      h2 {
 	      	  line-height:2em;
 	          color:#000; //#3A70A4;
-//                  background-color: #3A70A4;
 		  padding:0.3em 0 0.3em;
 	      }
 	      p {
@@ -72,6 +70,10 @@
 		   background-color:#fff;
 		   color:#000;
 		}
+		input[type=submit]:hover {
+					 background-color:#000;
+					 color:#fff;
+		}
 		fieldset {
 		    width:100%;
 		    margin-left:10%;
@@ -86,14 +88,14 @@
 		  display:inline-block;
 		  margin-right:15px;
 		  width:50px;
-		  fill:#BEC4C8;  //#3A70A4;
+		  fill:#222;
 		  vertical-align:-18px;
 		}
 	      }
 }
 
 .speech_bubble_small {
-			background-color:#46CF78;
+			background-color:#709bb2;
 			color:#fff;		     
 			padding:1em;
 			font-size:1.4em;
@@ -107,7 +109,7 @@
 	left: 10%;
 	border-width: 15px 15px 0;
 	border-style: solid;
-	border-color: #46CF78 transparent;
+	border-color: #709bb2 transparent;
 	display: block;
 	width: 0;
 }
