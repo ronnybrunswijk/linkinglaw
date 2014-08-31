@@ -117,19 +117,20 @@ nav {
 	        }
 		ul {
 		   li {
-		      line-height:60px;
-		      height:100%;
-		      padding:0 30px;
-		    }
-		    li:hover {
-			background-color:#efefef;
-		    }
-		    li.selected {
+		      a {
+		        display:block;
+			height:60px;
+			line-height:60px;
+  		        padding:0 30px;
+		      }
+		      a:hover {
+		      	      background-color:#efefef;
+		      }
+		      a.selected {
 			background-color:#000;
-			a {
-			    color:#fff;
-			}
-		     }
+			color:#fff;
+		      }
+		    }
 	      }
 	}
 	>div {

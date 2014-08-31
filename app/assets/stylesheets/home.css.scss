@@ -43,8 +43,14 @@ h1 {
 			     padding:0.5em 2em;
 			     background-color:#709bb2;
 		       	   }
+			   a:hover {
+			   	   background-color:#2A627F;
+			   }
 			   a.cherche-professionnel {
 			   	   background-color:#bf6060;
+			   }
+			   a.cherche-professionnel:hover {
+			   	   background-color:#aa4040;
 			   }
 	     }
 }
