@@ -16,6 +16,11 @@ h1 {
 	 width:50%;
 	 text-align:center;
 }
+
+.medium {
+	font-size:1.3em;
+}
+
 .major-intro-text {
 		          font-size:1.5em;
 			  margin-bottom:3%;
@@ -23,30 +28,24 @@ h1 {
 			  text-align:center;
 }
 #intro_header {
-	     padding:0% 0 7%;
-	     background:image-url('team-background.jpg') no-repeat;
+	     padding:0% 0 4%;
+	     background:image-url('intro-background.jpg') no-repeat;
 	     background-size:100% auto;
 	     color:#fff;
 	     .btn-container {
-	     		       width:70%;
-			       margin:0 auto;
-			       div {
-			       	   width:50%;
-			       	   display:inline-block;
-				   a {
-				     display:inline-block;
-			             width:90%;
-				     color:#fff;
-				     background-color:#bf6060;
-				     font-size:1.5em;
-				     line-height:2em;
-				     text-align:center;
-			       	   }
-			       }
-			       div:last-child {
-			       		      text-align:right;
-			       }
-
+	     		   margin-bottom:3.5em;
+			   a {
+			     color:#fff ;
+			     border-radius:7px;
+			     font-size:1.5em;
+			     line-height:2em;
+			     text-align:center;
+			     padding:0.5em 2em;
+			     background-color:#709bb2;
+		       	   }
+			   a.cherche-professionnel {
+			   	   background-color:#bf6060;
+			   }
 	     }
 }
 
