@@ -63,7 +63,7 @@ $(document).on 'ready page:load', ->
                       latLng: [52.37997, 4.85574],
                       options:{
                         content:  '<address class="speech_bubble_small">' +
-                                  'LinkingLaw B.V.<br>' +
+                                  'LinkingLaw<br>' +
                                   'Admiraal de Ruijterweg 304 II<br>' +
                                   '1055 MT Amsterdam<br>' 
                                   '</address>',

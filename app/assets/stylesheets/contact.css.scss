@@ -42,13 +42,13 @@
 	      padding-bottom:50px;
 	      h2 {
 	      	  line-height:2em;
-	          color:#000; //#3A70A4;
+	          color:#222;
 		  padding:0.3em 0 0.3em;
 	      }
 	      p {
 		       margin-left:5%;
 		       padding-bottom:1em;
-		       color:#fff;//#255280;
+		       color:#222;
 		       font-size:1.1em;
 	      }
 	      >div {
@@ -58,20 +58,18 @@
 		  vertical-align:top;
 	      }
 	      input, textarea {
-	      	     border:2px solid black;
+	      	     border:2px solid #222;
 		     border-radius:7px;
 	      }	      
-	      
-	      color:#ECF0F1;
 	      width:100%;
 	      form {
 	        width:100%;
 		input[type=submit] {
 		   background-color:#fff;
-		   color:#000;
+		   color:#222;
 		}
 		input[type=submit]:hover {
-					 background-color:#000;
+					 background-color:#222;
 					 color:#fff;
 		}
 		fieldset {
@@ -83,7 +81,7 @@
 	        margin-left:15%;
 	 	font-size:1.3em;
 		line-height:2.5em;
-		color:#000; //#255280;
+		color:#222;
 		.social_media_icon {
 		  display:inline-block;
 		  margin-right:15px;
