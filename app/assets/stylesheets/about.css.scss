@@ -2,14 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #mission-statement {
+       height:400px;
        background-image:image-url('save_money.jpg');
        background-repeat:no-repeat;
-       background-size:cover;
-       background-position:0 -475px;
-       color:#3a3a3a;
-       padding:4% 13%;
+       background-size:100% auto;
+       background-position:0 -100px;
+       color:#fff;
+       padding:4% 10%;
        h1 {
-       	  width:50%;
+       	  width:100%;
 	  text-transform:uppercase;
 	  font-weight:bold;
 	  font-size:1.7em;
@@ -18,7 +19,7 @@
        p {
           font-size:1.1em;
        	  line-height:1.6em;
-	  width:50%;
+	  width:100%;
        }
 }
 
@@ -210,4 +211,8 @@
        color:#fff;
        font-size:1.6em;
        line-height:150px;
+}
+
+.pink {
+      background-color:#F0A08C;
 }
