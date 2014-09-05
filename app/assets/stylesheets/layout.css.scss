@@ -181,6 +181,12 @@ footer {
        }
        #sitemap {
        	      position:relative;
+	      .active-link:visited {
+	      			   color:#7cadca;
+	      }
+	      .active-link:hover {
+	      			 color:#fff;
+	      }
        	      h3 {
 	      	 color:#fff;
 		 font-size:1.1em;
