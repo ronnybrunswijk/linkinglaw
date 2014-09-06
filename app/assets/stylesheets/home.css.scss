@@ -1,4 +1,4 @@
-XF// Place all the styles related to the home controller here.
+// Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 h1 {
@@ -31,7 +31,6 @@ h1 {
 	     padding:0% 0 4%;
 	     background:image-url('intro-background.jpg') no-repeat;
 	     background-size:100% auto;
-	     background-position:0 -300px;
 	     color:#fff;
 	     .btn-container {
 	     		   margin-bottom:3.5em;
@@ -106,22 +105,22 @@ h1 {
 		       .right-col {
 		       		  margin-left:10%;
 		       }
-		       #tell-me-more {
-		       		     margin-top:2em;
-		       		     color:#222;
-				     font-size:1.1em;
-				     font-weight:bold;
-				     border:2px solid #000;
-				     border-radius:7px;
-				     padding:0.5em 2em;
-				     letter-spacing:1px;
-		       }
-		       #tell-me-more:hover {
-		       		     background-color:#000;
-				     color:#fff;
-		       }
 }		       
 
+.tell-me-more {
+     		     margin-top:2em;
+       		     color:#222;
+		     font-size:1.1em;
+		     font-weight:bold;
+		     border:2px solid #000;
+		     border-radius:7px;
+		     padding:0.5em 2em;
+		     letter-spacing:1px;
+}
+.tell-me-more:hover {
+       		     background-color:#000;
+		     color:#fff;
+}
 
 #home-content {
 	      section {
@@ -207,6 +206,7 @@ h1 {
        h2 {
           text-align:center;
 	  margin-bottom:20px;
+	  color:#222;
        }
        #gallery {
        		position: relative;
@@ -240,7 +240,7 @@ h1 {
 			 right:0;
 			 left:0;
 			 margin:auto;
-			 height:50%;
+			 height:100%;
 			 max-width:100%;
 		     }
 		     img:hover {
@@ -249,19 +249,19 @@ h1 {
 		  }
        }
        article {
-         margin-top:2em;
+         margin:2em 0;
        	 h4 {
 	    text-align:center;
-	    color:#255280;
-	    font-size:1.2em;
+	    font-size:1.4em;
 	    margin-bottom:10px;
+	    color:#222;
 	 }
-         padding:0 25%;
+//         padding:0 25%;
 	 line-height:1.5em;
 	 p {
 	    font-size:0.9em;
 	    text-align:center;
-	    color:#255280;
+	    color:#222;
 	 }
        }
 }
@@ -269,3 +269,18 @@ h1 {
 .pink {
       background-color:#6a9093;
 }
+
+a.vote-here {
+	     color:#fff ;
+	     border-radius:7px;
+	     font-size:1.5em;
+	     line-height:2em;
+	     text-align:center;
+	     padding:0.5em 2em;
+	     background-color:#709bb2;
+             background-color:#bf6060;
+}
+a.vote-here:hover {
+		   	   background-color:#aa4040;
+}
+
