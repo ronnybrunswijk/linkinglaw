@@ -280,3 +280,22 @@ footer {
 		    }
           }
 }
+
+#notification {
+	      position:fixed;
+	      bottom:0;
+	      right:2em;
+	      width:20em;
+	      font-size:0.9em;
+	      font-weight:bold;
+	      line-height:1.4em;
+	      color:#ccc;
+	      border:10px solid rgba(51,51,51, 0.8);
+	      border-bottom:0;
+	      border-top-left-radius:7px;
+	      border-top-right-radius:7px;
+	      p {
+	      	padding:0.5em 1.5em;
+		background-color:#222;
+	      }
+}
