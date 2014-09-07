@@ -98,23 +98,15 @@ nav {
 		background-color:#fff;
 		height:60px;
 		margin-left:5%;
-		.linking, .law, ul {
+		.company-name, ul {
 		       display:inline-block;
 		}
-		.linking {
+		.company-name {
 		      vertical-align:middle;
-		      font-size:2em;
-		      margin-right:90px;
+		      font-size:1.8em;
+		      font-weight:bold;
+		      margin-right:30px;
 		 }
-    	         .law {
-			position:absolute;
-			top:-34px;
-			left:90px;
-		      	   font-size:6em;
-		           color:#7F4040;
-		      	   font-style:italic;
-		           font-family:Dragon;
-	        }
 		ul {
 		   li {
 		      a {
