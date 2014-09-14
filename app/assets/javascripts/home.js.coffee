@@ -5,9 +5,6 @@ $(document).on 'ready page:load', ->
     start()
     $('#gallery').on 'mouseover', stop
     $('#gallery').on 'mouseout', start
-    $('.main_nav ul li').bind 'click', (event) =>
-      console.log('fucking')
-      $(this).find('a').click()
 
 galleryTimer = null
 

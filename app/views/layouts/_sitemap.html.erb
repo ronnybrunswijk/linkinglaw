@@ -1,9 +1,10 @@
-<div id="footer-navigation">
+<div id="sitemap">  
+  <div id="footer-nav">
 	<h3>Navigatie</h3>
 	<ul>
-		<li><%= link_to "Home", home_path, class: "active-link" %></li>
-		<li><%= link_to "Over LinkingLaw", about_path, class: "active-link" %></li>
-		<li><%= link_to "Contact", contact_path, class: "active-link" %></li>
+		<li><%= link_to "Home", home_path %></li>
+		<li><%= link_to "Over LinkingLaw", about_path %></li>
+		<li><%= link_to "Contact", contact_path %></li>
 		<li>Registreren</li>
 		<li>Aanmelden</li>
 	</ul><ul>
@@ -12,14 +13,16 @@
 		<li>Adverteren</li>
 		<li>Pers</li>
 	</ul>
-</div><div id="footer-contact-info">
+  </div>
+  <div id="footer-contact-info">
 	<h3>Contact</h3>
 	<ul>
 		<li><%= image_tag "contact/phone_blue.svg", class: 'footer-icon phone-icon' %> 06-50607867</li>
 		<li><%= image_tag "contact/mail.svg", class: 'footer-icon mail-icon' %> info@LinkingLaw.nl</li>
 		<li><%= image_tag "contact/marker.svg", class: 'footer-icon marker-icon' %> Bezoek ons</li>
 	</ul>
-</div><div id="address-info">
+  </div>
+  <div id="address-info">
 	<h3>LinkingLaw</h3>
 	<ul>
 		<li>Admiraal de Ruijterweg 304 II</li>
@@ -27,4 +30,5 @@
 		<li>KvK-nummer: 123456</li>
 		<li>Btw-nummer: 123456</li>
 	</ul>
+  </div>
 </div>

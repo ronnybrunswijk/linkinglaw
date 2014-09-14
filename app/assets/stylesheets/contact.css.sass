@@ -1,0 +1,75 @@
+@import 'common'
+
+#map 
+  width: 100%
+  height: 450px
+
+#contact-intro 
+  width: 100%
+  color: $white
+  background: image-url('contact/intro_background.jpg') no-repeat 0px 0px/cover
+
+.anchor
+  display: block
+  height: 115px //same height as header
+  margin-top: -115px //same height as header
+  visibility: hidden
+
+#contact-channels 
+  color: $black
+  p
+    margin-left: 5%
+    padding-bottom: 1em
+    color: $black
+    font-size: 1.1em
+  >div 
+    display: inline-block
+    width: 50%
+    vertical-align: top
+  input[type=text], textarea 
+    border: 2px solid $black
+    border-radius: 7px
+  form
+    fieldset 
+      width: 100%
+      margin-left: 10%
+  ul 
+    margin-left: 15%
+    font-size: 1.3em
+    line-height: 3em
+    color: $black
+
+.social-media-icon 
+  width: 50px
+  margin-right: 15px
+  vertical-align: -18px
+
+.speech_bubble_small 
+  background-color: #709bb2
+  color: $white		     
+  padding: 1em
+  font-size: 1.4em
+  line-height: 1.6em
+  &:after 
+    content: ""
+    position: absolute
+    bottom: -15px
+    left: 10%
+    border-width: 15px 15px 0
+    border-style: solid
+    border-color: #709bb2 transparent
+    display: block
+    width: 0
+
+#visit-us 
+  background-image: image-url('contact/coffee.jpg')
+  background-position: 0 -100px
+  background-size: 100% auto
+
+.height350 
+  height: 350px
+  font-size: 1.6em
+
+.height100 
+  height: 100px
+  background-image: image-url('contact/navy_blue.png')

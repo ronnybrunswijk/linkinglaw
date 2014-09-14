@@ -10,38 +10,15 @@
 
 <body>
 <header>
-<nav>
-   <div>
-	<div class="call-info">
-          <%= image_tag "contact/phone.svg", class: "phone-icon" %>
-	  <span class="phone-number">06-50607867</span>
-	</div>
-	<ul class="user_nav">
-		<li><a href="#" class="user-link">registreren</a></li>
-		<li><a href="#" class="user-link">aanmelden</a></li>
-	</ul>
-   </div>
-   <div class="main_nav">
-     <div class="company-name">LinkingLaw</div>
-     <ul>
-	<li><%= link_to "Home", home_path, id: "home" %></li><li><%= link_to "Over LinkingLaw", about_path, id: "about" %></li><li><%= link_to "Contact", contact_path, id: "contact" %></li>
-     </ul>
-   </div>
-</nav>
+  <%= render partial: 'layouts/nav' %>
 </header>
 <main>
   <%= yield %>
 </main>
 <footer>
-  <section id="sitemap">
-    <%= render partial: 'layouts/sitemap' %>
-  </section>
-  <section id="follow_us">
-    <%= render partial: 'layouts/follow_us' %>
-  </section>
-  <section id="disclaimer">
-    <%= render partial: 'layouts/disclaimer' %>
-  </section>
+  <%= render partial: 'layouts/sitemap' %>
+  <%= render partial: 'layouts/follow_us' %>
+  <%= render partial: 'layouts/disclaimer' %>
 </footer>
 <div id="notification">
 <p>
