@@ -10,9 +10,10 @@
 	</ul>
    </div>
    <div id="main-nav">
-     <div id="company-logo">LinkingLaw</div>
+     <!--div id="company-logo">LinkingLaw</div-->
+    <%= link_to "LinkingLaw", home_path, id: "company-logo" %>
      <ul>
-	<li><%= link_to "Home", home_path, id: "home" %></li><li><%= link_to "Over LinkingLaw", about_path, id: "about" %></li><li><%= link_to "Contact", contact_path, id: "contact" %></li>
+	<li><%= link_to "Over LinkingLaw", about_path, id: "about" %></li><li><%= link_to "Contact", contact_path, id: "contact" %></li>
      </ul>
    </div>
 </nav>

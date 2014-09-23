@@ -27,7 +27,8 @@ main
 #main-nav
   height: 60px
   margin-left: 5%
-  ul,
+  ul, #company-logo
+    float: left
   li
     display: inline-block
   a
@@ -40,18 +41,15 @@ main
     &.selected
       background-color: $black
       color: $white
-
-#company-logo
-  background: image-url('common/link.svg') no-repeat
-  background-size: 20%
-  display: inline-block
-  font-size: $font_l
-  font-weight: bold
-  margin-right: 30px
-  padding: 5px 0 5px 37px 
-  color: $black
-  height: 60px
-  vertical-align: sub
+    &#company-logo
+      background: image-url('common/link.svg') no-repeat
+      background-size: 17%
+      background-position: 0 13px
+      font-size: $font_l
+      font-weight: bold
+      padding-left: 37px 
+      color: $black
+      height: 60px
 
 #phone-number 
   margin-left: 55%
