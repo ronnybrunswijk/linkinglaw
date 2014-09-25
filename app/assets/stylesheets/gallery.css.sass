@@ -38,27 +38,40 @@
     opacity: 1
 
 #recommandations .gallery
-  min-height: 200px
-  width: 60%
+  height: 150px
+  width: 70%
   p
+    float: left
     line-height: 1.3em
-    min-height: 80px
+    text-align: left
 
-.opinion-origin
-  text-align: center
-  height: 50%
-  width: 100%
-  span
-    font-size: 0.9em
-    display: inline-block
-    line-height: 100px
-    padding: 0 2em
-    vertical-align: top
-
-.opinion-img
-  height: 100%  
+.recommandation-logo
+  max-height: 50px  
+  max-width: 120px
+  margin-left: 50px
+  vertical-align: middle
 
 .avatar
-  @extend .opinion-img
+  height: 100%
   border-radius: 100%
+
+.avatar-container, .recommandation-container
+  float: left
+  width: 25%
+  height: 100%
+
+.recommandation-container
+  width: 75%
+
+.vcenter
+  display: table-cell
+  vertical-align: middle 
+  height: 150px
+
+
+
+
+    
+
+
 

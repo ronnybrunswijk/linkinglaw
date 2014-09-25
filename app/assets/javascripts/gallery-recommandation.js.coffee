@@ -7,7 +7,7 @@ $(document).on 'ready page:load', ->
 galleryTimer = null
 
 start = ->
- 	galleryTimer = setInterval(slide, 5000) unless galleryTimer
+ 	galleryTimer = setInterval(slide, 15000) unless galleryTimer
 
 stop = ->
   clearInterval(galleryTimer);
@@ -26,5 +26,5 @@ slide = ->
       	    first = false
 
 calc_item_width = ->
-  items = $('#recommandations .items-container').first().children().length
+  items = $('#recommandations .items-container').first().children('.gallery-item').length
   100 / items + '%'
