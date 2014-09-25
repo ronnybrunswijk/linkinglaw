@@ -1,8 +1,8 @@
 $(document).on 'ready page:load', ->
-    start()
-    $('#press .gallery-item').css('width', calc_item_width)
-    $('#press .gallery').on 'mouseover', stop
-    $('#press .gallery').on 'mouseout', start
+#    start()
+#    $('#press .gallery-item').css('width', calc_item_width)
+#    $('#press .gallery').on 'mouseover', stop
+#    $('#press .gallery').on 'mouseout', start
 
 galleryTimer = null
 
