@@ -48,8 +48,7 @@
 
 //HOW IT WORKS
 #how_it_works 
-  background-color: $skyBlue
-  color: $white
+  color: $black
   ul li 
     display: inline-block
     width: 25%
@@ -63,12 +62,16 @@
 .ruler 
   width: 40%
   height: 2px
-  background-color: #ECF0F1
+  background-color: $black
   margin: 15px auto 10px	      
 
 .process-icon 
-  width: 25%
-  margin-bottom: 10px	
+  width: 90px
+  margin-bottom: 20px	
+
+.process-icon-small
+  @extend .process-icon
+  width: 80px
 
 .title-hint 
   font-size: 1.1em
@@ -121,6 +124,14 @@
   text-align: right
   img 
     height: 2.5em
+
+//RECOMMANDATIONS
+#recommandations
+  background-color: $skyBlue
+  color: $white
+
+.recommandation-author
+  font-size: 0.9em
 
 //PRESS
 #press 
