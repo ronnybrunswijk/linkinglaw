@@ -24,6 +24,9 @@ slide = ->
       	    $(this).detach().appendTo('#recommandations .gallery')
       	    $(this).css('left', distance)
       	    first = false
+    $next = $('#recommandations .item-position').next()
+    $('#recommandations .item-position').removeClass()
+    console.log($next)
 
 calc_item_width = ->
   items = $('#recommandations .items-container').first().children('.gallery-item').length
