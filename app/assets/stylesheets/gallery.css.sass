@@ -1,3 +1,5 @@
+@import 'common'
+
 .gallery
   position: relative
   width: 90%
@@ -28,16 +30,17 @@
   text-align: center
   div 
     display: inline-block
-    background-color: red
+    background-color: $brownBleek
     height: 10px
     width: 10px
     border-radius: 100%   
     vertical-align: middle
     margin: 0 1px
     &.item-position
-      background-color: green
-      height: 14px
-      width: 14px
+      background-color: $brown 
+      height: 12px
+      width: 12px
+      margin: 0
 
 .press-img
   position: absolute
@@ -83,6 +86,7 @@
 
 .recommandation-container
   width: 75%
+  margin-top: -12px
 
 .vcenter
   display: table-cell

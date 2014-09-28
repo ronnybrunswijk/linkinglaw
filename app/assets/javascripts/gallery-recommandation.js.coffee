@@ -7,7 +7,7 @@ $(document).on 'ready page:load', ->
 galleryTimer = null
 
 start = ->
- 	galleryTimer = setInterval(slide, 15000) unless galleryTimer
+ 	galleryTimer = setInterval(slide, 10000) unless galleryTimer
 
 stop = ->
   clearInterval(galleryTimer);
@@ -26,7 +26,12 @@ slide = ->
       	    first = false
     $next = $('#recommandations .item-position').next()
     $('#recommandations .item-position').removeClass()
-    console.log($next)
+    if $next.length == 0
+      $('.item-position-indicator div')
+        .first()
+        .addClass('item-position')
+    else
+      $next.addClass('item-position')
 
 calc_item_width = ->
   items = $('#recommandations .items-container').first().children('.gallery-item').length
