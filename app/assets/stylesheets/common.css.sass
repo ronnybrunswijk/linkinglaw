@@ -93,6 +93,10 @@ a
   &:hover 
     background-color: $brown
 
+.btn-brown-small
+  @extend .btn-brown
+  font-size: $font_m
+
 .btn-blue
   @extend .btn-big
   background-color: $skyBlue
@@ -118,7 +122,6 @@ a
   .bottom#{$i * 5} 
     margin-bottom: 5px * $i 
 
-
 //Miscellaneous
 .centered 
   text-align: center
@@ -128,6 +131,16 @@ a
   height: 1px
   width: 90%
   margin: 0 auto
+
+.register
+  input
+    display: inline
+    width: 20em
+    margin: 0 1em
+    border: 1px solid #bbbbbb
+    border-radius: 7px
+    vertical-align: 2px
+    color: #bbb
 
 //BACKGROUND COLORS
 .bg-black
