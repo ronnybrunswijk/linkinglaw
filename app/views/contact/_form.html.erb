@@ -25,7 +25,7 @@
     <%= f.text_area :message, placeholder: 'Bericht' %>
   </div>
   <div class="actions">
-    <%= f.submit "Verzenden", class: 'btn-bordered' %>
+    <input class="btn-bordered" name="commit" type="submit" value="Verzenden" onclick="return false;">
   </div>
 </fieldset>
 <% end %>
