@@ -38,7 +38,12 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+# sels tafoege gems
 
 gem 'figaro'
 
+# dizze is foar google analytics in kombinaasje mei turbolinks
 gem 'rails_12factor', group: :production
+
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
