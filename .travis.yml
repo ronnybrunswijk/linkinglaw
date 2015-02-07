@@ -3,7 +3,7 @@ rvm:
   - "2.1.4"
 
 before_script:
-  - psql -c "create database linkinglaw_test;" -U postgres
+  - psql -c "create database linkinglaw_production;" -U postgres
 
 deploy:
   provider: heroku
