@@ -45,9 +45,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: <%= ENV['DATABASE_TEST'] %>
-  username: <%= ENV['DATABASE_USER_TEST'] %>
-  password: <%= ENV['DATABASE_PASSWORD_TEST'] %>
+  database: linkinlaw_test
+  username: postgres
 
 production:
   <<: *default
