@@ -45,7 +45,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: linkinlaw_test
+  database: linkinglaw_test
   username: postgres
 
 production:
