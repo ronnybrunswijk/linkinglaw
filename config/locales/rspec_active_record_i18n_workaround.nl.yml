@@ -1,0 +1,9 @@
+nl:
+  nl:
+    activerecord:
+      errors:
+        model:
+          user:
+            attributes:
+              email:
+                invalid: "Email is ongeldig"

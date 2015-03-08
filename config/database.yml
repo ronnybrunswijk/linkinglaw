@@ -47,6 +47,7 @@ test:
   <<: *default
   database: linkinglaw_test
   username: postgres
+  password: Foadih!01
 
 production:
   <<: *default

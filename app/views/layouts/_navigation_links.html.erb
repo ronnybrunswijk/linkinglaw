@@ -1,10 +1,10 @@
 <%# add navigation links to this file %>
 <% if user_signed_in? %>
-  <li><%= link_to t(:edit_account), edit_user_registration_path %></li>
-  <li><%= link_to t(:log_out), destroy_user_session_path, :method=>'delete' %></li>
+  <li><%= link_to t(:edit_account, scope: [:navigation]), edit_user_registration_path %></li>
+  <li><%= link_to t(:log_out, scope: [:navigation]), destroy_user_session_path, :method=>'delete' %></li>
 <% else %>
-  <li><%= link_to t(:log_in), new_user_session_path %></li>
-  <li><%= link_to t(:sign_up), new_user_registration_path %></li>
+  <li><%= link_to t(:log_in, scope: [:navigation]), new_user_session_path %></li>
+  <li><%= link_to t(:sign_up, scope: [:navigation]), new_user_registration_path %></li>
 <% end %>
 <% if user_signed_in? %>
   <% if current_user.admin? %>

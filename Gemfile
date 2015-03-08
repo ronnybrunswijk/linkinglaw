@@ -46,3 +46,5 @@ end
 
 ### tafoege
 gem 'figaro'
+gem 'rails-i18n', '~> 4.0.0'
+gem 'annotate', '~> 2.6.6'
