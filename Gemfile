@@ -33,6 +33,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'annotate', '~> 2.6.6'
 end
 group :production do
   gem 'rails_12factor'
@@ -47,4 +48,3 @@ end
 ### tafoege
 gem 'figaro'
 gem 'rails-i18n', '~> 4.0.0'
-gem 'annotate', '~> 2.6.6'
