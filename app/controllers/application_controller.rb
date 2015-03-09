@@ -10,10 +10,8 @@ class ApplicationController < ActionController::Base
   end
 
   def extract_locale_from_tld
-      puts request.host
       parsed_locale = request.host.split('.').last
       parsed_locale = "en" if parsed_locale == "com"
-      puts parsed_locale
       I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
   end
 end
