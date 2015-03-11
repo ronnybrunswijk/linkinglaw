@@ -1,3 +1,8 @@
 nl:
+  activerecord:
+    attributes:
+      question:
+        title: "Titel"
+        description: "Omschrijving"
   questions:
     ask_question: "Plaats een vraag"
