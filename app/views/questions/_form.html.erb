@@ -1,5 +1,5 @@
 <div class="authform">
-<%= form_for(@question) do |f| %>
+<%= form_for(@question, url: preview_question_path) do |f| %>
   <h3><%= t(:ask_question, scope: [:questions]) %></h3>
   <% if @question.errors.any? %>
     <div id="error_explanation">
@@ -22,7 +22,8 @@
     <%= f.text_area :description, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit t(:ask_question, scope: [:questions]), class: 'button right' %>
+    <%= f.submit t(:preview_question, scope: [:questions]), class: 'button right' %>
+    <%= link_to t(:cancel, scope: [:labels]), home_path %>
   </div>
 <% end %>
 </div>

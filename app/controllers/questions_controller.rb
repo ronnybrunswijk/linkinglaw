@@ -36,6 +36,11 @@ class QuestionsController < ApplicationController
     respond_with(@question)
   end
 
+ def preview
+   @question = Question.new(question_params)
+   respond_with(@question)
+ end
+
   private
     def set_question
       @question = Question.find(params[:id])

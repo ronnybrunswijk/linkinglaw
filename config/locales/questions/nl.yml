@@ -6,3 +6,5 @@ nl:
         description: "Omschrijving"
   questions:
     ask_question: "Stel een vraag"
+    preview_question: "Bekijk vraag"
+    
