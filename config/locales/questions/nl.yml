@@ -7,4 +7,5 @@ nl:
   questions:
     ask_question: "Stel een vraag"
     preview_question: "Bekijk vraag"
-    
+    submit_question: "Plaats vraag"
+    modify_question: "Wijzig"    

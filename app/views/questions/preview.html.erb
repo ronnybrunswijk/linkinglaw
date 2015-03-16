@@ -1,5 +1,18 @@
 <div class="authform">
-  <h3>Preview vraag</h3>
-  <%= @question.title  %><br>
-  <%= @question.description %>
+<%= form_for(@question, url: new_question_path) do |f| %>
+  <h3><%= t(:preview_question, scope: [:questions]) %></h3>
+
+  <div class="form-group">
+    <%= :title %>
+    <%= f.text_field :title, class: 'hidden' %>
+  </div>
+  <div class="form-group">
+    <%= :description %>
+    <%= f.text_field :description, class: 'hidden' %>
+  </div>
+  <div class="actions">
+    <%= f.submit t(:modify_question, scope: [:questions]), class: 'button left grey'%>
+    <%= f.submit t(:submit_question, scope: [:questions]), class: 'button right' %>
+  </div>
+<% end %>
 </div>
