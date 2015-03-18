@@ -9,7 +9,7 @@ feature 'Ask question page' do
   #   When I visit the ask a question page
   #   Then I see a heading 'Ask a question'
   scenario 'visit the aks a question page' do
-    visit root_path
+    visit new_question_path
     expect(page).to have_content I18n.t(:ask_question, scope: [:questions])
   end
 

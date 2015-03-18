@@ -22,8 +22,12 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    flash[:notice] = 'Question was successfully created.' if @question.save
-    respond_with(@question)
+    if params[:create]
+      flash[:notice] = t(:save_success, scope: [:questions, :notifications]) if @question.save
+      respond_with(@question)
+    else 
+      render :new
+    end
   end
 
   def update
