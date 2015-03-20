@@ -41,12 +41,14 @@ class QuestionsController < ApplicationController
   end
 
  def preview
+   puts 'preview method'
    @question = Question.new(question_params)
    respond_with(@question)
  end
 
   private
     def set_question
+      puts 'set_question method'
       @question = Question.find(params[:id])
     end
 

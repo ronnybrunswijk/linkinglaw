@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   get 'home/index', to: "home#index", as: :home
 
-  resources :questions 
+  resources :questions do 
+    collection do 
+      post :preview
+    end
+  end
   post 'questions/preview', to: 'questions#preview', as: :preview_question
 
   mount Upmin::Engine => '/admin'
