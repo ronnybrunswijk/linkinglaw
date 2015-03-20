@@ -1,0 +1,7 @@
+nl:
+  activerecord:
+    attributes:
+      user:
+        email: "E-mail"
+        password: "Wachtwoord"
+        name: "Naam"
