@@ -5,7 +5,9 @@ rvm:
 before_script:
   - psql -c "create database linkinglaw_test;" -U postgres
 
-script: bundle exec rspec spec
+script:
+  - bundle exec rake test
+  - bundle exec rake cucumber
 
 deploy:
   provider: heroku
