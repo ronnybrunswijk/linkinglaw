@@ -19,9 +19,6 @@ gem 'upmin-admin'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
-  gem 'guard-bundler'
-  gem 'guard-rails'
-  gem 'guard-rspec'
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'rb-fchange', :require=>false
@@ -32,17 +29,16 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'rspec-rails'
   gem 'annotate', '~> 2.6.6'
 end
 group :production do
   gem 'rails_12factor'
 end
 group :test do
-  gem 'capybara'
+  gem 'minitest-rails'
+  gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'launchy'
-  gem 'selenium-webdriver'
 end
 
 ### tafoege
