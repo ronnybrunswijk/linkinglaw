@@ -31,8 +31,14 @@ nl:
       no_token: 'Je kan deze pagina niet benaderen zonder een "wachtwoord reset e-mail"'
       send_instructions: 'Je ontvangt via e-mail instructies hoe je je wachtwoord moet resetten.'
       send_paranoid_instructions: 'Als je e-mailadres bestaat in de database, ontvang je via e-mail instructies hoe je je wachtwoord moet resetten.'
+      forgot: "Wachtwoord vergeten?"
+      update: "Wijzig uw wachtwoord"
       updated: 'Je wachtwoord is gewijzigd. Je bent nu ingelogd.'
       updated_not_active: 'Je wachtwoord is gewijzigd.'
+      new: "Nieuw wachtwoord"
+      confirm_new: "Bevestig nieuw wachtwoord"
+      change: "Wijzig wachtwoord"
+      reset: "Reset wachtwoord"
     registrations:
       sign_up: "Registreren"
       signed_up_but_unconfirmed: 'Je ontvangt via e-mail instructies hoe je je account kunt activeren.'
