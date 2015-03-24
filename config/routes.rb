@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'home/index', to: "home#index", as: :home
+  get 'home', to: "home#index", as: :home
 
   resources :questions do 
     collection do 

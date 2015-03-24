@@ -1,7 +1,15 @@
-Given(/^I am on the LinkingLaw home page$/) do
-  visit root_path
+Given(/^a user types www\.linkinglaw\.nl"(.*?)" into the addressbar of his browser$/) do |urlPath|
+    visit urlPath
 end
 
-Then(/^I should see$/) do |string|
-  page.has_content?(string)
+Then(/^the page titled "(.*?)" appears$/) do |title|
+    page.find("title", text: title)
+end
+
+Given(/^a user is at LinkingLaw home page$/) do
+    visit '/'
+end
+
+When(/^he clicks the "(.*?)" link$/) do |link|
+    click_link link
 end
