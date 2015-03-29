@@ -9,5 +9,7 @@ nl:
     preview_question: "Bekijk vraag"
     submit_question: "Plaats vraag"
     modify_question: "Wijzig"    
+    mine: "Mijn vragen"
+    all: "Al mijn vragen"
     notifications:
       save_success: "U hebt uw vraag met succes geplaats!"

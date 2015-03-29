@@ -11,15 +11,16 @@ Feature: Global navigation
     |  /users/sign_in    |  Log in    	      | 
     |  /users/sign_up    |  Registreren	      |
     |  /questions/new    |  Stel een vraag    |
-																		       		  Scenario Outline: Navigate by using  global menu links
+
+  Scenario Outline: Navigate by using  global menu links
     Given a user is at LinkingLaw home page
     When he clicks the "<Link>" link
     Then the page titled "<Title>" appears
-																				    Examples: Links and page titles
+    Examples: Links and page titles
     |   Link             |  Title           |
     |   Home		 |  Home	    |
     |   Log in           |  Log in	    |
     |   Registreren      |  Registreren     | 
     |   Stel een vraag   |  Stel een vraag  |
-
+    
    
