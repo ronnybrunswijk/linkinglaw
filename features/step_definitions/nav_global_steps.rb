@@ -1,15 +1,15 @@
-Given(/^a user types www\.linkinglaw\.nl"(.*?)" into the addressbar of his browser$/) do |urlPath|
-    visit urlPath
+Stel(/^als gebruiker voer ik www\.linkinglaw\.nl"(.*?)" in in de adresbak van mijn browser$/) do |urlPath|
+   visit urlPath
 end
 
-Then(/^the page titled "(.*?)" appears$/) do |title|
-    page.find("title", text: title)
+Dan(/^kom ik op de pagina getiteld "(.*?)"$/) do |title|
+   page.find("title", text: title)
 end
 
-Given(/^a user is at LinkingLaw home page$/) do
-    visit '/'
+Stel(/^als gebruiker ben ik op de home pagina$/) do
+   visit '/'
 end
 
-When(/^he clicks the "(.*?)" link$/) do |link|
-    click_link link
+Als(/^ik dan op de "(.*?)" link klik$/) do |link|
+   click_link link
 end

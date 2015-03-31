@@ -1,10 +1,11 @@
-Feature: Global navigation
+# language: nl
+Functionaliteit: Algemene navigatie
   
-  Scenario Outline: Navigate pages through addressbar
-    Given a user types www.linkinglaw.nl"<UrlPath>" into the addressbar of his browser
-    Then the page titled "<Title>" appears
+  Abstract Scenario: Een gebruiker bezoekt pagina's via de adresbalk
+    Stel als gebruiker voer ik www.linkinglaw.nl"<UrlPath>" in in de adresbak van mijn browser
+    Dan kom ik op de pagina getiteld "<Title>"
      
-    Examples: Url paths and page titles
+    Voorbeelden: Url paden and pagina titels
     |	UrlPath          |  Title	      |
     |  /             	 |  Home 	      |
     |  /home             |  Home	      |
@@ -12,11 +13,11 @@ Feature: Global navigation
     |  /users/sign_up    |  Registreren	      |
     |  /questions/new    |  Stel een vraag    |
 
-  Scenario Outline: Navigate by using  global menu links
-    Given a user is at LinkingLaw home page
-    When he clicks the "<Link>" link
-    Then the page titled "<Title>" appears
-    Examples: Links and page titles
+  Abstract Scenario: Een gebruiker navigeert door de website via menu links
+    Stel als gebruiker ben ik op de home pagina
+    Als ik dan op de "<Link>" link klik
+    Dan kom ik op de pagina getiteld "<Title>"
+    Voorbeelden: Links en page titels
     |   Link             |  Title           |
     |   Home		 |  Home	    |
     |   Log in           |  Log in	    |
