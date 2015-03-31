@@ -8,5 +8,6 @@ Als(/^ik naar de 'Mijn vragen' pagina ga$/) do
 end
 
 Dan(/^wil ik al mijn eerder gestelde vragen zien$/) do
-    pending # express the regexp above with the code you wish you had
+    question = @user.questions.first
+    page.find("a", text: question.title)
 end

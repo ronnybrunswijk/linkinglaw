@@ -28,17 +28,17 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
-class User < ActiveRecord::Base
-  enum role: [:user, :vip, :admin]
-  after_initialize :set_default_role, :if => :new_record?
-  has_many :questions, dependent: :destroy
+FactoryGirl.define do
 
-  def set_default_role
-    self.role ||= :user
-  end
+   factory :user, class: User do
+        name "Joe Louis"
+        email "joe.louis@boxing.ko"
+        password "righthook"
+        password_confirmation "righthook"
+        confirmed_at DateTime.now
+        after(:create) do |user|
+            FactoryGirl.create(:question, user: user)
+        end
+   end
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable
 end

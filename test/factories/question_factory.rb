@@ -14,16 +14,11 @@
 #  index_questions_on_user_id  (user_id)
 #
 
-require 'test_helper'
+FactoryGirl.define do
 
-class QuestionTest < Minitest::Test
-
-  def setup 
-    @question = Question.new
-  end
-
-  def test_type
-    assert_instance_of Question, @question
-  end
-
+    factory :question, class: Question do
+        title "Question title"
+        description  "Question description"
+    end
 end
+  
