@@ -16,8 +16,9 @@ nl:
       timeout: 'Je sessie is verlopen, log a.u.b. opnieuw in.'
       inactive: 'Je account is nog niet geactiveerd.'
       last_attempt: 'Je hebt nog een poging over voordat je account wordt geblokkeerd.'
-      not_found_in_database: "Ongeldig e-mail of wachtwoord."
+      not_found_in_database: 'Ongeldig e-mail of wachtwoord.'
     mailer:
+      waiting_for_confirmation: 'Ogenblik a.u.b. er wordt gewacht op bevestiging voor: '
       confirmation_instructions:
         subject: 'Bevestiging mailadres'
       reset_password_instructions:
@@ -31,16 +32,18 @@ nl:
       no_token: 'Je kan deze pagina niet benaderen zonder een "wachtwoord reset e-mail"'
       send_instructions: 'Je ontvangt via e-mail instructies hoe je je wachtwoord moet resetten.'
       send_paranoid_instructions: 'Als je e-mailadres bestaat in de database, ontvang je via e-mail instructies hoe je je wachtwoord moet resetten.'
-      forgot: "Wachtwoord vergeten?"
-      update: "Wijzig uw wachtwoord"
+      forgot: 'Wachtwoord vergeten?'
+      update: 'Wijzig uw wachtwoord'
       updated: 'Je wachtwoord is gewijzigd. Je bent nu ingelogd.'
       updated_not_active: 'Je wachtwoord is gewijzigd.'
-      new: "Nieuw wachtwoord"
-      confirm_new: "Bevestig nieuw wachtwoord"
-      change: "Wijzig wachtwoord"
-      reset: "Reset wachtwoord"
+      new: 'Nieuw wachtwoord'
+      confirm_new: 'Bevestig nieuw wachtwoord'
+      change: 'Wijzig wachtwoord'
+      reset: 'Reset wachtwoord'
+      no_change: 'Laat de invoervelden blanco, indien je je wachtwoord niet wilt wijzigen.'
+      enter_current: 'Voer je huidige wachtwoord in om de wijzigingen door te voeren.'
     registrations:
-      sign_up: "Registreren"
+      sign_up: 'Registreren'
       signed_up_but_unconfirmed: 'Je ontvangt via e-mail instructies hoe je je account kunt activeren.'
       signed_up_but_inactive: 'Je bent inschreven. Je kon alleen niet automatisch ingelogd worden omdat je account nog niet geactiveerd is.'
       signed_up_but_locked: 'Je bent inschreven. Je kon alleen niet automatisch ingelogd worden omdat je account geblokkeerd is.'
@@ -49,6 +52,9 @@ nl:
       updated: 'Je account gegevens zijn opgeslagen.'
       edit: 'Account wijzigen'
       destroyed: 'Je account is verwijderd, wellicht tot ziens!'
+      unhappy: "Niet tevreden? We zouden het jammer vinden je te zien gaan."
+      cancel: "Account opheffen"
+      cancel_my: "Hef mijn account op"
     sessions:
       sign_in: 'Log in'
       sign_out: 'Log uit'
@@ -68,5 +74,4 @@ nl:
       not_found: "niet gevonden"
       not_locked: "is niet gesloten"
       not_saved:
-        one: "Kon de %{resource} niet opslaan:"
-        other: "Kon de %{resource} niet opslaan:"
+        one: "Kon de %{resource} niet opslaan:"      

@@ -22,3 +22,5 @@
 nl:
   labels:
     cancel: "Annuleren"
+    confirm: "Weet je het zeker"
+    update: "Wijzig"
