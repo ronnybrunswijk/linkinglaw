@@ -10,11 +10,11 @@
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div><% t(:waiting_for_confirmation, scope: []) %> <%= resource.unconfirmed_email %></div>
+        <div><%= t(:waiting_for_confirmation, scope: []) resource.unconfirmed_email %></div>
       <% end %>
     </div>
     <fieldset>
-      <p><% t(:no_change, scope: [:devise, :password])  %></p>
+      <p><%= t(:no_change, scope: [:devise, :password])  %></p>
       <div class="form-group">
         <%= f.label :password %>
         <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
@@ -25,7 +25,7 @@
       </div>
     </fieldset>
     <fieldset>
-      <p><% t(:enter_current, scope: [:devise, :password]) %></p>
+      <p><%= t(:enter_current, scope: [:devise, :password]) %></p>
       <div class="form-group">
         <%= f.label :current_password %>
         <%= f.password_field :current_password, class: 'form-control' %>
@@ -35,7 +35,7 @@
   <% end %>
 </div>
 <div class="authform">
-<h3><% t(:cancel, scope: [:devise, :registrations]) %></h3>
-<p><% t(:unhappy, scope: [:devise, :registrations]) %></p>
+<h3><%= t(:cancel, scope: [:devise, :registrations]) %></h3>
+<p><%= t(:unhappy, scope: [:devise, :registrations]) %></p>
 <%= button_to t(:cancel_my, scope: [:devise, :registrations]), registration_path(resource_name), :data => { :confirm => t(:confirm, scope: [:labels])}, :method => :delete, :class => 'button right' %>
 </div>
