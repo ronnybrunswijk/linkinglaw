@@ -14,7 +14,7 @@
       <% end %>
     </div>
     <fieldset>
-      <p><%= t(:no_change, scope: [:devise, :password])  %></p>
+      <p><%= t(:no_change, scope: [:devise, :passwords])  %></p>
       <div class="form-group">
         <%= f.label :password %>
         <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
@@ -25,7 +25,7 @@
       </div>
     </fieldset>
     <fieldset>
-      <p><%= t(:enter_current, scope: [:devise, :password]) %></p>
+      <p><%= t(:enter_current, scope: [:devise, :passwords]) %></p>
       <div class="form-group">
         <%= f.label :current_password %>
         <%= f.password_field :current_password, class: 'form-control' %>
