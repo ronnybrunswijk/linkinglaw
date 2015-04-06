@@ -42,7 +42,11 @@ class QuestionsController < ApplicationController
 
  def preview
    @question = Question.new(question_params)
-   respond_with(@question)
+   if @question.valid?
+     respond_with(@question)
+   else 
+     render :new
+   end
  end
 
   private

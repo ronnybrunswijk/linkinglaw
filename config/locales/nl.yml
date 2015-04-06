@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 nl:
+  errors:
+    one: "fout"
+    other: "fouten"
   labels:
     cancel: "Annuleren"
     confirm: "Weet je het zeker"

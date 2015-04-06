@@ -1,10 +1,10 @@
+
 <div class="authform">
 <%= form_for(@question, url: preview_questions_path) do |f| %>
   <h3><%= t(:ask_question, scope: [:questions]) %></h3>
   <% if @question.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
-
+      <h2><%= t(:input_errors, scope: [:questions, :notifications], errors:  t(:errors, count: @question.errors.count) )  %></h2>
       <ul>
       <% @question.errors.full_messages.each do |message| %>
         <li><%= message %></li>
