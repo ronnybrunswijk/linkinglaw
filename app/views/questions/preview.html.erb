@@ -11,8 +11,8 @@
     <%= f.text_field :description, class: 'hidden' %>
   </div>
   <div class="actions">
-    <%= f.submit t(:modify_question, scope: [:questions]), class: 'button left grey'%>
     <%= f.submit t(:submit_question, scope: [:questions]), name: 'create', class: 'button right' %>
+    <%= f.submit t(:modify_question, scope: [:questions]), class: 'btn btn-default right'%> 
   </div>
 <% end %>
 </div>
