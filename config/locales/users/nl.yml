@@ -6,3 +6,4 @@ nl:
         password: "Wachtwoord"
         name: "Naam"
         password_confirmation: "Bevestiging wachtwoord"
+        current_password: "Huidig wachtwoord"
