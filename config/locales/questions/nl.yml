@@ -13,4 +13,3 @@ nl:
     all: "Al mijn vragen"
     notifications:
       save_success: "U hebt uw vraag met succes geplaats!"
-      input_errors: "Vanwege de onderstaande %{errors} kunt u niet verder om uw vraag te bekijken." 

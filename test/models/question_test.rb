@@ -45,7 +45,7 @@ class QuestionTest < ActiveSupport::TestCase
 
   test "min length check for title that's too small" do
     params = valid_params.clone
-    params[:title] = "a" 
+    params[:title] = "" 
     question = Question.new params
 
     refute question.valid?
@@ -53,7 +53,7 @@ class QuestionTest < ActiveSupport::TestCase
 
   test "min length boundary of title" do
     params = valid_params.clone
-    params[:title] = "a" * 2
+    params[:title] = "a"
     question = Question.new params
 
     assert question.valid?
@@ -77,7 +77,7 @@ class QuestionTest < ActiveSupport::TestCase
 
   test "min length check for description that's too small" do
     params = valid_params.clone
-    params[:description] = "a"
+    params[:description] = ""
     question = Question.new params
 
     refute question.valid?
@@ -85,7 +85,7 @@ class QuestionTest < ActiveSupport::TestCase
 
   test "min length boundary of description" do
     params = valid_params.clone
-    params[:description] = "a" * 2
+    params[:description] = "a"
     question = Question.new params
 
     assert question.valid?

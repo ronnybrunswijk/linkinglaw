@@ -16,6 +16,6 @@
 
 class Question < ActiveRecord::Base
   belongs_to :user
-  validates :title, length: { in: 2..100 }
-  validates :description, length: { in: 2..500 }
+  validates :title, length: { in: 1..100 }
+  validates :description, length: { in: 1..500 }
 end
