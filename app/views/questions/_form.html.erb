@@ -13,12 +13,12 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :title %><br>
-    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+    <%= f.label :title %><span class="char_count">(nog <span></span> tekens)</span><br>
+    <%= f.text_field :title, autofocus: true, class: 'form-control', maxlength: 100 %>
   </div>
   <div class="form-group">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, class: 'form-control' %>
+    <%= f.label :description %><span class="char_count">(nog <span></span> tekens)</span><br>
+    <%= f.text_area :description, class: 'form-control', maxlength: 500 %>
   </div>
   <div class="actions">
     <%= f.submit t(:preview_question, scope: [:questions]), class: 'button right' %>
