@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   mount Upmin::Engine => '/admin'
   root to: 'home#index'
-  devise_for :users
+  devise_for :users, controllers: {sessions: 'sessions',
+  registrations: 'registrations'}
   resources :users
 
 end
