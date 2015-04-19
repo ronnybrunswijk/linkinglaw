@@ -8,3 +8,5 @@ Functionaliteit: de ondernemer stelt een vraag,
     En ik wil mijn vraag plaatsen, maar ben niet ingelogd
     Dan wil ik de mogelijkheid om alsnog meteen mijn inloggevens in te voeren	
     En dan tegelijkertijd kunnen inloggen en mijn vraag stellen
+
+ 
