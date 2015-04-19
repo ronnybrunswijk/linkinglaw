@@ -41,4 +41,11 @@ FactoryGirl.define do
         end
    end
 
+   factory :user2, class: User do
+        name "Jack Dempsey"
+        email "jack.dempsey@boxing.ko"
+        password "lefthook"
+        password_confirmation "lefthook"
+        confirmed_at DateTime.now
+   end
 end
