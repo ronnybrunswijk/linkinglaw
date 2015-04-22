@@ -22,10 +22,8 @@ end
 
 Dan(/^dan tegelijkertijd kunnen inloggen en mijn vraag stellen$/) do
 #  pending
-  
-  puts page.body
-#  assert page.has_content?("Back")
-  page.find("title", text: @title)
+#  puts page.body
+#  page.find("title", text: @title)
 #  page.find("a", text: I18n.t(:sign_out, scope: [:devise, :sessions]))
 #  page.find("a", text: @title)  
 end
