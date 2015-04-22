@@ -5,6 +5,7 @@
 # files.
 
 require 'cucumber/rails'
+require 'capybara/poltergeist'
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
@@ -57,4 +58,29 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 Capybara.default_host = 'http://linkinglaw.nl'
 Capybara.ignore_hidden_elements = false
+Capybara.javascript_driver = :poltergeist
+Capybara.default_driver = :poltergeist
+Capybara.register_driver :poltergeist do |app|
+  options = {
+    js_errors: true,
+    timeout: 120,
+    debug: false,
+    phantomjs_options: ['--load-images=no', '--disk-cache=false'],
+    inspector: true,
+  }
+  Capybara::Poltergeist::Driver.new(app, options)
+end
 
+=begin
+class ActiveRecord::Base
+    mattr_accessor :shared_connection
+    @@shared_connection = nil
+
+    def self.connection
+          @@shared_connection || retrieve_connection
+    end
+end
+=end
+
+
+  

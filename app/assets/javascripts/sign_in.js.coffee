@@ -4,7 +4,12 @@ $(document).on 'page:change', ->
       update_auth_token(xhr)
       $("#create_question").click()
     else
-      console('error')
+      console.log('error')
+
+  $("#sign_in_user").bind "ajax:error", (e, data, status, xhr) ->
+    console.log('data: ' + data)
+    console.log('status: ' + status)
+    console.log('xhr: ' + xhr)
 
 update_auth_token = (xhr) ->
   csrf_param = xhr.getResponseHeader('X-CSRF-Param')
