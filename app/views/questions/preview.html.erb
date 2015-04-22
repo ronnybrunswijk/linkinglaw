@@ -18,13 +18,16 @@
 <% end %>
 </div>
 <% unless user_signed_in?  %>
-  <div class="authform">
+  <div id="auth_form_switch" class="text-center">
+    <%= radio_button_tag 'auth_form','sign_in', checked = true %>
+    <%= label_tag 'auth_form_sign_in','Ik heb een account' %>
+    <%= radio_button_tag 'auth_form', 'sign_up' %>
+    <%= label_tag 'auth_form_sign_up','Maak account aan' %>
+  </div>
+  <div id="authforms" class="authform">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'sign_in_user', :'data-type' => 'json'}, remote: true, authenticity_token: true) do |f| %>  
       <%= devise_error_messages! %>
       <div class="form-group">
-        <%- if devise_mapping.registerable? %>
-          <%= link_to t(:sign_up, scope: [:devise, :registrations]), new_registration_path(resource_name), class: 'right'  %>
-        <% end -%>
         <%= f.label :email %>
         <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
       </div>
@@ -44,5 +47,21 @@
          </div>
       <% end -%>
     <% end %>  
-  </div>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form', :class => 'hidden' }, remote: true) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="form-group">
+           <%= f.label :email %>
+           <%= f.email_field :email, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+           <%= f.label :password %>
+           <%= f.password_field :password, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+           <%= f.submit t(:submit_question, scope: [:questions]), :class => 'button right' %>
+      <% end %>
+   </div>
 <% end %>
