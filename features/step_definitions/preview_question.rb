@@ -14,10 +14,10 @@ end
 
 Dan(/^wil ik de mogelijkheid om alsnog meteen mijn inloggevens in te voeren$/) do
   page.find("form#sign_in_user")
-  user = FactoryGirl.create(:user2)
-  fill_in "user_email_sign_in", with: user.email
-  fill_in "user_password_sign_in", with: user.password
-  click_button 'sign_in'
+#  user = FactoryGirl.create(:user2)
+#  fill_in "user_email_sign_in", with: user.email
+#  fill_in "user_password_sign_in", with: user.password
+#  click_button 'sign_in'
 end
 
 Dan(/^dan tegelijkertijd kunnen inloggen en mijn vraag stellen$/) do
