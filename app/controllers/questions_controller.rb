@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-
+  after_action :send_confirmation_email, only: [:create]
   respond_to :html
 
   def index
@@ -57,4 +57,9 @@ class QuestionsController < ApplicationController
     def question_params
       params.require(:question).permit(:title, :description)
     end
+
+   def send_confirmation_email
+     puts current_user
+     UserMailer.confirm_question(current_user, @question)
+   end
 end

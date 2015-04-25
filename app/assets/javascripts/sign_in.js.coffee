@@ -1,10 +1,7 @@
 $(document).on 'page:change', ->
   $("#sign_in_user").bind "ajax:success", (e, data, status, xhr) ->
-    if data.success
       update_auth_token(xhr)
       $("#create_question").click()
-    else
-      console.log('error')
 
   $("#sign_in_user").bind "ajax:error", (e, data, status, xhr) ->
     console.log('data: ' + data)
