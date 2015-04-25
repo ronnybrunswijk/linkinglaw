@@ -59,7 +59,6 @@ class QuestionsController < ApplicationController
     end
 
    def send_confirmation_email
-     puts current_user
-     UserMailer.confirm_question(current_user, @question)
+     UserMailer.confirm_question(current_user, @question).deliver!
    end
 end
