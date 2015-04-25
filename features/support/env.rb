@@ -71,7 +71,6 @@ Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, options)
 end
 
-=begin
 class ActiveRecord::Base
     mattr_accessor :shared_connection
     @@shared_connection = nil
@@ -80,7 +79,6 @@ class ActiveRecord::Base
           @@shared_connection || retrieve_connection
     end
 end
-=end
 
 
   
