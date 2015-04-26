@@ -34,7 +34,7 @@
   </head>
   <body>
     <p>Goedendag,</p>
-    <p>Bedankt voor het plaatsen van <%= embed "<a href=\"http://www.linkinglaw.nl/questions/#{@question.id}\">uw vraag</a>" %> op LinkingLaw!</p> 
+    <p>Bedankt voor het plaatsen van <%= link_to "uw vraag", url: "http://www.linkinglaw.nl/questions/#{@question.id}" %> op LinkingLaw!</p> 
     <p>95 % van de juridische vragen wordt binnen 3 dagen – en vaak zelfs binnen een paar uur - beantwoord door de juridische professionals die bij LinkingLaw aangesloten zijn. Wij laten het u direct weten wanneer u een antwoord ontvangt op uw vraag.</p> 
     <button type="button" class="">Bekijk uw vraag</button>
     <p>Met vriendelijke groet,</p>
