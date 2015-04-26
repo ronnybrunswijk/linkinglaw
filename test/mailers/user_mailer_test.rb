@@ -12,9 +12,9 @@ class UserMailerTest < ActionMailer::TestCase
         question = @user.questions.first
         email = UserMailer.confirm_question(@user, question).deliver!
 
-        assert_equal 'info@linkinglaw.nl', email.from
-        assert_equal @user.email, email.to
-        assert_equal 'Uw vraag is otp LinkingLaw geplaatst', email.subject
+        assert_equal ['info@linkinglaw.nl'], email.from
+        assert_equal [@user.email], email.to
+        assert_equal 'Uw vraag is op LinkingLaw geplaatst', email.subject
 
    end
 
