@@ -5,6 +5,8 @@ class RegistrationsController < Devise::RegistrationsController
       puts "stadium 1"
       build_resource(sign_up_params)
 
+      resource.skip_confirmation!
+
       if resource.save
          puts "stadium 2"
          if resource.active_for_authentication?
