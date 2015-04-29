@@ -5,7 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
       puts "stadium 1"
       build_resource(sign_up_params)
 
-      resource.skip_confirmation!
+      resource.skip_confirmation! if request.xhr?
 
       if resource.save
          puts "stadium 2"
