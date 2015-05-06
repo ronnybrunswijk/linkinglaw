@@ -16,7 +16,8 @@ class SessionsController < Devise::SessionsController
 
   def failure   
     warden.custom_failure!
-    render json: { success: false, error: I18n.t("devise.failure.#{env['warden'].message.to_s}") }, status: 401
+    message = I18n.t("devise.failure.#{env['warden'].message.to_s}")
+    return render partial:  'devise/sessions/errors', locals: {message: message }, status: :unauthorized
   end
 
   protected

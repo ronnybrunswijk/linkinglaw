@@ -10,14 +10,14 @@ class RegistrationsControllerTest < ActionController::TestCase
   def test_valid_sign_up 
      post :create, { user: { email: "rocky.marciano@boxing.ko",
                              password: "uppercut",
-                             confirmation_password: "uppercut" } }
+                             password_confirmation: "uppercut" } }
      assert_redirected_to root_path
   end
 
   def test_sign_up_with_invalid_email
       post :create, { user: { email: "",
                               password: "uppercut",
-                              confirmation_password: "uppercut" } }
+                              password_confirmation: "uppercut" } }
       user = assigns(:user)
       refute user.valid?
       assert_template :new
@@ -26,7 +26,7 @@ class RegistrationsControllerTest < ActionController::TestCase
   def test_valid_sign_up_ajax
      xhr :post, :create, { user: { email: "rocky.marciano@boxing.ko",
                              password: "uppercut",
-                             confirmation_password: "uppercut" } }
+                             password_confirmation: "uppercut" } }
      assert_response :success
   end   
 
@@ -34,8 +34,8 @@ class RegistrationsControllerTest < ActionController::TestCase
       xhr :post, :create, { user: { email: "",
                               password: "uppercut",
                               confirmation_password: "uppercut" } }
-      body = JSON.parse @response.body
-      assert_equal 'Ongeldig e-mail of wachtwoord.', body['error']
+      assert_template 'devise/shared/_errors'
+      assert_response :unauthorized    
   end
 
 end

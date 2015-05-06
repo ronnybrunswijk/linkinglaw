@@ -1,14 +1,14 @@
 <% provide :title, @question.title  %>
 <div class="authform">
   <p>
-    <strong>Title:</strong>
+    <strong><%= t('activerecord.attributes.question.title') %>:</strong>
     <%= @question.title %>
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong><%= t('activerecord.attributes.question.description') %>:</strong>
     <%= @question.description %>
   </p>
 
-<%= link_to 'Back', questions_path %>
+<%= link_to 'Naar overzicht', questions_path %>
 </div>

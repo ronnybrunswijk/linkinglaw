@@ -32,8 +32,7 @@ class SessionsControllerTest < ActionController::TestCase
      xhr :post, :create, { user: { email: @user.email,
                                    password: "wrong password" } }
      assert_response :unauthorized
-     body = JSON.parse @response.body
-     assert_equal 'Ongeldig e-mail of wachtwoord.', body['error']
+     assert_template 'devise/sessions/_errors'
   end
 
   def teardown 

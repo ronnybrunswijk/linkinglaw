@@ -73,4 +73,5 @@ nl:
       expired: "is verlopen, vraag een nieuwe aan"
       not_found: "niet gevonden"
       not_locked: "is niet gesloten"
-      not_saved: "Uw registratie kan niet worden verwerkt om de volgende redenen:"      
+      not_saved: "Uw registratie kan niet worden verwerkt om de volgende reden(en):"      
+      invalid_login: "Om de volgende reden(en) is het inloggen niet gelukt:"

@@ -4,8 +4,9 @@ $(document).on 'page:change', ->
       $("#create_question").click()
 
   $("#sign_in_user, #new_user").bind "ajax:error", (e, xhr, status, error) ->
-    json = $.parseJSON(xhr.responseText)
-    update_error_msgs json.error    
+    html = xhr.responseText
+    $('#error_explanation').remove()
+    $(e.target).prepend html
 
 update_auth_token = (xhr) ->
   csrf_param = xhr.getResponseHeader('X-CSRF-Param')
@@ -16,7 +17,3 @@ update_auth_token = (xhr) ->
   if csrf_token
     $('meta[name="csrf-token"]').attr('content', csrf_token)
     $('input[name="authenticity_token"]').val(csrf_token)
-
-update_error_msgs = (msg) ->
-  $('form .alert').removeClass('hidden')
-  $('form .alert li').empty().text(msg)

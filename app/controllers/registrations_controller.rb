@@ -5,25 +5,20 @@ class RegistrationsController < Devise::RegistrationsController
       build_resource(sign_up_params)
 
       if request.xhr?
-         puts "stadium 1"
          resource.skip_confirmation! 
          if resource.save
-            puts "stadium 2"
             if resource.active_for_authentication?
-               puts "stadium 3"
                set_flash_message :notice, :signed_up if is_navigational_format?
                sign_up(resource_name, resource)
                return render :json => {:success => true}
             else
-               puts "stadium 4"
                set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
                expire_session_data_after_sign_in!
                return render :json => {:success => true}
             end
          else
-            puts "stadium 5"
             clean_up_passwords resource
-            return render :json => {:success => false}
+            return render partial:  'devise/shared/errors', status: :unauthorized
          end
       else
          resource_saved = resource.save
