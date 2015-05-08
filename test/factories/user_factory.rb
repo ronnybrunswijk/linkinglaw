@@ -48,4 +48,29 @@ FactoryGirl.define do
         password_confirmation "lefthook"
         confirmed_at DateTime.now
    end
+
+   factory :lawyer, class: User do
+        name "Barack Obama"
+        email "barack.obama@usa.com"
+        password "whitehouse"
+        password_confirmation "whitehouse"
+        role 1
+   end
+
+   factory :entrepreneur, class: User do
+        name "Cornelius Vanderbilt"
+        email "connelius.vanderbilt@money.com"
+        password "transportation"
+        password_confirmation "transportation"
+        role 0
+   end
+
+   factory :admin, class: User do
+         name "Edsger Dijkstra"
+         email "edsger.dijkstra@it.nl"
+         password "programming"
+         password_confirmation "programming"
+         role 2
+    end
+
 end

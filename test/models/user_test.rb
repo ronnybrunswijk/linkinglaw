@@ -38,12 +38,42 @@ class UserTest < Minitest::Test
    def setup
      DatabaseCleaner.start
      @user = FactoryGirl.create(:user)
+     @lawyer = FactoryGirl.create(:lawyer)
+     @entrepreneur = FactoryGirl.create(:entrepreneur)
+     @admin = FactoryGirl.create(:admin)
    end
 
    def test_user_question_association 
      refute_empty @user.questions
    end
- 
+
+   def test_lawyer_role
+     assert_equal "lawyer", @lawyer.role
+   end
+
+
+   def test_lawyer_role
+      assert_equal "entrepreneur", @entrepreneur.role
+   end
+
+   def test__role
+      assert_equal "admin", @admin.role
+   end
+
+   def test_default_role
+     default_user = User.create(name: "Cassius Clay",
+                                email: "cassius.clay@boxing.ko",
+                                password: "uppercut",
+                                password_confirmation: "uppercut")
+     assert_equal "entrepreneur", default_user.role
+   end
+
+   def test_roles_ordinal
+     assert_equal 0, User.roles[:entrepreneur]
+     assert_equal 1, User.roles[:lawyer]
+     assert_equal 2, User.roles[:admin]
+   end
+
    def teardown
      DatabaseCleaner.clean
    end

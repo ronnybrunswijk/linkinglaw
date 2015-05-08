@@ -29,12 +29,12 @@
 #
 
 class User < ActiveRecord::Base
-  enum role: [:user, :vip, :admin]
+  enum role: [:entrepreneur, :lawyer, :admin]
   after_initialize :set_default_role, :if => :new_record?
   has_many :questions, dependent: :destroy
 
   def set_default_role
-    self.role ||= :user
+    self.role ||= :entrepreneur
   end
 
   # Include default devise modules. Others available are:
