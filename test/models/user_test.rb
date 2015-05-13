@@ -37,7 +37,7 @@ class UserTest < Minitest::Test
 
    def setup
      DatabaseCleaner.start
-     @user = FactoryGirl.create(:user)
+     @user = FactoryGirl.create(:entrepreneur_with_1_question)
      @lawyer = FactoryGirl.create(:lawyer)
      @entrepreneur = FactoryGirl.create(:entrepreneur)
      @admin = FactoryGirl.create(:admin)

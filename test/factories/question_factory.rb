@@ -16,9 +16,19 @@
 
 FactoryGirl.define do
 
-    factory :question, class: Question do
+    factory :question1, class: Question do
         title "Question title"
         description  "Question description"
     end
+
+    factory :question2, class: Question do
+        title "Question title"
+        description  "Question description"
+    end
+
+    factory :question3, class: Question do
+        title "Question title"
+        description  "Question description"
+   end
 end
   

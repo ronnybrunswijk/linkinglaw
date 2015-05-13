@@ -4,7 +4,7 @@ class UserMailerTest < ActionMailer::TestCase
 
    def setup
        DatabaseCleaner.start
-       @user = FactoryGirl.create(:user)
+       @user = FactoryGirl.create(:entrepreneur_with_1_question)
    end
 
    def test_confirm_email

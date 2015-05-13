@@ -1,10 +1,12 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:new, :preview]
   after_action :send_confirmation_email, only: [:create]
   respond_to :html
 
   def index
-    @questions = Question.all
+    user = current_user
+    @questions = user.questions
     respond_with(@questions)
   end
 

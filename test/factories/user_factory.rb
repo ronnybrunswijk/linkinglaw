@@ -30,23 +30,27 @@
 
 FactoryGirl.define do
 
-   factory :user, class: User do
+   factory :entrepreneur_with_1_question, class: User do
         name "Joe Louis"
         email "joe.louis@boxing.ko"
         password "righthook"
         password_confirmation "righthook"
         confirmed_at DateTime.now
         after(:create) do |user|
-            FactoryGirl.create(:question, user: user)
+            FactoryGirl.create(:question1, user: user)
         end
    end
 
-   factory :user2, class: User do
+   factory :entrepreneur_with_2_questions, class: User do
         name "Jack Dempsey"
         email "jack.dempsey@boxing.ko"
         password "lefthook"
         password_confirmation "lefthook"
         confirmed_at DateTime.now
+        after(:create) do |user|
+            FactoryGirl.create(:question2, user: user)
+            FactoryGirl.create(:question3, user: user)
+        end
    end
 
    factory :lawyer, class: User do

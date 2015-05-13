@@ -7,10 +7,10 @@ Before do
 end
 
 Before('@signed_in') do
-  @user = FactoryGirl.create(:user)
+  @entrepreneur_with_1_question = FactoryGirl.create(:entrepreneur_with_1_question)
   visit '/users/sign_in'
-  fill_in "user_email", with: @user.email
-  fill_in "user_password", with: @user.password
+  fill_in "user_email", with: @entrepreneur_with_1_question.email
+  fill_in "user_password", with: @entrepreneur_with_1_question.password
   click_button I18n.t(:sign_in, scope: [:devise, :sessions])
 end
 

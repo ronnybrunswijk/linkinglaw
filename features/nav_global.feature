@@ -1,6 +1,6 @@
 # language: nl
-Functionaliteit: Algemene navigatie
-  
+Functionaliteit: Algemene navigatie waarvoor het niet nodig is ingelogd te zijn
+
   Abstract Scenario: Een gebruiker bezoekt pagina's via de adresbalk
     Stel als gebruiker voer ik www.linkinglaw.nl"<UrlPath>" in in de adresbak van mijn browser
     Dan kom ik op de pagina getiteld "<Title>"

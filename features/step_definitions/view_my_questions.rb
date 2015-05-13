@@ -8,7 +8,7 @@ Als(/^ik naar de 'Mijn vragen' pagina ga$/) do
 end
 
 Dan(/^wil ik al mijn eerder gestelde vragen zien$/) do
-    question = @user.questions.first
+    question = @entrepreneur_with_1_question.questions.first
     page.find("a", text: question.title)
 end
 
@@ -17,12 +17,12 @@ Stel(/^ik bevind me op de 'Mijn vragen' pagina$/) do
 end
 
 Als(/^ik dan op (\d+) van mijn gestelde vragen klik$/) do |arg1|
-    question = @user.questions.first
+    question = @entrepreneur_with_1_question.questions.first
     click_link question.title
 end
 
 Dan(/^wil ik de details zien van de vraag, waarop ik heb geklikt$/) do
-    question = @user.questions.first
+    question = @entrepreneur_with_1_question.questions.first
     page.find("title", text: question.title)
     assert page.has_content?(question.title)
     assert page.has_content?(question.description)
