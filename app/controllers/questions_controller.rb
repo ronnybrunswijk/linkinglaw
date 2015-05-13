@@ -5,8 +5,7 @@ class QuestionsController < ApplicationController
   respond_to :html
 
   def index
-    user = current_user
-    @questions = user.questions
+    @questions = current_user.questions
     respond_with(@questions)
   end
 
@@ -24,6 +23,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    @question.user = current_user
     if params[:create]
       flash[:notice] = t(:save_success, scope: [:questions, :notifications]) if @question.save
       respond_with(@question)
