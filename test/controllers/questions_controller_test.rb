@@ -43,11 +43,11 @@ class QuestionsControllerTest < ActionController::TestCase
     def test_list_questions_entrepreneur
         get :index
         assert_response :success
-        expected_questions = @entrepreneur_with_2_questions.questions
         actual_questions = assigns(:questions)
         assert_not_nil actual_questions
-        assert_equal expected_questions.count, actual_questions.count
-        assert_includes expected_questions, actual_questions[0]
-        assert_includes expected_questions, actual_questions[1]
+        assert_equal @entrepreneur_with_2_questions.questions.count, actual_questions.count
+        actual_questions.each do |question|
+           assert_equal @entrepreneur_with_2_questions, question.user
+        end
     end
 end
