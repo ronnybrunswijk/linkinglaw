@@ -7,6 +7,7 @@ class QuestionsControllerTest < ActionController::TestCase
          DatabaseCleaner.start
          @entrepreneur_with_2_questions = FactoryGirl.create(:entrepreneur_with_2_questions)
          @entrepreneur_with_1_question = FactoryGirl.create(:entrepreneur_with_1_question)
+         @lawyer = FactoryGirl.create(:lawyer)
          @request.env['devise.mapping'] = Devise.mappings[:user]
          sign_in @entrepreneur_with_2_questions
     end
@@ -50,4 +51,14 @@ class QuestionsControllerTest < ActionController::TestCase
            assert_equal @entrepreneur_with_2_questions, question.user
         end
     end
+
+    def test_lawyer_cannot_post_question
+        sign_out @entrepreneur_with_2_questions
+        sign_in @lawyer
+        post :create, question: { title: 'a' , description: 'a' }       
+
+        assert_redirected_to root_url
+        assert_equal I18n.t(:unauthorized, scope: [:devise, :failure]), flash[:alert]
+    end
+
 end

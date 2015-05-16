@@ -17,6 +17,7 @@ nl:
       inactive: 'Je account is nog niet geactiveerd.'
       last_attempt: 'Je hebt nog een poging over voordat je account wordt geblokkeerd.'
       not_found_in_database: 'Ongeldig e-mail of wachtwoord.'
+      unauthorized: "Deze functionaliteit is niet beschikbaar voor juridische professionals."
     mailer:
       waiting_for_confirmation: 'Ogenblik a.u.b. er wordt gewacht op bevestiging voor: '
       confirmation_instructions:

@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:new, :preview]
+  before_action :authenticate_user!, only: [:index, :show, :create]
+  before_action :entrepreneur_only, only: [:index, :show, :create] 
+  before_action :set_question, only: [:show, :update, :destroy]
   after_action :send_confirmation_email, only: [:create]
   respond_to :html
 
@@ -16,9 +17,6 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new
     respond_with(@question)
-  end
-
-  def edit
   end
 
   def create
@@ -62,5 +60,11 @@ class QuestionsController < ApplicationController
 
    def send_confirmation_email
      UserMailer.confirm_question(current_user, @question).deliver!
+   end
+
+   def entrepreneur_only
+      unless current_user.role == "entrepreneur"
+          redirect_to root_url, alert: I18n.t(:unauthorized, scope: [:devise, :failure])
+      end
    end
 end

@@ -58,6 +58,7 @@ FactoryGirl.define do
         email "barack.obama@usa.com"
         password "whitehouse"
         password_confirmation "whitehouse"
+        confirmed_at DateTime.now
         role 1
    end
 
@@ -66,6 +67,7 @@ FactoryGirl.define do
         email "connelius.vanderbilt@money.com"
         password "transportation"
         password_confirmation "transportation"
+        confirmed_at DateTime.now
         role 0
    end
 
@@ -74,6 +76,7 @@ FactoryGirl.define do
          email "edsger.dijkstra@it.nl"
          password "programming"
          password_confirmation "programming"
+         confirmed_at DateTime.now
          role 2
     end
 
