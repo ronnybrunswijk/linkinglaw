@@ -12,14 +12,14 @@ class QuestionsControllerTest < ActionController::TestCase
          sign_in @entrepreneur_with_2_questions
     end
 
-    def test_post_valid_question
+    def test_preview_valid_question
         post :preview, question: { title: 'a', description: 'a' }
 
         assert_template :preview
         assert assigns(:question)
     end
 
-    def test_post_question_title_and_description_too_short
+    def test_preview_question_title_and_description_too_short
         post :preview, question: { title: '', description: '' }
         assert_template :new
         question =  assigns(:question)
@@ -30,7 +30,7 @@ class QuestionsControllerTest < ActionController::TestCase
         assert_equal "is te kort (minimaal 1 teken)", question.errors[:description].first
     end
 
-    def test_post_question_title_and_description_too_long
+    def test_preview_question_title_and_description_too_long
         post :preview, question: { title: 'a' * 101 , description: 'a' * 501 }
         assert_template :new
         question =  assigns(:question)
@@ -52,7 +52,7 @@ class QuestionsControllerTest < ActionController::TestCase
         end
     end
 
-    def test_lawyer_cannot_post_question
+    def test_lawyer_cannot_create_question
         sign_out @entrepreneur_with_2_questions
         sign_in @lawyer
         post :create, question: { title: 'a' , description: 'a' }       
@@ -60,5 +60,16 @@ class QuestionsControllerTest < ActionController::TestCase
         assert_redirected_to root_url
         assert_equal I18n.t(:unauthorized, scope: [:devise, :failure]), flash[:alert]
     end
+  
+    def test_entrepreneur_creates_question
+      post :create, { question: {title: 'a', description: 'a'}, create: 'create'}
 
+      assert_template 'user_mailer/confirm_question'
+    end
+
+    def test_entrepreneur_modifies_question
+      post :create, question: {title: 'a', description: 'a'}
+
+      assert_template :new
+    end
 end

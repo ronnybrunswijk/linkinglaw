@@ -2,7 +2,6 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show, :create]
   before_action :entrepreneur_only, only: [:index, :show, :create] 
   before_action :set_question, only: [:show, :update, :destroy]
-  after_action :send_confirmation_email, only: [:create]
   respond_to :html
 
   def index
@@ -24,6 +23,7 @@ class QuestionsController < ApplicationController
     @question.user = current_user
     if params[:create]
       flash[:notice] = t(:save_success, scope: [:questions, :notifications]) if @question.save
+      UserMailer.confirm_question(current_user, @question).deliver!
       respond_with(@question)
     else 
       render :new
@@ -58,11 +58,7 @@ class QuestionsController < ApplicationController
       params.require(:question).permit(:title, :description)
     end
 
-   def send_confirmation_email
-     UserMailer.confirm_question(current_user, @question).deliver!
-   end
-
-   def entrepreneur_only
+    def entrepreneur_only
       unless current_user.role == "entrepreneur"
           redirect_to root_url, alert: I18n.t(:unauthorized, scope: [:devise, :failure])
       end
