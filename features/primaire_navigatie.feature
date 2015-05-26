@@ -19,10 +19,10 @@ Functionaliteit: Algemene navigatie waarvoor het niet nodig is ingelogd te zijn
     Als ik dan op de "<Link>" link klik
     Dan kom ik op de pagina getiteld "<Title>"
     Voorbeelden: Links en page titels
-    |   Link             |  Title           |
-    |   Home		 |  Home	    |
-    |   Log in           |  Log in	    |
-    |   Registreren      |  Registreren     | 
-    |   Stel een vraag   |  Stel een vraag  |
-    
+    |   Link                    |  Title                   |
+    |   Home		        |  Home	                   |
+    |   Log in                  |  Log in	           |
+    |   Registreren             |  Registreren             | 
+    |   Stel een vraag          |  Stel een vraag          |
+    |   Juridische Professional |  Juridische Professional |
    
