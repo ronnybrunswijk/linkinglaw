@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
-  get 'home', to: "home#index", as: :home
+
+  get 'home', to: "static_pages#home", as: :home
+  get 'lawyer', to: "static_pages#lawyer", as: :lawyer
 
   resources :questions do 
     collection do 
       post :preview
     end
   end
-  post 'questions/preview', to: 'questions#preview', as: :preview_question
 
   mount Upmin::Engine => '/admin'
-  root to: 'home#index'
+  root to: 'static_pages#home'
   devise_for :users, controllers: {sessions: 'sessions',
   registrations: 'registrations'}
   resources :users

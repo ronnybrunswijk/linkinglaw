@@ -6,12 +6,13 @@ Functionaliteit: Algemene navigatie waarvoor het niet nodig is ingelogd te zijn
     Dan kom ik op de pagina getiteld "<Title>"
      
     Voorbeelden: Url paden and pagina titels
-    |	UrlPath          |  Title	      |
-    |  /             	 |  Home 	      |
-    |  /home             |  Home	      |
-    |  /users/sign_in    |  Log in    	      | 
-    |  /users/sign_up    |  Registreren	      |
-    |  /questions/new    |  Stel een vraag    |
+    |	UrlPath            |  Title	              |
+    |  /             	   |  Home 	              |
+    |  /home 		   |  Home	              |
+    |  /users/sign_in      |  Log in                  | 
+    |  /users/sign_up      |  Registreren	      |
+    |  /questions/new      |  Stel een vraag          |
+    |  /lawyer  	   |  Juridische Professional |
 
   Abstract Scenario: Een gebruiker navigeert door de website via menu links
     Stel als gebruiker ben ik op de home pagina
