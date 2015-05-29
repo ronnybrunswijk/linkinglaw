@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :profiles
+
   get 'home', to: "static_pages#home", as: :home
+
   get 'lawyer', to: "static_pages#lawyer", as: :lawyer
 
   resources :questions do 
@@ -13,6 +16,6 @@ Rails.application.routes.draw do
   root to: 'static_pages#home'
   devise_for :users, controllers: {sessions: 'sessions',
   registrations: 'registrations'}
-  resources :users
+  resources :users 
 
 end

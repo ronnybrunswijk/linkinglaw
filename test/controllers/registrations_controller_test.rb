@@ -38,4 +38,16 @@ class RegistrationsControllerTest < ActionController::TestCase
       assert_response :unauthorized    
   end
 
+  def test_new_user_registration_path_for_entrepreneur
+    get :new
+    assert_template :new
+    assert_nil assigns(:type)
+  end
+
+  def test_new_user_registration_path_for_lawyer
+    get :new, type: "lawyer"
+    assert_template :new
+    assert_not_nil assigns(:type)
+  end
+
 end

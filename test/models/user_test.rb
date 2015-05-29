@@ -31,8 +31,6 @@
 require 'test_helper'
 require 'database_cleaner'
 
-DatabaseCleaner.strategy = :truncation
-
 class UserTest < Minitest::Test
 
    def setup

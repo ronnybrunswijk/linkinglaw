@@ -1,5 +1,16 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  def new
+      build_resource({})
+      @type = params[:type]
+      @validatable = devise_mapping.validatable?
+      if @validatable
+         @minimum_password_length = resource_class.password_length.min
+      end
+
+      respond_with self.resource
+   end
+
    def create
 
       build_resource(sign_up_params)
