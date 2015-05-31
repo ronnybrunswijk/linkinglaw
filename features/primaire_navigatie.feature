@@ -20,7 +20,7 @@ Functionaliteit: Algemene navigatie waarvoor het niet nodig is ingelogd te zijn
     Dan kom ik op de pagina getiteld "<Title>"
     Voorbeelden: Links en page titels
     |   Link                    |  Title                   |
-    |   Home		        |  Home	                   |
+    |   home		        |  Home	                   |
     |   Log in                  |  Log in	           |
     |   Registreren             |  Registreren             | 
     |   Stel een vraag          |  Stel een vraag          |
