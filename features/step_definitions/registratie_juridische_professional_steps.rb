@@ -16,7 +16,7 @@ end
 Dan(/^wil ik alle noodzakelijke gegevens kunnen opvoeren en verzenden$/) do
   fill_in "user_name", with: "Sinterklaas"
   fill_in "user_email", with: "sinter@klaas.nl"
-  fill_in "üser_password", with: "sinterklaas"
+  fill_in "user_password", with: "sinterklaas"
   fill_in "user_password_confirmation", with: "sinterklaas"
    
 end
