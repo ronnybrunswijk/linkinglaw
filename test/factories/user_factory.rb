@@ -62,6 +62,16 @@ FactoryGirl.define do
         role 1
    end
 
+   factory :lawyer_with_profile, class: User do
+        name "Abraham Lincols"
+        email "abraham.lincoln@usa.com"
+        password "whitehouse"
+        password_confirmation "whitehouse"
+        confirmed_at DateTime.now
+        role 1
+        profile { FactoryGirl.create(:profile) }
+   end
+
    factory :entrepreneur, class: User do
         name "Cornelius Vanderbilt"
         email "connelius.vanderbilt@money.com"

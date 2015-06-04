@@ -1,0 +1,6 @@
+nl:
+  activerecord:
+    attributes:
+      profile:
+        name: "Naam"
+        practice_area: "Rechtsgebied"

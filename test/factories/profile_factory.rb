@@ -14,6 +14,10 @@
 #  index_profiles_on_user_id  (user_id)
 #
 
-class Profile < ActiveRecord::Base
-  enum practice_area: [:echtscheidingen, :contracten, :belastingen]
+FactoryGirl.define do
+
+      factory :profile, class: Profile do
+            name "Abraham Lincoln"
+            practice_area  "contracten"
+      end
 end

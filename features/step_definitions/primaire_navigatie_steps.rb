@@ -3,7 +3,7 @@ Stel(/^als gebruiker voer ik www\.linkinglaw\.nl"(.*?)" in in de adresbak van mi
 end
 
 Dan(/^kom ik op de pagina getiteld "(.*?)"$/) do |title|
-   page.find("title", text: title)
+   page.find("title", text: title, visible: false)
 end
 
 Stel(/^als gebruiker ben ik op de home pagina$/) do

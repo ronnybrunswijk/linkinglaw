@@ -1,23 +1,27 @@
-Stel(/^ik bevind me op de 'home' pagina van LinkingLaw\.nl$/) do
-   visit root_path
-   page.find("title", text: "Home")
+# -*- coding: utf-8 -*-
+Stel(/^ik bevind me op de landings pagina voor de juridische professional en ik wil me registreren$/) do
+  visit '/lawyer'
+  page.find("title", "Juridische Professional", visible: false)
 end
 
-Stel(/^ik wil me registreren als juridische professional$/) do
-end
-
-Dan(/^wil ik een duidelijke optie die leidt naar het registratieformulier voor de juridisch professional$/) do
-#   page.find("a", text: "Registreren juridische professional")
+Dan(/^wil ik een duidelijke optie die leidt naar het registratieformulier$/) do
+  find_link "signup-lawyer"
 end
 
 Als(/^ik dan naar registratieformulier voor de juridisch professional ga$/) do
-#    pending # express the regexp above with the code you wish you had
+  click_link "signup-lawyer"
+  page.find('title', "Registreren Juridiscche Professional", visible: false) 
 end
 
-Dan(/^wil ik alle noodzakelijke gegevens kunnen opvoeren$/) do
-#    pending # express the regexp above with the code you wish you had
+Dan(/^wil ik alle noodzakelijke gegevens kunnen opvoeren en verzenden$/) do
+  fill_in "user_name", with: "Sinterklaas"
+  fill_in "user_email", with: "sinter@klaas.nl"
+  fill_in "üser_password", with: "sinterklaas"
+  fill_in "user_password_confirmation", with: "sinterklaas"
+   
 end
 
-Dan(/^bevestigd worden van mijn registratie$/) do
-#    pending # express the regexp above with the code you wish you had
+Dan(/^daarna verwittigd worden over dat mijn registratie gelukt is$/) do
+
 end
+

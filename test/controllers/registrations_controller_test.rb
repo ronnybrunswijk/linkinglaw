@@ -41,13 +41,32 @@ class RegistrationsControllerTest < ActionController::TestCase
   def test_new_user_registration_path_for_entrepreneur
     get :new
     assert_template :new
-    assert_nil assigns(:type)
+    user = assigns(:user)
+    assert_not_nil user
+    assert_nil user.profile
   end
 
   def test_new_user_registration_path_for_lawyer
     get :new, type: "lawyer"
     assert_template :new
-    assert_not_nil assigns(:type)
+    user = assigns(:user)
+    assert_not_nil user
+    assert_not_nil user.profile
   end
 
+  def test_signup_as_lawyer
+     post :create, { user: { name: "Cicero",
+                             email: "law@yer.com",
+                             password: "password",
+                             password_confirmation: "password",
+                             profile_attributes: { name: "Marcus Tullius",
+                                                   practice_area: "contracten" } } }
+     assert_redirected_to root_path
+     lawyer = User.find_by name: "Cicero"
+     assert_not_nil lawyer
+     profile = lawyer.profile
+     assert_not_nil lawyer.profile
+     assert_equal "Marcus Tullius", profile.name
+     assert_equal "contracten", profile.practice_area
+  end
 end

@@ -2,9 +2,8 @@
 Functionaliteit: Registratie voor de juridische professional
 
   Scenario: de juridische professional registreert zich
-    Stel ik bevind me op de 'home' pagina van LinkingLaw.nl
-    En ik wil me registreren als juridische professional
-    Dan wil ik een duidelijke optie die leidt naar het registratieformulier voor de juridisch professional
+    Stel ik bevind me op de landings pagina voor de juridische professional en ik wil me registreren
+    Dan wil ik een duidelijke optie die leidt naar het registratieformulier
     Als ik dan naar registratieformulier voor de juridisch professional ga
-    Dan wil ik alle noodzakelijke gegevens kunnen opvoeren
-    En bevestigd worden van mijn registratie 
+    Dan wil ik alle noodzakelijke gegevens kunnen opvoeren en verzenden
+    En daarna verwittigd worden over dat mijn registratie gelukt is 

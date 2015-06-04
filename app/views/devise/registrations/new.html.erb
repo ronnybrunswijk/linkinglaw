@@ -1,10 +1,10 @@
-<%
-   title =  "Registreren"
-   title += " Juridische Professional" if @type
-   provide :title, title
-%>
 <div class="authform">
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
+    <%
+      title =  "Registreren"
+      title += " Juridische Professional" if :profile
+      provide :title, title
+    %>
     <h3><%= t(:sign_up, scope: [:devise, :registrations]) %></h3>
     <%= devise_error_messages! %>
     <div class="form-group">
@@ -24,13 +24,21 @@
       <%= f.password_field :password_confirmation, class: 'form-control' %>
     </div>
 
-    <% if @type  %>
+    <% if :profile  %>
        <div class="form-group">
-         <%= f.label :password_confirmation %>
-         <%= f.password_field :password_confirmation, class: 'form-control' %>
+	  <%= f.fields_for :profile do |profile_fields| %>
+	    <%= profile_fields.label :name %>
+	    <%= profile_fields.text_field :name, class: 'form-control' %>
+	  <% end %> 
        </div>
+       <div class="form-group">
+         <%= f.fields_for :profile do |profile_fields| %>
+           <%= profile_fields.label :practice_area %><br>
+           <%= profile_fields.select :practice_area, Profile.practice_areas.keys.to_a, { include_blank: "Selecteer een rechtsgebied..." }, { class: 'form-control' } %>
+         <% end %>
+       </div>	 
     <% end  %>
 
-     <%= f.submit t(:sign_up, scope: [:devise, :registrations]), :class => 'button right' %>
+    <%= f.submit t(:sign_up, scope: [:devise, :registrations]), :class => 'button right' %>
   <% end %>
 </div>

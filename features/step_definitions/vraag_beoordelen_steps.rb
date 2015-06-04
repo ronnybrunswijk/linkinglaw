@@ -4,25 +4,25 @@ Stel(/^als ondernemer bevind ik me op de 'preview vraag' pagina$/) do
   fill_in "question_title", with: @title
   fill_in "question_description", with: "a"
   click_button I18n.t(:preview_question, scope: [:questions])
-  page.find("title", text: I18n.t(:preview_question, scope: [:questions]))
+  page.find("title", text: I18n.t(:preview_question, scope: [:questions]), visible: false)
 end
 
 Stel(/^ik wil mijn vraag plaatsen, maar ben niet ingelogd$/) do
-  page.find("title", text: I18n.t(:preview_question, scope: [:questions]))
-  page.find("a", text: I18n.t(:sign_in, scope: [:devise, :sessions]))  
+  page.find("title", text: I18n.t(:preview_question, scope: [:questions]), visible: false)
+  page.find("a", text: I18n.t(:sign_in, scope: [:devise, :sessions]), visible: false)  
 end
 
 Dan(/^wil ik de mogelijkheid om alsnog meteen in te loggen$/) do
-  page.find("form#sign_in_user")
+  page.find("form#sign_in_user", visible: false)
 end
 
 Stel(/^ik wil mijn vraag plaatsen, maar heb me nog niet geregistreerd$/) do
-  page.find("title", text: I18n.t(:preview_question, scope: [:questions]))
-  page.find("a", text: I18n.t(:sign_up, scope: [:devise, :registrations]))
+  page.find("title", text: I18n.t(:preview_question, scope: [:questions]), visible: false)
+  page.find("a", text: I18n.t(:sign_up, scope: [:devise, :registrations]), visible: false)
 end
 
 Dan(/^wil ik de mogelijkheid om me alsnog meteen te registreren$/) do
-  page.find("form#new_user")
+  page.find("form#new_user", visible: false)
 end
 
 Als(/^ik daarbij een verkeerd bevestigingswachtwoord invoer$/) do
@@ -45,6 +45,6 @@ Als(/^ik alsnog meteen inlog en daarbij een verkeerd wachtwoord invoer$/) do
 end
 
 Dan(/^wil ik een gepaste "(.*?)" zien$/) do |foutmelding|
-   page.find("title", text: I18n.t(:preview_question, scope: [:questions]))
+   page.find("title", text: I18n.t(:preview_question, scope: [:questions]), visible: false)
    assert page.has_content?(foutmelding)
 end

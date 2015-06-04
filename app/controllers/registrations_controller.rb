@@ -2,7 +2,10 @@ class RegistrationsController < Devise::RegistrationsController
 
   def new
       build_resource({})
-      @type = params[:type]
+      if params[:type]
+        resource.build_profile
+      end
+
       @validatable = devise_mapping.validatable?
       if @validatable
          @minimum_password_length = resource_class.password_length.min
@@ -61,4 +64,13 @@ class RegistrationsController < Devise::RegistrationsController
   def sign_up(resource_name, resource)
      sign_in(resource_name, resource)
   end
+
+  protected
+
+    def configure_permitted_parameters
+       devise_parameter_sanitizer.for(:sign_up) { |user|
+          user.permit(:name, :email, :password, :password_confirmation, profile_attributes: [:name, :practice_area])
+       }
+    end
+
 end

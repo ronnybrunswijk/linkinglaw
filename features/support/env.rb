@@ -57,7 +57,7 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 Capybara.default_host = 'http://linkinglaw.nl'
-Capybara.ignore_hidden_elements = false
+Capybara.ignore_hidden_elements = true
 Capybara.javascript_driver = :poltergeist
 Capybara.default_driver = :poltergeist
 Capybara.register_driver :poltergeist do |app|

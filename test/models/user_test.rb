@@ -37,12 +37,17 @@ class UserTest < Minitest::Test
      DatabaseCleaner.start
      @user = FactoryGirl.create(:entrepreneur_with_1_question)
      @lawyer = FactoryGirl.create(:lawyer)
+     @lawyer_with_profile = FactoryGirl.create(:lawyer_with_profile)
      @entrepreneur = FactoryGirl.create(:entrepreneur)
      @admin = FactoryGirl.create(:admin)
    end
 
    def test_user_question_association 
      refute_empty @user.questions
+   end
+
+   def test_user_profile_assocation
+     refute_nil @lawyer_with_profile.profile
    end
 
    def test_lawyer_role

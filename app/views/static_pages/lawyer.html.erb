@@ -1,5 +1,6 @@
 <% provide :title, "Juridische Professional"  %>
 <h1>Juridische Professional</h1>
 <div class="text-center">
-<%= link_to "Aanmelden", new_user_registration_path(:type => "lawyer"), class: "btn btn-primary btn-lg"  %>
+<%= link_to t(:sign_up, scope: [:devise, :registrations]), new_user_registration_path(:type => "lawyer"), class: "btn btn-primary btn-lg", 
+id: "signup-lawyer"  %>
 </div>
