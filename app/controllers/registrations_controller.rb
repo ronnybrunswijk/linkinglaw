@@ -17,6 +17,9 @@ class RegistrationsController < Devise::RegistrationsController
    def create
 
       build_resource(sign_up_params)
+      if resource.profile
+        resource.role = "lawyer"
+      end
 
       if request.xhr?
          resource.skip_confirmation! 
@@ -26,7 +29,7 @@ class RegistrationsController < Devise::RegistrationsController
                sign_up(resource_name, resource)
                return render :json => {:success => true}
             else
-               set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
+               set_flash_message :notice, :"signed_up_but_inactive" if is_navigational_format?
                expire_session_data_after_sign_in!
                return render :json => {:success => true}
             end
@@ -43,7 +46,7 @@ class RegistrationsController < Devise::RegistrationsController
                sign_up(resource_name, resource)
                respond_with resource, location: after_sign_up_path_for(resource)
             else
-               set_flash_message :notice, :signed_up_but_#{resource.inactive_message}" if is_flashing_format?
+               set_flash_message :notice, :signed_up_but_inactive if is_flashing_format?
                expire_data_after_sign_in!
                respond_with resource, location: after_inactive_sign_up_path_for(resource)
             end

@@ -51,6 +51,7 @@ class RegistrationsControllerTest < ActionController::TestCase
     assert_template :new
     user = assigns(:user)
     assert_not_nil user
+    assert_equal "entrepreneur", user.role
     assert_not_nil user.profile
   end
 
@@ -64,6 +65,7 @@ class RegistrationsControllerTest < ActionController::TestCase
      assert_redirected_to root_path
      lawyer = User.find_by name: "Cicero"
      assert_not_nil lawyer
+     assert_equal "lawyer", lawyer.role
      profile = lawyer.profile
      assert_not_nil lawyer.profile
      assert_equal "Marcus Tullius", profile.name
