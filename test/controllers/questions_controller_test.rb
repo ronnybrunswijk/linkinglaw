@@ -72,4 +72,13 @@ class QuestionsControllerTest < ActionController::TestCase
 
       assert_template :new
     end
+
+    def test_entrepreneur_thats_not_signed_in_modifies_question
+      sign_out @entrepreneur_with_2_questions
+      post :modify, question: {title: 'a', description: 'b'}
+      assert_template :new
+      question = assigns(:question)
+      assert_equal 'a', question.title
+      assert_equal 'b', question.description
+    end
 end

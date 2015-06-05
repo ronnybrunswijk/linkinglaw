@@ -49,6 +49,11 @@ class QuestionsController < ApplicationController
    end
  end
 
+ def modify
+   @question = Question.new(question_params)
+   render :new
+ end
+
   private
     def set_question
       @question = Question.find(params[:id])

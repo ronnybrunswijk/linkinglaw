@@ -1,4 +1,7 @@
 $(document).on 'page:change', ->
+  $('#modify_question').bind 'click', (e) ->
+    $('form#new_question').attr({action: '/questions/modify'}) 
+
   for field in $('[maxlength]')
     do (field) ->
        set_remaining_chars field

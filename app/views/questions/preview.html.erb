@@ -13,7 +13,7 @@
   </div>
   <div class="actions">
     <%= f.submit t(:submit_question, scope: [:questions]), id: 'create_question', name: 'create', class: "button right #{'hidden' unless user_signed_in? }" %>
-    <%= f.submit t(:modify_question, scope: [:questions]), class: 'btn btn-default right'%> 
+    <%= f.submit t(:modify_question, scope: [:questions]), id: 'modify_question', class: 'btn btn-default right'%> 
   </div>
 <% end %>
 </div>

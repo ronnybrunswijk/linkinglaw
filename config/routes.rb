@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :questions do 
     collection do 
       post :preview
+      post :modify
     end
   end
 

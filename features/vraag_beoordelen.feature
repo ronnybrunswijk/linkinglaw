@@ -33,3 +33,10 @@ Functionaliteit: de ondernemer stelt een vraag,
     Voorbeelden:
     |		foutmelding	       |
     | "Ongeldig e-mail of wachtwoord"  |
+
+   # test because of bug 338 
+   Scenario: de ondernemer wil, na het beoordelen ervan, zijn vraag wijzigen. De ondernemer is daarbij niet ingelogd.
+     Stel als ondernemer bevind ik me op de 'preview vraag' pagina en ben niet ingelogd
+     Dan wil ik de mogelijk hebben om mijn vraag te wijzigen
+     Als ik gebruik maak van de mogelijkheid om mijn vraag te wijzigen
+     Dan wil ik terugkeren naar 'vraag plaatsen' pagina
