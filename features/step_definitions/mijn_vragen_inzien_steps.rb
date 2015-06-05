@@ -1,5 +1,5 @@
 Stel(/^ik ben ingelogd als ondernemer$/) do
-    page.find("a", text: I18n.t(:sign_out, scope: [:devise, :sessions]), visible: false)
+    page.find("a", text: @current_user.email)
 end
 
 Als(/^ik naar de 'Mijn vragen' pagina ga$/) do
@@ -9,7 +9,7 @@ end
 
 Dan(/^wil ik al mijn eerder gestelde vragen zien$/) do
     question = @current_user.questions.first
-    page.find("a", text: question.title, visible: false)
+    page.find("a", text: question.title)
 end
 
 Stel(/^ik bevind me op de 'Mijn vragen' pagina$/) do
@@ -34,7 +34,7 @@ Stel(/^ik bevind me op de 'Home' pagina$/) do
 end
 
 Stel(/^ik ben niet ingelogd$/) do
-    page.find("a", text: I18n.t(:sign_in, scope: [:devise, :sessions]), visible: false)
+    page.find("a", text: I18n.t(:sign_in, scope: [:devise, :sessions]))
 end
 
 Als(/^ik dan via de adresbalk naar de 'Mijn vragen' pagina navigeer$/) do
@@ -42,7 +42,7 @@ Als(/^ik dan via de adresbalk naar de 'Mijn vragen' pagina navigeer$/) do
 end
 
 Dan(/^wil ik op de 'Log in' pagina terecht komen$/) do
-    page.find("title", text: "Log in", visible: false)
+    page.find("title", text: I18n.t(:sign_in, scope: [:devise, :sessions]), visible: false)
 end
 
 Dan(/^een melding zien dat ik nog moet inloggen$/) do
