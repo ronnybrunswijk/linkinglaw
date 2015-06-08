@@ -18,6 +18,7 @@ Functionaliteit: Algemene navigatie waarvoor het niet nodig is ingelogd te zijn
     Stel als gebruiker ben ik op de home pagina
     Als ik dan op de "<Link>" link klik
     Dan kom ik op de pagina getiteld "<Title>"
+
     Voorbeelden: Links en page titels
     |   Link                    |  Title                   |
     |   home		        |  Home	                   |
@@ -26,3 +27,23 @@ Functionaliteit: Algemene navigatie waarvoor het niet nodig is ingelogd te zijn
     |   Stel een vraag          |  Stel een vraag          |
     |   Juridische Professional |  Juridische Professional |
    
+
+  @signed_in_lawyer
+  Abstract Scenario: De juridische professional navigeert door de website via de adresbalk
+  	   	     die alleen voor de ingelogde juridische professional beschikbaar zijn 
+    Stel als gebruiker voer ik www.linkinglaw.nl"<UrlPath>" in in de adresbak van mijn browser
+    Dan kom ik op de pagina getiteld "<Title>"
+
+    Voorbeelden: Url paden and pagina titels
+    |   UrlPath       	        |  Title                   |
+    |  /questions/list          |  Gestelde vragen         |
+
+  @signed_in_lawyer
+  Abstract Scenario: De juridische professional navigeert door de website via de user links voor de ingelogde juridische professional
+    Stel als juridische professional bevind ik me op de home pagina en ben ingelogd
+    Als ik dan op de "<Link>" link klik in het menu voor de ingelogde juridische professional
+    Dan kom ik op de pagina getiteld "<Title>"
+
+    Voorbeelden: Links en page titels
+    |   Link                    |  Title                   |
+    |   Gestelde vragen         |  Gestelde vragen         |

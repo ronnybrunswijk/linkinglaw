@@ -81,4 +81,14 @@ class QuestionsControllerTest < ActionController::TestCase
       assert_equal 'a', question.title
       assert_equal 'b', question.description
     end
+
+    def test_list_all_questions_for_signed_in_lawyers
+      get :list
+     
+      assert_template :list
+      questions = assigns(:questions)
+      refute_empty questions
+    end
+    
+
 end

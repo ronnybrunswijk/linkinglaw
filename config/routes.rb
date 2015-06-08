@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     collection do 
       post :preview
       post :modify
+      get :list
     end
   end
 

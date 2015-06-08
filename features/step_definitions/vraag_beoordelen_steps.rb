@@ -9,24 +9,24 @@ end
 
 Stel(/^ik wil mijn vraag plaatsen, maar ben niet ingelogd$/) do
   page.find("title", text: I18n.t(:preview_question, scope: [:questions]), visible: false)
-  page.find("a", text: I18n.t(:sign_in, scope: [:devise, :sessions]), visible: false)  
+  page.find("a", text: I18n.t(:sign_in, scope: [:devise, :sessions]))  
 end
 
 Dan(/^wil ik de mogelijkheid om alsnog meteen in te loggen$/) do
-  page.find("form#sign_in_user", visible: false)
+  page.find("form#sign_in_user")
 end
 
 Stel(/^ik wil mijn vraag plaatsen, maar heb me nog niet geregistreerd$/) do
   page.find("title", text: I18n.t(:preview_question, scope: [:questions]), visible: false)
-  page.find("a", text: I18n.t(:sign_up, scope: [:devise, :registrations]), visible: false)
+  page.find("a", text: I18n.t(:sign_up, scope: [:devise, :registrations]))
 end
 
 Dan(/^wil ik de mogelijkheid om me alsnog meteen te registreren$/) do
-  page.find("form#new_user", visible: false)
+  choose "auth_form_sign_up"
+  page.find("form#new_user")
 end
 
 Als(/^ik daarbij een verkeerd bevestigingswachtwoord invoer$/) do
-  choose "auth_form_sign_up" 
   fill_in "user_email", with: "IfuckAnything@that.moves" 
   fill_in "user_password", with: "12345678"
   fill_in "user_password_confirmation", with: "87654321"

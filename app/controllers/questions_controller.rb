@@ -54,6 +54,10 @@ class QuestionsController < ApplicationController
    render :new
  end
 
+  def list
+    @questions = Question.all
+  end
+
   private
     def set_question
       @question = Question.find(params[:id])
