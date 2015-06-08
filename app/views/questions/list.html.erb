@@ -1,1 +1,18 @@
+<div class="authform">
 <% provide :title, t(:all, scope: [:questions])  %>
+
+  <table>
+     <thead>
+        <tr>
+            <th><%= t('activerecord.attributes.question.title') %></th>
+        </tr>
+     </thead>
+     <tbody>
+       <% @questions.each do |question| %>
+           <tr>
+               <td><%= link_to question.title, question %></td>
+          </tr>
+       <% end %>
+      </tbody>
+    </table>
+</div>  
