@@ -4,7 +4,7 @@ end
 
 Als(/^ik naar de 'Mijn vragen' pagina ga$/) do
     visit questions_path
-    page.find("title", text: I18n.t(:all_mine, scope: [:questions]), visible: false)
+    page.find("title", text: I18n.t(:mine, scope: [:questions]), visible: false)
 end
 
 Dan(/^wil ik al mijn eerder gestelde vragen zien$/) do
