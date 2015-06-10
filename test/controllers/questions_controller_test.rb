@@ -53,12 +53,11 @@ class QuestionsControllerTest < ActionController::TestCase
     end
 
     def test_lawyer_cannot_create_question
-        sign_out @entrepreneur_with_2_questions
         sign_in @lawyer
         post :create, question: { title: 'a' , description: 'a' }       
 
         assert_redirected_to root_url
-        assert_equal I18n.t(:unauthorized, scope: [:devise, :failure]), flash[:alert]
+        assert_equal I18n.t(:unauthorized, scope: [:devise, :failure], user_type: @lawyer.role), flash[:alert]
     end
   
     def test_entrepreneur_creates_question
@@ -72,8 +71,10 @@ class QuestionsControllerTest < ActionController::TestCase
 
       assert_template :new
     end
-
-    def test_entrepreneur_thats_not_signed_in_modifies_question
+    
+    # test to ensure that bug that caused error message, about not being signed in,
+    # when trying to modify a question as a anonymous user, is fixed.
+    test 'anonymous user tries to modify a question' do
       sign_out @entrepreneur_with_2_questions
       post :modify, question: {title: 'a', description: 'b'}
       assert_template :new
@@ -83,12 +84,26 @@ class QuestionsControllerTest < ActionController::TestCase
     end
 
     def test_list_all_questions_for_signed_in_lawyers
+      sign_in @lawyer
       get :list
      
       assert_template :list
       questions = assigns(:questions)
       refute_empty questions
     end
-    
 
+    def test_list_all_questions_is_not_available_for_entrepreneur
+        get :list
+        
+        assert_redirected_to root_path
+        assert_equal I18n.t(:unauthorized, scope: [:devise, :failure], user_type: @entrepreneur_with_2_questions.role), flash[:alert]        
+    end
+    
+    test 'list all questions is not available for anonymous user' do
+       sign_out @entrepreneur_with_2_questions
+        get :list
+        
+        assert_redirected_to '/users/sign_in'
+        assert_equal I18n.t(:unauthenticated ,scope: [:devise,:failure]), flash[:alert]
+    end
 end

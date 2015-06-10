@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :show, :create]
+  before_action :authenticate_user!, only: [:index, :show, :create, :list]
   before_action :entrepreneur_only, only: [:index, :show, :create] 
+  before_action :lawyer_only, only: [:list]
   before_action :set_question, only: [:show, :update, :destroy]
   respond_to :html
 
@@ -69,7 +70,13 @@ class QuestionsController < ApplicationController
 
     def entrepreneur_only
       unless current_user.role == "entrepreneur"
-          redirect_to root_url, alert: I18n.t(:unauthorized, scope: [:devise, :failure])
+          redirect_to root_url, alert: I18n.t(:unauthorized, scope: [:devise, :failure], user_type: current_user.role)
       end
    end
+   
+    def lawyer_only
+      unless current_user.role == "lawyer"
+          redirect_to root_url, alert: I18n.t(:unauthorized, scope: [:devise, :failure], user_type: current_user.role)
+      end
+   end   
 end
