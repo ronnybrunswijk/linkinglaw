@@ -21,7 +21,7 @@ nl:
     mailer:
       waiting_for_confirmation: 'Ogenblik a.u.b. er wordt gewacht op bevestiging voor: '
       confirmation_instructions:
-        subject: 'Bevestiging mailadres'
+        subject: 'Activeer uw LinkingLaw-account'
       reset_password_instructions:
         subject: 'Wachtwoord resetten'
       unlock_instructions:
