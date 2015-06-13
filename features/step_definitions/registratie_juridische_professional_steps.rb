@@ -23,6 +23,9 @@ Dan(/^wil ik alle noodzakelijke gegevens kunnen opvoeren en verzenden$/) do
   #profile info
   fill_in "user_profile_attributes_first_name", with: "Iron Mike"
   fill_in "user_profile_attributes_last_name", with: "Tyson"  
+  fill_in "user_profile_attributes_business_address", with: "Knock out street 2"  
+  fill_in "user_profile_attributes_city", with: "New York"  
+  fill_in "user_profile_attributes_phone", with: "(999) 999-9999"    
 #  select "belastingen", from: "Rechtsgebied"  
   click_button "Registreren" 
 end
@@ -36,6 +39,9 @@ Dan(/^daarna verwittigd worden over dat mijn registratie gelukt is$/) do
   assert_not_nil profile
   assert_equal "Iron Mike", profile.first_name
   assert_equal "Tyson", profile.last_name
+  assert_equal "Knock out street 2", profile.business_address
+  assert_equal "New York", profile.city
+  assert_equal "(999) 999-9999", profile.phone
   assert page.has_content? I18n.t(:signed_up_but_inactive, scope: [:devise, :registrations])
 end
 

@@ -38,6 +38,24 @@
     	  <% end %> 
        </div>
        <div class="form-group">
+    	  <%= f.fields_for :profile do |profile_fields| %>
+	        <%= profile_fields.label :business_address %>
+    	    <%= profile_fields.text_field :business_address, class: 'form-control' %>
+    	  <% end %> 
+       </div>
+       <div class="form-group">
+    	  <%= f.fields_for :profile do |profile_fields| %>
+	        <%= profile_fields.label :city %>
+    	    <%= profile_fields.text_field :city, class: 'form-control' %>
+    	  <% end %> 
+       </div>
+       <div class="form-group">
+    	  <%= f.fields_for :profile do |profile_fields| %>
+	        <%= profile_fields.label :phone %>
+    	    <%= profile_fields.text_field :phone, class: 'form-control' %>
+    	  <% end %> 
+       </div>
+       <div class="form-group">
          <%= f.fields_for :profile do |profile_fields| %>
            <!--%= profile_fields.label :practice_area %--><br>
            <!--%= profile_fields.select :practice_area, Profile.practice_areas.keys.to_a, { include_blank: "Selecteer een rechtsgebied..." }, { class: 'form-control' } %-->

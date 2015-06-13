@@ -4,3 +4,6 @@ nl:
       profile:
         first_name: "Voornaam"
         last_name: "Achternaam"
+        business_address: "Zakelijk adres"
+        city: "Stad"
+        phone: "Telefoonnummer"

@@ -61,7 +61,11 @@ class RegistrationsControllerTest < ActionController::TestCase
                              password: "password",
                              password_confirmation: "password",
                              profile_attributes: { first_name: "Marcus Tullius",
-                                                    last_name: "Cicero"  } } }
+                                                    last_name: "Cicero",
+                                                    business_address: "Via della Salara Vecchia 5/6",
+                                                    city: "Roma",
+                                                    phone: "+39 06 0608"
+                             } } }
      assert_redirected_to root_path
      lawyer = User.find_by name: "Cicero"
      assert_not_nil lawyer
@@ -70,5 +74,8 @@ class RegistrationsControllerTest < ActionController::TestCase
      assert_not_nil lawyer.profile
      assert_equal "Marcus Tullius", profile.first_name
      assert_equal "Cicero", profile.last_name
+     assert_equal "Via della Salara Vecchia 5/6", profile.business_address
+     assert_equal "Roma", profile.city
+     assert_equal "+39 06 0608", profile.phone
   end
 end
