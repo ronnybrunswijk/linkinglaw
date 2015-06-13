@@ -6,6 +6,8 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  user_id    :integer
+#  first_name :string(255)
+#  last_name  :string(255)
 #
 # Indexes
 #

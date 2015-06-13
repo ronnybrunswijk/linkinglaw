@@ -2,5 +2,5 @@ nl:
   activerecord:
     attributes:
       profile:
-        name: "Naam"
-        practice_area: "Rechtsgebied"
+        first_name: "Voornaam"
+        last_name: "Achternaam"

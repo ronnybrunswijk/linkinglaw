@@ -6,6 +6,8 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  user_id    :integer
+#  first_name :string(255)
+#  last_name  :string(255)
 #
 # Indexes
 #
@@ -15,6 +17,7 @@
 FactoryGirl.define do
 
       factory :profile, class: Profile do
-
+            first_name "Abraham"
+            last_name "Lincoln"
       end
 end

@@ -72,7 +72,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     def configure_permitted_parameters
        devise_parameter_sanitizer.for(:sign_up) { |user|
-          user.permit(:name, :email, :password, :password_confirmation, profile_attributes: [:name, :practice_area])
+          user.permit(:name, :email, :password, :password_confirmation, profile_attributes: [:first_name, :last_name])
        }
     end
 
