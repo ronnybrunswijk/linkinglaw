@@ -60,15 +60,14 @@ class RegistrationsControllerTest < ActionController::TestCase
                              email: "law@yer.com",
                              password: "password",
                              password_confirmation: "password",
-                             profile_attributes: { name: "Marcus Tullius",
-                                                   practice_area: "contracten" } } }
+                             profile_attributes: { 
+                                                   } } }
      assert_redirected_to root_path
      lawyer = User.find_by name: "Cicero"
      assert_not_nil lawyer
      assert_equal "lawyer", lawyer.role
      profile = lawyer.profile
      assert_not_nil lawyer.profile
-     assert_equal "Marcus Tullius", profile.name
-     assert_equal "contracten", profile.practice_area
+
   end
 end

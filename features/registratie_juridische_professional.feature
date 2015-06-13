@@ -7,3 +7,4 @@ Functionaliteit: Registratie voor de juridische professional
     Als ik dan naar registratieformulier voor de juridisch professional ga
     Dan wil ik alle noodzakelijke gegevens kunnen opvoeren en verzenden
     En daarna verwittigd worden over dat mijn registratie gelukt is 
+    

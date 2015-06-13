@@ -2,12 +2,10 @@
 #
 # Table name: profiles
 #
-#  id            :integer          not null, primary key
-#  name          :string(255)
-#  practice_area :integer
-#  created_at    :datetime
-#  updated_at    :datetime
-#  user_id       :integer
+#  id         :integer          not null, primary key
+#  created_at :datetime
+#  updated_at :datetime
+#  user_id    :integer
 #
 # Indexes
 #
