@@ -15,8 +15,7 @@ end
 Dan(/^wil ik alle noodzakelijke gegevens kunnen opvoeren en verzenden$/) do
 
   # account info
-  fill_in "user_name", with: "Iron Mike Tyson"
-  fill_in "user_email", with: "irom@mike.nl"
+  fill_in "user_email", with: "iron@mike.nl"
   fill_in "user_password", with: "right hook"
   fill_in "user_password_confirmation", with: "right hook"
 
@@ -35,7 +34,7 @@ end
 
 Dan(/^daarna verwittigd worden over dat mijn registratie gelukt is$/) do
   page.find("title", "Home", visible: false)
-  user = User.find_by name: "Iron Mike Tyson"
+  user = User.find_by email: "iron@mike.nl"
   assert_not_nil user
   assert_equal "lawyer", user.role
   profile = user.profile

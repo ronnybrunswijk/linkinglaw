@@ -1,16 +1,28 @@
-<div class="authform">
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
-    <%
-      title =  "Registreren"
-      title += " Juridische Professional" if :profile
-      provide :title, title
-    %>
-    <h3><%= t(:sign_up, scope: [:devise, :registrations]) %></h3>
-    <%= devise_error_messages! %>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
-    </div>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
+  <%
+    title =  "Registreren"
+    title += " Juridische Professional" if resource.profile
+    provide :title, title
+  %>
+
+  <%= devise_error_messages! %>
+  
+  <% if resource.profile  %>
+    <div class="authform pad-b-10px">
+      <%= render partial: 'profiles/fields', locals: { f: f } %>        
+    </div>  
+  <% end  %>
+  
+  <div class="authform">
+
+    <h3>Accountgegevens</h3>    
+    <% unless resource.profile  %>
+     <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+      </div>
+    <% end %>
+
     <div class="form-group">
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
@@ -24,69 +36,7 @@
       <%= f.password_field :password_confirmation, class: 'form-control' %>
     </div>
 
-    <% if :profile  %>
-       <div class="form-group">
-    	  <%= f.fields_for :profile do |profile_fields| %>
-	        <%= profile_fields.label :first_name %>
-    	    <%= profile_fields.text_field :first_name, class: 'form-control' %>
-    	  <% end %> 
-       </div>
-       <div class="form-group">
-    	  <%= f.fields_for :profile do |profile_fields| %>
-	        <%= profile_fields.label :last_name %>
-    	    <%= profile_fields.text_field :last_name, class: 'form-control' %>
-    	  <% end %> 
-       </div>
-       <div class="form-group">
-    	  <%= f.fields_for :profile do |profile_fields| %>
-	        <%= profile_fields.label :business_address %>
-    	    <%= profile_fields.text_field :business_address, class: 'form-control' %>
-    	  <% end %> 
-       </div>
-       <div class="form-group">
-    	  <%= f.fields_for :profile do |profile_fields| %>
-	        <%= profile_fields.label :city %>
-    	    <%= profile_fields.text_field :city, class: 'form-control' %>
-    	  <% end %> 
-       </div>
-       <div class="form-group">
-    	  <%= f.fields_for :profile do |profile_fields| %>
-	        <%= profile_fields.label :phone %>
-    	    <%= profile_fields.text_field :phone, class: 'form-control' %>
-    	  <% end %> 
-       </div>
-       <div class="form-group">
-    	  <%= f.fields_for :profile do |profile_fields| %>
-	        <%= profile_fields.label :profession %>
-    	    <%= profile_fields.select :profession, get_profession_options, { prompt: "Selecteer een beroep..." }, { class: 'form-control' } %>
-    	  <% end %> 
-       </div>
-       <div class="form-group btn-group" data-toggle="buttons">
-    	  <%= f.fields_for :profile do |profile_fields| %>
-    	    <%= profile_fields.label :disciplinary_decision %><br>
-    	    <label class="btn btn-primary active">
-      	    <%= profile_fields.radio_button :disciplinary_decision, false, checked: true %> Nee    	      
-    	    </label>
-    	    <label class="btn btn-primary">
-      	    <%= profile_fields.radio_button :disciplinary_decision, true %> Ja    	      
-    	    </label>
-    	  <% end %> 
-       </div>
-       <div class="form-group">
-    	  <%= f.fields_for :profile do |profile_fields| %>
-	        <%= profile_fields.label :years_of_work_experience %>
-    	    <%= profile_fields.select :years_of_work_experience, get_years_of_work_experience_options, { prompt: "Selecteer een aantal jaren..." }, { class: 'form-control' } %>
-    	  <% end %> 
-       </div>
-       <div class="form-group">
-    	  <%= f.fields_for :profile do |profile_fields| %>
-	        <%= profile_fields.label :chamber_of_commerce_no %>
-    	    <%= profile_fields.text_field :chamber_of_commerce_no, class: 'form-control' %>
-    	  <% end %> 
-       </div>
-       
-    <% end  %>
-
     <%= f.submit t(:sign_up, scope: [:devise, :registrations]), :class => 'button right' %>
-  <% end %>
-</div>
+  </div>  
+<% end %>
+

@@ -1,0 +1,60 @@
+<h3>Profielgegevens</h3>
+<div class="form-group">
+      <%= f.fields_for :profile do |profile_fields| %>
+        <%= profile_fields.label :first_name %>
+        <%= profile_fields.text_field :first_name, class: 'form-control' %>
+      <% end %> 
+</div>
+<div class="form-group">
+      <%= f.fields_for :profile do |profile_fields| %>
+        <%= profile_fields.label :last_name %>
+        <%= profile_fields.text_field :last_name, class: 'form-control' %>
+      <% end %> 
+</div>
+<div class="form-group">
+      <%= f.fields_for :profile do |profile_fields| %>
+        <%= profile_fields.label :business_address %>
+        <%= profile_fields.text_field :business_address, class: 'form-control' %>
+      <% end %> 
+</div>
+<div class="form-group">
+      <%= f.fields_for :profile do |profile_fields| %>
+        <%= profile_fields.label :city %>
+        <%= profile_fields.text_field :city, class: 'form-control' %>
+      <% end %> 
+</div>
+<div class="form-group">
+      <%= f.fields_for :profile do |profile_fields| %>
+        <%= profile_fields.label :phone %>
+        <%= profile_fields.text_field :phone, class: 'form-control' %>
+      <% end %> 
+</div>
+<div class="form-group">
+      <%= f.fields_for :profile do |profile_fields| %>
+        <%= profile_fields.label :profession %>
+        <%= profile_fields.select :profession, get_profession_options, { prompt: "Selecteer een beroep..." }, { class: 'form-control' } %>
+      <% end %> 
+</div>
+<div class="form-group">
+      <%= f.fields_for :profile do |profile_fields| %>
+        <%= profile_fields.label :years_of_work_experience %>
+        <%= profile_fields.select :years_of_work_experience, get_years_of_work_experience_options, { prompt: "Selecteer een aantal jaren..." }, { class: 'form-control' } %>
+      <% end %> 
+</div>
+<div class="form-group">
+      <%= f.fields_for :profile do |profile_fields| %>
+        <%= profile_fields.label :chamber_of_commerce_no %>
+        <%= profile_fields.text_field :chamber_of_commerce_no, class: 'form-control' %>
+      <% end %> 
+</div>
+<div class="form-group btn-group" data-toggle="buttons">
+      <%= f.fields_for :profile do |profile_fields| %>
+        <%= profile_fields.label :disciplinary_decision %><br>
+        <label class="btn btn-primary active">
+          <%= profile_fields.radio_button :disciplinary_decision, false, checked: true %> Nee    	      
+        </label>
+        <label class="btn btn-primary">
+          <%= profile_fields.radio_button :disciplinary_decision, true %> Ja    	      
+        </label>
+      <% end %> 
+</div>
