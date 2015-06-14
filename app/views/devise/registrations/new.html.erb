@@ -56,6 +56,23 @@
     	  <% end %> 
        </div>
        <div class="form-group">
+    	  <%= f.fields_for :profile do |profile_fields| %>
+	        <%= profile_fields.label :profession %>
+    	    <%= profile_fields.select :profession, get_profession_options, { prompt: "Selecteer een beroep..." }, { class: 'form-control' } %>
+    	  <% end %> 
+       </div>
+       <div class="form-group btn-group" data-toggle="buttons">
+    	  <%= f.fields_for :profile do |profile_fields| %>
+    	    <%= profile_fields.label :disciplinary_decision %><br>
+    	    <label class="btn btn-primary active">
+      	    <%= profile_fields.radio_button :disciplinary_decision, false, checked: true %> Nee    	      
+    	    </label>
+    	    <label class="btn btn-primary">
+      	    <%= profile_fields.radio_button :disciplinary_decision, true %> Ja    	      
+    	    </label>
+    	  <% end %> 
+       </div>
+       <div class="form-group">
          <%= f.fields_for :profile do |profile_fields| %>
            <!--%= profile_fields.label :practice_area %--><br>
            <!--%= profile_fields.select :practice_area, Profile.practice_areas.keys.to_a, { include_blank: "Selecteer een rechtsgebied..." }, { class: 'form-control' } %-->

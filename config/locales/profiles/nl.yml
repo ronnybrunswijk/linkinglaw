@@ -5,5 +5,7 @@ nl:
         first_name: "Voornaam"
         last_name: "Achternaam"
         business_address: "Zakelijk adres"
-        city: "Stad"
+        city: "Vestigingsplaats"
         phone: "Telefoonnummer"
+        profession: "Functie"
+        disciplinary_decision: "Disciplinaire beslissingen"

@@ -64,7 +64,9 @@ class RegistrationsControllerTest < ActionController::TestCase
                                                     last_name: "Cicero",
                                                     business_address: "Via della Salara Vecchia 5/6",
                                                     city: "Roma",
-                                                    phone: "+39 06 0608"
+                                                    phone: "+39 06 0608",
+                                                    profession: "Lawyer",
+                                                    disciplinary_decision: "false"
                              } } }
      assert_redirected_to root_path
      lawyer = User.find_by name: "Cicero"
@@ -77,5 +79,7 @@ class RegistrationsControllerTest < ActionController::TestCase
      assert_equal "Via della Salara Vecchia 5/6", profile.business_address
      assert_equal "Roma", profile.city
      assert_equal "+39 06 0608", profile.phone
+     assert_equal "Lawyer", profile.profession
+     refute profile.disciplinary_decision
   end
 end

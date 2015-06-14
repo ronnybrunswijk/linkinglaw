@@ -77,7 +77,9 @@ class RegistrationsController < Devise::RegistrationsController
                                :last_name,
                                :business_address,
                                :city,
-                               :phone])
+                               :phone,
+                               :profession,
+                               :disciplinary_decision])
        }
     end
 

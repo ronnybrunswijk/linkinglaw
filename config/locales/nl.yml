@@ -25,3 +25,8 @@ nl:
     confirm: "Weet je het zeker"
     update: "Wijzig"
     lawyer: "Juridische Professional"
+    profession_options:
+      lawyer: "Advocaat"
+      jurist: "Jurist"
+      tax_lawyer: "Fiscalist"
+      different: "Anders"    
