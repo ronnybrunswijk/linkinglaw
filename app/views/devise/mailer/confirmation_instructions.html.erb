@@ -5,11 +5,10 @@
 <% else %>
    <p>Beste <%= @email %>,</p>
    <p>
-      Welkom en hartelijk dank voor uw aanmelding bij LinkingLaw! Met gemiddeld duizend bezoekers per maand, helpt LinkingLaw u bij het vinden van nieuwe cliënten.<br />
-      Nu u zich geregistreerd hebt,  kunt u zelf uw profiel aanvullen. Hoe uitgebreider uw profiel, hoe groter de kans dat u door potentiële cliënten gevonden wordt.      
+      Welkom en hartelijk dank voor uw aanmelding bij LinkingLaw! Met gemiddeld duizend bezoekers per maand, helpt LinkingLaw u bij het vinden van nieuwe cliënten.
    </p>
    <p>
-     Nu u zich geregistreerd hebt,  kunt u zelf uw profiel aanvullen. Hoe uitgebreider uw profiel, hoe groter de kans dat u door potentiële cliënten gevonden wordt.
+      Nadat u uw account <%= link_to 'hier', confirmation_url(@resource, confirmation_token: @token) %> bevestigd hebt, kunt u zelf uw profiel aanvullen. Hoe uitgebreider uw profiel, hoe groter de kans dat u door potentiële cliënten gevonden wordt.
    </p>
 <% end %>
   <p>Hebt u vragen, opmerkingen of suggesties, neemt u dan contact met ons op. Wij zijn u graag van dienst!</p>
