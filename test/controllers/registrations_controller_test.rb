@@ -67,7 +67,8 @@ class RegistrationsControllerTest < ActionController::TestCase
                                                     phone: "+39 06 0608",
                                                     profession: "Lawyer",
                                                     disciplinary_decision: "false",
-                                                    years_of_work_experience: 10
+                                                    years_of_work_experience: 10,
+                                                    chamber_of_commerce_no: "123456"
                              } } }
      assert_redirected_to root_path
      lawyer = User.find_by name: "Cicero"
@@ -82,6 +83,7 @@ class RegistrationsControllerTest < ActionController::TestCase
      assert_equal "+39 06 0608", profile.phone
      assert_equal "Lawyer", profile.profession
      assert_equal 10, profile.years_of_work_experience
+     assert_equal "123456", profile.chamber_of_commerce_no
      refute profile.disciplinary_decision
   end
 end

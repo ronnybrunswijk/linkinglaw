@@ -14,6 +14,7 @@
 #  profession               :string(255)
 #  disciplinary_decision    :boolean
 #  years_of_work_experience :integer
+#  chamber_of_commerce_no   :string(255)
 #
 # Indexes
 #

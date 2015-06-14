@@ -80,7 +80,8 @@ class RegistrationsController < Devise::RegistrationsController
                                :phone,
                                :profession,
                                :disciplinary_decision,
-                               :years_of_work_experience])
+                               :years_of_work_experience,
+                               :chamber_of_commerce_no])
        }
     end
 
