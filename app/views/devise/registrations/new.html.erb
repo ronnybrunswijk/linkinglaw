@@ -74,12 +74,6 @@
        </div>
        <div class="form-group">
     	  <%= f.fields_for :profile do |profile_fields| %>
-	        <%= profile_fields.label :year_of_inauguration %>
-    	    <%= profile_fields.select :year_of_inauguration, get_year_of_inauguration_options, { prompt: "Selecteer een jaar..." }, { class: 'form-control' } %>
-    	  <% end %> 
-       </div>
-       <div class="form-group">
-    	  <%= f.fields_for :profile do |profile_fields| %>
 	        <%= profile_fields.label :years_of_work_experience %>
     	    <%= profile_fields.select :years_of_work_experience, get_years_of_work_experience_options, { prompt: "Selecteer een aantal jaren..." }, { class: 'form-control' } %>
     	  <% end %> 

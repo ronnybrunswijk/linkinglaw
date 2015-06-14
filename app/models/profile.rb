@@ -13,7 +13,6 @@
 #  phone                    :string(255)
 #  profession               :string(255)
 #  disciplinary_decision    :boolean
-#  year_of_inauguration     :integer
 #  years_of_work_experience :integer
 #
 # Indexes

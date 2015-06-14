@@ -28,7 +28,6 @@ Dan(/^wil ik alle noodzakelijke gegevens kunnen opvoeren en verzenden$/) do
   fill_in "user_profile_attributes_phone", with: "(999) 999-9999"    
   select "Fiscalist", from: "Functie"
 #  choose "Ja" Dit is registrere under nr. 374 op de backlog
-  select "2010", from: "Jaar van beēdiging"
   select "5", from: "Aantal jaren werkervaring"
   click_button "Registreren" 
 end
@@ -46,7 +45,6 @@ Dan(/^daarna verwittigd worden over dat mijn registratie gelukt is$/) do
   assert_equal "New York", profile.city
   assert_equal "(999) 999-9999", profile.phone
   assert_equal "Fiscalist", profile.profession
-  assert_equal 2010, profile.year_of_inauguration
   assert_equal 5, profile.years_of_work_experience
   refute profile.disciplinary_decision
   assert page.has_content? I18n.t(:signed_up_but_inactive, scope: [:devise, :registrations])

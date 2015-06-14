@@ -27,14 +27,4 @@ class ProfilesHelperTest < ActionView::TestCase
        assert_equal ["N.v.t.",0], options.first
        assert_equal 100, options.values.last
     end
-    
-    test 'get year of inauguration options' do
-        
-        options = get_year_of_inauguration_options
-        
-        assert_equal ["N.v.t.", nil], options.first
-        assert_equal Date.today.year, options.values[1]
-        assert_equal Date.today.year, options.keys[1]
-        assert_equal 1930, options.values.last
-    end
 end
