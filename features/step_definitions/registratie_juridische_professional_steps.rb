@@ -15,20 +15,11 @@ end
 Dan(/^wil ik alle noodzakelijke gegevens kunnen opvoeren en verzenden$/) do
 
   # account info
-  fill_in "user_email", with: "iron@mike.nl"
-  fill_in "user_password", with: "right hook"
-  fill_in "user_password_confirmation", with: "right hook"
+  fill_in_account
 
-  #profile info
-  fill_in "user_profile_attributes_first_name", with: "Iron Mike"
-  fill_in "user_profile_attributes_last_name", with: "Tyson"  
-  fill_in "user_profile_attributes_business_address", with: "Knock out street 2"  
-  fill_in "user_profile_attributes_city", with: "New York"  
-  fill_in "user_profile_attributes_phone", with: "(999) 999-9999"    
-  select "Fiscalist", from: "Functie"
-#  choose "Ja" Dit is registrere under nr. 374 op de backlog
-  select "5", from: "Aantal jaren werkervaring"
-  fill_in "KvK-nummer (indien van toepassing)", with: "123456" 
+  # profile info
+  fill_in_profile
+  
   click_button "Registreren" 
 end
 
@@ -51,3 +42,50 @@ Dan(/^daarna verwittigd worden over dat mijn registratie gelukt is$/) do
   assert page.has_content? I18n.t(:signed_up_but_inactive, scope: [:devise, :registrations])
 end
 
+Stel(/^ik bevind me als juridische professional op de registratie pagina voor de juridische professionals$/) do
+  visit '/users/sign_up?type=lawyer'
+  page.find('title','Registreren juridische professional',visible: false)
+end
+
+Als(/^ik dan mijn functie wil opgeven, terwijl die niet voorkomt in de lijst met te selecteren functies$/) do
+  @profession = "Legal counsel"
+end
+
+Dan(/^wil de mogelijkheid hebben, waarmee ik toch mijn functie kan opgeven$/) do
+    
+  fill_in_account
+  fill_in_profile
+  
+  select 'Anders', from: 'professions'
+  fill_in 'user_profile_attributes_profession', with: @profession
+  
+  click_button "Registreren"
+end
+
+Dan(/^dat de functie correct wordt geregistreerd in het systeem$/) do
+  user = User.find_by email: "iron@mike.nl"
+  assert_not_nil user
+  profile = user.profile
+  assert_not_nil profile
+  assert_equal @profession, profile.profession
+end
+
+def fill_in_account
+  fill_in "user_email", with: "iron@mike.nl"
+  fill_in "user_password", with: "right hook"
+  fill_in "user_password_confirmation", with: "right hook"
+end
+
+def fill_in_profile
+  fill_in "user_profile_attributes_first_name", with: "Iron Mike"
+  fill_in "user_profile_attributes_last_name", with: "Tyson"  
+  fill_in "user_profile_attributes_business_address", with: "Knock out street 2"  
+  fill_in "user_profile_attributes_city", with: "New York"  
+  fill_in "user_profile_attributes_phone", with: "(999) 999-9999"    
+  select "Fiscalist", from: "professions"
+#  choose "Ja" Dit is registrere under nr. 374 op de backlog
+  select "5", from: "Aantal jaren werkervaring"
+  fill_in "KvK-nummer (indien van toepassing)", with: "123456" 
+end  
+
+  
