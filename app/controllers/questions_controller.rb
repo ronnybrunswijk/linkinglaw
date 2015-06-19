@@ -23,6 +23,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user = current_user
     if params[:create]
+      set_practice_area
       flash[:notice] = t(:save_success, scope: [:questions, :notifications]) if @question.save
       UserMailer.confirm_question(current_user, @question).deliver!
       respond_with(@question)
@@ -79,4 +80,14 @@ class QuestionsController < ApplicationController
           redirect_to root_url, alert: I18n.t(:unauthorized, scope: [:devise, :failure], user_type: current_user.role)
       end
    end   
+   
+   def set_practice_area
+     practice_area_id = params[:practice_area_id]
+     if practice_area_id
+       @question.practice_area = PracticeArea.find(practice_area_id) 
+     else 
+       @question.practice_area = PracticeArea.first
+     end
+   end
+
 end

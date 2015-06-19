@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :practice_area
+
   resources :profiles
 
   get 'home', to: "static_pages#home", as: :home

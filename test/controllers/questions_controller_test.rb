@@ -61,10 +61,40 @@ class QuestionsControllerTest < ActionController::TestCase
     end
   
     def test_entrepreneur_creates_question
-      post :create, { question: {title: 'a', description: 'a'}, create: 'create'}
+      title = "You talking to me?"
+      practice_area = PracticeArea.create(name: "some name", subject: "some subject")
+      post :create, { create: 'create',
+                      practice_area_id: practice_area.id,
+                      question: { title: title,
+                                  description: 'a'
+                                  }
+                    }
 
       assert_template 'user_mailer/confirm_question'
+      question = Question.find_by title: title
+      assert_not_nil question
+      assert_not_nil question.practice_area
+      assert_equal practice_area.id, question.practice_area.id
     end
+
+    # this is not possible through normal use of the interface
+    def test_entrepreneur_creates_question_without_specifying_practice_area
+      PracticeArea.create([{name: "first", subject: "some subject"},
+                           {name: "second", subject: "some subject"}])
+      title = "Are you a photographer?" 
+      post :create, { create: 'create',
+                      question: { title: title,
+                                  description: 'a'
+                                  }
+                    }
+
+      question = Question.find_by title: title
+      assert_not_nil question.practice_area
+      assert_equal PracticeArea.first, question.practice_area
+    end
+
+
+
 
     def test_entrepreneur_modifies_question
       post :create, question: {title: 'a', description: 'a'}
@@ -106,4 +136,5 @@ class QuestionsControllerTest < ActionController::TestCase
         assert_redirected_to '/users/sign_in'
         assert_equal I18n.t(:unauthenticated ,scope: [:devise,:failure]), flash[:alert]
     end
+
 end

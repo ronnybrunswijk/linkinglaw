@@ -40,3 +40,10 @@ Functionaliteit: de ondernemer stelt een vraag,
      Dan wil ik de mogelijk hebben om mijn vraag te wijzigen
      Als ik gebruik maak van de mogelijkheid om mijn vraag te wijzigen
      Dan wil ik terugkeren naar 'vraag plaatsen' pagina
+     
+   @signed_in
+   Scenario: de ingelogd ondernemer wil een rechtsgebied selecteren voor de vraag de hij wil stellen
+     Stel als ondernemer heb ik een vraag opgevoerd die ik daadwerkelijk wil stellen
+     Dan wil ik daarbij ook het rechtsgebied, waarop de vraag betrekking heeft, kunnen selecteren
+     En dat het geselecteerde rechtsgebied tezamen met mijn vraag wordt opgeslagen
+   

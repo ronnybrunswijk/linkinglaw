@@ -1,0 +1,25 @@
+<%= form_for(@practice_area) do |f| %>
+  <% if @practice_area.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@practice_area.errors.count, "error") %> prohibited this practice_area from being saved:</h2>
+
+      <ul>
+      <% @practice_area.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :subject %><br>
+    <%= f.text_field :subject %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

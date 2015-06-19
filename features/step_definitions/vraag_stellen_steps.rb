@@ -65,3 +65,15 @@ end
 Dan(/^wil ik terugkeren naar 'vraag plaatsen' pagina$/) do
    page.find("title", text: I18n.t(:ask_question, scope: [:questions]), visible: false)  
 end
+
+Stel(/^als ondernemer heb ik een vraag opgevoerd die ik daadwerkelijk wil stellen$/) do
+  step  "als ondernemer bevind ik me op de 'preview vraag' pagina" 
+end
+
+Dan(/^wil ik daarbij ook het rechtsgebied, waarop de vraag betrekking heeft, kunnen selecteren$/) do
+  select ""
+end
+
+Dan(/^dat het geselecteerde rechtsgebied tezamen met mijn vraag wordt opgeslagen$/) do
+    pending # express the regexp above with the code you wish you had
+end

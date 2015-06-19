@@ -1,22 +1,30 @@
 <% provide :title, t(:preview_question, scope: [:questions])  %>
-<div class="authform">
 <%= form_for(@question, url: {action: 'create'}) do |f| %>
   <h3><%= t(:preview_question, scope: [:questions]) %></h3>
-
-  <div class="form-group">
-    <%= @question.title %>
-    <%= f.text_field :title, class: 'hidden' %>
+  <div class="authform">
+      <div class="form-group">
+        <%= @question.title %>
+        <%= f.text_field :title, class: 'hidden' %>
+      </div>
+      <div class="form-group">
+        <%= @question.description %>
+        <%= f.text_field :description, class: 'hidden' %>
+      </div>
+      <div class="actions">
+        <%= f.submit t(:modify_question, scope: [:questions]), id: 'modify_question', class: 'btn btn-default right'%> 
+      </div>
   </div>
-  <div class="form-group">
-    <%= @question.description %>
-    <%= f.text_field :description, class: 'hidden' %>
-  </div>
-  <div class="actions">
-    <%= f.submit t(:submit_question, scope: [:questions]), id: 'create_question', name: 'create', class: "button right #{'hidden' unless user_signed_in? }" %>
-    <%= f.submit t(:modify_question, scope: [:questions]), id: 'modify_question', class: 'btn btn-default right'%> 
-  </div>
+  <div class="authform pad-b-10px">
+      <div class="form-group">
+        <%= @question.description %>
+        <%= f.text_field :description, class: 'hidden' %>
+      </div>
+      <div class="actions">
+        <%= f.submit t(:submit_question, scope: [:questions]), id: 'create_question', name: 'create', class: "button right #{'hidden' unless user_signed_in? }" %>
+      </div>
+  </div>  
 <% end %>
-</div>
+
 <% unless user_signed_in?  %>
   <div id="auth_form_switch" class="text-center">
     <%= radio_button_tag 'auth_form','sign_in', checked = true %>

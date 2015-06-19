@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150614115549) do
+ActiveRecord::Schema.define(version: 20150619114838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "practice_areas", force: true do |t|
+    t.string   "name"
+    t.string   "subject"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "profiles", force: true do |t|
     t.datetime "created_at"
@@ -39,8 +46,10 @@ ActiveRecord::Schema.define(version: 20150614115549) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "practice_area_id"
   end
 
+  add_index "questions", ["practice_area_id"], name: "index_questions_on_practice_area_id", using: :btree
   add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "users", force: true do |t|

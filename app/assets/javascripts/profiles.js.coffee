@@ -1,4 +1,7 @@
 $(document).on 'page:change', ->
+  $('select#professions').bind 'keydown', (e) ->
+     $(this.options).first().remove()
+
   $('select#professions').bind 'change', (e) ->
       if this.selectedIndex is this.options.length - 1
         update_profession_input('')

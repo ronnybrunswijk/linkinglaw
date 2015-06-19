@@ -2,21 +2,32 @@
 #
 # Table name: questions
 #
-#  id          :integer          not null, primary key
-#  title       :string(255)
-#  description :text
-#  created_at  :datetime
-#  updated_at  :datetime
-#  user_id     :integer
+#  id               :integer          not null, primary key
+#  title            :string(255)
+#  description      :text
+#  created_at       :datetime
+#  updated_at       :datetime
+#  user_id          :integer
+#  practice_area_id :integer
 #
 # Indexes
 #
-#  index_questions_on_user_id  (user_id)
+#  index_questions_on_practice_area_id  (practice_area_id)
+#  index_questions_on_user_id           (user_id)
 #
 
 require 'test_helper'
 
 class QuestionTest < ActiveSupport::TestCase
+
+  def setup
+     DatabaseCleaner.start
+     @question_with_practice_area = FactoryGirl.create(:question_with_practice_area)
+  end
+
+  def teardown
+    DatabaseCleaner.clean
+  end
 
   def valid_params
     { title: "title", description: "description" }
@@ -95,5 +106,9 @@ class QuestionTest < ActiveSupport::TestCase
     question = Question.new
 
     refute question.valid?
+  end
+  
+  test 'practice area association' do
+    assert_not_nil @question_with_practice_area.practice_area  
   end
 end
