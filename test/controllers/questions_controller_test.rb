@@ -64,7 +64,7 @@ class QuestionsControllerTest < ActionController::TestCase
       title = "You talking to me?"
       practice_area = PracticeArea.create(name: "some name", subject: "some subject")
       post :create, { create: 'create',
-                      practice_area_id: practice_area.id,
+                      practice_areas: practice_area.id,
                       question: { title: title,
                                   description: 'a'
                                   }
