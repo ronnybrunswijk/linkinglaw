@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :practice_area
+  resources :practice_areas
 
   resources :profiles
 

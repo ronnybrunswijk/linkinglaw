@@ -71,9 +71,12 @@ Stel(/^als ondernemer heb ik een vraag opgevoerd die ik daadwerkelijk wil stelle
 end
 
 Dan(/^wil ik daarbij ook het rechtsgebied, waarop de vraag betrekking heeft, kunnen selecteren$/) do
-  select ""
+  @practice_area = "rechtsvormen, ZZP, start-up"
+  select @practice_area,  from: 'practice_areas'
+  click_button "Plaats vraag"
 end
 
 Dan(/^dat het geselecteerde rechtsgebied tezamen met mijn vraag wordt opgeslagen$/) do
-    pending # express the regexp above with the code you wish you had
+  question = @current_user.questions.last
+  assert_equal @practice_area, question.practice_area.subject
 end
