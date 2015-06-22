@@ -1,7 +1,7 @@
 <% provide :title, t(:preview_question, scope: [:questions])  %>
 <%= form_for(@question, url: {action: 'create'}) do |f| %>
-  <h3><%= t(:preview_question, scope: [:questions]) %></h3>
   <div class="authform">
+      <h3><%= t(:preview_question, scope: [:questions]) %></h3>
       <div class="form-group">
         <%= @question.title %>
         <%= f.text_field :title, class: 'hidden' %>
@@ -17,7 +17,7 @@
   <div class="authform pad-b-10px">
       <div class="form-group">
         <%= label_tag "Onderwerp" %>
-        <%= select_tag "practice_areas", options_from_collection_for_select(get_practice_area_options, 'id', 'subject'), { class: 'form-control' } %>
+        <%= select_tag "practice_areas", options_from_collection_for_select(get_practice_area_options, 'id', 'subject'), { prompt: "Selecteer een onderwerp..." , class: 'form-control' } %>
       </div>
       <div class="actions">
         <%= f.submit t(:submit_question, scope: [:questions]), id: 'create_question', name: 'create', class: "button right #{'hidden' unless user_signed_in? }" %>
