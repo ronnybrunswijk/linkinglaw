@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show, :create, :list]
-  before_action :entrepreneur_only, only: [:index, :show, :create] 
+  before_action :entrepreneur_only, only: [:index, :create] 
   before_action :lawyer_only, only: [:list]
   before_action :set_question, only: [:show, :update, :destroy]
   respond_to :html

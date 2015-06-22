@@ -103,7 +103,7 @@ class QuestionsControllerTest < ActionController::TestCase
     end
     
     # test to ensure that bug that caused error message, about not being signed in,
-    # when trying to modify a question as a anonymous user, is fixed.
+    # when trying to modify a question as an anonymous user, is fixed.
     test 'anonymous user tries to modify a question' do
       sign_out @entrepreneur_with_2_questions
       post :modify, question: {title: 'a', description: 'b'}
@@ -137,4 +137,13 @@ class QuestionsControllerTest < ActionController::TestCase
         assert_equal I18n.t(:unauthenticated ,scope: [:devise,:failure]), flash[:alert]
     end
 
+    test 'lawyer can view details of a question' do
+       question = Question.first
+       sign_in @lawyer
+       
+       get :show, { id: question.id }
+       
+       assert :success
+       assert_template :show
+    end
 end
