@@ -21,3 +21,7 @@ Before('@signed_in_lawyer') do
   fill_in "user_password", with: @current_user.password
   click_button I18n.t(:sign_in, scope: [:devise, :sessions])
 end
+
+Before('@3_questions') do
+  FactoryGirl.create_list(:questions, 3)
+end

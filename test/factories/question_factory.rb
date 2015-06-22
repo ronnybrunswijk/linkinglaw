@@ -19,24 +19,34 @@
 FactoryGirl.define do
 
     factory :question1, class: Question do
-        title "Question title"
-        description  "Question description"
+        title "Question title1"
+        description  "Question description1"
     end
 
     factory :question2, class: Question do
-        title "Question title"
-        description  "Question description"
+        title "Question title2"
+        description  "Question description2"
     end
 
     factory :question3, class: Question do
-        title "Question title"
-        description  "Question description"
+        title "Question title3"
+        description  "Question description3"
    end
    
    factory :question_with_practice_area, class: Question do
-        title "title"
-        description "description"
+        title "title4"
+        description "description4"
         practice_area { FactoryGirl.create(:practice_area) }        
    end
+
+   factory :questions, class: Question do
+        title
+        description "description"
+   end
+   
+   sequence :title  do |n|
+       "title #{n}"
+   end
+   
 end
   

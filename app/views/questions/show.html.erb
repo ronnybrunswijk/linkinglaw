@@ -9,6 +9,9 @@
     <strong><%= t('activerecord.attributes.question.description') %>:</strong>
     <%= @question.description %>
   </p>
-
-<%= link_to 'Naar overzicht', questions_path %>
+  <% if current_user.role == 'entrepreneur'%>
+    <%= link_to 'Naar overzicht', questions_path %>
+  <% else %>
+    <%= link_to 'Naar overzicht', list_questions_path %>  
+  <% end  %>
 </div>

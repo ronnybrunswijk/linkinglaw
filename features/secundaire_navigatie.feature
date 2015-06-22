@@ -7,5 +7,7 @@ Functionaliteit: Navigatie middels buttons en links die zich niet in het hoofd m
     Dan verwacht ik op de "<doel>" pagina terecht te komen
  
     Voorbeelden: Pagina's, buttons en pagina titels
-    |	huidig         	      	           |   button		    |  doel				    |
+    |	huidig         	      	           |   button		          |  doel				                          |
     |	/lawyer, Juridische Professional   |   signup-lawyer	    |  Registreren Juridische Professional  |
+
+  
