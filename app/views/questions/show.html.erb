@@ -11,7 +11,7 @@
   </p>
   <% if current_user.role == 'entrepreneur'%>
     <%= link_to 'Naar overzicht', questions_path %>
-  <% else %>
+  <% elsif current_user.role %>
     <%= link_to 'Naar overzicht', list_questions_path %>  
   <% end  %>
 </div>

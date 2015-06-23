@@ -23,4 +23,10 @@ Functionaliteit: Mijn vragen inzien
     Als ik dan op 1 van mijn gestelde vragen klik
     Dan wil ik de details zien van de vraag, waarop ik heb geklikt
 
-  
+  @signed_in
+  Scenario: De ondernemer bekijkt de details van 1 van zijn gestelde vragen
+            en gaat terug naar het overzicht van zijn gestelde vragen via de 'Naar overzicht' link
+      Stel ik ben ingelogd als ondernemer
+      En ik bevind me op de detail pagina van 1 van mijn vragen
+      Dan wil via de 'Naar overzicht' link weer terug kunnen naar het overzicht van al mijn gestelde vragen
+            
