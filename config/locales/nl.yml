@@ -30,3 +30,6 @@ nl:
       jurist: "Jurist"
       tax_lawyer: "Fiscalist"
       different: "Anders"    
+  error_messages:
+    http:
+      not_found: "U zoekt naar een item in de websit dat niet (meer) bestaat."

@@ -10,9 +10,13 @@ class ApplicationController < ActionController::Base
   end
 
   def extract_locale_from_tld
-      parsed_locale = request.host.split('.').last
-      parsed_locale = "en" if parsed_locale == "com"
-      I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
+    parsed_locale = request.host.split('.').last
+    parsed_locale = "en" if parsed_locale == "com"
+    I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
+  end
+
+  rescue_from ActiveRecord::RecordNotFound do
+    flash[:error] = I18n.t(:not_found, scope: [:error_messages, :http])
   end
 
   protected

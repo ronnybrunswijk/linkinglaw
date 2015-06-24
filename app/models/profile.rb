@@ -23,4 +23,5 @@
 
 class Profile < ActiveRecord::Base
     has_and_belongs_to_many :practice_areas
+    accepts_nested_attributes_for :practice_areas
 end

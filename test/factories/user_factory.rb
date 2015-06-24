@@ -46,6 +46,11 @@ FactoryGirl.define do
             email "barack.obama@usa.com"
             role 1
         end 
+
+        trait :abraham_lincoln do
+            email "abraham.lincoln@usa.com"
+            role 1
+        end
         
         trait :admin do
             email "edgser.dijkstra@bit.com"
@@ -62,6 +67,5 @@ FactoryGirl.define do
         trait :with_profile do
             profile { FactoryGirl.create(:profile) }
         end 
-        
    end
 end

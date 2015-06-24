@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :lawyer_only, only: [:update, :show]
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -38,10 +40,10 @@ class ProfilesController < ApplicationController
 
   private
     def set_profile
-      @profile = Profile.find(params[:id])
+      @profile = current_user.profile
     end
 
     def profile_params
-      params.require(:profile).permit(:name, :practise_area)
+      params.require(:profile).permit(:name, practice_area_ids: [])
     end
 end
