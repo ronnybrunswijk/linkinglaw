@@ -30,64 +30,38 @@
 
 FactoryGirl.define do
 
-   factory :entrepreneur_with_1_question, class: User do
+   factory :user, class: User do
         name "Joe Louis"
         email "joe.louis@boxing.ko"
         password "righthook"
         password_confirmation "righthook"
         confirmed_at DateTime.now
-        after(:create) do |user|
-            FactoryGirl.create(:question1, user: user)
+        
+        trait :entrepreneur do
+           email "cornelius.vanderbilt@capital.com"
+           role 0 
         end
-   end
-
-   factory :entrepreneur_with_2_questions, class: User do
-        name "Jack Dempsey"
-        email "jack.dempsey@boxing.ko"
-        password "lefthook"
-        password_confirmation "lefthook"
-        confirmed_at DateTime.now
-        after(:create) do |user|
-            FactoryGirl.create(:question2, user: user)
-            FactoryGirl.create(:question3, user: user)
+        
+        trait :lawyer do 
+            email "barack.obama@usa.com"
+            role 1
+        end 
+        
+        trait :admin do
+            email "edgser.dijkstra@bit.com"
+            role 2
+        end 
+        
+        trait :with_questions do
+            after(:create) do |user|
+                FactoryGirl.create(:question1, user: user)
+                FactoryGirl.create(:question2, user: user)
+            end
         end
+        
+        trait :with_profile do
+            profile { FactoryGirl.create(:profile) }
+        end 
+        
    end
-
-   factory :lawyer, class: User do
-        name "Barack Obama"
-        email "barack.obama@usa.com"
-        password "whitehouse"
-        password_confirmation "whitehouse"
-        confirmed_at DateTime.now
-        role 1
-   end
-
-   factory :lawyer_with_profile, class: User do
-        name "Abraham Lincols"
-        email "abraham.lincoln@usa.com"
-        password "whitehouse"
-        password_confirmation "whitehouse"
-        confirmed_at DateTime.now
-        role 1
-        profile { FactoryGirl.create(:profile) }
-   end
-
-   factory :entrepreneur, class: User do
-        name "Cornelius Vanderbilt"
-        email "connelius.vanderbilt@money.com"
-        password "transportation"
-        password_confirmation "transportation"
-        confirmed_at DateTime.now
-        role 0
-   end
-
-   factory :admin, class: User do
-         name "Edsger Dijkstra"
-         email "edsger.dijkstra@it.nl"
-         password "programming"
-         password_confirmation "programming"
-         confirmed_at DateTime.now
-         role 2
-    end
-
 end

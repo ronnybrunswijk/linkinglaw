@@ -14,4 +14,19 @@ class ApplicationController < ActionController::Base
       parsed_locale = "en" if parsed_locale == "com"
       I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
   end
+
+  protected
+
+    def entrepreneur_only
+      unless current_user.role == "entrepreneur"
+          redirect_to root_url, alert: I18n.t(:unauthorized, scope: [:devise, :failure], user_type: current_user.role)
+      end
+    end
+   
+    def lawyer_only
+      unless current_user.role == "lawyer"
+          redirect_to root_url, alert: I18n.t(:unauthorized, scope: [:devise, :failure], user_type: current_user.role)
+      end
+    end   
+
 end

@@ -3,13 +3,13 @@ require 'test_helper'
 class QuestionsControllerTest < ActionController::TestCase
     include Devise::TestHelpers
 
-     def setup
+    def setup
          DatabaseCleaner.start
-         @entrepreneur_with_2_questions = FactoryGirl.create(:entrepreneur_with_2_questions)
-         @entrepreneur_with_1_question = FactoryGirl.create(:entrepreneur_with_1_question)
-         @lawyer = FactoryGirl.create(:lawyer)
+         @entrepreneur_with_questions = FactoryGirl.create(:user, :entrepreneur, :with_questions)
+#         @entrepreneur_with_1_question = FactoryGirl.create(:entrepreneur_with_1_question)
+         @lawyer = FactoryGirl.create(:user, :lawyer)
          @request.env['devise.mapping'] = Devise.mappings[:user]
-         sign_in @entrepreneur_with_2_questions
+         sign_in @entrepreneur_with_questions
     end
 
     def teardown 
@@ -50,9 +50,9 @@ class QuestionsControllerTest < ActionController::TestCase
         assert_response :success
         actual_questions = assigns(:questions)
         assert_not_nil actual_questions
-        assert_equal @entrepreneur_with_2_questions.questions.count, actual_questions.count
+        assert_equal @entrepreneur_with_questions.questions.count, actual_questions.count
         actual_questions.each do |question|
-           assert_equal @entrepreneur_with_2_questions, question.user
+           assert_equal @entrepreneur_with_questions, question.user
         end
     end
 
@@ -106,7 +106,7 @@ class QuestionsControllerTest < ActionController::TestCase
     # test to ensure that bug that caused error message, about not being signed in,
     # when trying to modify a question as an anonymous user, is fixed.
     test 'anonymous user tries to modify a question' do
-      sign_out @entrepreneur_with_2_questions
+      sign_out @entrepreneur_with_questions
       post :modify, question: {title: 'a', description: 'b'}
       assert_template :new
       question = assigns(:question)
@@ -127,11 +127,11 @@ class QuestionsControllerTest < ActionController::TestCase
         get :list
         
         assert_redirected_to root_path
-        assert_equal I18n.t(:unauthorized, scope: [:devise, :failure], user_type: @entrepreneur_with_2_questions.role), flash[:alert]        
+        assert_equal I18n.t(:unauthorized, scope: [:devise, :failure], user_type: @entrepreneur_with_questions.role), flash[:alert]        
     end
     
     test 'list all questions is not available for anonymous user' do
-       sign_out @entrepreneur_with_2_questions
+       sign_out @entrepreneur_with_questions
         get :list
         
         assert_redirected_to '/users/sign_in'

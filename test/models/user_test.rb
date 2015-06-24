@@ -35,11 +35,6 @@ class UserTest < Minitest::Test
 
    def setup
      DatabaseCleaner.start
-     @user = FactoryGirl.create(:entrepreneur_with_1_question)
-     @lawyer = FactoryGirl.create(:lawyer)
-     @lawyer_with_profile = FactoryGirl.create(:lawyer_with_profile)
-     @entrepreneur = FactoryGirl.create(:entrepreneur)
-     @admin = FactoryGirl.create(:admin)
    end
 
    def teardown
@@ -47,24 +42,29 @@ class UserTest < Minitest::Test
    end
 
    def test_user_question_association 
-     refute_empty @user.questions
+     user = FactoryGirl.create(:user, :entrepreneur, :with_questions)     
+     refute_empty user.questions
    end
 
-   def test_user_profile_assocation
-     refute_nil @lawyer_with_profile.profile
+   def test_lawyer_profile_assocation
+     lawyer = FactoryGirl.create(:user, :lawyer, :with_profile)
+     refute_nil lawyer.profile
    end
 
    def test_lawyer_role
-     assert_equal "lawyer", @lawyer.role
+     lawyer = FactoryGirl.create(:user, :lawyer)
+     assert_equal "lawyer", lawyer.role
    end
 
 
-   def test_lawyer_role
-      assert_equal "entrepreneur", @entrepreneur.role
+   def test_entrepreneur_role
+      entrepreneur = FactoryGirl.create(:user, :entrepreneur)
+      assert_equal "entrepreneur", entrepreneur.role
    end
 
-   def test__role
-      assert_equal "admin", @admin.role
+   def test_admin_role
+      admin = FactoryGirl.create(:user, :admin) 
+      assert_equal "admin", admin.role
    end
 
    def test_default_role

@@ -69,25 +69,12 @@ class QuestionsController < ApplicationController
       params.require(:question).permit(:title, :description)
     end
 
-    def entrepreneur_only
-      unless current_user.role == "entrepreneur"
-          redirect_to root_url, alert: I18n.t(:unauthorized, scope: [:devise, :failure], user_type: current_user.role)
+    def set_practice_area
+      practice_area_id = params[:practice_areas]
+      if practice_area_id
+        @question.practice_area = PracticeArea.find(practice_area_id) 
+      else 
+        @question.practice_area = PracticeArea.first
       end
     end
-   
-    def lawyer_only
-      unless current_user.role == "lawyer"
-          redirect_to root_url, alert: I18n.t(:unauthorized, scope: [:devise, :failure], user_type: current_user.role)
-      end
-    end   
-   
-   def set_practice_area
-     practice_area_id = params[:practice_areas]
-     if practice_area_id
-       @question.practice_area = PracticeArea.find(practice_area_id) 
-     else 
-       @question.practice_area = PracticeArea.first
-     end
-   end
-
 end
