@@ -21,20 +21,20 @@
 #  index_profiles_on_user_id  (user_id)
 #
 
-FactoryGirl.define do
+require 'test_helper'
 
-      factory :profile, class: Profile do
-            first_name "Abraham"
-            last_name "Lincoln"
-            business_address "1600 Pennsylvania Ave NW"
-            city "Washington"
-            phone "+1 202-456-1111"
-            
-            trait :with_2_practice_areas do
-                  after(:create) do |profile|
-                        profile.practice_areas = [FactoryGirl.create(:aansprakelijkheidsrecht),
-                        FactoryGirl.create(:arbeids_en_pensioenrecht)]
-                  end
-            end
-      end
+class ProfileTest < ActiveSupport::TestCase
+
+  def setup
+     DatabaseCleaner.start
+     @profile_with_2_practice_areas = FactoryGirl.create(:profile, :with_2_practice_areas)
+  end
+
+  def teardown
+    DatabaseCleaner.clean
+  end
+
+  test 'association with practice areas' do
+      assert_equal 2, @profile_with_2_practice_areas.practice_areas.size
+  end 
 end

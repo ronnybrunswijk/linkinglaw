@@ -9,6 +9,10 @@ class SessionsControllerTest < ActionController::TestCase
      @request.env['devise.mapping'] = Devise.mappings[:user] 
   end
 
+  def teardown 
+     DatabaseCleaner.clean    
+  end
+
   def test_valid_sign_in
      post :create, { user: { email: @user.email,
                              password: @user.password } }
@@ -34,9 +38,4 @@ class SessionsControllerTest < ActionController::TestCase
      assert_response :unauthorized
      assert_template 'devise/sessions/_errors'
   end
-
-  def teardown 
-     DatabaseCleaner.clean    
-  end
-  
 end

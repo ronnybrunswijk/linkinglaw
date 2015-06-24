@@ -42,6 +42,10 @@ class UserTest < Minitest::Test
      @admin = FactoryGirl.create(:admin)
    end
 
+   def teardown
+     DatabaseCleaner.clean
+   end
+
    def test_user_question_association 
      refute_empty @user.questions
    end
@@ -76,9 +80,4 @@ class UserTest < Minitest::Test
      assert_equal 1, User.roles[:lawyer]
      assert_equal 2, User.roles[:admin]
    end
-
-   def teardown
-     DatabaseCleaner.clean
-   end
-
 end

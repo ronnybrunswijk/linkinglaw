@@ -12,6 +12,10 @@ class QuestionsControllerTest < ActionController::TestCase
          sign_in @entrepreneur_with_2_questions
     end
 
+    def teardown 
+         DatabaseCleaner.clean    
+    end
+
     def test_preview_valid_question
         post :preview, question: { title: 'a', description: 'a' }
 
@@ -92,9 +96,6 @@ class QuestionsControllerTest < ActionController::TestCase
       assert_not_nil question.practice_area
       assert_equal PracticeArea.first, question.practice_area
     end
-
-
-
 
     def test_entrepreneur_modifies_question
       post :create, question: {title: 'a', description: 'a'}

@@ -11,9 +11,15 @@
 
 FactoryGirl.define do
 
-    factory :practice_area, class: PracticeArea do
-        name "name"
-        subject "subject"
+    factory :aansprakelijkheidsrecht, class: PracticeArea do
+        name "Aansprakelijkheidsrecht"
+        subject "letsel, schade, aansprakelijkheid"
     end
+
+    factory :arbeids_en_pensioenrecht, class: PracticeArea do
+        name "Arbeids- en pensioenrecht"
+        subject "werk, inkomen, ontslag, pensioen"
+    end
+
 end
   

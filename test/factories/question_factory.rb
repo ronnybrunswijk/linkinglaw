@@ -36,7 +36,7 @@ FactoryGirl.define do
    factory :question_with_practice_area, class: Question do
         title "title4"
         description "description4"
-        practice_area { FactoryGirl.create(:practice_area) }        
+        practice_area { FactoryGirl.create(:aansprakelijkheidsrecht) }        
    end
 
    factory :questions, class: Question do

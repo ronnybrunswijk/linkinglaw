@@ -41,7 +41,7 @@ Functionaliteit: de ondernemer stelt een vraag,
      Als ik gebruik maak van de mogelijkheid om mijn vraag te wijzigen
      Dan wil ik terugkeren naar 'vraag plaatsen' pagina
      
-   @signed_in
+   @signed_in @with_practice_areas
    Scenario: de ingelogd ondernemer wil een rechtsgebied selecteren voor de vraag de hij wil stellen
      Stel als ondernemer heb ik een vraag opgevoerd die ik daadwerkelijk wil stellen
      Dan wil ik daarbij ook het rechtsgebied, waarop de vraag betrekking heeft, kunnen selecteren

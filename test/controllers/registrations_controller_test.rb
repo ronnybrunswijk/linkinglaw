@@ -4,7 +4,12 @@ class RegistrationsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   def setup
+    DatabaseCleaner.start
     @request.env["devise.mapping"] = Devise.mappings[:user]
+  end
+
+  def teardown 
+     DatabaseCleaner.clean    
   end
 
   def test_valid_sign_up 
