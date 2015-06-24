@@ -11,3 +11,5 @@ nl:
         disciplinary_decision: "Disciplinaire beslissingen"
         years_of_work_experience: "Aantal jaren werkervaring"
         chamber_of_commerce_no: "KvK-nummer (indien van toepassing)"
+  profiles:
+    edit: "Profiel instellingen"

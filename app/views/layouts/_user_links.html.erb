@@ -5,17 +5,18 @@
   <% else  %> 
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-	<%= current_user.email %> <span class="caret"></span>
+      	<%= current_user.email %> <span class="caret"></span>
       </a>
       <ul class="dropdown-menu" role="menu">
-	<% if current_user.role == "entrepreneur"  %>
-          <li><%= link_to t(:mine, scope: [:questions]), questions_path %></li>
-          <li><%= link_to t(:edit, scope: [:devise, :registrations]), edit_user_registration_path %></li>
-        <% elsif current_user.role == "lawyer"  %>
-          <li><%= link_to t(:all, scope: [:questions]), list_questions_path %></li>  
-        <% end %>
-        <li class="divider"></li>
-        <li><%= link_to t(:sign_out, scope: [:devise, :sessions]), destroy_user_session_path, :method=>'delete' %></li>
+        	<% if current_user.role == "entrepreneur"  %>
+            <li><%= link_to t(:mine, scope: [:questions]), questions_path %></li>
+            <li><%= link_to t(:edit, scope: [:devise, :registrations]), edit_user_registration_path %></li>
+          <% elsif current_user.role == "lawyer"  %>
+            <li><%= link_to t(:all, scope: [:questions]), list_questions_path %></li>  
+            <li><%= link_to t(:edit, scope: [:profiles]), edit_profile_path(current_user.profile.id) %></li>              
+          <% end %>
+          <li class="divider"></li>
+          <li><%= link_to t(:sign_out, scope: [:devise, :sessions]), destroy_user_session_path, :method=>'delete' %></li>
       </ul>
     </li>
   <% end %>
