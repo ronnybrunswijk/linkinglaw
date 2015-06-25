@@ -10,8 +10,15 @@
       </ul>
     </div>
   <% end %>
-
+  
+  <%= render partial: 'fields', locals: { f: f } %>        
+  
+  <div class="form-group">
+        <%= f.label :practice_areas %>
+        <%= f.check_box :practice_areas, class: 'form-control' %>
+  </div>
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Profiel bewaren", class: 'button right' %>
   </div>
 <% end %>
