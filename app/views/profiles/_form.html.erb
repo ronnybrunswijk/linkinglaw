@@ -1,4 +1,4 @@
-<%= form_for(@profile) do |f| %>
+<%= form_for(@profile) do |profile_fields| %>
   <% if @profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
@@ -11,14 +11,16 @@
     </div>
   <% end %>
   
-  <%= render partial: 'fields', locals: { f: f } %>        
+  <%= render partial: 'fields', locals: { profile_fields: profile_fields } %>        
   
   <div class="form-group">
-        <%= f.label :practice_areas %>
-        <%= f.check_box :practice_areas, class: 'form-control' %>
+      <%= profile_fields.label :practice_areas %><br>
+      <%= profile_fields.collection_check_boxes(:practice_area_ids, PracticeArea.all, :id, :name) do |b| %>
+        <%= b.label { b.check_box + b.text }  %><br>
+      <% end %>
   </div>
   
   <div class="actions">
-    <%= f.submit "Profiel bewaren", class: 'button right' %>
+    <%= profile_fields.submit "Profiel bewaren", class: 'button right' %>
   </div>
 <% end %>

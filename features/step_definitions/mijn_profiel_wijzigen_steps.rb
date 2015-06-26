@@ -8,9 +8,10 @@ end
 Dan(/^wil ik de mogelijkheid hebben om mijn profiel te kunnen aanvullen$/) do
     click_link @current_user.email
     click_link "Profiel instellingen"
-#    page.find("title", text: "Profiel Instellingen")
+    page.find("title", text: "Profiel Instellingen", visible: false)
+#    check ""
 end
 
 Dan(/^ervan verzekerd zijn dat mijn gegevens correct worden opgeslagen$/) do
-
+    
 end

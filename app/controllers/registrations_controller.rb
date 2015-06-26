@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  def new
+   def new
       build_resource({})
       if params[:type]
         resource.build_profile
@@ -17,6 +17,8 @@ class RegistrationsController < Devise::RegistrationsController
    def create
 
       build_resource(sign_up_params)
+
+      # dit ferhuzje nei de new actions en dan net ta stean de role attribuut te upaten ifm admin rol
       if resource.profile
         resource.role = "lawyer"
       end

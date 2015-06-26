@@ -9,7 +9,9 @@
   
   <% if resource.profile  %>
     <div class="authform pad-b-10px">
-      <%= render partial: 'profiles/fields', locals: { f: f } %>        
+      <%= f.fields_for :profile do |profile_fields| %>
+        <%= render partial: 'profiles/fields', locals: { profile_fields: profile_fields } %>        
+      <% end %>
     </div>  
   <% end  %>
   
