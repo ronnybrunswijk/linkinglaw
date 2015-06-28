@@ -44,6 +44,6 @@ class ProfilesController < ApplicationController
     end
 
     def profile_params
-      params.require(:profile).permit(:name, practice_area_ids: [])
+      params.require(:profile).permit(:first_name, practice_area_ids: [])
     end
 end

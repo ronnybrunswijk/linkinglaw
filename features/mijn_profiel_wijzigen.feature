@@ -1,7 +1,7 @@
 # language: nl
 Functionaliteit: wijzigen profiel voor de juridische professional
 		 
-  @signed_in_lawyer 
+  @signed_in_lawyer @with_practice_areas
   Scenario: de juridische professional wil zijn profiel aanvullen 
     Stel als juridische professional heb ik me net geregistreerd met een initieel aangemaakt profiel
     Dan wil ik de mogelijkheid hebben om mijn profiel te kunnen aanvullen
