@@ -12,10 +12,12 @@
       </div>
     <% end %>
   
+    <%= hidden_field_tag "answer[question_id]", @question.id, { id: "answer_question_id" }  %>
     <div class="form-group">
       <%= f.label :text %><span class="char_count">(nog <span></span> tekens)</span><br>
       <%= f.text_area :text, class: 'form-control', maxlength: 500 %>
     </div>
+
     <div class="actions">
       <%= f.submit "Plaats antwoord", class: 'button right' %>
       <%= link_to t(:cancel, scope: [:labels]), home_path %>
