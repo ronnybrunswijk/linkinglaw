@@ -1,6 +1,5 @@
 <div class="authform">
 <% provide :title, t(:all, scope: [:questions])  %>
-
   <table>
      <thead>
         <tr>
@@ -10,7 +9,13 @@
      <tbody>
        <% @questions.each do |question| %>
            <tr>
-               <td><%= link_to question.title, question %></td>
+               <td>
+                  <% if current_user.role == 'entrepreneur'%>
+                    <%= link_to question.title, question %>
+                  <% elsif current_user.role == 'lawyer' %>
+                    <%= link_to question.title, new_answer_path(question_id: question.id) %>  
+                  <% end  %>
+               </td>
           </tr>
        <% end %>
       </tbody>

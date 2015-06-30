@@ -1,4 +1,5 @@
-<% provide :title, @question.title  %>
+<% provide :title, "Plaats een antwoord" %>
+
 <div class="authform">
   <p>
     <strong><%= t('activerecord.attributes.question.title') %>:</strong>
@@ -9,5 +10,8 @@
     <strong><%= t('activerecord.attributes.question.description') %>:</strong>
     <%= @question.description %>
   </p>
-  <%= link_to 'Naar overzicht', questions_path %>
 </div>
+
+<%= render 'form' %>
+
+

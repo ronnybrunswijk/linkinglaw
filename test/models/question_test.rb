@@ -111,4 +111,11 @@ class QuestionTest < ActiveSupport::TestCase
   test 'practice area association' do
     assert_not_nil @question_with_practice_area.practice_area  
   end
+
+  test 'answer association' do
+    question = FactoryGirl.create(:question, :with_answers)
+    refute_empty question.answers
+    assert question.answers.size > 1
+  end 
+
 end

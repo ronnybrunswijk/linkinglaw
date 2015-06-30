@@ -131,10 +131,10 @@ class QuestionsControllerTest < ActionController::TestCase
     
     test 'list all questions is not available for anonymous user' do
        sign_out @entrepreneur_with_questions
-        get :list
+       get :list
         
-        assert_redirected_to '/users/sign_in'
-        assert_equal I18n.t(:unauthenticated ,scope: [:devise,:failure]), flash[:alert]
+       assert_redirected_to '/users/sign_in'
+       assert_equal I18n.t(:unauthenticated ,scope: [:devise,:failure]), flash[:alert]
     end
 
     test 'lawyer can view details of a question' do

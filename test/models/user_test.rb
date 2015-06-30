@@ -29,9 +29,8 @@
 #
 
 require 'test_helper'
-require 'database_cleaner'
 
-class UserTest < Minitest::Test
+class UserTest < ActiveSupport::TestCase
 
    def setup
      DatabaseCleaner.start
@@ -46,9 +45,15 @@ class UserTest < Minitest::Test
      refute_empty user.questions
    end
 
-   def test_lawyer_profile_assocation
+   test 'lawyer profile association' do
      lawyer = FactoryGirl.create(:user, :lawyer, :with_profile)
      refute_nil lawyer.profile
+   end
+   
+   test 'lawyer answer association' do
+      lawyer = FactoryGirl.create(:user, :lawyer, :with_answers)
+      refute_empty lawyer.answers
+      assert lawyer.answers.size > 1
    end
 
    def test_lawyer_role

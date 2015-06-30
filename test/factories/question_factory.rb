@@ -18,6 +18,17 @@
 
 FactoryGirl.define do
 
+    factory :question do
+       title "title"
+       description "description"
+       trait :with_answers do
+            after(:create) do |question|
+                FactoryGirl.create_list(:answer, 2, question: question)
+            end
+       end       
+   end
+    
+
     factory :question1, class: Question do
         title "Question title1"
         description  "Question description1"

@@ -67,5 +67,11 @@ FactoryGirl.define do
         trait :with_profile do
             profile { FactoryGirl.create(:profile) }
         end 
+        
+        trait :with_answers do
+            after(:create) do |user|
+                FactoryGirl.create_list(:answer, 2, user: user)
+            end
+        end
    end
 end

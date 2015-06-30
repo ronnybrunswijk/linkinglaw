@@ -33,6 +33,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    puts "question_params: #{question_params}"
     flash[:notice] = 'Question was successfully updated.' if @question.update(question_params)
     respond_with(@question)
   end

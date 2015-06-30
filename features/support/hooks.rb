@@ -30,6 +30,10 @@ Before('@3_questions') do
   FactoryGirl.create_list(:questions, 3)
 end
 
+Before('@entrepreneur_with_questions') do
+  @entrepreneur_with_questions = FactoryGirl.create(:user, :entrepreneur, :with_questions)  
+end
+
 Before('@with_practice_areas') do
   load "#{Rails.root}/db/seeds.rb"
 end
