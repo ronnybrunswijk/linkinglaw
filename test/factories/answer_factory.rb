@@ -18,7 +18,7 @@
 FactoryGirl.define do
 
     factory :answer do
-        text "Some answer to some question"
+        sequence(:text) { |n| "answer #{n}" }
     end
 
 end

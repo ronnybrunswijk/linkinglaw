@@ -37,3 +37,7 @@ end
 Before('@with_practice_areas') do
   load "#{Rails.root}/db/seeds.rb"
 end
+
+Before('@question_with_answers') do
+  @question_with_answers = FactoryGirl.create(:question, :with_answers)
+end

@@ -15,17 +15,21 @@ class AnswersControllerTest < ActionController::TestCase
     end
    
     test 'a lawyer answers a question' do
+
+        text = "well, I've seen some on t.v."
         question = FactoryGirl.create(:question)
 
         assert_empty @lawyer.answers
         assert_empty question.answers
+
+        xhr :post, :create, answer: { text: text,
+                                      question_id: question.id}
         
-        post :create, answer: { text: "well, I've seen some on t.v.",
-                                question_id: question.id}
-        
-        answer = assigns(:answer)
+        question = assigns(:question)
+        refute_nil question
+        answer = question.answers.first
+        assert_equal text, answer.text
         assert_equal @lawyer, answer.user
-        assert_equal question, answer.question
     end
 
     test 'new answer comes with a question' do

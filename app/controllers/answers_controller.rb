@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_question, only: [:create]
+ 
   # GET /answers
   # GET /answers.json
   def index
@@ -27,15 +28,15 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
     @answer.user = current_user
-    respond_to do |format|
+#    respond_to do |format|
       if @answer.save
-        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
-        format.json { render :show, status: :created, location: @answer }
+#        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
+        render partial: 'answers_to_question', status: :created
       else
         format.html { render :new }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
       end
-    end
+#    end
   end
 
   # PATCH/PUT /answers/1
@@ -67,6 +68,10 @@ class AnswersController < ApplicationController
     def set_answer
       @answer = Answer.find(params[:id])
     end
+    
+    def set_question
+      @question = Question.find(answer_params[:question_id])
+    end 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_params
