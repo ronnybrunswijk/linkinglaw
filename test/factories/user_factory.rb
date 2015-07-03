@@ -36,12 +36,27 @@ FactoryGirl.define do
         password "righthook"
         password_confirmation "righthook"
         confirmed_at DateTime.now
-        
+
+        # Traits for the entrepreneur
         trait :entrepreneur do
            email "cornelius.vanderbilt@capital.com"
            role 0 
         end
+
+        trait :with_questions do
+            after(:create) do |user|
+                FactoryGirl.create(:question1, user: user)
+                FactoryGirl.create(:question2, user: user)
+            end
+        end
+
+        trait :with_answered_question do
+            after(:create) do |user|
+                FactoryGirl.create(:question, :with_answers, user: user)
+            end
+        end
         
+        # Traits for the lawyer
         trait :lawyer do 
             email "barack.obama@usa.com"
             role 1
@@ -51,27 +66,22 @@ FactoryGirl.define do
             email "abraham.lincoln@usa.com"
             role 1
         end
-        
-        trait :admin do
-            email "edgser.dijkstra@bit.com"
-            role 2
-        end 
-        
-        trait :with_questions do
-            after(:create) do |user|
-                FactoryGirl.create(:question1, user: user)
-                FactoryGirl.create(:question2, user: user)
-            end
-        end
-        
+
         trait :with_profile do
             profile { FactoryGirl.create(:profile) }
         end 
         
         trait :with_answers do
             after(:create) do |user|
-                FactoryGirl.create_list(:answer, 2, user: user)
+                FactoryGirl.create_list(:answers, 2, user: user)
             end
         end
+        
+        # Traits for the administrator
+        trait :admin do
+            email "edgser.dijkstra@bit.com"
+            role 2
+        end 
+        
    end
 end

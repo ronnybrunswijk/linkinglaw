@@ -18,6 +18,13 @@
 FactoryGirl.define do
 
     factory :answer do
+        text "No, I'm a combat correspondent."
+        after(:create) do |answer| 
+            FactoryGirl.create(:user, :lawyer, answer) 
+        end
+    end
+
+    factory :answers, class: Answer do
         sequence(:text) { |n| "answer #{n}" }
     end
 

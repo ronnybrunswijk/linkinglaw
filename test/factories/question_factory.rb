@@ -23,7 +23,7 @@ FactoryGirl.define do
        description "description"
        trait :with_answers do
             after(:create) do |question|
-                FactoryGirl.create_list(:answer, 2, question: question)
+                FactoryGirl.create_list(:answers, 2, question: question)
             end
        end       
    end

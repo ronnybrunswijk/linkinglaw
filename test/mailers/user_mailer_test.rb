@@ -4,11 +4,14 @@ class UserMailerTest < ActionMailer::TestCase
 
    def setup
        DatabaseCleaner.start
-       @entrepreneur = FactoryGirl.create(:user, :entrepreneur, :with_questions)
-       @lawyer = FactoryGirl.create(:user, :lawyer, :with_profile)
+       @entrepreneur = FactoryGirl.create(:user, :entrepreneur, :with_answered_question)
    end
 
-   def test_confirm_question_email_for_entrepeneur
+   def teardown
+       DatabaseCleaner.clean
+   end
+
+   test 'confirm question email for entrepeneur' do
 
         question = @entrepreneur.questions.first
         email = UserMailer.confirm_question(@entrepreneur, question).deliver!
@@ -19,11 +22,21 @@ class UserMailerTest < ActionMailer::TestCase
 
    end
    
-   def test_confirm_signup_mail_for_lawyer
+   test 'confirm signup mail for lawyer' do
    
    end
+   
+   test 'answer notification' do
 
-   def teardown
-       DatabaseCleaner.clean
+        answer = @entrepreneur.questions.first.answers.first
+        lawyer = FactoryGirl.create(:user, :lawyer, :with_profile)
+        answer.user = lawyer
+        
+        email = UserMailer.notify_entrepreneur(answer)
+   
+        assert_equal ['info@linkinglaw.nl'], email.from
+        assert_equal [@entrepreneur.email], email.to
+        assert email.body.include? lawyer.profile.last_name
+      
    end
 end

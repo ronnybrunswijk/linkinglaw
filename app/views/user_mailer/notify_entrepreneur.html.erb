@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style type="text/css">
+    a {
+      color: #337ab7;
+      text-decoration: none;
+      background-color: transparent;
+    }
+
+    a:visited, a:link, a:hover, a:active, {
+      text-decoration: none;
+    }
+
+    </style>
+  </head>
+  <body>
+    <p>Goedendag,</p>
+    <p><%= @answer.user.profile.last_name %> heeft gereageerd op uw vraag. Bekijk <%= link_to 'hier', question_path(@answer.question, only_path: false)%> uw antwoord en ga snel verder met uw core-business!</p> 
+    <p>Uiteraard laten we het u direct weten als u meer antwoorden ontvangt.</p> 
+    <p>Met vriendelijke groet,</p>
+    <p>Het LinkingLaw team</p>
+    <p>
+      Reacties van juridische professionals op LinkingLaw zijn niet bedoeld als vervanging van een persoonlijk of telefonisch consult. U kunt contact opnemen met de juridische professional die uw vraag beantwoord heeft door naar het profiel van de juridische professional te gaan en vervolgens te klikken op de button ‘e-mail juridische professional’. LinkingLaw controleert en/of selecteert de antwoorden van de juridische professionals niet.         
+    </p>
+  </body>
+</html>

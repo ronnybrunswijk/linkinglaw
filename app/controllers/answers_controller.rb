@@ -28,15 +28,13 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
     @answer.user = current_user
-#    respond_to do |format|
-      if @answer.save
-#        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
-        render partial: 'answers_to_question', status: :created
-      else
-        format.html { render :new }
-        format.json { render json: @answer.errors, status: :unprocessable_entity }
-      end
-#    end
+    if @answer.save
+      UserMailer.notify_entrepreneur(@answer).deliver!
+      render partial: 'answers_to_question', status: :created
+    else
+      format.html { render :new }
+      format.json { render json: @answer.errors, status: :unprocessable_entity }
+    end
   end
 
   # PATCH/PUT /answers/1
