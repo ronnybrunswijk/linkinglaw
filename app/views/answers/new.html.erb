@@ -1,21 +1,9 @@
 <% provide :title, "Plaats een antwoord" %>
 
 <div class="authform">
-  <p>
-    <strong><%= t('activerecord.attributes.question.title') %>:</strong>
-    <%= @question.title %>
-  </p>
-
-  <p>
-    <strong><%= t('activerecord.attributes.question.description') %>:</strong>
-    <%= @question.description %>
-  </p>
-
-  <div id="answers_to_question">
-    <%= render 'answers_to_question' %>
-  </div>
+  <%= render 'questions/q_and_a'  %>
 </div>
-
 <%= render 'form' %>
+
 
 

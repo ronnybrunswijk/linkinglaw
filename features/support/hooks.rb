@@ -11,7 +11,7 @@ After do
 end 
 
 Before('@signed_in') do
-  @current_user = FactoryGirl.create(:user, :entrepreneur, :with_questions)
+  @current_user = FactoryGirl.create(:user, :entrepreneur, :with_answered_question)
   visit '/users/sign_in'
   fill_in "user_email", with: @current_user.email
   fill_in "user_password", with: @current_user.password

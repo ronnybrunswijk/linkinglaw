@@ -32,7 +32,7 @@ class AnswersControllerTest < ActionController::TestCase
         assert_equal text, answer.text
         assert_equal @lawyer, answer.user
         assert_template "user_mailer/notify_entrepreneur" 
-        assert_template partial: "answers/_answers_to_question"
+        assert_template partial: "_answers"
     end
 
     test 'new answer comes with a question' do

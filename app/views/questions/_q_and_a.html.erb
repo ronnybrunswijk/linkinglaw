@@ -1,0 +1,13 @@
+<p>
+  <strong><%= t('activerecord.attributes.question.title') %>:</strong>
+  <%= @question.title %>
+</p>
+
+<p>
+  <strong><%= t('activerecord.attributes.question.description') %>:</strong>
+  <%= @question.description %>
+</p>
+
+<div id="answers_to_question">
+  <%= render 'answers/answers' %>
+</div>

@@ -30,7 +30,7 @@ class AnswersController < ApplicationController
     @answer.user = current_user
     if @answer.save
       UserMailer.notify_entrepreneur(@answer).deliver!
-      render partial: 'answers_to_question', status: :created
+      render partial: 'answers', status: :created
     else
       format.html { render :new }
       format.json { render json: @answer.errors, status: :unprocessable_entity }

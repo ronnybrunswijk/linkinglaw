@@ -52,11 +52,18 @@ end
 Stel(/^ik bevind me op de detail pagina van (\d+) van mijn vragen$/) do |arg1|
     question = @current_user.questions.first
     visit "/questions/#{question.id}"
-    page.find("title", text:question.title, visible: false)
+    page.find("title", text: question.title, visible: false)
 end
 
 Dan(/^wil via de 'Naar overzicht' link weer terug kunnen naar het overzicht van al mijn gestelde vragen$/) do
     click_link "Naar overzicht"
     page.find("title", text: I18n.t(:mine, scope: [:questions]), visible: false)    
     page.assert_selector("div.authform table a", count: @current_user.questions.size)
+end
+
+Dan(/^daarbij de antwoorden die zijn gegeven op de vraag$/) do
+    question = @current_user.questions.first
+    question.answers.each do |answer|
+        page.find("div#answers_to_question p", text: answer.text)
+    end
 end
