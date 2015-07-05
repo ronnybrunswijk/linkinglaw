@@ -51,7 +51,7 @@ nl:
       signed_up: 'Je bent inschreven.'
       update_needs_confirmation: 'Je hebt je e-mailadres succesvol gewijzigd, maar we moeten je nieuwe mailadres nog verifiëren. Controleer je e-mail en klik op de link in de mail om je mailadres te verifiëren.'
       updated: 'Je account gegevens zijn opgeslagen.'
-      edit: 'Account wijzigen'
+      edit: 'Account instellingen'
       destroyed: 'Je account is verwijderd, wellicht tot ziens!'
       unhappy: "Niet tevreden? We zouden het jammer vinden je te zien gaan."
       cancel: "Account opheffen"

@@ -21,11 +21,12 @@ Functionaliteit: Algemene navigatie waarvoor het niet nodig is ingelogd te zijn
 
     Voorbeelden: Links en page titels
     |   Link                    |  Title                   |
-    |   home		        |  Home	                   |
-    |   Log in                  |  Log in	           |
+    |   home		                |  Home	                   |
+    |   Log in                  |  Log in	                 |
     |   Registreren             |  Registreren             | 
     |   Stel een vraag          |  Stel een vraag          |
     |   Juridische Professional |  Juridische Professional |
+    |   Vind een professional   |  Home                    |   
    
 
   @signed_in_lawyer
@@ -39,11 +40,29 @@ Functionaliteit: Algemene navigatie waarvoor het niet nodig is ingelogd te zijn
     |  /questions/list          |  Gestelde vragen         |
 
   @signed_in_lawyer
-  Abstract Scenario: De juridische professional navigeert door de website via de user links voor de ingelogde juridische professional
+  Abstract Scenario: De juridische professional navigeert door de website via de user links 
+                     voor de ingelogde juridische professional
     Stel als juridische professional bevind ik me op de home pagina en ben ingelogd
     Als ik dan op de "<Link>" link klik in het menu voor de ingelogde juridische professional
     Dan kom ik op de pagina getiteld "<Title>"
 
-    Voorbeelden: Links en page titels
-    |   Link                    |  Title                   |
-    |   Gestelde vragen         |  Gestelde vragen         |
+    Voorbeelden: Links en pagina titels
+    |   Link                        |  Title                   |
+    |   Notificaties instellingen   |  Home                    |
+    |   Profiel instellingen        |  Profiel Instellingen    |
+    |   Mijn reviews                |  Home                    |
+    |   Account instellingen        |  Account Instellingen    |
+    |   Log uit                     |  Home                    | 
+
+  @signed_in
+  Abstract Scenario: De ondernemer navigeert door de website via de user links 
+                     voor de ingelogde juridische professional
+    Stel als ondernemer bevind ik me op de home pagina en ben ingelogd
+    Als ik dan op de "<Link>" link klik in het menu voor de ingelogde ondernemer
+    Dan kom ik op de pagina getiteld "<Title>"
+
+    Voorbeelden: Links en pagina titels
+    |   Link                        |  Title                   |
+    |   Mijn reviews                |  Home                    |
+    |   Account instellingen        |  Account Instellingen    |
+    |   Log uit                     |  Home                    | 
