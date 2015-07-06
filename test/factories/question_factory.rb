@@ -21,38 +21,19 @@ FactoryGirl.define do
     factory :question do
        title "title"
        description "description"
+       practice_area { FactoryGirl.create(:aansprakelijkheidsrecht) }        
+
        trait :with_answers do
             after(:create) do |question|
                 FactoryGirl.create_list(:answers, 2, question: question)
             end
        end       
    end
-    
-
-    factory :question1, class: Question do
-        title "Question title1"
-        description  "Question description1"
-    end
-
-    factory :question2, class: Question do
-        title "Question title2"
-        description  "Question description2"
-    end
-
-    factory :question3, class: Question do
-        title "Question title3"
-        description  "Question description3"
-   end
-   
-   factory :question_with_practice_area, class: Question do
-        title "title4"
-        description "description4"
-        practice_area { FactoryGirl.create(:aansprakelijkheidsrecht) }        
-   end
 
    factory :questions, class: Question do
-        title
+        title { generate :title }
         description "description"
+        practice_area { FactoryGirl.create(:aansprakelijkheidsrecht) }                
    end
    
    sequence :title  do |n|

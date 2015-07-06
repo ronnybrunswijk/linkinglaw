@@ -41,8 +41,7 @@ FactoryGirl.define do
 
         trait :with_questions do
             after(:create) do |user|
-                FactoryGirl.create(:question1, user: user)
-                FactoryGirl.create(:question2, user: user)
+                FactoryGirl.create_list(:questions, 2, user: user)
             end
         end
 

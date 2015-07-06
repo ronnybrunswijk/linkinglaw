@@ -22,7 +22,7 @@ class QuestionTest < ActiveSupport::TestCase
 
   def setup
      DatabaseCleaner.start
-     @question_with_practice_area = FactoryGirl.create(:question_with_practice_area)
+     @question = FactoryGirl.create(:question)
   end
 
   def teardown
@@ -109,7 +109,7 @@ class QuestionTest < ActiveSupport::TestCase
   end
   
   test 'practice area association' do
-    assert_not_nil @question_with_practice_area.practice_area  
+    assert_not_nil @question.practice_area  
   end
 
   test 'answer association' do
