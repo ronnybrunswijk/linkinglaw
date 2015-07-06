@@ -30,18 +30,14 @@
 
 FactoryGirl.define do
 
-   factory :user, class: User do
+   # Entrepreneur factory
+   factory :entrepreneur, class: User do
         name "Joe Louis"
         email "joe.louis@boxing.ko"
         password "righthook"
         password_confirmation "righthook"
         confirmed_at DateTime.now
-
-        # Traits for the entrepreneur
-        trait :entrepreneur do
-           email "cornelius.vanderbilt@capital.com"
-           role 0 
-        end
+        role 0
 
         trait :with_questions do
             after(:create) do |user|
@@ -55,33 +51,39 @@ FactoryGirl.define do
                 FactoryGirl.create(:question, :with_answers, user: user)
             end
         end
-        
-        # Traits for the lawyer
-        trait :lawyer do 
-            email "barack.obama@usa.com"
-            role 1
-        end 
+   end
+   
+   # Lawyer factory
+   factory :lawyer, class: User do
+        name "Jack Dempsey"
+        email "jack.dempsey@boxing.ko"
+        password "lefthook"
+        password_confirmation "lefthook"
+        confirmed_at DateTime.now
+        role 1
+        profile { FactoryGirl.create(:profile) }                
 
         trait :abraham_lincoln do
             email "abraham.lincoln@usa.com"
             role 1
+            profile { FactoryGirl.create(:profile) }            
         end
 
-        trait :with_profile do
-            profile { FactoryGirl.create(:profile) }
-        end 
-        
         trait :with_answers do
             after(:create) do |user|
                 FactoryGirl.create_list(:answers, 2, user: user)
             end
         end
-        
-        # Traits for the administrator
-        trait :admin do
-            email "edgser.dijkstra@bit.com"
-            role 2
-        end 
-        
-   end
+    end   
+
+    # Admin factory
+    factory :admin, class: User do
+        name "Edgser Dijkstra"
+        email "edgser.dijkstra@bit.com"        
+        password "algoritme"
+        password_confirmation "algoritme"
+        confirmed_at DateTime.now
+        role 2
+    end
+   
 end

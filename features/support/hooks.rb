@@ -11,7 +11,7 @@ After do
 end 
 
 Before('@signed_in') do
-  @current_user = FactoryGirl.create(:user, :entrepreneur, :with_answered_question)
+  @current_user = FactoryGirl.create(:entrepreneur, :with_answered_question)
   visit '/users/sign_in'
   fill_in "user_email", with: @current_user.email
   fill_in "user_password", with: @current_user.password
@@ -19,7 +19,7 @@ Before('@signed_in') do
 end
 
 Before('@signed_in_lawyer') do
-  @current_user = FactoryGirl.create(:user, :lawyer, :with_profile)
+  @current_user = FactoryGirl.create(:lawyer)
   visit '/users/sign_in'
   fill_in "user_email", with: @current_user.email
   fill_in "user_password", with: @current_user.password
@@ -30,8 +30,9 @@ Before('@3_questions') do
   FactoryGirl.create_list(:questions, 3)
 end
 
+# Even sjin as dizze not gewoan de current user fan type entrepreneur weze kin.
 Before('@entrepreneur_with_questions') do
-  @entrepreneur_with_questions = FactoryGirl.create(:user, :entrepreneur, :with_questions)  
+  @entrepreneur_with_questions = FactoryGirl.create(:entrepreneur, :with_questions)  
 end
 
 Before('@with_practice_areas') do

@@ -5,8 +5,8 @@ class AnswersControllerTest < ActionController::TestCase
 
     def setup
          DatabaseCleaner.start
-         @lawyer = FactoryGirl.create(:user, :lawyer, :with_profile)
-         @entrepreneur = FactoryGirl.create(:user, :entrepreneur, :with_questions)
+         @lawyer = FactoryGirl.create(:lawyer)
+         @entrepreneur = FactoryGirl.create(:entrepreneur, :with_questions)
          @request.env['devise.mapping'] = Devise.mappings[:user]
          sign_in @lawyer
     end

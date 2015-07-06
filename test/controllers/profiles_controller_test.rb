@@ -5,7 +5,7 @@ class ProfilesControllerTest < ActionController::TestCase
 
     def setup
         DatabaseCleaner.start
-        @lawyer = FactoryGirl.create(:user, :lawyer, :with_profile)
+        @lawyer = FactoryGirl.create(:lawyer)
         @aansprakelijkheidsrecht = FactoryGirl.create(:aansprakelijkheidsrecht)
         @arbeids_en_pensioenrecht = FactoryGirl.create(:arbeids_en_pensioenrecht)
         sign_in @lawyer
@@ -58,7 +58,7 @@ class ProfilesControllerTest < ActionController::TestCase
 
     test 'entrepreneur tries to update a profile' do
 
-        entrepreneur = FactoryGirl.create(:user, :entrepreneur)
+        entrepreneur = FactoryGirl.create(:entrepreneur)
         sign_in entrepreneur
         
         put :update, id: @lawyer.profile.id, profile: {
@@ -71,7 +71,7 @@ class ProfilesControllerTest < ActionController::TestCase
 
     test 'admin tries to update a profile' do
 
-        admin = FactoryGirl.create(:user, :admin)
+        admin = FactoryGirl.create(:admin)
         sign_in admin
         
         put :update, id: @lawyer.profile.id, profile: {
@@ -84,7 +84,7 @@ class ProfilesControllerTest < ActionController::TestCase
     
     test "lawyer can only update his own profile" do
 
-        another_lawyer = FactoryGirl.create(:user, :abraham_lincoln, :with_profile)
+        another_lawyer = FactoryGirl.create(:lawyer, :abraham_lincoln)
 
         refute_equal @lawyer.profile.id, another_lawyer.profile.id
         assert_equal 0, @lawyer.profile.practice_areas.size

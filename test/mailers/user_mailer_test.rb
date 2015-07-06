@@ -4,7 +4,7 @@ class UserMailerTest < ActionMailer::TestCase
 
    def setup
        DatabaseCleaner.start
-       @entrepreneur = FactoryGirl.create(:user, :entrepreneur, :with_answered_question)
+       @entrepreneur = FactoryGirl.create(:entrepreneur, :with_answered_question)
    end
 
    def teardown
@@ -29,7 +29,7 @@ class UserMailerTest < ActionMailer::TestCase
    test 'answer notification' do
 
         answer = @entrepreneur.questions.first.answers.first
-        lawyer = FactoryGirl.create(:user, :lawyer, :with_profile)
+        lawyer = FactoryGirl.create(:lawyer)
         answer.user = lawyer
         
         email = UserMailer.notify_entrepreneur(answer)

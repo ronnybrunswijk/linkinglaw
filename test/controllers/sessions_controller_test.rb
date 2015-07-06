@@ -5,7 +5,7 @@ class SessionsControllerTest < ActionController::TestCase
 
   def setup
      DatabaseCleaner.start
-     @user = FactoryGirl.create(:user)
+     @user = FactoryGirl.create(:entrepreneur)
      @request.env['devise.mapping'] = Devise.mappings[:user] 
   end
 

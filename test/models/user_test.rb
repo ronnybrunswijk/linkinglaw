@@ -41,34 +41,34 @@ class UserTest < ActiveSupport::TestCase
    end
 
    def test_user_question_association 
-     user = FactoryGirl.create(:user, :entrepreneur, :with_questions)     
+     user = FactoryGirl.create(:entrepreneur, :with_questions)     
      refute_empty user.questions
    end
 
    test 'lawyer profile association' do
-     lawyer = FactoryGirl.create(:user, :lawyer, :with_profile)
+     lawyer = FactoryGirl.create(:lawyer)
      refute_nil lawyer.profile
    end
    
    test 'lawyer answer association' do
-      lawyer = FactoryGirl.create(:user, :lawyer, :with_answers)
+      lawyer = FactoryGirl.create(:lawyer, :with_answers)
       refute_empty lawyer.answers
       assert lawyer.answers.size > 1
    end
 
    def test_lawyer_role
-     lawyer = FactoryGirl.create(:user, :lawyer)
+     lawyer = FactoryGirl.create(:lawyer)
      assert_equal "lawyer", lawyer.role
    end
 
 
    def test_entrepreneur_role
-      entrepreneur = FactoryGirl.create(:user, :entrepreneur)
+      entrepreneur = FactoryGirl.create(:entrepreneur)
       assert_equal "entrepreneur", entrepreneur.role
    end
 
    def test_admin_role
-      admin = FactoryGirl.create(:user, :admin) 
+      admin = FactoryGirl.create(:admin) 
       assert_equal "admin", admin.role
    end
 
