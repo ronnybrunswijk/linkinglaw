@@ -1,6 +1,12 @@
 nl:
   activerecord:
     attributes:
+      address:
+        street: "Straat"
+        city: "Vestigingsplaats"
+        zip_code: "Postcode"
+        housenumber: "Huisnr."
+        housenumber_suffix: "Toevoeging"
       profile:
         first_name: "Voornaam"
         last_name: "Achternaam"
