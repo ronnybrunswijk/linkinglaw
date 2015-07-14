@@ -8,8 +8,6 @@
 #  user_id                  :integer
 #  first_name               :string(255)
 #  last_name                :string(255)
-#  business_address         :string(255)
-#  city                     :string(255)
 #  phone                    :string(255)
 #  profession               :string(255)
 #  disciplinary_decision    :boolean
@@ -36,5 +34,9 @@ class ProfileTest < ActiveSupport::TestCase
 
   test 'association with practice areas' do
       assert_equal 2, @profile_with_2_practice_areas.practice_areas.size
+  end 
+  
+  test 'address association' do
+      refute_nil @profile_with_2_practice_areas.address
   end 
 end

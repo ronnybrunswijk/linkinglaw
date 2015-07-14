@@ -21,11 +21,7 @@ class UserMailerTest < ActionMailer::TestCase
         assert_equal 'Uw vraag is op LinkingLaw geplaatst', email.subject
 
    end
-   
-   test 'confirm signup mail for lawyer' do
-   
-   end
-   
+
    test 'answer notification' do
 
         answer = @entrepreneur.questions.first.answers.first

@@ -15,7 +15,7 @@
   
   <div class="form-group">
       <%= profile_fields.label :practice_areas %><br>
-      <%= profile_fields.collection_check_boxes(:practice_area_ids, PracticeArea.all, :id, :name) do |b| %>
+        <%= profile_fields.collection_check_boxes(:practice_area_ids, PracticeArea.all, :id, :name) do |b| %>
         <%= b.label { b.check_box + b.text }  %><br>
       <% end %>
   </div>

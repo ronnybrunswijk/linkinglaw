@@ -1,4 +1,8 @@
 $(document).on 'page:change', ->
+  $('#user_profile_attributes_address_attributes_zip_code').bind 'blur', (e) ->
+    zip_code = $(e.target).val()
+    supplement_address(zip_code)
+    
   $('select#professions').bind 'keydown', (e) ->
      $(this.options).first().remove()
 
@@ -15,3 +19,13 @@ update_profession_input = (val) ->
   else
     $formGroup.removeClass('hidden')
   $("input#user_profile_attributes_profession").val(val).focus()
+  
+supplement_address = (zip_code) ->
+  console.log(zip_code)
+  $.ajax
+    url: "/addresses/#{zip_code}"
+    error: (jqXHR, textStatus, errorThrown) ->
+      console.log(errorThrown)
+    success: (data, textStatus, jqXHR) ->
+      $('#user_profile_attributes_address_attributes_street').val(data.resource.street)
+      $('#user_profile_attributes_address_attributes_city').val(data.resource.town)

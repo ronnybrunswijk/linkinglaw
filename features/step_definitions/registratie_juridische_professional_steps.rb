@@ -32,8 +32,6 @@ Dan(/^daarna verwittigd worden over dat mijn registratie gelukt is$/) do
   assert_not_nil profile
   assert_equal "Iron Mike", profile.first_name
   assert_equal "Tyson", profile.last_name
-  assert_equal "Knock out street 2", profile.business_address
-  assert_equal "New York", profile.city
   assert_equal "(999) 999-9999", profile.phone
   assert_equal "Fiscalist", profile.profession
   assert_equal 5, profile.years_of_work_experience
@@ -79,8 +77,6 @@ end
 def fill_in_profile
   fill_in "user_profile_attributes_first_name", with: "Iron Mike"
   fill_in "user_profile_attributes_last_name", with: "Tyson"  
-  fill_in "user_profile_attributes_business_address", with: "Knock out street 2"  
-  fill_in "user_profile_attributes_city", with: "New York"  
   fill_in "user_profile_attributes_phone", with: "(999) 999-9999"    
   select "Fiscalist", from: "professions"
 #  choose "Ja" Dit is registrere under nr. 374 op de backlog

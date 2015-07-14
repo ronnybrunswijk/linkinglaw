@@ -8,8 +8,6 @@
 #  user_id                  :integer
 #  first_name               :string(255)
 #  last_name                :string(255)
-#  business_address         :string(255)
-#  city                     :string(255)
 #  phone                    :string(255)
 #  profession               :string(255)
 #  disciplinary_decision    :boolean
@@ -26,9 +24,8 @@ FactoryGirl.define do
       factory :profile, class: Profile do
             first_name "Abraham"
             last_name "Lincoln"
-            business_address "1600 Pennsylvania Ave NW"
-            city "Washington"
             phone "+1 202-456-1111"
+            address { FactoryGirl.create(:address) } 
             
             trait :with_2_practice_areas do
                   after(:create) do |profile|

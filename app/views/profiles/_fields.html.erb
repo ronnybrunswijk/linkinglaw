@@ -8,12 +8,22 @@
     <%= profile_fields.text_field :last_name, class: 'form-control' %>
 </div>
 <div class="form-group">
-    <%= profile_fields.label :business_address %>
-    <%= profile_fields.text_field :business_address, class: 'form-control' %>
+    <%= profile_fields.fields_for :address do |address_fields| %>
+        <%= address_fields.label :zip_code %>
+        <%= address_fields.text_field :zip_code, class: 'form-control' %>
+    <% end %>
 </div>
 <div class="form-group">
-    <%= profile_fields.label :city %>
-    <%= profile_fields.text_field :city, class: 'form-control' %>
+    <%= profile_fields.fields_for :address do |address_fields| %>
+        <%= address_fields.label :street %>
+        <%= address_fields.text_field :street, class: 'form-control', readonly: true %>
+    <% end %>
+</div>
+<div class="form-group">
+    <%= profile_fields.fields_for :address do |address_fields| %>
+        <%= address_fields.label :city %>
+        <%= address_fields.text_field :city, class: 'form-control', readonly: true %>
+    <% end %>
 </div>
 <div class="form-group">
     <%= profile_fields.label :phone %>
@@ -43,5 +53,5 @@
       <%= profile_fields.radio_button :disciplinary_decision, true %> Ja    	      
     </label>
 </div>
-
+<input id="postcodeapi_button" type="button" value="Test postcodeapi">
 

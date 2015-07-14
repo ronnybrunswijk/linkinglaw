@@ -40,9 +40,11 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'poltergeist'
+  gem 'mocha'
 end
 
 ### tafoege
 gem 'figaro'
 gem 'rails-i18n', '~> 4.0.0'
 gem 'normalize-rails'
+gem 'httparty'

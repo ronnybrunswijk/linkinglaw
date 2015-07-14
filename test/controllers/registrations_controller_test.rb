@@ -58,23 +58,28 @@ class RegistrationsControllerTest < ActionController::TestCase
     assert_not_nil user
     assert_equal "entrepreneur", user.role
     assert_not_nil user.profile
+    assert_not_nil user.profile.address
   end
 
-  def test_signup_as_lawyer
+  test 'signup as lawyer' do
      post :create, { user: { name: "Cicero",
                              email: "law@yer.com",
                              password: "password",
                              password_confirmation: "password",
                              profile_attributes: { first_name: "Marcus Tullius",
                                                     last_name: "Cicero",
-                                                    business_address: "Via della Salara Vecchia 5/6",
-                                                    city: "Roma",
                                                     phone: "+39 06 0608",
                                                     profession: "Lawyer",
                                                     disciplinary_decision: "false",
                                                     years_of_work_experience: 10,
-                                                    chamber_of_commerce_no: "123456"
-                             } } }
+                                                    chamber_of_commerce_no: "123456",
+                                                    address_attributes: { street: "Via della Salara Vecchia",
+                                                                          housenumber: "5/6",
+                                                                          housenumber_suffix: "A",
+                                                                          zip_code: "1000AA",
+                                                                          city: "Roma"
+                                                                          
+                             } } } }
      assert_redirected_to root_path
      lawyer = User.find_by name: "Cicero"
      assert_not_nil lawyer
@@ -83,12 +88,17 @@ class RegistrationsControllerTest < ActionController::TestCase
      assert_not_nil lawyer.profile
      assert_equal "Marcus Tullius", profile.first_name
      assert_equal "Cicero", profile.last_name
-     assert_equal "Via della Salara Vecchia 5/6", profile.business_address
-     assert_equal "Roma", profile.city
      assert_equal "+39 06 0608", profile.phone
      assert_equal "Lawyer", profile.profession
      assert_equal 10, profile.years_of_work_experience
      assert_equal "123456", profile.chamber_of_commerce_no
      refute profile.disciplinary_decision
+     address = profile.address
+     refute_nil address
+     assert_equal "Via della Salara Vecchia", address.street
+     assert_equal "5/6", address.housenumber
+     assert_equal "A", address.housenumber_suffix
+     assert_equal "Roma", address.city
+     assert_equal "1000AA", address.zip_code
   end
 end
