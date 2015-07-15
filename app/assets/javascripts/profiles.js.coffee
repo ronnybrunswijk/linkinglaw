@@ -21,7 +21,6 @@ update_profession_input = (val) ->
   $("input#user_profile_attributes_profession").val(val).focus()
   
 supplement_address = (zip_code) ->
-  console.log(zip_code)
   $.ajax
     url: "/addresses/#{zip_code}"
     error: (jqXHR, textStatus, errorThrown) ->

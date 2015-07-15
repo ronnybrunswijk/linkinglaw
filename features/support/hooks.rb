@@ -42,3 +42,8 @@ end
 Before('@question_with_answers') do
   @question_with_answers = FactoryGirl.create(:question, :with_answers)
 end
+
+Before('@postcodeapi_stub') do
+   response = {success: true, resource: { street: "Broadway", town: "New York"}}
+   PostcodeAPI.any_instance.stubs(:get_full_address).with("1000AA").returns(response)  
+end

@@ -1,6 +1,7 @@
 # language: nl
 Functionaliteit: Registratie voor de juridische professional
 
+  @postcodeapi_stub
   Scenario: de juridische professional registreert zich
     Stel ik bevind me op de landings pagina voor de juridische professional en ik wil me registreren
     Dan wil ik een duidelijke optie die leidt naar het registratieformulier

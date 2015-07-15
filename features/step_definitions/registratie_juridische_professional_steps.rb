@@ -14,10 +14,7 @@ end
 
 Dan(/^wil ik alle noodzakelijke gegevens kunnen opvoeren en verzenden$/) do
 
-  # account info
   fill_in_account
-
-  # profile info
   fill_in_profile
   
   click_button "Registreren" 
@@ -32,6 +29,11 @@ Dan(/^daarna verwittigd worden over dat mijn registratie gelukt is$/) do
   assert_not_nil profile
   assert_equal "Iron Mike", profile.first_name
   assert_equal "Tyson", profile.last_name
+  assert_equal "1000AA", profile.address.zip_code
+  assert_equal "2", profile.address.housenumber
+  assert_equal "hs", profile.address.housenumber_suffix
+  assert_equal "Broadway", profile.address.street
+  assert_equal "New York", profile.address.city
   assert_equal "(999) 999-9999", profile.phone
   assert_equal "Fiscalist", profile.profession
   assert_equal 5, profile.years_of_work_experience
@@ -77,6 +79,9 @@ end
 def fill_in_profile
   fill_in "user_profile_attributes_first_name", with: "Iron Mike"
   fill_in "user_profile_attributes_last_name", with: "Tyson"  
+  fill_in 'user_profile_attributes_address_attributes_zip_code', with: "1000AA"
+  fill_in 'user_profile_attributes_address_attributes_housenumber', with: "2"
+  fill_in 'user_profile_attributes_address_attributes_housenumber_suffix', with: "hs"  
   fill_in "user_profile_attributes_phone", with: "(999) 999-9999"    
   select "Fiscalist", from: "professions"
 #  choose "Ja" Dit is registrere under nr. 374 op de backlog
