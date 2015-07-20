@@ -22,6 +22,8 @@ class RegistrationsController < Devise::RegistrationsController
       # dit ferhuzje nei de new actions en dan net ta stean de role attribuut te upaten ifm admin rol
       if resource.profile
         resource.role = "lawyer"
+        address = resource.profile.address
+        address.province = ZipCodeRange.find_province(address.zip_code)
       end
 
       if request.xhr?

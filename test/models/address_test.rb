@@ -19,7 +19,20 @@
 #  index_addresses_on_province_id  (province_id)
 #
 
-class Address < ActiveRecord::Base
-    belongs_to :profile
-    belongs_to :province
+require 'test_helper'
+
+class AddressTest < ActiveSupport::TestCase
+
+  def setup
+     DatabaseCleaner.start
+     @address = FactoryGirl.create(:address)
+  end
+
+  def teardown
+    DatabaseCleaner.clean
+  end
+
+  test 'province association' do
+      refute_nil @address.province
+  end 
 end

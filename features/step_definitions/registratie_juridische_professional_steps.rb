@@ -34,6 +34,7 @@ Dan(/^daarna verwittigd worden over dat mijn registratie gelukt is$/) do
   assert_equal "hs", profile.address.housenumber_suffix
   assert_equal "Broadway", profile.address.street
   assert_equal "New York", profile.address.city
+  assert_equal "Noord-Holland", profile.address.province.name
   assert_equal "(999) 999-9999", profile.phone
   assert_equal "Fiscalist", profile.profession
   assert_equal 5, profile.years_of_work_experience

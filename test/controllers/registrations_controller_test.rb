@@ -5,6 +5,7 @@ class RegistrationsControllerTest < ActionController::TestCase
 
   def setup
     DatabaseCleaner.start
+    load "#{Rails.root}/db/seeds.rb"
     @request.env["devise.mapping"] = Devise.mappings[:user]
   end
 
@@ -100,5 +101,6 @@ class RegistrationsControllerTest < ActionController::TestCase
      assert_equal "A", address.housenumber_suffix
      assert_equal "Roma", address.city
      assert_equal "1000AA", address.zip_code
+     assert_equal "Noord-Holland", address.province.name
   end
 end

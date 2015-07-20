@@ -3,6 +3,7 @@ require 'test_helper'
 class AddressesControllerTest < ActionController::TestCase
     include Devise::TestHelpers
 
+    # TODO Dit slaat as in lul op in drumstel
     test 'get full address' do
        PostcodeAPI.any_instance.stubs(:get_full_address).with("1000AA").returns({street: "Broadway", city: "New York"})
 

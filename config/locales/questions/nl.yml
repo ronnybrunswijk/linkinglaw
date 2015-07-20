@@ -4,6 +4,8 @@ nl:
       question:
         title: "Titel"
         description: "Omschrijving"
+        provinces: "Regio"
+        practice_area: "Onderwerp"
   questions:
     ask_question: "Stel een vraag"
     preview_question: "Bekijk vraag"

@@ -23,7 +23,6 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user = current_user
     if params[:create]
-      set_practice_area
       flash[:notice] = t(:save_success, scope: [:questions, :notifications]) if @question.save
       UserMailer.confirm_question(current_user, @question).deliver!
       respond_with(@question)
@@ -66,15 +65,6 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-      params.require(:question).permit(:title, :description)
-    end
-
-    def set_practice_area
-      practice_area_id = params[:practice_areas]
-      if practice_area_id
-        @question.practice_area = PracticeArea.find(practice_area_id) 
-      else 
-        @question.practice_area = PracticeArea.first
-      end
+      params.require(:question).permit(:title, :description, :practice_area_id, province_ids: [])
     end
 end

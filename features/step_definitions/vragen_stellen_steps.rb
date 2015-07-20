@@ -1,5 +1,5 @@
 Stel(/^als ondernemer bevind ik me op de 'preview vraag' pagina$/) do
-  @title = " I coulda had class. I coulda been a contender."
+  @title = "I coulda had class. I coulda been a contender."
   visit new_question_path
   fill_in "question_title", with: @title
   fill_in "question_description", with: "a"
@@ -71,12 +71,27 @@ Stel(/^als ondernemer heb ik een vraag opgevoerd die ik daadwerkelijk wil stelle
 end
 
 Dan(/^wil ik daarbij ook het rechtsgebied, waarop de vraag betrekking heeft, kunnen selecteren$/) do
-  @practice_area = "rechtsvormen, ZZP, start-up"
-  select @practice_area,  from: 'practice_areas'
+  @practice_area = PracticeArea.first
+  select @practice_area.subject,  from: 'question_practice_area_id'
   click_button "Plaats vraag"
 end
 
 Dan(/^dat het geselecteerde rechtsgebied tezamen met mijn vraag wordt opgeslagen$/) do
-  question = @current_user.questions.last
-  assert_equal @practice_area, question.practice_area.subject
+  page.find("title", text: @title, visible: false)
+  question = Question.find_by title: @title  
+  assert_equal @practice_area, question.practice_area
+end
+
+Dan(/^wil ik daarbij ook de regios, waarin juridische professionals werkzaam zijn, kunnen selecteren$/) do
+   @provinces = Province.take(2)
+   @provinces.each do |province|
+      check "question_province_ids_#{province.id}"      
+   end
+   click_button "Plaats vraag"
+end
+
+Dan(/^dat de geselecteerde regios tezamen met mijn vraag worden opgeslagen$/) do
+  page.find("title", text: @title, visible: false)
+  question = Question.find_by title: @title
+  assert_equal @provinces, question.provinces
 end

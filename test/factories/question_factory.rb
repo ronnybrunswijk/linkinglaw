@@ -21,13 +21,22 @@ FactoryGirl.define do
     factory :question do
        title "title"
        description "description"
-       practice_area { FactoryGirl.create(:aansprakelijkheidsrecht) }        
+
+       trait :with_practice_area do
+           practice_area { FactoryGirl.create(:aansprakelijkheidsrecht) }        
+       end
 
        trait :with_answers do
             after(:create) do |question|
                 FactoryGirl.create_list(:answers, 2, question: question)
             end
        end       
+       
+       trait :with_provinces do
+            after(:create) do |question|
+                question.provinces = FactoryGirl.create_list(:province, 2)
+            end
+       end
    end
 
    factory :questions, class: Question do

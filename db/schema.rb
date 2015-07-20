@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711210104) do
+ActiveRecord::Schema.define(version: 20150720114746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 20150711210104) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "profile_id"
+    t.integer  "province_id"
   end
 
   add_index "addresses", ["profile_id"], name: "index_addresses_on_profile_id", using: :btree
+  add_index "addresses", ["province_id"], name: "index_addresses_on_province_id", using: :btree
 
   create_table "answers", force: true do |t|
     t.text     "text"
@@ -70,6 +72,20 @@ ActiveRecord::Schema.define(version: 20150711210104) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
+  create_table "provinces", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "provinces_questions", id: false, force: true do |t|
+    t.integer "question_id"
+    t.integer "province_id"
+  end
+
+  add_index "provinces_questions", ["province_id"], name: "index_provinces_questions_on_province_id", using: :btree
+  add_index "provinces_questions", ["question_id"], name: "index_provinces_questions_on_question_id", using: :btree
+
   create_table "questions", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -105,5 +121,15 @@ ActiveRecord::Schema.define(version: 20150711210104) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "zip_code_ranges", force: true do |t|
+    t.integer  "first"
+    t.integer  "last"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "province_id"
+  end
+
+  add_index "zip_code_ranges", ["province_id"], name: "index_zip_code_ranges_on_province_id", using: :btree
 
 end

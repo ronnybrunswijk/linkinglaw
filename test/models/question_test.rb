@@ -109,7 +109,8 @@ class QuestionTest < ActiveSupport::TestCase
   end
   
   test 'practice area association' do
-    assert_not_nil @question.practice_area  
+    question = FactoryGirl.create(:question, :with_practice_area)
+    assert_not_nil question.practice_area  
   end
 
   test 'answer association' do
@@ -117,5 +118,12 @@ class QuestionTest < ActiveSupport::TestCase
     refute_empty question.answers
     assert question.answers.size > 1
   end 
+  
+  test 'province association' do
+    question = FactoryGirl.create(:question, :with_provinces)
+
+    refute_empty question.provinces
+    assert_equal 2, question.provinces.size
+  end
 
 end

@@ -35,7 +35,7 @@ Before('@entrepreneur_with_questions') do
   @entrepreneur_with_questions = FactoryGirl.create(:entrepreneur, :with_questions)  
 end
 
-Before('@with_practice_areas') do
+Before('@seeds') do
   load "#{Rails.root}/db/seeds.rb"
 end
 

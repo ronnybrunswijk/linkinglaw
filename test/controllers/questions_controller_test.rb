@@ -63,14 +63,16 @@ class QuestionsControllerTest < ActionController::TestCase
         assert_equal I18n.t(:unauthorized, scope: [:devise, :failure], user_type: @lawyer.role), flash[:alert]
     end
   
-    def test_entrepreneur_creates_question
+    test 'entrepreneur creates question' do 
       title = "You talking to me?"
       practice_area = PracticeArea.create(name: "some name", subject: "some subject")
+      provinces = FactoryGirl.create_list(:province, 2)
       post :create, { create: 'create',
-                      practice_areas: practice_area.id,
                       question: { title: title,
-                                  description: 'a'
-                                  }
+                                  description: 'a',
+                                  practice_area_id: practice_area.id,                                  
+                                  province_ids: provinces.each {|province| province.id}                                   
+                                 }
                     }
 
       assert_template 'user_mailer/confirm_question'
@@ -78,25 +80,10 @@ class QuestionsControllerTest < ActionController::TestCase
       assert_not_nil question
       assert_not_nil question.practice_area
       assert_equal practice_area.id, question.practice_area.id
+      assert_equal provinces, question.provinces
     end
 
-    # this is not possible through normal use of the interface
-    def test_entrepreneur_creates_question_without_specifying_practice_area
-      PracticeArea.create([{name: "first", subject: "some subject"},
-                           {name: "second", subject: "some subject"}])
-      title = "Are you a photographer?" 
-      post :create, { create: 'create',
-                      question: { title: title,
-                                  description: 'a'
-                                  }
-                    }
-
-      question = Question.find_by title: title
-      assert_not_nil question.practice_area
-      assert_equal PracticeArea.first, question.practice_area
-    end
-
-    def test_entrepreneur_modifies_question
+    test 'entrepreneur modifies question' do
       post :create, question: {title: 'a', description: 'a'}
 
       assert_template :new
@@ -145,5 +132,9 @@ class QuestionsControllerTest < ActionController::TestCase
        
        assert :success
        assert_template :show
+    end
+    
+    test 'entrepreneur adds regions to his questions' do
+        
     end
 end

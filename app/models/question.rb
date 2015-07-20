@@ -20,6 +20,7 @@ class Question < ActiveRecord::Base
   belongs_to :user
   belongs_to :practice_area
   has_many :answers, dependent: :destroy
+  has_and_belongs_to_many :provinces
   validates :title, length: { in: 1..100 }
   validates :description, length: { in: 1..500 }
 end
