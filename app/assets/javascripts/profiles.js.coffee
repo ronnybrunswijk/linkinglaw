@@ -1,4 +1,8 @@
+professions = ["Advocaat","Jurist","Fiscalist"]
+
 $(document).on 'page:change', ->
+  init_profession()
+  
   $('#user_profile_attributes_address_attributes_zip_code').bind 'blur', (e) ->
     zip_code = $(e.target).val()
     supplement_address(zip_code)
@@ -11,6 +15,12 @@ $(document).on 'page:change', ->
         update_profession_input('')
       else
         update_profession_input(this.options[this.selectedIndex].value)
+
+init_profession = ->
+  profession = $('#profile_profession').val()
+  if profession? and profession not in professions
+    $("#user_profile_attributes_profession_form_group").removeClass('hidden')
+    $("select#professions").val("Anders")    
 
 update_profession_input = (val) ->
   $formGroup = $("#user_profile_attributes_profession_form_group")

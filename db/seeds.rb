@@ -97,3 +97,35 @@ zip_code_ranges = [[1000,1299,noord_holland.id],[1300,1379,flevoland.id],[1380,1
 zip_code_ranges.each do |first, last, province_id|
    ZipCodeRange.create(first: first, last: last, province_id: province_id) 
 end
+
+### Test accounts
+entrepreneur = User.create(name: "Cornelius Vanderbilt", 
+                           email: ENV["ENTREPRENEUR_EMAIL"], 
+                           password: ENV["USER_PASSWORD"], 
+                           password_confirmation: ENV["USER_PASSWORD"], 
+                           confirmed_at: DateTime.now)
+
+lawyer = User.create(name: "Abraham Lincoln", 
+                     email: ENV["LAWYER_EMAIL"], 
+                     password: ENV["USER_PASSWORD"],
+                     password_confirmation: ENV["USER_PASSWORD"], 
+                     confirmed_at: DateTime.now,
+                     role: 1)
+
+profile = Profile.create(first_name: "Abraham",
+                         last_name: "Lincoln",
+                         phone: "+1 202-456-1111",
+                         profession: "lawyer",
+                         disciplinary_decision: false,
+                         years_of_work_experience: 75,
+                         chamber_of_commerce_no: "711")
+                         
+profile.address = Address.create(zip_code: "9035CC",
+                                 street: "Hoyte Roucomastrjitte",
+                                 city: "Dronryp",
+                                 housenumber: "2",
+                                 housenumber_suffix: "hs",
+                                 province_id: friesland.id)                        
+                                 
+profile.practice_areas = PracticeArea.take(3)                                
+lawyer.profile = profile
