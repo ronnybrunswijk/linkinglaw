@@ -22,7 +22,6 @@ class QuestionTest < ActiveSupport::TestCase
 
   def setup
      DatabaseCleaner.start
-     @question = FactoryGirl.create(:question)
   end
 
   def teardown
@@ -126,4 +125,38 @@ class QuestionTest < ActiveSupport::TestCase
     assert_equal 2, question.provinces.size
   end
 
+  test 'province association by assignment' do
+    question = Question.create(title: "a", description: "a")
+    question.provinces = FactoryGirl.create_list(:provinces, 2)
+    
+    provinces = question.provinces
+    refute_empty provinces
+    assert_equal 2, provinces.size
+  end
+
+  test 'select questions by provinces' do
+      expected_questions = questions[0..1]
+      provinces = Province.where(name: ["Friesland", "Noord-Brabant"])
+      actual_questions = Question.find_for(provinces)    
+      assert_equal expected_questions.sort, actual_questions.sort
+  end
+  
+  test 'select questions without provinces' do
+      expected_question = questions[2]
+      actual_question = Question.find_without_provinces[0]    
+      assert_equal expected_question, actual_question
+  end
+  
+  test 'select questions with and without provinces' do
+      expected_questions = questions
+      provinces = Province.where(name: ["Friesland", "Noord-Brabant"])
+      actual_questions = Question.find_with_and_without_provinces(provinces)    
+      assert_equal expected_questions.sort, actual_questions.sort
+  end
+  
+  def questions 
+    [FactoryGirl.create(:question, :for_frisians),
+     FactoryGirl.create(:question, :for_brabos),
+     FactoryGirl.create(:question)]
+  end
 end

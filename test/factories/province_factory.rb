@@ -10,8 +10,20 @@
 
 FactoryGirl.define do
 
-    factory :province do
+    factory :friesland, class: Province do
         name "Friesland"
     end 
     
+    factory :limburg, class: Province do 
+       name "Limburg" 
+    end
+    
+    factory :noord_brabant, class: Province do 
+       name "Noord-Brabant" 
+    end    
+    
+    factory :provinces, class: Province do
+        sequence(:name) { |n| "Province #{n}" }
+    end
+
 end

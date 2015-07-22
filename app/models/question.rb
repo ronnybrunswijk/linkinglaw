@@ -23,4 +23,18 @@ class Question < ActiveRecord::Base
   has_and_belongs_to_many :provinces
   validates :title, length: { in: 1..100 }
   validates :description, length: { in: 1..500 }
+  
+    def self.find_for(provinces)
+       province_ids = provinces.map(&:id)
+       Question.joins(:provinces).where(provinces: {id:  province_ids}) 
+    end  
+
+    def self.find_without_provinces
+       Question.includes(:provinces).where(provinces: {id: nil}) 
+    end  
+    
+    def self.find_with_and_without_provinces(provinces)
+       questions = self.find_for(provinces)
+       questions.push(*self.find_without_provinces)
+    end
 end

@@ -34,7 +34,25 @@ FactoryGirl.define do
        
        trait :with_provinces do
             after(:create) do |question|
-                question.provinces = FactoryGirl.create_list(:province, 2)
+                question.provinces = FactoryGirl.create_list(:provinces, 2)
+            end
+       end
+       
+       trait :for_frisians do
+            after(:create) do |question|
+                question.provinces = [FactoryGirl.create(:friesland)]
+            end
+       end
+
+       trait :for_limbos do
+            after(:create) do |question|
+                question.provinces = [FactoryGirl.create(:limburg)]
+            end
+       end
+
+       trait :for_brabos do
+            after(:create) do |question|
+                question.provinces = [FactoryGirl.create(:noord_brabant)]
             end
        end
    end

@@ -27,6 +27,6 @@ FactoryGirl.define do
         housenumber_suffix "A"
         zip_code "9035CC"
         city "Dronryp"
-        province { FactoryGirl.create(:province) }
+        province { FactoryGirl.create(:friesland) }
     end
 end

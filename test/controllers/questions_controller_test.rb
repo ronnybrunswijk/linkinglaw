@@ -66,7 +66,7 @@ class QuestionsControllerTest < ActionController::TestCase
     test 'entrepreneur creates question' do 
       title = "You talking to me?"
       practice_area = PracticeArea.create(name: "some name", subject: "some subject")
-      provinces = FactoryGirl.create_list(:province, 2)
+      provinces = FactoryGirl.create_list(:provinces, 2)
       post :create, { create: 'create',
                       question: { title: title,
                                   description: 'a',
@@ -132,9 +132,5 @@ class QuestionsControllerTest < ActionController::TestCase
        
        assert :success
        assert_template :show
-    end
-    
-    test 'entrepreneur adds regions to his questions' do
-        
     end
 end
