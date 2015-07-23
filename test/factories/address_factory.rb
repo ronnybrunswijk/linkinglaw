@@ -18,9 +18,8 @@
 #  index_addresses_on_profile_id   (profile_id)
 #  index_addresses_on_province_id  (province_id)
 #
-
 FactoryGirl.define do
-
+    
     factory :address do
         street "Hoyte Roucomastrjitte"
         housenumber "2"

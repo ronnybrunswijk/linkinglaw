@@ -27,7 +27,7 @@ practice_areas = [
 ]
 
 practice_areas.each do |name, subject|
-  PracticeArea.create(name: name, subject: subject)
+  PracticeArea.find_or_create_by(name: name, subject: subject)
 end
 
 provinces = ["Groningen",
@@ -44,7 +44,7 @@ provinces = ["Groningen",
              "Limburg"]
 
 provinces.each do |name|
-  Province.create(name: name)
+  Province.find_or_create_by(name: name)
 end
 
 noord_holland = Province.find_by name: "Noord-Holland"
@@ -95,7 +95,7 @@ zip_code_ranges = [[1000,1299,noord_holland.id],[1300,1379,flevoland.id],[1380,1
                    [9870,9879,friesland.id],[9880,9999,groningen.id]]
 
 zip_code_ranges.each do |first, last, province_id|
-   ZipCodeRange.create(first: first, last: last, province_id: province_id) 
+   ZipCodeRange.find_or_create_by(first: first, last: last, province_id: province_id) 
 end
 
 ### Test accounts

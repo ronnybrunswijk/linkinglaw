@@ -133,4 +133,26 @@ class QuestionsControllerTest < ActionController::TestCase
        assert :success
        assert_template :show
     end
+    
+    test 'lawyer sees only questions foar his region and without regions specified' do
+      sign_in @lawyer 
+      
+      expected_questions = questions[1..2]      
+      expected_questions.push(*@entrepreneur_with_questions.questions)
+      
+      get :list
+      
+      actual_questions = assigns(:questions)
+      assert_equal expected_questions.sort, actual_questions.sort
+    end
+    
+    def questions 
+        
+      question_for_region_lawyer = FactoryGirl.create(:question)    
+      question_for_region_lawyer.provinces = [@lawyer.profile.address.province]    
+      
+      [FactoryGirl.create(:question, :for_brabos),
+       question_for_region_lawyer,
+       FactoryGirl.create(:question)]
+    end
 end

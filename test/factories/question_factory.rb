@@ -39,18 +39,21 @@ FactoryGirl.define do
        end
        
        trait :for_frisians do
+            title "For Frisians"
             after(:create) do |question|
                 question.provinces = [FactoryGirl.create(:friesland)]
             end
        end
 
        trait :for_limbos do
+            title "For Limbos"
             after(:create) do |question|
                 question.provinces = [FactoryGirl.create(:limburg)]
             end
        end
 
        trait :for_brabos do
+            title "For Brabos"
             after(:create) do |question|
                 question.provinces = [FactoryGirl.create(:noord_brabant)]
             end

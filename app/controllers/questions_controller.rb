@@ -56,7 +56,8 @@ class QuestionsController < ApplicationController
  end
 
   def list
-    @questions = Question.all
+    province = current_user.profile.address.province
+    @questions = Question.find_with_and_without_provinces([province])
   end
 
   private
