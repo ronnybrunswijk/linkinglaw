@@ -34,7 +34,7 @@ $(function() {
            progressBar.text("Uploading done");
            // extract key and generate URL from response
            var key   = $(data.jqXHR.responseXML).find("Key").text();
-           var url   = s3data.url + "/" + key;
+           var url   = s3data.url + key;
            // set hidden field avatar_url
            $('#profile_avatar_url').val(url);
 
