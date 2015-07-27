@@ -1,8 +1,9 @@
 <% provide :title, "Profiel Instellingen"  %>
 
-    <div class="authform" style="max-width: 600px">
-      <%= render 'form' %>        
-      <%= link_to 'Show', @profile %> |
-      <%= link_to 'Back', profiles_path %>
-    </div>
+<div class="authform" style="max-width: 600px">
+  <%= render 'form' %>        
+  <%= link_to 'Show', @profile %> |
+  <%= link_to 'Back', profiles_path %>
+</div>
 
+<%= javascript_include_tag 'upload' %>

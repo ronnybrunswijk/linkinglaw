@@ -12,6 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require jquery.fileupload
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require_tree .
+//= require answers
+//= require profiles
+//= require questions
+//= require sign_in
+//= require google_analytics

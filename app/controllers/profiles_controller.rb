@@ -20,6 +20,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @s3 = S3_BUCKET.presigned_post(key: "uploads/avatars/#{SecureRandom.uuid}/${filename}", success_action_status: 201, acl: :public_read)
   end
 
   def create
@@ -44,6 +45,6 @@ class ProfilesController < ApplicationController
     end
 
     def profile_params
-      params.require(:profile).permit(:first_name, practice_area_ids: [])
+      params.require(:profile).permit(:first_name, :avatar_url, practice_area_ids: [])
     end
 end

@@ -18,5 +18,6 @@ nl:
         years_of_work_experience: "Aantal jaren werkervaring"
         chamber_of_commerce_no: "KvK-nummer (indien van toepassing)"
         practice_areas: "Rechtsgebieden"
+        avatar_url: "Pasfoto"
   profiles:
     edit: "Profiel instellingen"

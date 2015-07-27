@@ -15,19 +15,23 @@ class ProfilesControllerTest < ActionController::TestCase
         DatabaseCleaner.clean    
     end
 
-    test 'lawyer adds practice areas to his profile' do
+    test 'lawyer updates his profile' do
         profile = @lawyer.profile
         assert_empty profile.practice_areas
         
+        avatar_url = "https://linkinglaw-assets-dev.s3.amazonaws.com//uploads/avatars/ccbf953f-5a2f-447b-b626-cbf783e1f52f/image.jpg"
+        practice_areas = [@aansprakelijkheidsrecht, @arbeids_en_pensioenrecht]
+
+
         put :update, id: profile.id, profile: {
-                                                practice_area_ids: [@aansprakelijkheidsrecht.id, 
-                                                                    @arbeids_en_pensioenrecht.id] 
+                                                practice_area_ids: practice_areas.map(&:id),
+                                                avatar_url: avatar_url
                                               }
         
         @lawyer.reload
-        practice_areas = @lawyer.profile.practice_areas
-        refute_empty practice_areas
-        assert_equal 2, practice_areas.size 
+        profile = @lawyer.profile
+        assert_equal practice_areas.sort, profile.practice_areas.sort
+        assert_equal avatar_url, profile.avatar_url
 
     end
     
