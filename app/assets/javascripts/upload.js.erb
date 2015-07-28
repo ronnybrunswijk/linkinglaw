@@ -6,7 +6,6 @@ $(function() {
       var progressBar  = $("<div class='bar'></div>");
       var barContainer = $("<div class='progress'></div>").append(progressBar);
       var s3data         = fileInput.data('s3');
-      console.log(s3data);
       fileInput.after(barContainer);
       fileInput.fileupload({
         fileInput:       fileInput,
@@ -37,7 +36,7 @@ $(function() {
            var url   = s3data.url + key;
            // set hidden field avatar_url
            $('#profile_avatar_url').val(url);
-
+           $('img#avatar').attr('src', url);
          },
          fail: function(e, data) {
 	   submitButton.prop('disabled', false);

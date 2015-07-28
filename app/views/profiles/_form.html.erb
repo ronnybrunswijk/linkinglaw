@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= profile_fields.label :avatar_url %><br>
-    <%= image_tag @profile.avatar_url, class: "avatar" %><br>    
+    <%= image_tag @profile.avatar_url, id: "avatar", class: "avatar" %><br>    
     <%= file_field_tag(:avatar_url, { data: {s3:{url: @s3.url.to_s, formData: @s3.fields.to_json.html_safe, host: @s3.url.host}}, id: 'file', name: 'file'}) %>
     <%= profile_fields.text_field :avatar_url, class: "hidden" %>
   </div>
