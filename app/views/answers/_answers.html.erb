@@ -1,5 +1,11 @@
 <% @question.answers.each do |answer|%>
-  <p>
-    <%= answer.text %>
-  </p>  
+  <div class="answer">
+      <p>
+        <%= answer.text %>
+      </p>  
+      <div class="lawyer-personal-data">
+        <%= answer.user.profile.full_name %>
+        <%= image_tag answer.user.profile.avatar_url || "anonymous_avatar.png", class: 'avatar-small' %>
+      </div>
+  </div>
 <% end  %>

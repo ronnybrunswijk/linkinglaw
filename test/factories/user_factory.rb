@@ -55,7 +55,7 @@ FactoryGirl.define do
    # Lawyer factory
    factory :lawyer, class: User do
         name "Jack Dempsey"
-        email "jack.dempsey@boxing.ko"
+        sequence(:email) {|n| "jack.dempsey@boxing.ko#{n}"}
         password "lefthook"
         password_confirmation "lefthook"
         confirmed_at DateTime.now
@@ -70,7 +70,7 @@ FactoryGirl.define do
 
         trait :with_answers do
             after(:create) do |user|
-                FactoryGirl.create_list(:answers, 2, user: user)
+                FactoryGirl.create_list(:answer, 2, user: user)
             end
         end
     end   

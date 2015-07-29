@@ -26,6 +26,7 @@ FactoryGirl.define do
             first_name "Abraham"
             last_name "Lincoln"
             phone "+1 202-456-1111"
+            avatar_url "http://image.jpg"
             address { FactoryGirl.create(:address) } 
             
             trait :with_2_practice_areas do

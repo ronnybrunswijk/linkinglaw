@@ -16,8 +16,7 @@ Functionaliteit: Mijn vragen inzien
      En een melding zien dat ik nog moet inloggen
 
   @signed_in 
-  Scenario: De ondernemer bekijkt de details van 1 van 
-            zijn gestelde vragen
+  Scenario: De ondernemer bekijkt de details van 1 van zijn gestelde vragen
     Stel ik ben ingelogd als ondernemer
     En ik bevind me op de 'Mijn vragen' pagina
     Als ik dan op 1 van mijn gestelde vragen klik
@@ -31,3 +30,12 @@ Functionaliteit: Mijn vragen inzien
       En ik bevind me op de detail pagina van 1 van mijn vragen
       Dan wil via de 'Naar overzicht' link weer terug kunnen naar het overzicht van al mijn gestelde vragen
 
+  @signed_in
+  Scenario: De ondernemer bekijkt de antwoorden die zijn gegeven op zijn vragen
+    Stel ik ben ingelogd als ondernemer en ik bevind me op de detail vragen pagina
+    Dan wil ik de antwoorden kunnen zien die zijn gegeven op mijn vraag
+    En ook van welke juridische professional de antwoorden zijn
+    
+    
+    
+    

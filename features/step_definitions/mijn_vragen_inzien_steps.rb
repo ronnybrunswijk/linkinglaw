@@ -63,7 +63,26 @@ end
 
 Dan(/^daarbij de antwoorden die zijn gegeven op de vraag$/) do
     question = @current_user.questions.first
-    question.answers.each do |answer|
+    @answers = question.answers
+    @answers.each_with_index do |answer, index|
+        page.find("div.answer:nth-child(#{index + 1}) p", text: answer.text)
+    end
+end
+
+Stel(/^ik ben ingelogd als ondernemer en ik bevind me op de detail vragen pagina$/) do
+    page.find("a", text: @current_user.email)    
+    step 'ik bevind me op de detail pagina van 1 van mijn vragen'
+end
+
+Dan(/^wil ik de antwoorden kunnen zien die zijn gegeven op mijn vraag$/) do
+    step 'daarbij de antwoorden die zijn gegeven op de vraag'
+end
+
+Dan(/^ook van welke juridische professional de antwoorden zijn$/) do
+    @answers.each_with_index do |answer, index |
         page.find("div#answers_to_question p", text: answer.text)
+        user = answer.user
+        page.find("div.answer:nth-child(#{index + 1}) div.lawyer-personal-data", text: user.profile.full_name)
+        page.find("div.answer:nth-child(#{index + 1}) div.lawyer-personal-data img[src='#{user.profile.avatar_url}']")        
     end
 end
