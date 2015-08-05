@@ -1,14 +1,21 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :search]
   before_action :lawyer_only, only: [:update, :show]
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
   def index
-    @profiles = Profile.all
+    @profiles = Profile.page(1)
     respond_with(@profiles)
   end
+
+  # TODO url pattern even sa fan search/practice_area_id/:practice_area_id/province_id/:province_id as sa yts
+  def search
+    page_no = params[:page_no] || 1
+    @profiles = Profile.retrieve(params).page(page_no)
+    render partial: 'search' 
+  end  
 
   def show
     respond_with(@profile)

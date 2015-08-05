@@ -1,27 +1,23 @@
-<h1>Listing profiles</h1>
+<% provide :title, "Vind een professional"  %>  
+<div class="authform">
+  <%= form_tag :search_profiles do %>
+      <div  class="form-group">
+          <%= label_tag "Rechtsgebieden" %><br>
+          <% PracticeArea.all.each do |practice_area|%>
+            <%= link_to(practice_area.name, 
+                        search_profiles_path(practice_area_id: practice_area.id), 
+                        {class: "practice-area-query-link", data: {practice_area_id: practice_area.id}}) %>
+          <% end %>
+      </div>    
+      <div class="form-group">
+          <%= label_tag "Regio" %><br>
+          <% Province.all.each do |province|%>
+            <%= link_to(province.name, search_profiles_path(province_id: province.id)) %>
+          <% end %>
+      </div>
+  <% end %>
+</div>
+<div id="search-result">
+  <%= render 'search' %> 
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Practise area</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @profiles.each do |profile| %>
-      <tr>
-        <td><%= profile.name %></td>
-        <td><%= profile.practise_area %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Profile', new_profile_path %>

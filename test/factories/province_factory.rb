@@ -13,7 +13,15 @@ FactoryGirl.define do
     factory :friesland, class: Province do
         name "Friesland"
     end 
-    
+
+    factory :drenthe, class: Province do
+        name "Drenthe"
+    end 
+
+    factory :groningen, class: Province do
+        name "Groningen"
+    end 
+
     factory :limburg, class: Province do 
        name "Limburg" 
     end

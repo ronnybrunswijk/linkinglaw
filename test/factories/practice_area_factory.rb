@@ -21,5 +21,9 @@ FactoryGirl.define do
         subject "werk, inkomen, ontslag, pensioen"
     end
 
+    factory :contractenrecht, class: PracticeArea do
+        name "Contractenrecht" 
+        subject "overeenkomsten, algemene voorwaarden"
+    end
 end
   

@@ -35,5 +35,31 @@ FactoryGirl.define do
                         FactoryGirl.create(:arbeids_en_pensioenrecht)]
                   end
             end
+
+            trait :with_aansprakelijkheidsrecht do
+                  after(:create) do |profile|
+                        profile.practice_areas = [FactoryGirl.create(:aansprakelijkheidsrecht)]
+                  end
+            end
+
+            trait :with_arbeids_en_pensioenrecht do
+                  after(:create) do |profile|
+                        profile.practice_areas = [FactoryGirl.create(:arbeids_en_pensioenrecht)]                        
+                  end
+            end
+
+            trait :with_contractenrecht do
+                  after(:create) do |profile|
+                        profile.practice_areas = [FactoryGirl.create(:contractenrecht)]                        
+                  end
+            end
+            
+            trait :from_groningen do
+                  address { FactoryGirl.create(:address, :in_groningen) }                   
+            end 
+
+            trait :from_drenthe do
+                  address { FactoryGirl.create(:address, :in_drenthe) }                   
+            end 
       end
 end

@@ -64,6 +64,7 @@ Dan(/^wil de mogelijkheid hebben, waarmee ik toch mijn functie kan opgeven$/) do
 end
 
 Dan(/^dat de functie correct wordt geregistreerd in het systeem$/) do
+  puts "Totaal oantal gebrukers #{User.all.first.email}"
   user = User.find_by email: "iron@mike.nl"
   assert_not_nil user
   profile = user.profile

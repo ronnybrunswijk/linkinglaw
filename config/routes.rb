@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   registrations: 'registrations'}
 
   resources :users #dit moat nei 'devise_for :users etc. komme, oars reaket d'r yts yn e knoop
-  resources :profiles
+  resources :profiles do
+    collection do
+      get :search
+    end
+  end  
+
   resources :answers
   resources :questions do 
     collection do 

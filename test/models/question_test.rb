@@ -137,7 +137,7 @@ class QuestionTest < ActiveSupport::TestCase
   test 'select questions by provinces' do
       expected_questions = questions[0..1]
       provinces = Province.where(name: ["Friesland", "Noord-Brabant"])
-      actual_questions = Question.find_for(provinces)    
+      actual_questions = Question.find_with(provinces)    
       assert_equal expected_questions.sort, actual_questions.sort
   end
   

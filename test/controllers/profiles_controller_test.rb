@@ -103,4 +103,85 @@ class ProfilesControllerTest < ActionController::TestCase
         @lawyer.reload
         assert_equal 1, @lawyer.profile.practice_areas.size
     end 
+    
+    test 'entrepreneur visits search page' do
+       
+        entrepreneur = FactoryGirl.create(:entrepreneur)
+        sign_in entrepreneur
+       
+        get :index
+
+        assert_template :index
+
+        profiles = assigns(:profiles) 
+        refute_empty profiles
+        #TODO gewoan arrays fergelykje is fansels better (dus assert_equal Profile.all, profiles). Derfoar moast eerst equals as sa ymplementere ljiuw'k        
+        assert_equal Profile.all.size, profiles.size
+        assert_equal Profile.all.first.id, profiles.first.id
+       
+    end
+
+    test 'visitor searches for a lawyer without specifying search criteria' do
+        
+        sign_out @lawyer
+        
+        get :search
+        
+        profiles = assigns(:profiles)
+        refute_empty profiles
+        #TODO gewoan arrays fergelykje is fansels better (dus assert_equal Profile.all, profiles). Derfoar moast eerst equals as sa ymplementere ljiuw'k
+        assert_equal Profile.all.size, profiles.size        
+        assert_equal Profile.all.first.id, profiles.first.id
+    end
+
+    test 'visitor searches for a lawyer by region' do
+        
+        sign_out @lawyer
+        
+        FactoryGirl.create(:profile, :from_drenthe)
+        expected_profile = FactoryGirl.create(:profile, :from_groningen)
+    
+        criteria = {province_id: expected_profile.address.province_id}
+        
+        get :search, criteria
+        
+        profiles = assigns(:profiles)
+        refute_empty profiles
+        assert_equal [expected_profile], profiles
+    end
+
+    test 'visitor searches for a lawyer by practice area' do
+        
+        sign_out @lawyer
+        
+        FactoryGirl.create(:profile, :with_aansprakelijkheidsrecht)
+        expected_profile = FactoryGirl.create(:profile, :with_contractenrecht)
+    
+        criteria = {practice_area_id: expected_profile.practice_areas.first.id}
+      
+        get :search, criteria
+        
+        profiles = assigns(:profiles)
+        refute_empty profiles
+        assert_equal [expected_profile], profiles
+    end
+
+    test 'visitor searches for a lawyer by practice area and region' do
+        
+        sign_out @lawyer
+
+        FactoryGirl.create(:profile, :from_drenthe, :with_contractenrecht)
+        expected_profile = FactoryGirl.create(:profile, :from_groningen, :with_aansprakelijkheidsrecht)
+        
+        criteria = {practice_area_id: expected_profile.practice_areas.first.id,
+                    province_id: expected_profile.address.province_id}
+        
+        get :search, criteria
+        
+        actual_profiles = assigns(:profiles)
+        refute_empty actual_profiles
+        assert_equal [expected_profile], actual_profiles
+    end
+
+    
 end

@@ -26,7 +26,7 @@ Functionaliteit: Algemene navigatie waarvoor het niet nodig is ingelogd te zijn
     |   Registreren             |  Registreren             | 
     |   Stel een vraag          |  Stel een vraag          |
     |   Juridische Professional |  Juridische Professional |
-    |   Vind een professional   |  Home                    |   
+    |   Vind een professional   |  Vind een professional   |   
    
 
   @signed_in_lawyer

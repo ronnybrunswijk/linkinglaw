@@ -27,5 +27,14 @@ FactoryGirl.define do
         zip_code "9035CC"
         city "Dronryp"
         province { FactoryGirl.create(:friesland) }
+        
+        trait :in_groningen do
+            province { FactoryGirl.create(:groningen) }            
+        end
+        
+        trait :in_drenthe do
+            province { FactoryGirl.create(:drenthe) }            
+        end        
+        
     end
 end

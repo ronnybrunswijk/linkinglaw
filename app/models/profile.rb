@@ -28,4 +28,33 @@ class Profile < ActiveRecord::Base
     def full_name
        "#{first_name} #{last_name}" 
     end
+    
+    def self.retrieve(criteria)
+        
+        practice_area_id = criteria[:practice_area_id]
+        province_id = criteria[:province_id]
+        
+        if !practice_area_id && !province_id
+            self.all
+        else
+            #TODO query object meitsje mei query en params as properties
+            query = ""
+            params = {}
+            tables = []
+            if practice_area_id
+                query << "practice_areas.id = :practice_area_id" 
+                query << " and " if province_id
+                params[:practice_area_id] = practice_area_id
+                tables << :practice_areas
+            end 
+            
+            if province_id
+               query << "addresses.province_id = :province_id"
+                params[:province_id] = province_id
+                tables << :address
+            end
+            self.joins(tables).where(query, params)
+        end
+    end        
+
 end

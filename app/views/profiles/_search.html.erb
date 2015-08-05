@@ -1,0 +1,8 @@
+<div class="authform">
+    <% @profiles.each do |profile| %>
+        <%= link_to profile.full_name, profiles_path(profile.id), {class: "profile-link"} %><br>
+    <% end %>
+    <div>
+      <%= paginate @profiles %>
+    </div>
+</div>

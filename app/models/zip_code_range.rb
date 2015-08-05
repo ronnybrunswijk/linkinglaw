@@ -21,7 +21,7 @@ class ZipCodeRange < ActiveRecord::Base
        # TODO postcode validere
        region_code = zip_code.slice(0,4).to_i
        # TODO find one dwaan
-       zip_code_ranges = ZipCodeRange.where(":region_code between first and last", {region_code: region_code})
+       zip_code_ranges = self.where(":region_code between first and last", {region_code: region_code})
        zip_code_ranges.first.province
        # TODO betinke wat 'r dien wurde moat as postcode net fun wurd.'
     end

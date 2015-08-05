@@ -16,6 +16,9 @@ $(document).on 'page:change', ->
       else
         update_profession_input(this.options[this.selectedIndex].value)
 
+   $('a.practice-area-search-link').bind 'click', (e) ->
+     
+
 init_profession = ->
   profession = $('#profile_profession').val()
   if profession? and profession not in professions
@@ -38,3 +41,17 @@ supplement_address = (zip_code) ->
     success: (data, textStatus, jqXHR) ->
       $('#user_profile_attributes_address_attributes_street').val(data.resource.street)
       $('#user_profile_attributes_address_attributes_city').val(data.resource.town)
+      
+search_profile = (practice_area_id, province_id) ->
+  query_string = ""
+  query_string = "practice_area_id=#{practice_area_id}" if practice_area_id
+  query_string += "&" if practice_area_id and province_id
+  query_string += "province_id=#{province_id}" if province_id
+  
+  $.ajax
+    url: "/profiles?#{query_string}"
+    error: (jqXHR, textStatus, errorThrown) ->
+      console.log(errorThrown)
+    success: (data, textStatus, jqXHR) ->
+      $("#search-results").val(data.profiles)
+  
