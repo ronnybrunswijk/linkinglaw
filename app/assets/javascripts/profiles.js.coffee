@@ -16,8 +16,11 @@ $(document).on 'page:change', ->
       else
         update_profession_input(this.options[this.selectedIndex].value)
 
-   $('a.practice-area-search-link').bind 'click', (e) ->
-     
+   $('a.search-link').bind 'click', (e) ->
+     $link = $(e.target)
+     $($link.closest('.form-group')).find('a.search-link').removeClass('selected')
+     $link.addClass('selected')   
+     search_profile()
 
 init_profession = ->
   profession = $('#profile_profession').val()
@@ -42,16 +45,12 @@ supplement_address = (zip_code) ->
       $('#user_profile_attributes_address_attributes_street').val(data.resource.street)
       $('#user_profile_attributes_address_attributes_city').val(data.resource.town)
       
-search_profile = (practice_area_id, province_id) ->
-  query_string = ""
-  query_string = "practice_area_id=#{practice_area_id}" if practice_area_id
-  query_string += "&" if practice_area_id and province_id
-  query_string += "province_id=#{province_id}" if province_id
-  
+search_profile = () ->
+  query_params = ($(el).data('search-criterion') for el in $('a.search-link.selected'))
   $.ajax
-    url: "/profiles?#{query_string}"
+    url: "/profiles/search?#{query_params.join('&')}"
     error: (jqXHR, textStatus, errorThrown) ->
       console.log(errorThrown)
     success: (data, textStatus, jqXHR) ->
-      $("#search-results").val(data.profiles)
+      $("div#search-results").html(data)
   

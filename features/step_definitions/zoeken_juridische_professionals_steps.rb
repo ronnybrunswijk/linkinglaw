@@ -11,5 +11,5 @@ Dan(/^wil ik de mogelijkheid hebben om een juridische professional te zoeken op 
 end
 
 Dan(/^vervolgens juridische professionals gepresenteerd te krijgen die voldoen aan mijn zoekcriterium$/) do
-    page.has_css?("div#search-result a.profile-link", count: 5)        
+    assert page.has_css?("div#search-result a.profile-link", count: 1000)        
 end

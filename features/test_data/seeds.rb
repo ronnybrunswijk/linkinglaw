@@ -98,68 +98,6 @@ zip_code_ranges.each do |first, last, province_id|
    ZipCodeRange.find_or_create_by(first: first, last: last, province_id: province_id) 
 end
 
-=begin
-profile = Profile.create(first_name: "Friesland",
-                         last_name: "Aansprakelijkheidsrecht",
-                         practice_area_ids: [aansprakelijkheidsrecht.id])
-                         
-profile.address = Address.create(province_id: friesland.id)                        
-
-profile2 = Profile.create(first_name: "Groningen",
-                         last_name: "Aansprakelijkheidsrecht en Arbeids_en_pensioenrecht",
-                         practice_area_ids: [aansprakelijkheidsrecht.id, arbeids_en_pensioenrecht.id])
-                         
-profile2.address = Address.create(province_id: groningen.id)                        
-
-profile3 = Profile.create(first_name: "Drenthe",
-                         last_name: "Contractenrecht, Faillissementsrecht, Financieel_toezichtrecht",
-                         practice_area_ids: [contractenrecht.id, faillissementsrecht.id, financieel_toezichtrecht.id])
-                         
-profile3.address = Address.create(province_id: drenthe.id)
-
-profile4 = Profile.create(first_name: "Friesland",
-                         last_name: "Financieel_toezichtrecht",
-                         practice_area_ids: [financieel_toezichtrecht.id])
-                         
-profile4.address = Address.create(province_id: friesland.id)                        
-
-profile5 = Profile.create(first_name: "Drenthe",
-                         last_name: "Aansprakelijkheidsrecht",
-                         practice_area_ids: [aansprakelijkheidsrecht.id])
-                         
-profile5.address = Address.create(province_id: drenthe.id)
-
-profile6 = Profile.create(first_name: "Friesland",
-                         last_name: "Faillissementsrecht",
-                         practice_area_ids: [faillissementsrecht.id])
-                         
-profile6.address = Address.create(province_id: friesland.id)    
-
-profile7 = Profile.create(first_name: "Groningen",
-                         last_name: "Arbeids_en_pensioenrecht",
-                         practice_area_ids: [arbeids_en_pensioenrecht.id])
-                         
-profile7.address = Address.create(province_id: groningen.id)                        
-
-profile8 = Profile.create(first_name: "Friesland",
-                         last_name: "Aansprakelijkheidsrecht, Faillissementsrecht",
-                         practice_area_ids: [aansprakelijkheidsrecht.id, faillissementsrecht.id])
-                         
-profile8.address = Address.create(province_id: friesland.id)                        
-
-profile9 = Profile.create(first_name: "Drenthe",
-                         last_name: "Financieel_toezichtrecht, Faillissementsrecht",
-                         practice_area_ids: [financieel_toezichtrecht.id, faillissementsrecht.id])
-                         
-profile9.address = Address.create(province_id: drenthe.id)                        
-
-profile10 = Profile.create(first_name: "Groningen",
-                         last_name: "Aansprakelijkheidsrecht, Arbeids_en_pensioenrecht, Faillissementsrecht, Financieel_toezichtrecht",
-                         practice_area_ids: [aansprakelijkheidsrecht.id, arbeids_en_pensioenrecht.id, faillissementsrecht.id, financieel_toezichtrecht.id])
-                         
-profile10.address = Address.create(province_id: groningen.id)                        
-
-=end
 
 
 

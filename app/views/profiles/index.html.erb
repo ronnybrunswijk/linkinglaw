@@ -4,20 +4,20 @@
       <div  class="form-group">
           <%= label_tag "Rechtsgebieden" %><br>
           <% PracticeArea.all.each do |practice_area|%>
-            <%= link_to(practice_area.name, 
-                        search_profiles_path(practice_area_id: practice_area.id), 
-                        {class: "practice-area-query-link", data: {practice_area_id: practice_area.id}}) %>
+            <%= link_to(practice_area.name, "#", 
+                        {class: "search-link", data: {search_criterion: "practice_area_id=#{practice_area.id}"}}) %>
           <% end %>
       </div>    
       <div class="form-group">
           <%= label_tag "Regio" %><br>
           <% Province.all.each do |province|%>
-            <%= link_to(province.name, search_profiles_path(province_id: province.id)) %>
+            <%= link_to(province.name, "#",
+                        {class: "search-link", data: {search_criterion: "province_id=#{province.id}"}}) %>                        
           <% end %>
       </div>
   <% end %>
 </div>
-<div id="search-result">
+<div id="search-results">
   <%= render 'search' %> 
 </div>
 
