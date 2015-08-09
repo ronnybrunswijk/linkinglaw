@@ -38,11 +38,12 @@ main {
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
-  }
+}
+
 section {
   @extend .row;
   margin-top: 20px;
-  }
+}
 
 // Styles for form views
 // using Bootstrap
@@ -94,5 +95,6 @@ form div.pad-b-10px {
 }
 
 body, main {
-  background-color: transparent
+//  background-color: transparent
+  background-color: #eeedf1;
 }

@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :search]
-  before_action :lawyer_only, only: [:update, :show]
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :search, :show]
+  before_action :lawyer_only, only: [:update]
+  before_action :set_profile, only: [:edit, :update, :destroy]
 
   respond_to :html
 
@@ -18,6 +18,7 @@ class ProfilesController < ApplicationController
   end  
 
   def show
+    @profile = Profile.find(params[:id])
     respond_with(@profile)
   end
 

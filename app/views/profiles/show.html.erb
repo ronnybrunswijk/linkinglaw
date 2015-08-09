@@ -1,12 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-</p>
-
-<p>
-  <strong>Practise area:</strong>
-</p>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<div class="authform">
+  <form>
+    <h3><%= @profile.full_name %></h3>
+    <p>
+      <%= image_tag @profile.avatar_url, class: 'avatar' %>
+    </p>
+    <p>
+      <strong>Vestigingsplaats:</strong>
+      <%= @profile.address.city  %>
+    </p>
+    <p>
+      <strong>Rechtsgebieden:</strong><br>
+      <% @profile.practice_areas.each do |practice_area|  %>
+        <%= practice_area.name %><br>
+      <% end %>
+    </p>
+    <p>
+      <strong>Ervaring:</strong>
+      <%= @profile.years_of_work_experience %>
+    </p>
+    <%= link_to 'Alle profielen', profiles_path %>    
+  </form>
+</div>
