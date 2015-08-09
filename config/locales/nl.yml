@@ -33,3 +33,11 @@ nl:
   error_messages:
     http:
       not_found: "U zoekt naar een item in de websit dat niet (meer) bestaat."
+  views:
+    pagination:
+      first: "<<"
+      previous: "<"
+      next: ">"
+      last: ">>"
+      
+    
