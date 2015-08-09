@@ -38,7 +38,7 @@ class ProfileTest < ActiveSupport::TestCase
   end 
   
   test 'address association' do
-      profile = FactoryGirl.create(:profile, :with_2_practice_areas)    
+      profile = FactoryGirl.create(:profile, :from_friesland)    
       refute_nil profile.address
   end 
 

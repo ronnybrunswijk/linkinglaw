@@ -60,7 +60,7 @@ FactoryGirl.define do
         password_confirmation "lefthook"
         confirmed_at DateTime.now
         role 1
-        profile { FactoryGirl.create(:profile) }                
+        profile { FactoryGirl.create(:profile, :from_friesland) }                
 
         trait :abraham_lincoln do
             email "abraham.lincoln@usa.com"

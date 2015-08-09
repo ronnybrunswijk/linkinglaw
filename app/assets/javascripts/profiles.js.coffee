@@ -53,4 +53,5 @@ search_profile = () ->
       console.log(errorThrown)
     success: (data, textStatus, jqXHR) ->
       $("div#search-results").html(data)
+      console.log("html: " + $("div#search-results").prop("outerHTML"))
   

@@ -25,7 +25,7 @@ class AddressTest < ActiveSupport::TestCase
 
   def setup
      DatabaseCleaner.start
-     @address = FactoryGirl.create(:address)
+     @address = FactoryGirl.create(:address, :in_friesland)
   end
 
   def teardown

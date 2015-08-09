@@ -26,7 +26,10 @@ FactoryGirl.define do
         housenumber_suffix "A"
         zip_code "9035CC"
         city "Dronryp"
-        province { FactoryGirl.create(:friesland) }
+        
+        trait :in_friesland do
+            province { FactoryGirl.create(:friesland) }            
+        end
         
         trait :in_groningen do
             province { FactoryGirl.create(:groningen) }            

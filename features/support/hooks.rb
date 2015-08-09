@@ -47,3 +47,10 @@ Before('@postcodeapi_stub') do
    response = {success: true, resource: { street: "Broadway", town: "New York"}}
    PostcodeAPI.any_instance.stubs(:get_full_address).with("1000AA").returns(response)  
 end
+
+Before('@profiles') do
+  Province.delete_all; PracticeArea.delete_all
+  @profile_from_friesland_with_aansprakelijkheidsrecht = FactoryGirl.create(:profile, :from_friesland, :with_aansprakelijkheidsrecht)
+  @profile_from_groningen_with_arbeids_en_pensioenrecht =FactoryGirl.create(:profile, :from_groningen, :with_arbeids_en_pensioenrecht)
+  @profile_from_drenthe_with_contractenrecht = FactoryGirl.create(:profile, :from_drenthe, :with_contractenrecht)
+end

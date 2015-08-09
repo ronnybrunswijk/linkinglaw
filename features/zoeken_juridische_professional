@@ -1,7 +1,7 @@
 # language: nl
 Functionaliteit: zoeken naar juridische professionals
 		 
-  @seeds
+  @profiles
   Scenario: de anonieme bezoeker zoekt een juridische professional 
             die gevestigd is in een bepaalde regio
     Stel ik bevind als bezoeker op de home pagina van LinkingLaw

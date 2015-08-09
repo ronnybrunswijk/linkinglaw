@@ -27,7 +27,6 @@ FactoryGirl.define do
             last_name "Lincoln"
             phone "+1 202-456-1111"
             avatar_url "http://image.jpg"
-            address { FactoryGirl.create(:address) } 
             
             trait :with_2_practice_areas do
                   after(:create) do |profile|
@@ -53,7 +52,11 @@ FactoryGirl.define do
                         profile.practice_areas = [FactoryGirl.create(:contractenrecht)]                        
                   end
             end
-            
+
+            trait :from_friesland do
+                  address { FactoryGirl.create(:address, :in_friesland) }                               
+            end
+
             trait :from_groningen do
                   address { FactoryGirl.create(:address, :in_groningen) }                   
             end 

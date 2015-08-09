@@ -100,7 +100,7 @@ class QuestionsControllerTest < ActionController::TestCase
       assert_equal 'b', question.description
     end
 
-    def test_list_all_questions_for_signed_in_lawyers
+    test 'test list all questions for signed in lawyer' do
       sign_in @lawyer
       get :list
      
@@ -134,7 +134,7 @@ class QuestionsControllerTest < ActionController::TestCase
        assert_template :show
     end
     
-    test 'lawyer sees only questions foar his region and without regions specified' do
+    test 'lawyer sees only questions for his region and without regions specified' do
       sign_in @lawyer 
       
       expected_questions = questions[1..2]      
