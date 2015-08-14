@@ -20,3 +20,7 @@ Functionaliteit: onderschrijven antwoord
     Stel als ondernemer bekijk ik de antwoorden op een van mijn vragen
     Dan wil ik ook de onderschrijvingen van juridische professionals zien die zijn gedaan op de antwoorden
 
+  Scenario: de juridische professional wil niet zijn eigen antwoord kunnen onderschrijven
+    Stel ik bekijk als juridische professional mijn eigen antwoord op een vraag
+    Dan wil ik niet de mogelijkheid hebben om dat antwoord te onderschrijven
+

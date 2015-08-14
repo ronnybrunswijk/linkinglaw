@@ -45,3 +45,11 @@ end
 Dan(/^wil ik ook de onderschrijvingen van juridische professionals zien die zijn gedaan op de antwoorden$/) do
 # TODO: noch implementere    
 end
+
+Stel(/^ik bekijk als juridische professional mijn eigen antwoord op een vraag$/) do
+# TODO: noch implementere
+end
+
+Dan(/^wil ik niet de mogelijkheid hebben om dat antwoord te onderschrijven$/) do
+# TODO: noch implementere
+end

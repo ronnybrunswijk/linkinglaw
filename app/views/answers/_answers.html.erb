@@ -8,7 +8,7 @@
         <%= image_tag answer.user.profile.avatar_url || "anonymous_avatar.png", class: 'avatar-small' %>
       </div>
       <div>
-        <% if current_user.role == "lawyer"  %>
+        <% if current_user.role == "lawyer" && current_user.id != answer.user_id %>
           <% if is_endorsed_by_current_user(current_user, answer)  %>
               <%= render partial: 'endorsements/destroy', locals: {answer_id: answer.id}%>
           <% else %>
