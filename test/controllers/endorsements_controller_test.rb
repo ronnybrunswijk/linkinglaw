@@ -33,11 +33,12 @@ class EndorsementsControllerTest < ActionController::TestCase
        
        endorsement = FactoryGirl.create(:endorsement)
        answer = endorsement.answer
-       sign_in User.find(endorsement.profile.user_id)
+       profile = endorsement.profile
+       sign_in User.find(profile.user_id)
        
        delete :destroy, {answer_id: answer.id}
 
-       refute Endorsement.exists? id: endorsement.id   
+       refute Endorsement.exists?([profile.id, answer.id])   
     end        
     
 end

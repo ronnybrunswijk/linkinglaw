@@ -14,8 +14,8 @@ class EndorsementsController < ApplicationController
 
   # TODO robuust meitsje, dus wat barret 'r wanneer endorsement nil is.
   def destroy
-    endorsement = Endorsement.find_by(profile_id: @profile_id, answer_id: @answer_id)
-    Endorsement.delete(endorsement.id)
+    endorsement = Endorsement.find([@profile_id, @answer_id])
+    endorsement.delete
     return render partial: 'create', locals: {answer_id: @answer_id}    
   end
 
