@@ -26,5 +26,7 @@ Rails.application.routes.draw do
       get :list
     end
   end
+  
+  resources :endorsements, only: [:create, :destroy], param: :answer_id
 
 end

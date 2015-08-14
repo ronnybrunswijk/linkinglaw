@@ -7,5 +7,19 @@
         <%= answer.user.profile.full_name %>
         <%= image_tag answer.user.profile.avatar_url || "anonymous_avatar.png", class: 'avatar-small' %>
       </div>
+      <div>
+        <% if current_user.role == "lawyer"  %>
+          <% if is_endorsed_by_current_user(current_user, answer)  %>
+              <%= render partial: 'endorsements/destroy', locals: {answer_id: answer.id}%>
+          <% else %>
+              <%= render partial: 'endorsements/create', locals: {answer_id: answer.id}%>        
+          <% end %>
+        <% end %>
+        <% answer.endorsements.each do |endorsement| %>
+            <% unless current_user.role == "lawyer" && endorsement.profile_id == current_user.profile.id  %>              
+              Het antwoord wordt onderschreven door: <%= endorsement.profile.full_name %>
+            <% end %>
+        <% end %>
+      </div>
   </div>
 <% end  %>

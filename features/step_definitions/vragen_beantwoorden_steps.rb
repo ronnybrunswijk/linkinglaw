@@ -13,8 +13,7 @@ Dan(/^wil ik de mogelijkheid hebben om dat meteen te doen$/) do
 end
 
 Dan(/^dat de ondernemer op de hoogte wordt gesteld van mijn antwoord$/) do
-#    pending # express the regexp above with the code you wish you had
-  puts "Noch implementere"
+ # TODO noch implementere
 end
 
 Stel(/^als juridische professional bekijk ik een vraag van een ondernemer$/) do

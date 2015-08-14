@@ -1,0 +1,4 @@
+<%= form_tag(endorsements_path, remote: true, class: 'endorsement') do  %>
+  <%= hidden_field_tag "answer_id", answer_id  %>
+  <%= submit_tag 'Onderschrijf'  %>
+<% end %>
