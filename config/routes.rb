@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :endorsements, only: [:create, :destroy], param: :answer_id
+  resources :endorsements, only: [:create, :destroy], param: :answer_id # misskien moat 'new' route hjir ek noch even by.
+  resources :reviews, only: [:new, :create, :destroy]  
 
 end

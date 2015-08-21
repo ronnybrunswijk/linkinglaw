@@ -2,8 +2,8 @@
 #
 # Table name: endorsements
 #
-#  profile_id :integer
-#  answer_id  :integer
+#  profile_id :integer          primary key
+#  answer_id  :integer          primary key
 #  created_at :datetime
 #  updated_at :datetime
 #
@@ -21,12 +21,12 @@ class EndorsementTest < ActiveSupport::TestCase
   end
 
   test 'profile association' do
-     endorsement = FactoryGirl.create(:endorsement)
+     endorsement = FactoryGirl.build(:endorsement)
      refute_nil endorsement.profile
   end 
 
   test 'question association' do
-      endorsement = FactoryGirl.create(:endorsement)
+      endorsement = FactoryGirl.build(:endorsement)
       refute_nil endorsement.answer
   end 
 end

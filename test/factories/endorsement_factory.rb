@@ -2,8 +2,8 @@
 #
 # Table name: endorsements
 #
-#  profile_id :integer
-#  answer_id  :integer
+#  profile_id :integer          primary key
+#  answer_id  :integer          primary key
 #  created_at :datetime
 #  updated_at :datetime
 #

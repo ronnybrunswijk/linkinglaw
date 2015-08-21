@@ -1,3 +1,4 @@
+<% provide :title, @profile.full_name  %>  
 <div class="authform">
   <form>
     <h3><%= @profile.full_name %></h3>
@@ -18,6 +19,7 @@
       <strong>Ervaring:</strong>
       <%= @profile.years_of_work_experience %>
     </p>
-    <%= link_to 'Alle profielen', profiles_path %>    
+    <%= link_to 'Alle profielen', profiles_path %><br>
+    <%= link_to 'Review deze juridische professional', new_review_path %>
   </form>
 </div>

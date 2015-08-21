@@ -8,8 +8,10 @@
 #  updated_at :datetime
 #
 
-class Endorsement < ActiveRecord::Base
-    self.primary_keys = :profile_id, :answer_id
-    belongs_to :answer
-    belongs_to :profile
+FactoryGirl.define do
+    
+    factory :review do
+        profile {FactoryGirl.create(:lawyer).profile}        
+        user {FactoryGirl.create(:entrepreneur)}
+    end
 end

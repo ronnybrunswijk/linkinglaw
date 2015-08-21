@@ -34,6 +34,9 @@ class User < ActiveRecord::Base
   has_many :questions, dependent: :destroy
   has_many :answers
   has_one :profile, dependent: :destroy
+  has_many :reviews
+  has_many :profiles, through: :reviews    
+  
   accepts_nested_attributes_for :profile
 
   def set_default_role
