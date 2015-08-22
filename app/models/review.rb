@@ -2,10 +2,10 @@
 #
 # Table name: reviews
 #
-#  user_id    :integer
-#  profile_id :integer
+#  user_id    :integer          primary key
+#  profile_id :integer          primary key
 #  title      :string(255)
-#  body       :string(255)
+#  body       :text
 #  created_at :datetime
 #  updated_at :datetime
 #

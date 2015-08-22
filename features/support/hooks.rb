@@ -54,3 +54,7 @@ Before('@profiles') do
   @profile_from_groningen_with_arbeids_en_pensioenrecht =FactoryGirl.create(:profile, :from_groningen, :with_arbeids_en_pensioenrecht)
   @profile_from_drenthe_with_contractenrecht = FactoryGirl.create(:profile, :from_drenthe, :with_contractenrecht)
 end
+
+Before('@profile_with_reviews') do
+  @profile_with_reviews = FactoryGirl.create(:profile, :from_friesland, :with_reviews)
+end

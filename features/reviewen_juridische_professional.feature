@@ -8,3 +8,8 @@ Functionaliteit: reviewen juridische professional
     En als ik een evaluatie schrijf 
     Dan wil ik verzekerd van zijn dat mijn evaluatie correct wordt opgeslagen
 
+  @profile_with_reviews
+  Scenario: de anonieme bezoeker bekijkt een review over een juridische professional
+    Stel ik als anonieme bezoeker bekijk ik een profiel van juridische professional 
+    Dan wil ik daarbij ook de reviews zien die over de juridische professional geschreven zijn
+

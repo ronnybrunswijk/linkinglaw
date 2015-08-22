@@ -64,5 +64,9 @@ FactoryGirl.define do
             trait :from_drenthe do
                   address { FactoryGirl.create(:address, :in_drenthe) }                   
             end 
+            
+            trait :with_reviews do
+                  reviews { FactoryGirl.create_list(:review_with_only_body_and_title, 3)}   
+            end
       end
 end

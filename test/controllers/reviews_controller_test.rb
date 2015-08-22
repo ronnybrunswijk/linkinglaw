@@ -16,11 +16,14 @@ class ReviewsControllerTest < ActionController::TestCase
 
         entrepreneur = FactoryGirl.create(:entrepreneur)
         sign_in entrepreneur
+        profile = FactoryGirl.create(:profile)
         
-        get :new
+        get :new, {profile_id: profile.id}
         
         review = assigns(:review)
+        profile_id = assigns(:profile_id)
         refute_nil review
+        assert_equal profile.id.to_s, profile_id
     end
 
     test 'entrepreneur reviews a lawyer' do
@@ -31,13 +34,14 @@ class ReviewsControllerTest < ActionController::TestCase
         title = "title"
         body = "body"
         
-        assert_empty Review.all
+        assert_empty profile.reviews
         
         post :create, review: { title: title,
                                 body: body,
                                 profile_id: profile.id}
 
-        review = Review.first
+        assert_redirected_to profile_path profile.id
+        review = profile.reviews.first
         refute_nil review
         assert_equal title, review.title
         assert_equal body, review.body

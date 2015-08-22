@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: reviews
+#
+#  user_id    :integer          primary key
+#  profile_id :integer          primary key
+#  title      :string(255)
+#  body       :text
+#  created_at :datetime
+#  updated_at :datetime
+#
+# Indexes
+#
+#  index_reviews_on_profile_id  (profile_id)
+#  index_reviews_on_user_id     (user_id)
+#
+
 require 'test_helper'
 
 class ReviewTest < ActiveSupport::TestCase
