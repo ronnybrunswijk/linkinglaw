@@ -26,7 +26,6 @@ class Profile < ActiveRecord::Base
     has_many :endorsements
     has_many :answers, through: :endorsements
     has_many :reviews
-    has_many :users, through: :reviews    
     accepts_nested_attributes_for :address
     
     def full_name
