@@ -21,3 +21,5 @@
 //= require questions
 //= require sign_in
 //= require google_analytics
+//= require star-rating
+//= require reviews
