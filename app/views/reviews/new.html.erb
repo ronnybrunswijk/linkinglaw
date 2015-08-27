@@ -22,7 +22,10 @@
        <%= f.label :body %>
        <%= f.text_field :body, class: 'form-control' %>
     </div>
-    <div id="rating"><input id="fucking">
+    <div class="form-group">
+       <%= f.label :rating %>
+       <%= f.text_field :rating, class: 'form-control' %>
+    </div>
     </div>
     <%= f.hidden_field :profile_id, value: @profile_id  %>
     <div class="actions">

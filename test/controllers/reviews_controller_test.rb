@@ -31,13 +31,13 @@ class ReviewsControllerTest < ActionController::TestCase
         entrepreneur = FactoryGirl.create(:entrepreneur)
         profile = FactoryGirl.create(:profile)
         sign_in entrepreneur
-        title = "title"
-        body = "body"
+        title = "title"; body = "body"; rating = 4
         
         assert_empty profile.reviews
         
         post :create, review: { title: title,
                                 body: body,
+                                rating: rating,
                                 profile_id: profile.id}
 
         assert_redirected_to profile_path profile.id
@@ -45,6 +45,7 @@ class ReviewsControllerTest < ActionController::TestCase
         refute_nil review
         assert_equal title, review.title
         assert_equal body, review.body
+        assert_equal rating, review.rating
         assert_equal profile, review.profile
         assert_equal entrepreneur, review.user
     end

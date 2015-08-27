@@ -14,11 +14,15 @@ Dan(/^als ik een evaluatie schrijf$/) do
     @title = "title"; @body = "body"
     fill_in "review_title", with: @title
     fill_in "review_body", with: @body
+    find("div.rating-container").click
     click_button "Review bewaren"
 end
 
 Dan(/^wil ik verzekerd van zijn dat mijn evaluatie correct wordt opgeslagen$/) do
-    review = Review.find_by(profile_id: @profile.id, title: @title, body: @body)
+    review = Review.find_by(profile_id: @profile.id, 
+                            title: @title, 
+                            body: @body,
+                            rating: 2.5) #capybara click precies yn e midden
     refute_nil review
 end
 
