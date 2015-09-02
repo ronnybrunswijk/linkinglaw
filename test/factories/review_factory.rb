@@ -21,6 +21,7 @@ FactoryGirl.define do
     factory :review do
        title "title"
        body "body"
+       rating 4.7
        profile {FactoryGirl.create(:lawyer).profile}        
        user {FactoryGirl.create(:entrepreneur)}
     end

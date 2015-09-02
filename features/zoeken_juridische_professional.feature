@@ -8,3 +8,5 @@ Functionaliteit: zoeken naar juridische professionals
     Dan wil ik de mogelijkheid hebben om een juridische professional te zoeken op basis van regio
     En vervolgens juridische professionals gepresenteerd te krijgen die voldoen aan mijn zoekcriterium
 
+# TODO utsykje werom scenario's hjir under hingjen bliuwe
+   

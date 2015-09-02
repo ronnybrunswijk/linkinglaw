@@ -19,6 +19,11 @@
       <strong>Ervaring:</strong>
       <%= @profile.years_of_work_experience %>
     </p>
+    <p>
+      <strong>Rating:</strong>
+      <%= text_field_tag 'profile_rating', @profile.calculate_rating %>
+    </p>
+    
     <%= link_to 'Alle profielen', profiles_path %><br>
     <%= link_to 'Review deze juridische professional', new_review_path(profile_id: @profile.id) %>
   </form>

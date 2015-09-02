@@ -59,5 +59,14 @@ class Profile < ActiveRecord::Base
             self.joins(tables).where(query, params)
         end
     end        
+    
+    # zero meeans not rated yet. 
+    def calculate_rating
+        rating = 0
+        unless reviews.empty?   
+           rating = reviews.map(&:rating).inject(:+).to_f/reviews.size
+        end 
+        rating.round(1)
+    end
 
 end

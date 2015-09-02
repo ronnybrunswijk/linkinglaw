@@ -17,3 +17,4 @@ Dan(/^vervolgens juridische professionals gepresenteerd te krijgen die voldoen a
 #    page.has_css?("div#search-result a.profile-link[href='/profiles.3666']")        
 #  @profile_from_friesland_with_aansprakelijkheidsrecht
 end
+

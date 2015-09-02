@@ -22,11 +22,11 @@ Dan(/^wil ik verzekerd van zijn dat mijn evaluatie correct wordt opgeslagen$/) d
     review = Review.find_by(profile_id: @profile.id, 
                             title: @title, 
                             body: @body,
-                            rating: 2.5) #capybara click precies yn e midden
+                            rating: 2.5) #capybara klikt precies yn e midden
     refute_nil review
 end
 
-Stel(/^ik als anonieme bezoeker bekijk ik een profiel van juridische professional$/) do
+Stel(/^ik als anonieme bezoeker bekijk ik het profiel van een juridische professional$/) do
     visit "/profiles/#{@profile_with_reviews.id}"
     page.find("title", @profile_with_reviews.full_name, visible: false)    
 end
@@ -35,4 +35,9 @@ Dan(/^wil ik daarbij ook de reviews zien die over de juridische professional ges
     @profile_with_reviews.reviews.each do |review|
       page.find("p", text: review.title) 
     end
+end
+
+Dan(/^wil ik de beoordeling van de juridische professional in een cijfer uitgedrukt kunnen zien$/) do
+  rating = @profile_with_reviews.calculate_rating
+  page.find("#profile_rating[value='#{rating}']", visible: false)
 end

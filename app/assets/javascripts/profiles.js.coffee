@@ -2,6 +2,7 @@ professions = ["Advocaat","Jurist","Fiscalist"]
 
 $(document).on 'page:change', ->
   init_profession()
+  init_rating()
   
   $('#user_profile_attributes_address_attributes_zip_code').bind 'blur', (e) ->
     zip_code = $(e.target).val()
@@ -94,3 +95,6 @@ bind_pagination_links = ->
 get_current_page = ->
   current_page = $('ul.pagination li.page.active a').text()
   parseInt(current_page)
+  
+init_rating = ->
+  $("#profile_rating").rating({glyphicon:false, readonly:true, showClear:false})

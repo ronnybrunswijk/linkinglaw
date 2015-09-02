@@ -97,4 +97,7 @@ class ProfileTest < ActiveSupport::TestCase
     
   end
   
+
+  
+  
 end

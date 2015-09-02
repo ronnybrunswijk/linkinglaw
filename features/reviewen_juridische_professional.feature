@@ -10,6 +10,10 @@ Functionaliteit: reviewen juridische professional
 
   @profile_with_reviews
   Scenario: de anonieme bezoeker bekijkt een review over een juridische professional
-    Stel ik als anonieme bezoeker bekijk ik een profiel van juridische professional 
+    Stel ik als anonieme bezoeker bekijk ik het profiel van een juridische professional 
     Dan wil ik daarbij ook de reviews zien die over de juridische professional geschreven zijn
 
+  @profile_with_reviews
+  Scenario: de anonieme bezoeker bekijkt de rating van een juridische professional
+    Stel ik als anonieme bezoeker bekijk ik het profiel van een juridische professional 
+    Dan wil ik de beoordeling van de juridische professional in een cijfer uitgedrukt kunnen zien    
