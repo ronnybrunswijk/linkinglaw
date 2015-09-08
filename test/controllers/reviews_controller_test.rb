@@ -14,8 +14,6 @@ class ReviewsControllerTest < ActionController::TestCase
 
     test 'entepreneur enters review page' do
 
-        entrepreneur = FactoryGirl.create(:entrepreneur)
-        sign_in entrepreneur
         profile = FactoryGirl.create(:profile)
         
         get :new, {profile_id: profile.id}

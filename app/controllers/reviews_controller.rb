@@ -1,12 +1,12 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :entrepreneur_only 
-  before_action :set_profile_id, only: [:new]
+  before_action :authenticate_user!, only: [:create]
+  before_action :entrepreneur_only, only: [:create] 
  
   respond_to :html
 
   def new
     @review = Review.new
+    @profile_id = params[:profile_id]
     respond_with(@review, @profile_id)
   end
 
@@ -18,10 +18,6 @@ class ReviewsController < ApplicationController
   end
 
   private
-  
-    def set_profile_id
-      @profile_id = params[:profile_id]
-    end
   
     def review_params
       params.require(:review).permit(:profile_id, :title, :body, :rating)

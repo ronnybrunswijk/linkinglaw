@@ -15,7 +15,7 @@ Dan(/^als ik een evaluatie schrijf$/) do
     fill_in "review_title", with: @title
     fill_in "review_body", with: @body
     find("div.rating-container").click
-    click_button "Review bewaren"
+    click_button "Plaats review"
 end
 
 Dan(/^wil ik verzekerd van zijn dat mijn evaluatie correct wordt opgeslagen$/) do
@@ -40,4 +40,17 @@ end
 Dan(/^wil ik de beoordeling van de juridische professional in een cijfer uitgedrukt kunnen zien$/) do
   rating = @profile_with_reviews.calculate_rating
   page.find("#profile_rating[value='#{rating}']", visible: false)
+end
+
+Stel(/^als ondernemer wil ik review plaatsen, maar ik ben nog niet ingelogd$/) do
+    assert_nil @current_user
+    profile = Profile.first
+    visit "/reviews/new?profile_id=#{profile.id}"
+    page.find("title", "Review een juridische professional", visible: false)        
+end
+
+Dan(/^wil ik de mogelijkheid om alsnog meteen in te loggen en daarmee tergelijkertijd mijn review te plaatsen$/) do
+    page.find_by_id("sign_in_user")
+    refute_selector('#new_review input[value="Plaats review"]')
+    assert_selector('#review_authform input[value="Plaats review"]')
 end

@@ -15,7 +15,7 @@
      <label for="user_password_sign_in">Wachtwoord</label> 
      <%= f.password_field :password, class: 'form-control', id: "user_password_sign_in" %>
    </div>
-   <%= f.submit t(:submit_question, scope: [:questions]), id: 'sign_in', class: 'button right' %>
+   <%= f.submit button_label, id: 'sign_in', class: 'button right' %>   
    <% if devise_mapping.rememberable? -%>
      <div class="checkbox" style="width:150px">
        <label>

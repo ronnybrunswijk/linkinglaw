@@ -17,3 +17,9 @@ Functionaliteit: reviewen juridische professional
   Scenario: de anonieme bezoeker bekijkt de rating van een juridische professional
     Stel ik als anonieme bezoeker bekijk ik het profiel van een juridische professional 
     Dan wil ik de beoordeling van de juridische professional in een cijfer uitgedrukt kunnen zien    
+    
+  @profiles
+  Scenario: de ondernemer wil een review plaatsen, maar is nog niet ingelogd
+    Stel als ondernemer wil ik review plaatsen, maar ik ben nog niet ingelogd
+    Dan wil ik de mogelijkheid om alsnog meteen in te loggen en daarmee tergelijkertijd mijn review te plaatsen	
+    
