@@ -8,7 +8,7 @@
 #  body       :text
 #  created_at :datetime
 #  updated_at :datetime
-#  rating     :float   0: not yet rated
+#  rating     :float 
 #
 # Indexes
 #
@@ -20,9 +20,5 @@ class Review < ActiveRecord::Base
     self.primary_keys = :profile_id, :user_id
     belongs_to :profile
     belongs_to :user
-    after_initialize :init_rating, :if => :new_record?    
-    
-    def init_rating
-        self.rating = 0.0 unless self.rating
-    end 
+
 end

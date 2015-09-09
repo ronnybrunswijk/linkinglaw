@@ -1,9 +1,11 @@
 $(document).on 'page:change', ->
-  $("#sign_in_user, #new_user").bind "ajax:success", (e, data, status, xhr) ->
+  $("#sign_in_user_review, #sign_in_user, #new_user").bind("ajax:success", (e, data, status, xhr) ->
       update_auth_token(xhr)
-      $("#create_question").click()
-
-  $("#sign_in_user, #new_user").bind "ajax:error", (e, xhr, status, error) ->
+      if e.target.id == "sign_in_user_review"
+        $("#create_review").click()
+      else 
+        $("#create_question").click()
+  ).bind "ajax:error", (e, xhr, status, error) ->
     html = xhr.responseText
     $('#error_explanation').remove()
     $(e.target).prepend html

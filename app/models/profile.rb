@@ -62,11 +62,21 @@ class Profile < ActiveRecord::Base
     
     # zero meeans not rated yet. 
     def calculate_rating
-        rating = 0
-        unless reviews.empty?   
-           rating = reviews.map(&:rating).inject(:+).to_f/reviews.size
-        end 
-        rating.round(1)
+        
+        divisor = 0
+        rating_total = 0.0
+        rating_total = reviews.map(&:rating).inject(0.0) do |sum, rating |
+           if rating
+               divisor += 1
+               sum + rating
+           else 
+               sum
+           end
+        end
+         
+        rating_avg = 0.0
+        rating_avg = rating_total/divisor unless divisor == 0       
+        rating_avg.round(1)
     end
 
 end

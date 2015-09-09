@@ -38,11 +38,6 @@ class ReviewTest < ActiveSupport::TestCase
       refute_nil review.user
   end 
   
-  test 'new review has value 0 for rating' do
-    review = Review.new
-    assert_equal 0, review.rating
-  end
-  
   test 'calculate rating' do
 
     profile = FactoryGirl.build(:profile)
@@ -51,11 +46,12 @@ class ReviewTest < ActiveSupport::TestCase
       review.rating = index + 0.55
     end
     profile.reviews = reviews
+    
     assert_equal 2.6, profile.calculate_rating
   
   end
 
-  test 'calculate rating when there no reviews' do
+  test 'calculate rating when there are no reviews' do
 
     profile = FactoryGirl.build(:profile)
     
@@ -63,4 +59,22 @@ class ReviewTest < ActiveSupport::TestCase
     assert_equal(0, profile.calculate_rating)
   
   end
+
+  test 'calculate rating when there are reviews with and without a rating' do
+
+    profile = FactoryGirl.build(:profile)
+    reviews = FactoryGirl.build_list(:review_with_only_body_and_title, 3)
+    reviews.each do |review|
+      assert_nil review.rating
+    end
+    
+    reviews[0].rating =  4.3
+    reviews[2].rating = 1.7
+    
+    profile.reviews = reviews
+    
+    assert_equal 3, profile.calculate_rating
+  
+  end
+  
 end

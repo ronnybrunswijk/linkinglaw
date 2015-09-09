@@ -28,16 +28,14 @@
     </div>
 
     <%= f.hidden_field :profile_id, value: @profile_id  %>
-    <% if user_signed_in?  %>
-      <div class="actions">
-        <%= f.submit "Plaats review", class: 'button right' %>
-      </div>
-    <% end  %>
+    <div class="actions">
+      <%= f.submit "Plaats review", id: "create_review", class: "button right #{'hidden' unless user_signed_in? }" %>
+    </div>
   <% end  %>
 </div>  
 
 <% unless user_signed_in?  %>
   <div id="review_authform" class="authform">
-     <%= render partial: 'devise/sessions/new_xhr', locals: {button_label: "Plaats review"} %>
+     <%= render partial: 'devise/sessions/new_xhr', locals: {form_id: "sign_in_user_review",button_label: "Plaats review"} %>
   </div>
 <% end %>

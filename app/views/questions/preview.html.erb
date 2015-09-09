@@ -39,7 +39,7 @@
     <%= label_tag 'auth_form_sign_up','Maak account aan' %>
   </div>
   <div id="authforms" class="authform">
-     <%= render partial: 'devise/sessions/new_xhr', locals: {button_label: t(:submit_question, scope: [:questions])} %>
+     <%= render partial: 'devise/sessions/new_xhr', locals: {form_id: "sign_in_user", button_label: t(:submit_question, scope: [:questions])} %>
      <%= render partial: 'devise/registrations/new_xhr'  %>
    </div>
 <% end %>
