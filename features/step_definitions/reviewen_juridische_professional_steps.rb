@@ -50,7 +50,7 @@ Stel(/^als ondernemer wil ik review plaatsen, maar ik ben nog niet ingelogd$/) d
 end
 
 Dan(/^wil ik de mogelijkheid om alsnog meteen in te loggen en daarmee tergelijkertijd mijn review te plaatsen$/) do
-    page.find_by_id("sign_in_user")
+    page.find_by_id("sign_in_user_review")
     refute_selector('#new_review input[value="Plaats review"]')
     assert_selector('#review_authform input[value="Plaats review"]')
 end

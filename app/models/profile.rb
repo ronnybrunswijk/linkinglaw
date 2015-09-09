@@ -64,7 +64,6 @@ class Profile < ActiveRecord::Base
     def calculate_rating
         
         divisor = 0
-        rating_total = 0.0
         rating_total = reviews.map(&:rating).inject(0.0) do |sum, rating |
            if rating
                divisor += 1
