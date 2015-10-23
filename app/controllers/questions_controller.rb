@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
     @question.user = current_user
     if params[:create]
       flash[:notice] = t(:save_success, scope: [:questions, :notifications]) if @question.save
-      UserMailer.confirm_question(current_user, @question).deliver!
+      UserMailer.delay.confirm_question(current_user, @question)
       respond_with(@question)
     else 
       render :new

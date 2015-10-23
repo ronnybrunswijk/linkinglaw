@@ -52,3 +52,8 @@ gem 'aws-sdk-v1'
 gem 'jquery-ui-rails'
 gem 'kaminari'
 gem 'composite_primary_keys', '7.0.11'
+gem 'sidekiq'
+gem 'activejob'
+
+### Foar Sidekiq Web UI
+gem 'sinatra', :require => nil

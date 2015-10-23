@@ -1,3 +1,6 @@
+require 'sidekiq/testing'
+Sidekiq::Testing.inline!
+
 Before do
 
     # Forces all threads to share the same connection. This works on
