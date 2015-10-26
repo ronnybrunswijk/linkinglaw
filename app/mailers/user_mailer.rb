@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
   default from: "info@linkinglaw.nl"
 
-  # De user even ut de signatuur helje, want eltse fraach hat in user 
+  # TODO De user even ut de signatuur helje, want eltse fraach hat in user 
   def confirm_question(user, question)
      @question = question
      mail(to: user.email, 
