@@ -11,7 +11,7 @@
             <li><%= link_to "Mijn reviews", home_path %></li>
             <li><%= link_to t(:edit, scope: [:devise, :registrations]), edit_user_registration_path %></li>            
           <% when "lawyer"  %>
-            <li><%= link_to "Notificaties instellingen", home_path %></li>  
+            <li><%= link_to "Notificatie instellingen", edit_notification_setting_path(current_user.notification_setting.id) %></li>  
             <li><%= link_to t(:edit, scope: [:profiles]), edit_profile_path(current_user.profile.id) %></li>              
             <li><%= link_to "Mijn reviews", home_path %></li>
             <li><%= link_to t(:edit, scope: [:devise, :registrations]), edit_user_registration_path %></li>            

@@ -61,6 +61,7 @@ FactoryGirl.define do
         confirmed_at DateTime.now
         role 1
         profile { FactoryGirl.create(:profile, :from_friesland) }                
+        notification_setting { FactoryGirl.create(:notification_setting) }
 
         trait :abraham_lincoln do
             email "abraham.lincoln@usa.com"

@@ -1,0 +1,23 @@
+<h1>Listing notification_settings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notification_settings.each do |notification_setting| %>
+      <tr>
+        <td><%= link_to 'Show', notification_setting %></td>
+        <td><%= link_to 'Edit', edit_notification_setting_path(notification_setting) %></td>
+        <td><%= link_to 'Destroy', notification_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Notification setting', new_notification_setting_path %>

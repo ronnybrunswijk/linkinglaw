@@ -63,28 +63,36 @@ class RegistrationsControllerTest < ActionController::TestCase
   end
 
   test 'signup as lawyer' do
+
+     FactoryGirl.create(:immediately)
+
      post :create, { user: { name: "Cicero",
                              email: "law@yer.com",
                              password: "password",
                              password_confirmation: "password",
                              profile_attributes: { first_name: "Marcus Tullius",
-                                                    last_name: "Cicero",
-                                                    phone: "+39 06 0608",
-                                                    profession: "Lawyer",
-                                                    disciplinary_decision: "false",
-                                                    years_of_work_experience: 10,
-                                                    chamber_of_commerce_no: "123456",
-                                                    address_attributes: { street: "Via della Salara Vecchia",
-                                                                          housenumber: "5/6",
-                                                                          housenumber_suffix: "A",
-                                                                          zip_code: "1000AA",
-                                                                          city: "Roma"
-                                                                          
-                             } } } }
+                                                   last_name: "Cicero",
+                                                   phone: "+39 06 0608",
+                                                   profession: "Lawyer",
+                                                   disciplinary_decision: "false",
+                                                   years_of_work_experience: 10,
+                                                   chamber_of_commerce_no: "123456",
+                                                   address_attributes: { street: "Via della Salara Vecchia",
+                                                                         housenumber: "5/6",
+                                                                         housenumber_suffix: "A",
+                                                                         zip_code: "1000AA",
+                                                                         city: "Roma"
+                                                                        } 
+                                                  }
+                           } 
+                     }
+                     
      assert_redirected_to root_path
      lawyer = User.find_by name: "Cicero"
      assert_not_nil lawyer
      assert_equal "lawyer", lawyer.role
+     
+     # profile attributes
      profile = lawyer.profile
      assert_not_nil lawyer.profile
      assert_equal "Marcus Tullius", profile.first_name
@@ -94,6 +102,8 @@ class RegistrationsControllerTest < ActionController::TestCase
      assert_equal 10, profile.years_of_work_experience
      assert_equal "123456", profile.chamber_of_commerce_no
      refute profile.disciplinary_decision
+     
+     # address attributes
      address = profile.address
      refute_nil address
      assert_equal "Via della Salara Vecchia", address.street
@@ -102,5 +112,14 @@ class RegistrationsControllerTest < ActionController::TestCase
      assert_equal "Roma", address.city
      assert_equal "1000AA", address.zip_code
      assert_equal "Noord-Holland", address.province.name
+     
+     # notification settings attributes
+     notification_setting = lawyer.notification_setting
+     refute_nil notification_setting
+     
+     # regularity attribute
+     regularity = notification_setting.regularity
+     refute_nil regularity
+     assert_equal "Meteen", regularity.name
   end
 end

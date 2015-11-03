@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822135143) do
+ActiveRecord::Schema.define(version: 20151030101449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 20150822135143) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "notification_settings", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "regularity_id"
+  end
+
+  add_index "notification_settings", ["regularity_id"], name: "index_notification_settings_on_regularity_id", using: :btree
+  add_index "notification_settings", ["user_id"], name: "index_notification_settings_on_user_id", using: :btree
 
   create_table "practice_areas", force: true do |t|
     t.string   "name"
@@ -105,6 +115,10 @@ ActiveRecord::Schema.define(version: 20150822135143) do
 
   add_index "questions", ["practice_area_id"], name: "index_questions_on_practice_area_id", using: :btree
   add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
+
+  create_table "regularities", force: true do |t|
+    t.string "name"
+  end
 
   create_table "reviews", id: false, force: true do |t|
     t.integer  "user_id"

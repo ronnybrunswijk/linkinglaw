@@ -2,6 +2,8 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  resources :notification_settings
+
   root to: 'static_pages#home'
 
   get 'home', to: "static_pages#home", as: :home

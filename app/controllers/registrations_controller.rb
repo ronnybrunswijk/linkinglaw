@@ -24,6 +24,9 @@ class RegistrationsController < Devise::RegistrationsController
         resource.role = "lawyer"
         address = resource.profile.address
         address.province = ZipCodeRange.find_province(address.zip_code)
+        notification_setting = NotificationSetting.new
+        notification_setting.regularity = Regularity.find_by(name: "Meteen")
+        resource.notification_setting = notification_setting
       end
 
       if request.xhr?

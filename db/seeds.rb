@@ -98,6 +98,13 @@ zip_code_ranges.each do |first, last, province_id|
    ZipCodeRange.find_or_create_by(first: first, last: last, province_id: province_id) 
 end
 
+regularities = ["Meteen", "1 keer per dag", "1 keer per 3 dagen"]
+
+regularities.each do |name|
+   Regularity.find_or_create_by(name: name) 
+end
+
+
 ### Test accounts
 entrepreneur = User.create(name: "Cornelius Vanderbilt", 
                            email: ENV["ENTREPRENEUR_EMAIL"], 
@@ -129,3 +136,8 @@ profile.address = Address.create(zip_code: "9035CC",
                                  
 profile.practice_areas = PracticeArea.take(3)                                
 lawyer.profile = profile
+
+notification_setting = NotificationSetting.create
+notification_setting.regularity = Regularity.find_by(name: 'Meteen')
+lawyer.notification_setting = notification_setting
+lawyer.save

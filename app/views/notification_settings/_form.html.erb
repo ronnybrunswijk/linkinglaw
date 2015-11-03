@@ -1,0 +1,28 @@
+<div class="authform">
+  <%= form_for(@notification_setting) do |f| %>
+    <% if @notification_setting.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@notification_setting.errors.count, "error") %> prohibited this notification_setting from being saved:</h2>
+  
+        <ul>
+        <% @notification_setting.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+     <div class="form-group">
+        <%= f.label :regularity %><br>
+        <%= f.collection_radio_buttons(:regularity_id, Regularity.all, :id, :name) do |b| %>
+          <%= b.label { b.radio_button + b.text }  %><br>
+        <% end %>
+    </div>
+    
+    <div class="actions">
+      <%= f.submit "Bewaar", class: 'button right' %>
+      <%= link_to t(:cancel, scope: [:labels]), home_path %>
+    </div>
+    
+  <% end %>
+</div>

@@ -8,7 +8,7 @@
 #  body       :text
 #  created_at :datetime
 #  updated_at :datetime
-#  rating     :float 
+#  rating     :float
 #
 # Indexes
 #

@@ -47,12 +47,12 @@ Functionaliteit: Algemene navigatie waarvoor het niet nodig is ingelogd te zijn
     Dan kom ik op de pagina getiteld "<Title>"
 
     Voorbeelden: Links en pagina titels
-    |   Link                        |  Title                   |
-    |   Notificaties instellingen   |  Home                    |
-    |   Profiel instellingen        |  Profiel Instellingen    |
-    |   Mijn reviews                |  Home                    |
-    |   Account instellingen        |  Account Instellingen    |
-    |   Log uit                     |  Home                    | 
+    |   Link                        |  Title                    |
+    |   Notificatie instellingen    |  Notificatie Instellingen |
+    |   Profiel instellingen        |  Profiel Instellingen     |
+    |   Mijn reviews                |  Home                     |
+    |   Account instellingen        |  Account Instellingen     |
+    |   Log uit                     |  Home                     | 
 
   @signed_in
   Abstract Scenario: De ondernemer navigeert door de website via de user links 

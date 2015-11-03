@@ -49,6 +49,11 @@ class UserTest < ActiveSupport::TestCase
      lawyer = FactoryGirl.create(:lawyer)
      refute_nil lawyer.profile
    end
+
+   test 'lawyer notification setting association' do
+     lawyer = FactoryGirl.create(:lawyer)
+     refute_nil lawyer.notification_setting
+   end
    
    test 'lawyer answer association' do
       lawyer = FactoryGirl.create(:lawyer, :with_answers)
