@@ -5,8 +5,7 @@ class UserMailer < ActionMailer::Base
   def confirm_question(user, question)
      @question = question
      mail(to: user.email, 
-          subject:'Uw vraag is op LinkingLaw geplaatst' , 
-          question: @question)
+          subject:'Uw vraag is op LinkingLaw geplaatst')
   end
 
   # Notifies an entrepeneur about the fact that one of his questions has just been answered.
@@ -14,8 +13,7 @@ class UserMailer < ActionMailer::Base
       @answer = answer
       user = answer.question.user
       mail(to: user.email, 
-               subject: "Antwoord op uw vraag",
-               answer: answer)
+           subject: "Antwoord op uw vraag")
   end 
   
 end

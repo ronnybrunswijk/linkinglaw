@@ -14,7 +14,7 @@ class UserMailerTest < ActionMailer::TestCase
    test 'confirm question email for entrepeneur' do
 
         question = @entrepreneur.questions.first
-        email = UserMailer.confirm_question(@entrepreneur, question).deliver!
+        email = UserMailer.confirm_question(@entrepreneur, question)
 
         assert_equal ['info@linkinglaw.nl'], email.from
         assert_equal [@entrepreneur.email], email.to
