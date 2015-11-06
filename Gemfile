@@ -54,6 +54,7 @@ gem 'kaminari'
 gem 'composite_primary_keys', '7.0.11'
 gem 'sidekiq'
 gem 'activejob'
+gem 'sidekiq-scheduler', '~> 1.2'
 
 ### Foar Sidekiq Web UI
 gem 'sinatra', :require => nil
