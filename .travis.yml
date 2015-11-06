@@ -5,6 +5,9 @@ rvm:
 before_script:
   - psql -c "create database linkinglaw_test;" -U postgres
 
+services:
+  - redis-server
+
 script:
   - bundle exec rake db:migrate
   - bundle exec rake test
