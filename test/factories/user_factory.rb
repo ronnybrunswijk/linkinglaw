@@ -74,6 +74,14 @@ FactoryGirl.define do
                 FactoryGirl.create_list(:answer, 2, user: user)
             end
         end
+        
+        trait :with_daily_notification do
+            notification_setting {FactoryGirl.create(:notification_setting, :with_daily_regularity) }            
+        end
+        
+        trait :with_3daily_notification do
+            notification_setting {FactoryGirl.create(:notification_setting, :with_3daily_regularity) }                        
+        end
     end   
 
     # Admin factory

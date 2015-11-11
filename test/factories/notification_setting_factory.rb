@@ -7,6 +7,7 @@
 #  updated_at    :datetime
 #  user_id       :integer
 #  regularity_id :integer
+#  next          :datetime
 #
 # Indexes
 #
@@ -18,8 +19,16 @@ FactoryGirl.define do
     
     factory :notification_setting do
         regularity { FactoryGirl.create(:immediately) }
+        
+        trait :with_daily_regularity do
+           regularity { FactoryGirl.create(:daily) }            
+        end
+        
+        trait :with_3daily_regularity do
+           regularity { FactoryGirl.create(:every_3_days) }            
+        end
     end
-    
+
     factory :notification_setting_empty, class: NotificationSetting do
     end
     

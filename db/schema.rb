@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151030101449) do
+ActiveRecord::Schema.define(version: 20151110154301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20151030101449) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "regularity_id"
+    t.datetime "next"
   end
 
   add_index "notification_settings", ["regularity_id"], name: "index_notification_settings_on_regularity_id", using: :btree

@@ -1,3 +1,11 @@
+# == Schema Information
+#
+# Table name: regularities
+#
+#  id   :integer          not null, primary key
+#  name :string(255)
+#
+
 FactoryGirl.define do
     
     factory :immediately, class: Regularity do

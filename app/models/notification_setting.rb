@@ -7,6 +7,7 @@
 #  updated_at    :datetime
 #  user_id       :integer
 #  regularity_id :integer
+#  next          :datetime
 #
 # Indexes
 #
@@ -16,4 +17,12 @@
 
 class NotificationSetting < ActiveRecord::Base
   belongs_to :regularity
+  
+  def self.select_lawyers_to_notifiy()
+      
+      regularity_ids = Regularity.where.not(name: 'Meteen').pluck(:id)
+      User.joins(:notification_setting).where('notification_settings.regularity_id in (?)', regularity_ids)
+
+  end
+  
 end

@@ -16,5 +16,6 @@ class SendNotificationsJobTest < ActiveSupport::TestCase
       question = FactoryGirl.create(:question)
       
       SendNotificationJob.perform_async(question)
+      # TODO dit noch afmeitsje
   end 
 end
