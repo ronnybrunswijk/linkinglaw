@@ -12,11 +12,16 @@
       </div>
     <% end %>
   
-     <div class="form-group">
-        <%= f.label :regularity %><br>
-        <%= f.collection_radio_buttons(:regularity_id, Regularity.all, :id, :name) do |b| %>
+     <div id="interval" class="form-group">
+        <%= f.label :interval %><br>
+        <%= f.collection_radio_buttons(:interval_id, Interval.all, :id, :name ) do |b| %>
           <%= b.label { b.radio_button + b.text }  %><br>
         <% end %>
+    </div>
+
+    <div id="time-select" class="form-group">
+        <%= label_tag "Tijdstip" %>
+        <%= time_select "notification_setting", "next_point_in_time", {discard_minute: true} %>:00
     </div>
     
     <div class="actions">

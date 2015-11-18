@@ -98,10 +98,10 @@ zip_code_ranges.each do |first, last, province_id|
    ZipCodeRange.find_or_create_by(first: first, last: last, province_id: province_id) 
 end
 
-regularities = ["Meteen", "1 keer per dag", "1 keer per 3 dagen"]
+intervals = [["Meteen",0],["1 keer per dag",24], ["1 keer per 3 dagen",72]]
 
-regularities.each do |name|
-   Regularity.find_or_create_by(name: name) 
+intervals.each do |name, hours|
+   Interval.find_or_create_by(name: name, hours: hours) 
 end
 
 

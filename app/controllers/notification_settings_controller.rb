@@ -1,7 +1,7 @@
 class NotificationSettingsController < ApplicationController
-  before_action :set_notification_setting, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :lawyer_only 
+  before_action :set_notification_setting, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
@@ -29,7 +29,19 @@ class NotificationSettingsController < ApplicationController
   end
 
   def update
-    flash[:notice] = 'NotificationSetting was successfully updated.' if @notification_setting.update(notification_setting_params)
+    if @notification_setting.update(notification_setting_params)
+      # if next_point_in_time is already passed then set to future time based on interval
+      if @notification_setting.interval.hours != 0
+        next_point_in_time = @notification_setting.next_point_in_time
+        if DateTime.current.beginning_of_minute >= next_point_in_time.beginning_of_minute
+          next_point_in_time += @notification_setting.interval.hours.hours
+        end
+        @notification_setting.next_point_in_time = next_point_in_time.beginning_of_hour
+      else
+        @notification_setting.next_point_in_time = nil
+      end
+      flash[:notice] = 'NotificationSetting was successfully updated.' if @notification_setting.save
+    end
     respond_with(@notification_setting)
   end
 
@@ -44,6 +56,6 @@ class NotificationSettingsController < ApplicationController
     end
 
     def notification_setting_params
-      params.require(:notification_setting).permit(:regularity_id)
+      params.require(:notification_setting).permit(:next_point_in_time, :interval_id)
     end
 end

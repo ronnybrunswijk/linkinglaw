@@ -76,11 +76,11 @@ FactoryGirl.define do
         end
         
         trait :with_daily_notification do
-            notification_setting {FactoryGirl.create(:notification_setting, :with_daily_regularity) }            
+            notification_setting {FactoryGirl.create(:notification_setting, :with_daily_interval) }            
         end
         
         trait :with_3daily_notification do
-            notification_setting {FactoryGirl.create(:notification_setting, :with_3daily_regularity) }                        
+            notification_setting {FactoryGirl.create(:notification_setting, :with_3daily_interval) }                        
         end
     end   
 

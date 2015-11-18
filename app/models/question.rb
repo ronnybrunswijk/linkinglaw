@@ -37,4 +37,11 @@ class Question < ActiveRecord::Base
        questions = self.find_with(provinces)
        questions.push(*self.find_without_provinces)
     end
+    
+    def self.select_questions_asked_after(notification_setting)
+       point_in_time = notification_setting.next_point_in_time.beginning_of_hour
+       point_in_time -= notification_setting.interval.hours.hours
+       Question.where('created_at >= ?', point_in_time)
+    end
+    
 end

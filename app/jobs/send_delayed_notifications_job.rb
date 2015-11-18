@@ -3,11 +3,15 @@ class SendDelayedNotificationsJob
     
    def perform()
 
-      lawyers = User.where("role = ?", 1)
-      question = Question.first
+      # select lawyers to notify this hour 
+      lawyers = User.select_lawyers_to_notify()
+      questions = []
       
       lawyers.each do |lawyer|
-         NotificationMailer.notify_lawyer(lawyer,question).deliver!         
+         notification_setting = lawyer.notification_setting
+         questions = Question.select_questions_asked_after(notification_setting)
+         notification_setting.update_next_point_in_time         
+         NotificationMailer.notify_lawyer(lawyer,questions).deliver!         
       end
    end
 

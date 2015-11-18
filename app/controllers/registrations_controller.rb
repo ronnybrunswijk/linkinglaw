@@ -25,7 +25,7 @@ class RegistrationsController < Devise::RegistrationsController
         address = resource.profile.address
         address.province = ZipCodeRange.find_province(address.zip_code)
         notification_setting = NotificationSetting.new
-        notification_setting.regularity = Regularity.find_by(name: "Meteen")
+        notification_setting.interval = Interval.find_by(name: "Meteen")
         resource.notification_setting = notification_setting
       end
 

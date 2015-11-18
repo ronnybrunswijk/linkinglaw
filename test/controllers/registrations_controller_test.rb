@@ -117,9 +117,9 @@ class RegistrationsControllerTest < ActionController::TestCase
      notification_setting = lawyer.notification_setting
      refute_nil notification_setting
      
-     # regularity attribute
-     regularity = notification_setting.regularity
-     refute_nil regularity
-     assert_equal "Meteen", regularity.name
+     # interval attribute
+     interval = notification_setting.interval
+     refute_nil interval
+     assert_equal "Meteen", interval.name
   end
 end

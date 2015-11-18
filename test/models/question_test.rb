@@ -135,26 +135,53 @@ class QuestionTest < ActiveSupport::TestCase
   end
 
   test 'select questions by provinces' do
-      expected_questions = questions[0..1]
+      expected_questions = create_questions[0..1]
       provinces = Province.where(name: ["Friesland", "Noord-Brabant"])
       actual_questions = Question.find_with(provinces)    
       assert_equal expected_questions.sort, actual_questions.sort
   end
   
   test 'select questions without provinces' do
-      expected_question = questions[2]
+      expected_question = create_questions[2]
       actual_question = Question.find_without_provinces[0]    
       assert_equal expected_question, actual_question
   end
   
   test 'select questions with and without provinces' do
-      expected_questions = questions
+      expected_questions = create_questions
       provinces = Province.where(name: ["Friesland", "Noord-Brabant"])
       actual_questions = Question.find_with_and_without_provinces(provinces)    
       assert_equal expected_questions.sort, actual_questions.sort
   end
+
+  test 'select questions for notification setting with daily interval' do
+    
+      questions = create_questions
+      point_in_time = DateTime.now.beginning_of_hour 
+
+      question1 = questions[0]
+      question1.created_at = point_in_time
+      question1.save
+      
+      question2 = questions[1]
+      question2.created_at = point_in_time - 24.hours
+      question2.save
+      
+      question3 = questions[2]
+      question3.created_at = point_in_time - 25.hours    
+      question3.save
+      
+      notification_setting = FactoryGirl.create(:notification_setting,:with_daily_interval)
+      notification_setting.next_point_in_time = point_in_time
+      found_questions = Question.select_questions_asked_after(notification_setting)
+      
+      assert_equal 2, found_questions.size
+      assert_equal question1, found_questions[0]
+      assert_equal question2, found_questions[1]
+      
+  end
   
-  def questions 
+  def create_questions 
     [FactoryGirl.create(:question, :for_frisians),
      FactoryGirl.create(:question, :for_brabos),
      FactoryGirl.create(:question)]

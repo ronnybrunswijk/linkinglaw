@@ -23,3 +23,4 @@
 //= require google_analytics
 //= require star-rating
 //= require reviews
+//= require notification_settings
