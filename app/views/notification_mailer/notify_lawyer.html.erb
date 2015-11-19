@@ -56,7 +56,7 @@
   </head>
   <body>
     <p>Goedendag <%= @lawyer.profile.last_name %>,</p>
-    <p>Er is een nieuwe vraag <%= link_to "nieuwe vraag", question_path(@question, only_path: false) %> geplaatst!</p> 
+    <p>Er is een <%= link_to "nieuwe vraag", question_path(@question, only_path: false) %> geplaatst!</p> 
     <p><%= link_to "Bekijk de nieuwe vraag", question_path(@question, only_path: false), class: "btn btn-primary"  %></p>
     <p>Met vriendelijke groet,</p>
     <p>Het LinkingLaw team</p>

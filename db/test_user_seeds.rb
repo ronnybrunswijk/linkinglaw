@@ -37,3 +37,40 @@ notification_setting = NotificationSetting.create
 notification_setting.interval = Interval.find_by(hours: 0)
 lawyer_rienk.notification_setting = notification_setting
 lawyer_rienk.save
+
+### Test accounts Elkana
+entrepreneur_elkana = User.create(name: "Elkana Mirino", 
+                           email: ENV["ENTREPRENEUR_EMAIL_ELKANA"], 
+                           password: ENV["USER_PASSWORD_ELKANA"], 
+                           password_confirmation: ENV["USER_PASSWORD_ELKANA"], 
+                           confirmed_at: DateTime.current)
+
+lawyer_elkana = User.create(name: "Elkana Mirino", 
+                     email: ENV["LAWYER_EMAIL_ELKANA"], 
+                     password: ENV["USER_PASSWORD_ELKANA"],
+                     password_confirmation: ENV["USER_PASSWORD_ELKANA"], 
+                     confirmed_at: DateTime.current,
+                     role: 1)
+
+profile_elkana = Profile.create(first_name: "Elkana",
+                         last_name: "Mirino",
+                         phone: "+31620528236",
+                         profession: "lawyer",
+                         disciplinary_decision: false,
+                         years_of_work_experience: 15,
+                         chamber_of_commerce_no: "811")
+                         
+noord_holland = Province.find_by(name: "Noord-Holland")                          
+profile_rienk.address = Address.create(zip_code: "1027AN",
+                                 street: "Kerklaan Zunderdorp",
+                                 city: "Amsterdam",
+                                 housenumber: "15",
+                                 province_id: noord_holland.id)                        
+                                 
+profile_elkana.practice_areas = PracticeArea.take(3)                                
+lawyer_elkana.profile = profile_elkana
+
+notification_setting = NotificationSetting.create
+notification_setting.interval = Interval.find_by(hours: 0)
+lawyer_elkana.notification_setting = notification_setting
+lawyer_elkana.save

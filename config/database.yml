@@ -21,9 +21,9 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV['DATABASE_DEVELOPMENT'] %>
-  username: <%= ENV['DATABASE_USER_DEVELOPMENT'] %>
-  password: <%= ENV['DATABASE_PASSWORD_DEVELOPMENT'] %>
+  database: "<%= ENV['DATABASE_DEVELOPMENT'] %>"
+  username: "<%= ENV['DATABASE_USER_DEVELOPMENT'] %>"
+  password: "<%= ENV['DATABASE_PASSWORD_DEVELOPMENT'] %>"
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -47,14 +47,13 @@ test: &test
   <<: *default
   database: linkinglaw_test
   username: postgres
-  password: Foadih!01
+  password: "Foadih!01"
 
 production:
   <<: *default
-  database: <%= ENV['DATABASE_PRODUCTION'] %>
-  username: <%= ENV['DATABASE_USER_PRODUCTION'] %>
-  password: <%= ENV['DATABASE_PASSWORD_PRODUCTION'] %>
- 
+  database: "<%= ENV['DATABASE_PRODUCTION'] %>"
+  username: "<%= ENV['DATABASE_USER_PRODUCTION'] %>"
+  password: "<%= ENV['DATABASE_PASSWORD_PRODUCTION'] %>"
 
 cucumber:
   <<: *test
