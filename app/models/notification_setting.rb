@@ -19,9 +19,14 @@ class NotificationSetting < ActiveRecord::Base
   belongs_to :interval
   
   def self.select_lawyers_to_notify()
-      now = DateTime.now.beginning_of_hour
+      now = DateTime.current.beginning_of_hour
       User.joins(:notification_setting).where('notification_settings.next_point_in_time = ?', now)
   end
+
+  def self.select_lawyers_to_notify_immediately()
+      User.joins(:notification_setting).where('notification_settings.next_point_in_time IS NULL')    
+  end
+
 
   def update_next_point_in_time()
       new_next_point_in_time = next_point_in_time + interval.hours.hours

@@ -43,6 +43,19 @@ class NotificationSettingTest < ActiveSupport::TestCase
     refute_nil lawyers[0].notification_setting.next_point_in_time    
 
   end
+
+  test 'select lawyers to notify with immediate interval' do
+    
+    lawyer_with_immediate_notification_interval = FactoryGirl.create(:lawyer)
+    FactoryGirl.create(:lawyer, :with_daily_notification)
+    
+    lawyers = NotificationSetting.select_lawyers_to_notify_immediately()
+    
+    assert_equal 1, lawyers.size
+    assert_equal lawyer_with_immediate_notification_interval, lawyers[0]    
+
+  end
+
   
   test 'update next point in time for notification setting with daily interval' do
     

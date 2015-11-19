@@ -36,7 +36,7 @@ FactoryGirl.define do
         email "joe.louis@boxing.ko"
         password "righthook"
         password_confirmation "righthook"
-        confirmed_at DateTime.now
+        confirmed_at DateTime.current
         role 0
 
         trait :with_questions do
@@ -58,7 +58,7 @@ FactoryGirl.define do
         sequence(:email) {|n| "jack.dempsey@boxing.ko#{n}"}
         password "lefthook"
         password_confirmation "lefthook"
-        confirmed_at DateTime.now
+        confirmed_at DateTime.current
         role 1
         profile { FactoryGirl.create(:profile, :from_friesland) }                
         notification_setting { FactoryGirl.create(:notification_setting) }
@@ -90,7 +90,7 @@ FactoryGirl.define do
         email "edgser.dijkstra@bit.com"        
         password "algoritme"
         password_confirmation "algoritme"
-        confirmed_at DateTime.now
+        confirmed_at DateTime.current
         role 2
     end
    

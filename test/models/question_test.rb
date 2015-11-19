@@ -157,7 +157,7 @@ class QuestionTest < ActiveSupport::TestCase
   test 'select questions for notification setting with daily interval' do
     
       questions = create_questions
-      point_in_time = DateTime.now.beginning_of_hour 
+      point_in_time = DateTime.current.beginning_of_hour 
 
       question1 = questions[0]
       question1.created_at = point_in_time

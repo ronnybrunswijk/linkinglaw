@@ -5,13 +5,13 @@ entrepreneur_rienk = User.create(name: "Rienk Boonstra",
                            email: ENV["ENTREPRENEUR_EMAIL"], 
                            password: ENV["USER_PASSWORD"], 
                            password_confirmation: ENV["USER_PASSWORD"], 
-                           confirmed_at: DateTime.now)
+                           confirmed_at: DateTime.current)
 
 lawyer_rienk = User.create(name: "Rienk Boonstra", 
                      email: ENV["LAWYER_EMAIL"], 
                      password: ENV["USER_PASSWORD"],
                      password_confirmation: ENV["USER_PASSWORD"], 
-                     confirmed_at: DateTime.now,
+                     confirmed_at: DateTime.current,
                      role: 1)
 
 profile_rienk = Profile.create(first_name: "Rienk",
