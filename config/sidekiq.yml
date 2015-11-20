@@ -1,2 +1,2 @@
-SendDelayedNotificationsJob:
-  cron: "0 * * * *"
+#SendDelayedNotificationsJob:
+#  cron: "0 * * * *"
