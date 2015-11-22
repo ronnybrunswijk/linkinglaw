@@ -4,9 +4,9 @@ Stel(/^ik bevind me als juridische professional op de notificatie instellingen p
 end
 
 Dan(/^wil ik de mogelijkheid hebben om in te stellen dat ik (\d+) keer per dag om (\d+):(\d+) uur bericht wil worden over nieuwe vragen$/) do |arg1, arg2, arg3|
-    @interval_every_3_days = Interval.find_by(name: '1 keer per 3 dagen')
+    @daily_interval = Interval.find_by(hours: 24)
     @hour_option = 18
-    choose "notification_setting_interval_id_#{@interval_every_3_days.id}"
+    choose "notification_setting_interval_id_#{@daily_interval.id}"
     select(@hour_option.to_s, from: "notification_setting_next_point_in_time_4i")
     click_button 'Bewaar'    
 end
@@ -14,7 +14,7 @@ end
 Dan(/^er zeker van zijn dat mijn instellingen bewaard blijven$/) do
     @current_user.reload
     notification_setting = @current_user.notification_setting
-    assert_equal @interval_every_3_days, notification_setting.interval
+    assert_equal @daily_interval, notification_setting.interval
     assert_equal @hour_option, notification_setting.next_point_in_time.hour 
 end
 

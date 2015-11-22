@@ -19,15 +19,14 @@ FactoryGirl.define do
     
     factory :notification_setting do
         interval { FactoryGirl.create(:immediately) }
+
+        trait :with_no_interval do
+           interval { FactoryGirl.create(:never) }            
+        end
         
         trait :with_daily_interval do
            next_point_in_time DateTime.current.beginning_of_hour
            interval { FactoryGirl.create(:daily) }            
-        end
-        
-        trait :with_3daily_interval do
-           next_point_in_time DateTime.current.beginning_of_hour            
-           interval { FactoryGirl.create(:every_3_days) }            
         end
     end
 

@@ -8,7 +8,12 @@
 #
 
 FactoryGirl.define do
-    
+
+    factory :never, class: Interval do
+        name "Nooit"
+        hours (-1)
+    end
+
     factory :immediately, class: Interval do
         name "Meteen"
         hours 0
@@ -19,8 +24,4 @@ FactoryGirl.define do
         hours 24
     end
 
-    factory :every_3_days, class: Interval do
-        name "1 keer per 3 dagen"
-        hours 72
-    end
 end
