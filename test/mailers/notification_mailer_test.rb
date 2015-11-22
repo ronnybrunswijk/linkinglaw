@@ -22,4 +22,19 @@ class NotificationMailerTest < ActionMailer::TestCase
         assert email.body.include? lawyer.profile.last_name
       
    end
+
+   test 'notify entrepreneur about one of his questions has been answered' do
+
+        entrepreneur = FactoryGirl.create(:entrepreneur, :with_answered_question)
+        answer = entrepreneur.questions.first.answers.first
+        lawyer = FactoryGirl.create(:lawyer)
+        answer.user = lawyer
+        
+        email = NotificationMailer.notify_entrepreneur(answer)
+   
+        assert_equal ['info@linkinglaw.nl'], email.from
+        assert_equal [entrepreneur.email], email.to
+        assert email.body.include? lawyer.profile.last_name
+      
+   end   
 end

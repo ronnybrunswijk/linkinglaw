@@ -31,7 +31,7 @@ class AnswersControllerTest < ActionController::TestCase
         answer = question.answers.first
         assert_equal text, answer.text
         assert_equal @lawyer, answer.user
-        assert_template "user_mailer/notify_entrepreneur" 
+        assert_template "notification_mailer/notify_entrepreneur" 
         assert_template partial: "_answers"
     end
 

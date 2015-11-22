@@ -8,5 +8,13 @@ class NotificationMailer < ActionMailer::Base
       mail(to: @lawyer.email, 
            subject: "Er is een nieuwe vraag geplaatst")
   end 
-  
+
+  # Notifies an entrepeneur about the fact that one of his questions has just been answered.
+  def notify_entrepreneur(answer)
+      @answer = answer
+      user = answer.question.user
+      mail(to: user.email, 
+           subject: "Antwoord op uw vraag")
+  end 
+
 end

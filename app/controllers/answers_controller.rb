@@ -29,7 +29,7 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     @answer.user = current_user
     if @answer.save
-      UserMailer.delay.notify_entrepreneur(@answer)
+      NotificationMailer.delay.notify_entrepreneur(@answer)
       render partial: 'answers', status: :created
     else
       format.html { render :new }
