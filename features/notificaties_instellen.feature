@@ -26,7 +26,7 @@ Functionaliteit: notificaties instellen
     Als ik vervolgens de frequentie instel op 'Meteen' 
     Dan wil ik geen mogelijkheid om ook een tijdstip in te stellen, zodat ik niet verward raak
 
-  @signed_in_lawyer @seeds
+  @signed_in_lawyer
   Scenario: de juridische professional stelt in dat hij dat hij alleen bericht wil worden over vragen gesteld 
             door ondernemers uit een bepaalde regio.
     Stel ik bevind me als juridische professional op de notificatie instellingen pagina
