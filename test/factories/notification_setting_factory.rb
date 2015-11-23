@@ -28,6 +28,13 @@ FactoryGirl.define do
            next_point_in_time DateTime.current.beginning_of_hour
            interval { FactoryGirl.create(:daily) }            
         end
+        
+        trait :with_fryslan_region do
+            after(:create) do |notification_setting|
+                notification_setting.provinces = [FactoryGirl.create(:friesland)]
+            end
+            
+        end
     end
 
     factory :notification_setting_empty, class: NotificationSetting do

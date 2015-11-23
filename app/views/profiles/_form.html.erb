@@ -19,6 +19,7 @@
         <%= b.label { b.check_box + b.text }  %><br>
       <% end %>
   </div>
+
   <div class="field">
     <%= profile_fields.label :avatar_url %><br>
     <%= image_tag @profile.avatar_url || "anonymous_avatar.png" , id: "avatar", class: "avatar" %><br>    

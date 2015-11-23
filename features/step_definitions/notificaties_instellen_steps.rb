@@ -11,7 +11,7 @@ Dan(/^wil ik de mogelijkheid hebben om in te stellen dat ik (\d+) keer per dag o
     click_button 'Bewaar'    
 end
 
-Dan(/^er zeker van zijn dat mijn instellingen bewaard blijven$/) do
+Dan(/^er zeker van zijn dat mijn frequentie instellingen bewaard blijven$/) do
     @current_user.reload
     notification_setting = @current_user.notification_setting
     assert_equal @daily_interval, notification_setting.interval
@@ -45,5 +45,19 @@ end
 Als(/^ik vervolgens de frequentie instel op 'Meteen'$/) do
     immediate_interval = Interval.find_by(hours: 0)
     choose "notification_setting_interval_id_#{immediate_interval.id}"
-    has_checked_field? "notification_setting_interval_id_#{immediate_interval.id}"
+end
+
+Dan(/^wil ik kunnen instellen dat ik alleen bericht wordt over vragen gesteld door ondernemers uit Friesland en Groningen$/) do
+    @regio_friesland = Province.find_by(name: "Friesland")
+    @regio_groningen = Province.find_by(name: "Groningen")    
+    check "notification_setting_province_ids_#{@regio_friesland.id}"
+    check "notification_setting_province_ids_#{@regio_groningen.id}"
+    click_button "Bewaar"
+end
+
+Dan(/^er zeker van zijn dat mijn regio instellingen bewaard blijven$/) do
+    notification_setting = @current_user.notification_setting
+    assert_equal 2, notification_setting.provinces.size
+    assert notification_setting.provinces.include? @regio_friesland
+    assert notification_setting.provinces.include? @regio_groningen
 end

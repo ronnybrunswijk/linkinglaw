@@ -81,6 +81,20 @@ class NotificationSettingsControllerTest < ActionController::TestCase
         
     end
     
-    
-    
+    test 'update region settings' do
+        
+        notification_setting = FactoryGirl.create(:notification_setting)        
+        regions = [FactoryGirl.create(:friesland),
+                   FactoryGirl.create(:groningen)]
+                   
+       put :update, id: notification_setting.id, notification_setting: {
+                                                province_ids: regions.map(&:id)
+                                              }
+        
+       notification_setting.reload
+       
+       assert_equal regions, notification_setting.provinces
+
+    end
+
 end

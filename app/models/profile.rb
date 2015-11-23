@@ -21,7 +21,7 @@
 #
 
 class Profile < ActiveRecord::Base
-    has_and_belongs_to_many :practice_areas
+    has_and_belongs_to_many :practice_areas # TODO dit kin neffens my gewoan mei belongs_to neffens my, no is 'r in koppeltabel'
     has_one :address
     has_many :endorsements
     has_many :answers, through: :endorsements

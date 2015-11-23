@@ -56,6 +56,6 @@ class NotificationSettingsController < ApplicationController
     end
 
     def notification_setting_params
-      params.require(:notification_setting).permit(:next_point_in_time, :interval_id)
+      params.require(:notification_setting).permit(:next_point_in_time, :interval_id, province_ids: [])
     end
 end

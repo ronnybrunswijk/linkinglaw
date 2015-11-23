@@ -24,6 +24,13 @@
         <%= time_select "notification_setting", "next_point_in_time", {discard_minute: true} %>:00
     </div>
     
+    <div class="form-group">
+        <%= f.label :provinces %><br>
+        <%= f.collection_check_boxes(:province_ids, Province.all, :id, :name) do |b| %>
+          <%= b.label { b.check_box + b.text }  %><br>  
+        <% end %>
+    </div>
+
     <div class="actions">
       <%= f.submit "Bewaar", class: 'button right' %>
       <%= link_to t(:cancel, scope: [:labels]), home_path %>
