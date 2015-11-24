@@ -78,5 +78,14 @@ class NotificationSettingTest < ActiveSupport::TestCase
     assert_equal "Friesland", notification_setting.provinces[0].name
 
   end
-  
+
+  test 'practice area association' do
+    
+    notification_setting = FactoryGirl.create(:notification_setting, :with_aansprakelijkheidsrecht)
+    
+    assert_equal 1, notification_setting.practice_areas.size
+    assert_equal "Aansprakelijkheidsrecht", notification_setting.practice_areas[0].name
+
+  end
+
 end

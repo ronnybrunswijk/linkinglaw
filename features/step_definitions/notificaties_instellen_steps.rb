@@ -47,7 +47,7 @@ Als(/^ik vervolgens de frequentie instel op 'Meteen'$/) do
     choose "notification_setting_interval_id_#{immediate_interval.id}"
 end
 
-Dan(/^wil ik kunnen instellen dat ik alleen bericht wordt over vragen gesteld door ondernemers uit Friesland en Groningen$/) do
+Dan(/^wil ik kunnen instellen dat ik alleen bericht word over vragen gesteld door ondernemers uit Friesland en Groningen$/) do
     @regio_friesland = Province.find_by(name: "Friesland")
     @regio_groningen = Province.find_by(name: "Groningen")    
     check "notification_setting_province_ids_#{@regio_friesland.id}"
@@ -60,4 +60,19 @@ Dan(/^er zeker van zijn dat mijn regio instellingen bewaard blijven$/) do
     assert_equal 2, notification_setting.provinces.size
     assert notification_setting.provinces.include? @regio_friesland
     assert notification_setting.provinces.include? @regio_groningen
+end
+
+Dan(/^wil ik kunnen instellen dat ik alleen bericht word over vragen gesteld die gaan over huurrecht en contractenrecht$/) do
+    @rechtsgebied_huurrecht = PracticeArea.find_by(name: "Huurrecht")
+    @rechtsgebied_contractenrecht = PracticeArea.find_by(name: "Contractenrecht")    
+    check "notification_setting_practice_area_ids_#{@rechtsgebied_huurrecht.id}"
+    check "notification_setting_practice_area_ids_#{@rechtsgebied_contractenrecht.id}"
+    click_button "Bewaar"    
+end
+
+Dan(/^er zeker van zijn dat mijn rechtsgebieden instellingen bewaard blijven$/) do
+    notification_setting = @current_user.notification_setting
+    assert_equal 2, notification_setting.practice_areas.size
+    assert notification_setting.practice_areas.include? @rechtsgebied_contractenrecht
+    assert notification_setting.practice_areas.include? @rechtsgebied_huurrecht
 end

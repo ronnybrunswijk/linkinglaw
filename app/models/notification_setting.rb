@@ -18,6 +18,7 @@
 class NotificationSetting < ActiveRecord::Base
   belongs_to :interval
   has_and_belongs_to_many :provinces  
+  has_and_belongs_to_many :practice_areas    
   
   def self.select_lawyers_to_notify()
       now = DateTime.current.beginning_of_hour

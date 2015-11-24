@@ -23,7 +23,14 @@
         <%= label_tag "Tijdstip" %>
         <%= time_select "notification_setting", "next_point_in_time", {discard_minute: true} %>:00
     </div>
-    
+
+    <div class="form-group">
+        <%= f.label :practice_areas %><br>
+        <%= f.collection_check_boxes(:practice_area_ids, PracticeArea.all, :id, :name) do |b| %>
+          <%= b.label { b.check_box + b.text }  %><br>
+        <% end %>
+    </div>
+  
     <div class="form-group">
         <%= f.label :provinces %><br>
         <%= f.collection_check_boxes(:province_ids, Province.all, :id, :name) do |b| %>

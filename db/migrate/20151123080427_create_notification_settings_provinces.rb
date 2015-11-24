@@ -1,6 +1,6 @@
 class CreateNotificationSettingsProvinces < ActiveRecord::Migration
   def change
-     create_table :notification_settings_provinces, id: false do |t|  # ntfctn otherwise index name will be too long
+     create_table :notification_settings_provinces, id: false do |t|  
       t.belongs_to :notification_setting
       t.belongs_to :province
     end

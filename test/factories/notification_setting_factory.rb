@@ -33,8 +33,14 @@ FactoryGirl.define do
             after(:create) do |notification_setting|
                 notification_setting.provinces = [FactoryGirl.create(:friesland)]
             end
-            
         end
+        
+        trait :with_aansprakelijkheidsrecht do
+            after(:create) do |notification_setting|
+                notification_setting.practice_areas = [FactoryGirl.create(:aansprakelijkheidsrecht)]
+            end
+        end
+
     end
 
     factory :notification_setting_empty, class: NotificationSetting do

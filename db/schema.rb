@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123080427) do
+ActiveRecord::Schema.define(version: 20151124074509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,14 @@ ActiveRecord::Schema.define(version: 20151123080427) do
 
   add_index "notification_settings", ["interval_id"], name: "index_notification_settings_on_interval_id", using: :btree
   add_index "notification_settings", ["user_id"], name: "index_notification_settings_on_user_id", using: :btree
+
+  create_table "notification_settings_practice_areas", id: false, force: true do |t|
+    t.integer "notification_setting_id"
+    t.integer "practice_area_id"
+  end
+
+  add_index "notification_settings_practice_areas", ["notification_setting_id"], name: "index_on_notification_setting_id", using: :btree
+  add_index "notification_settings_practice_areas", ["practice_area_id"], name: "index_on_practice_area_id", using: :btree
 
   create_table "notification_settings_provinces", id: false, force: true do |t|
     t.integer "notification_setting_id"

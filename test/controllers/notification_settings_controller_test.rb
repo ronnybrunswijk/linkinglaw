@@ -97,4 +97,20 @@ class NotificationSettingsControllerTest < ActionController::TestCase
 
     end
 
+    test 'update practice area settings' do
+        
+        notification_setting = FactoryGirl.create(:notification_setting)        
+        practice_areas = [FactoryGirl.create(:aansprakelijkheidsrecht),
+                   FactoryGirl.create(:contractenrecht)]
+                   
+       put :update, id: notification_setting.id, notification_setting: {
+                                                practice_area_ids: practice_areas.map(&:id)
+                                              }
+        
+       notification_setting.reload
+       
+       assert_equal practice_areas, notification_setting.practice_areas
+
+    end
+
 end

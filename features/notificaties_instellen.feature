@@ -30,5 +30,12 @@ Functionaliteit: notificaties instellen
   Scenario: de juridische professional stelt in dat hij dat hij alleen bericht wil worden over vragen gesteld 
             door ondernemers uit een bepaalde regio.
     Stel ik bevind me als juridische professional op de notificatie instellingen pagina
-    Dan wil ik kunnen instellen dat ik alleen bericht wordt over vragen gesteld door ondernemers uit Friesland en Groningen 
+    Dan wil ik kunnen instellen dat ik alleen bericht word over vragen gesteld door ondernemers uit Friesland en Groningen 
     En er zeker van zijn dat mijn regio instellingen bewaard blijven
+    
+  @signed_in_lawyer
+  Scenario: de juridische professional stelt in dat hij dat hij alleen bericht wil worden over vragen die betrekking hebben 
+            op 1 of enkele rechtsgebieden.
+    Stel ik bevind me als juridische professional op de notificatie instellingen pagina
+    Dan wil ik kunnen instellen dat ik alleen bericht word over vragen gesteld die gaan over huurrecht en contractenrecht 
+    En er zeker van zijn dat mijn rechtsgebieden instellingen bewaard blijven    
