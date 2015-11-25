@@ -62,7 +62,7 @@ Dan(/^er zeker van zijn dat mijn regio instellingen bewaard blijven$/) do
     assert notification_setting.provinces.include? @regio_groningen
 end
 
-Dan(/^wil ik kunnen instellen dat ik alleen bericht word over vragen gesteld die gaan over huurrecht en contractenrecht$/) do
+Dan(/^wil ik kunnen instellen dat ik alleen bericht word over vragen die gaan over huurrecht en contractenrecht$/) do
     @rechtsgebied_huurrecht = PracticeArea.find_by(name: "Huurrecht")
     @rechtsgebied_contractenrecht = PracticeArea.find_by(name: "Contractenrecht")    
     check "notification_setting_practice_area_ids_#{@rechtsgebied_huurrecht.id}"
