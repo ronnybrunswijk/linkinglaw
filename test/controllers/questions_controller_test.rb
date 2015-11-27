@@ -6,7 +6,7 @@ class QuestionsControllerTest < ActionController::TestCase
     def setup
          DatabaseCleaner.start
          @entrepreneur_with_questions = FactoryGirl.create(:entrepreneur, :with_questions)
-         @lawyer = FactoryGirl.create(:lawyer)
+         @lawyer = FactoryGirl.create(:lawyer, :with_southern_interest)
          @request.env['devise.mapping'] = Devise.mappings[:user]
          sign_in @entrepreneur_with_questions
     end
@@ -66,12 +66,12 @@ class QuestionsControllerTest < ActionController::TestCase
     test 'entrepreneur creates question' do 
       title = "You talking to me?"
       practice_area = PracticeArea.create(name: "some name", subject: "some subject")
-      provinces = FactoryGirl.create_list(:provinces, 2)
+      friesland = FactoryGirl.create(:friesland)
       post :create, { create: 'create',
                       question: { title: title,
                                   description: 'a',
                                   practice_area_id: practice_area.id,                                  
-                                  province_ids: provinces.each {|province| province.id}                                   
+                                  province_id: friesland                                   
                                  }
                     }
 
@@ -79,8 +79,9 @@ class QuestionsControllerTest < ActionController::TestCase
       question = Question.find_by title: title
       assert_not_nil question
       assert_not_nil question.practice_area
-      assert_equal practice_area.id, question.practice_area.id
-      assert_equal provinces, question.provinces
+      assert_equal practice_area, question.practice_area
+      refute_nil question.province
+      assert_equal friesland, question.province
     end
 
     test 'entrepreneur modifies question' do
@@ -100,13 +101,18 @@ class QuestionsControllerTest < ActionController::TestCase
       assert_equal 'b', question.description
     end
 
-    test 'test list all questions for signed in lawyer' do
-      sign_in @lawyer
+    test 'list all questions for signed in lawyer' do
+        
+      sign_in @lawyer      
+
+      expected_questions = create_questions_for_preferred_regions_of_lawyer
+
       get :list
      
       assert_template :list
-      questions = assigns(:questions)
-      refute_empty questions
+      actual_questions = assigns(:questions)
+      refute_empty actual_questions
+      assert_equal expected_questions, actual_questions
     end
 
     def test_list_all_questions_is_not_available_for_entrepreneur
@@ -134,25 +140,31 @@ class QuestionsControllerTest < ActionController::TestCase
        assert_template :show
     end
     
-    test 'lawyer sees only questions for his region and without regions specified' do
+    test 'lawyer sees only questions from regions he wants to see them' do
+
       sign_in @lawyer 
-      
-      expected_questions = questions[1..2]      
-      expected_questions.push(*@entrepreneur_with_questions.questions)
-      
+
+      expected_questions = create_questions_for_preferred_regions_of_lawyer
+
       get :list
       
       actual_questions = assigns(:questions)
       assert_equal expected_questions.sort, actual_questions.sort
     end
-    
-    def questions 
-        
-      question_for_region_lawyer = FactoryGirl.create(:question)    
-      question_for_region_lawyer.provinces = [@lawyer.profile.address.province]    
+   
+   def create_questions_for_preferred_regions_of_lawyer
+   
+      questions = []
       
-      [FactoryGirl.create(:question, :for_brabos),
-       question_for_region_lawyer,
-       FactoryGirl.create(:question)]
-    end
+      @lawyer.notification_setting.provinces.each do |province|
+         question = FactoryGirl.create(:question)
+         question.province = province
+         question.save
+         questions << question
+      end
+   
+      questions
+       
+   end 
+    
 end

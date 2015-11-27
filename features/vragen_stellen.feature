@@ -48,8 +48,8 @@ Functionaliteit: de ondernemer stelt een vraag,
      En dat het geselecteerde rechtsgebied tezamen met mijn vraag wordt opgeslagen
 
    @signed_in @seeds   
-   Scenario: de ondernemer wil 1 of meerdere provincies kunnen selecteren voor de vraag die hij wil stellen
+   Scenario: de ondernemer wil een regio opgeven bij de vraag die hij wil stellen
      Stel als ondernemer heb ik een vraag opgevoerd die ik daadwerkelijk wil stellen
-     Dan wil ik daarbij ook de regios, waarin juridische professionals werkzaam zijn, kunnen selecteren
-     En dat de geselecteerde regios tezamen met mijn vraag worden opgeslagen
+     Dan wil ik daarbij ook een regio kunnen opgeven, zodat een juridisch professional kan zien waar de vraag is gesteld
+     En dat de geselecteerde regio tezamen met mijn vraag worden opgeslagen
      

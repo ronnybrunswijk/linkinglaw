@@ -57,8 +57,8 @@ class QuestionsController < ApplicationController
  end
 
   def list
-    province = current_user.profile.address.province
-    @questions = Question.find_with_and_without_provinces([province])
+    regions = current_user.notification_setting.provinces
+    @questions = Question.select_by_regions(regions)
   end
 
   private
@@ -67,6 +67,6 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-      params.require(:question).permit(:title, :description, :practice_area_id, province_ids: [])
+      params.require(:question).permit(:title, :description, :practice_area_id, :province_id)
     end
 end

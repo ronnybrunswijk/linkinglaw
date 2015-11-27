@@ -35,6 +35,14 @@ FactoryGirl.define do
             end
         end
         
+        trait :with_southern_regions do
+            after(:create) do |notification_setting|
+                notification_setting.provinces = [FactoryGirl.create(:zeeland), 
+                                                  FactoryGirl.create(:noord_brabant),
+                                                  FactoryGirl.create(:limburg)]
+            end
+        end        
+        
         trait :with_aansprakelijkheidsrecht do
             after(:create) do |notification_setting|
                 notification_setting.practice_areas = [FactoryGirl.create(:aansprakelijkheidsrecht)]

@@ -82,6 +82,10 @@ FactoryGirl.define do
         trait :without_notification do
             notification_setting {FactoryGirl.create(:notification_setting, :with_no_interval) }                        
         end
+        
+        trait :with_southern_interest do
+            notification_setting {FactoryGirl.create(:notification_setting, :with_southern_regions) }                        
+        end
     end   
 
     # Admin factory

@@ -22,7 +22,7 @@ Before('@signed_in') do
 end
 
 Before('@signed_in_lawyer') do
-  @current_user = FactoryGirl.create(:lawyer)
+  @current_user = FactoryGirl.create(:lawyer, :with_southern_interest)
   visit '/users/sign_in'
   fill_in "user_email", with: @current_user.email
   fill_in "user_password", with: @current_user.password
@@ -38,7 +38,12 @@ Before('@signed_in_lawyer_with_daily_notification') do
 end
 
 Before('@3_questions') do
-  FactoryGirl.create_list(:questions, 3)
+  @current_user.notification_setting.provinces.each do |province|  
+    question = FactoryGirl.create(:question)
+    question.province = province
+    question.title = "Question from #{province.name}"
+    question.save
+  end
 end
 
 # Even sjin as dizze not gewoan de current user fan type entrepreneur weze kin.
@@ -52,6 +57,8 @@ end
 
 Before('@question_with_answers') do
   @question_with_answers = FactoryGirl.create(:question, :with_answers)
+  @question_with_answers.province = @current_user.notification_setting.provinces.first
+  @question_with_answers.save
 end
 
 Before('@postcodeapi_stub') do

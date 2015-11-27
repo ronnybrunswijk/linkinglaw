@@ -9,10 +9,12 @@
 #  updated_at       :datetime
 #  user_id          :integer
 #  practice_area_id :integer
+#  province_id      :integer
 #
 # Indexes
 #
 #  index_questions_on_practice_area_id  (practice_area_id)
+#  index_questions_on_province_id       (province_id)
 #  index_questions_on_user_id           (user_id)
 #
 
@@ -21,6 +23,7 @@ FactoryGirl.define do
     factory :question do
        title "title"
        description "description"
+       province { FactoryGirl.create(:friesland)} 
 
        trait :with_practice_area do
            practice_area { FactoryGirl.create(:aansprakelijkheidsrecht) }        
@@ -31,32 +34,17 @@ FactoryGirl.define do
                 FactoryGirl.create_list(:answer, 2, question: question)
             end
        end       
-       
-       trait :with_provinces do
-            after(:create) do |question|
-                question.provinces = FactoryGirl.create_list(:provinces, 2)
-            end
-       end
-       
-       trait :for_frisians do
-            title "For Frisians"
-            after(:create) do |question|
-                question.provinces = [FactoryGirl.create(:friesland)]
-            end
+
+       trait :for_sealanders do
+            province { FactoryGirl.create(:zeeland)}
        end
 
        trait :for_limbos do
-            title "For Limbos"
-            after(:create) do |question|
-                question.provinces = [FactoryGirl.create(:limburg)]
-            end
+            province { FactoryGirl.create(:limburg)}
        end
 
        trait :for_brabos do
-            title "For Brabos"
-            after(:create) do |question|
-                question.provinces = [FactoryGirl.create(:noord_brabant)]
-            end
+            province { FactoryGirl.create(:noord_brabant)}
        end
    end
 

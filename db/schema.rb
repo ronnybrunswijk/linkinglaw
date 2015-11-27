@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124074509) do
+ActiveRecord::Schema.define(version: 20151127084319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,14 +118,6 @@ ActiveRecord::Schema.define(version: 20151124074509) do
     t.datetime "updated_at"
   end
 
-  create_table "provinces_questions", id: false, force: true do |t|
-    t.integer "question_id"
-    t.integer "province_id"
-  end
-
-  add_index "provinces_questions", ["province_id"], name: "index_provinces_questions_on_province_id", using: :btree
-  add_index "provinces_questions", ["question_id"], name: "index_provinces_questions_on_question_id", using: :btree
-
   create_table "questions", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -133,9 +125,11 @@ ActiveRecord::Schema.define(version: 20151124074509) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "practice_area_id"
+    t.integer  "province_id"
   end
 
   add_index "questions", ["practice_area_id"], name: "index_questions_on_practice_area_id", using: :btree
+  add_index "questions", ["province_id"], name: "index_questions_on_province_id", using: :btree
   add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "reviews", id: false, force: true do |t|

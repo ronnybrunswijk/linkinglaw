@@ -9,35 +9,28 @@
 #  updated_at       :datetime
 #  user_id          :integer
 #  practice_area_id :integer
+#  province_id      :integer
 #
 # Indexes
 #
 #  index_questions_on_practice_area_id  (practice_area_id)
+#  index_questions_on_province_id       (province_id)
 #  index_questions_on_user_id           (user_id)
 #
 
 class Question < ActiveRecord::Base
   belongs_to :user
   belongs_to :practice_area
+  belongs_to :province
   has_many :answers, dependent: :destroy
-  has_and_belongs_to_many :provinces
   validates :title, length: { in: 1..100 }
   validates :description, length: { in: 1..500 }
   
-    def self.find_with(provinces)
-       province_ids = provinces.map(&:id)
-       self.joins(:provinces).where(provinces: {id:  province_ids}) 
+    def self.select_by_regions(regions)
+       region_ids = regions.map(&:id)
+       self.where(province_id: region_ids) 
     end  
 
-    def self.find_without_provinces
-       self.includes(:provinces).where(provinces: {id: nil}) 
-    end  
-    
-    def self.find_with_and_without_provinces(provinces)
-       questions = self.find_with(provinces)
-       questions.push(*self.find_without_provinces)
-    end
-    
     def self.select_questions_asked_after(notification_setting)
        point_in_time = notification_setting.next_point_in_time.beginning_of_hour
        point_in_time -= notification_setting.interval.hours.hours

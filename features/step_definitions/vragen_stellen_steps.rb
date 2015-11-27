@@ -82,16 +82,14 @@ Dan(/^dat het geselecteerde rechtsgebied tezamen met mijn vraag wordt opgeslagen
   assert_equal @practice_area, question.practice_area
 end
 
-Dan(/^wil ik daarbij ook de regios, waarin juridische professionals werkzaam zijn, kunnen selecteren$/) do
-   @provinces = Province.take(2)
-   @provinces.each do |province|
-      check "question_province_ids_#{province.id}"      
-   end
+Dan(/^wil ik daarbij ook een regio kunnen opgeven, zodat een juridisch professional kan zien waar de vraag is gesteld$/) do
+   @province = Province.find_by(name: "Overijssel")
+   select @province.name, from: 'question_province_id'      
    click_button "Plaats vraag"
 end
 
-Dan(/^dat de geselecteerde regios tezamen met mijn vraag worden opgeslagen$/) do
+Dan(/^dat de geselecteerde regio tezamen met mijn vraag worden opgeslagen$/) do
   page.find("title", text: @title, visible: false)
   question = Question.find_by title: @title
-  assert_equal @provinces, question.provinces
+  assert_equal @province, question.province
 end

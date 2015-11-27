@@ -5,7 +5,8 @@ Stel(/^als juridische professional ga ik naar de 'gestelde vragen' pagina$/) do
 end
 
 Dan(/^verwacht ik een overzicht van vragen die ondernemers onlangs hebben gesteld$/) do
-  questions = Question.all
+  questions = Question.select_by_regions(@current_user.notification_setting.provinces)
+  assert questions.size > 0
   questions.each do |question|
     assert page.find("a", text: question.title)
   end 

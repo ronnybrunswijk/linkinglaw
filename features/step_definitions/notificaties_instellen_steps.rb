@@ -48,18 +48,22 @@ Als(/^ik vervolgens de frequentie instel op 'Meteen'$/) do
 end
 
 Dan(/^wil ik kunnen instellen dat ik alleen bericht word over vragen gesteld door ondernemers uit Friesland en Groningen$/) do
-    @regio_friesland = Province.find_by(name: "Friesland")
-    @regio_groningen = Province.find_by(name: "Groningen")    
-    check "notification_setting_province_ids_#{@regio_friesland.id}"
-    check "notification_setting_province_ids_#{@regio_groningen.id}"
+    @current_user.notification_setting.provinces.each do |province|
+       uncheck "notification_setting_province_ids_#{province.id}"        
+    end
+    @regio_overijssel = Province.find_by(name: "Overijssel")
+    @regio_gelderland = Province.find_by(name: "Gelderland")    
+    check "notification_setting_province_ids_#{@regio_overijssel.id}"
+    check "notification_setting_province_ids_#{@regio_gelderland.id}"
     click_button "Bewaar"
 end
 
 Dan(/^er zeker van zijn dat mijn regio instellingen bewaard blijven$/) do
+    @current_user.reload
     notification_setting = @current_user.notification_setting
     assert_equal 2, notification_setting.provinces.size
-    assert notification_setting.provinces.include? @regio_friesland
-    assert notification_setting.provinces.include? @regio_groningen
+    assert notification_setting.provinces.include? @regio_gelderland
+    assert notification_setting.provinces.include? @regio_overijssel
 end
 
 Dan(/^wil ik kunnen instellen dat ik alleen bericht word over vragen die gaan over huurrecht en contractenrecht$/) do
