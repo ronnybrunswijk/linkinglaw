@@ -3,7 +3,7 @@ class SendNotificationsJob
     
    def perform(question)
       
-      lawyers = User.where("role = ?", 1)
+      lawyers = NotificationSetting.select_lawyers_to_notify_immediately()
       lawyers.each do |lawyer|
          NotificationMailer.notify_lawyer(lawyer, question).deliver!         
       end

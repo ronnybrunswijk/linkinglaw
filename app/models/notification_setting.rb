@@ -26,7 +26,7 @@ class NotificationSetting < ActiveRecord::Base
   end
 
   def self.select_lawyers_to_notify_immediately()
-      User.joins(:notification_setting).where('notification_settings.next_point_in_time IS NULL')    
+      User.joins(notification_setting: :interval).where(intervals: {hours: 0})    
   end
 
   def update_next_point_in_time()
