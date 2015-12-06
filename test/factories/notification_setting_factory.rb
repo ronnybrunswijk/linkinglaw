@@ -29,7 +29,7 @@ FactoryGirl.define do
            interval { FactoryGirl.create(:daily) }            
         end
         
-        trait :with_fryslan_region do
+        trait :with_friesland_region do
             after(:create) do |notification_setting|
                 notification_setting.provinces = [FactoryGirl.create(:friesland)]
             end
@@ -47,6 +47,15 @@ FactoryGirl.define do
             after(:create) do |notification_setting|
                 notification_setting.practice_areas = [FactoryGirl.create(:aansprakelijkheidsrecht)]
             end
+        end
+
+        trait :with_contractenrecht do
+            after(:create) do |notification_setting|
+                notification_setting.practice_areas = [FactoryGirl.create(:contractenrecht)]
+            end
+        end
+        
+        trait :without_region_and_practice_area do
         end
 
     end

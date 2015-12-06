@@ -61,7 +61,7 @@ FactoryGirl.define do
         confirmed_at DateTime.current
         role 1
         profile { FactoryGirl.create(:profile, :from_friesland) }                
-        notification_setting { FactoryGirl.create(:notification_setting) }
+        notification_setting { FactoryGirl.create(:notification_setting, :with_aansprakelijkheidsrecht) }
 
         trait :abraham_lincoln do
             email "abraham.lincoln@usa.com"
@@ -85,6 +85,14 @@ FactoryGirl.define do
         
         trait :with_southern_interest do
             notification_setting {FactoryGirl.create(:notification_setting, :with_southern_regions) }                        
+        end
+
+        trait :with_friesland_region do
+            notification_setting {FactoryGirl.create(:notification_setting, :with_friesland_region) }                        
+        end
+
+        trait :with_contractenrecht do
+            notification_setting { FactoryGirl.create(:notification_setting, :with_contractenrecht) }
         end
     end   
 

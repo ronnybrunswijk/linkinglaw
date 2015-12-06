@@ -26,15 +26,21 @@ class Question < ActiveRecord::Base
   validates :title, length: { in: 1..100 }
   validates :description, length: { in: 1..500 }
   
-    def self.select_by_regions(regions)
-       region_ids = regions.map(&:id)
-       self.where(province_id: region_ids) 
-    end  
+    def select_lawyers_to_notify_immediately
 
-    def self.select_questions_asked_after(notification_setting)
-       point_in_time = notification_setting.next_point_in_time.beginning_of_hour
-       point_in_time -= notification_setting.interval.hours.hours
-       Question.where('created_at >= ?', point_in_time)
+      join_tables = [:interval, :provinces]
+      query = "intervals.hours = 0 and provinces.id = :province_id"
+      params = {}
+      params[:province_id] = province_id # it's mandatory to set a region for a question, so it's always there
+
+      if practice_area_id # it's optional to set a practice area for a question, so check if it's there
+        query << " and practice_areas.id = :practice_area_id"
+        join_tables << :practice_areas
+        params[:practice_area_id] = practice_area_id
+      end
+
+      User.joins(notification_setting: join_tables).where(query, params)
+      
     end
     
 end

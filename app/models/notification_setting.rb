@@ -20,17 +20,50 @@ class NotificationSetting < ActiveRecord::Base
   has_and_belongs_to_many :provinces  
   has_and_belongs_to_many :practice_areas    
   
-  def self.select_lawyers_to_notify()
+  def self.select_lawyers_to_notify_periodically
       now = DateTime.current.beginning_of_hour
       User.joins(:notification_setting).where('notification_settings.next_point_in_time = ?', now)
   end
 
-  def self.select_lawyers_to_notify_immediately()
-      User.joins(notification_setting: :interval).where(intervals: {hours: 0})    
+  def select_questions(include_interval)
+
+     questions = []
+     
+     if practice_areas.empty? and provinces.empty? and not include_interval
+       questions.push(*Question.limit(10))
+     else 
+       tables = []
+       query = ""
+       params = {}
+       if not practice_areas.empty? 
+          tables << :practice_area
+          query = "practice_areas.id in (:practice_area_ids)"
+          params[:practice_area_ids] = practice_areas.map(&:id)
+       end
+
+       if not provinces.empty? 
+          tables << :province
+          query += " and " if query.length > 0
+          query += "provinces.id in (:province_ids)"
+          params[:province_ids] = provinces.map(&:id)
+       end
+       
+       if include_interval
+          query += " and " if query.length > 0
+          query += "questions.created_at >= :created_at"
+          after = DateTime.current.beginning_of_hour - interval.hours.hours
+          params[:created_at] = after          
+       end
+
+       questions = Question.joins(tables).where(query, params).limit(10)       
+     end
+
+     questions
   end
 
-  def update_next_point_in_time()
+  def update_next_point_in_time
       new_next_point_in_time = next_point_in_time + interval.hours.hours
       update_attribute(:next_point_in_time, new_next_point_in_time)
   end
+  
 end

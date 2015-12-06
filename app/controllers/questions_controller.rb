@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
     if params[:create]
       flash[:notice] = t(:save_success, scope: [:questions, :notifications]) if @question.save
       UserMailer.delay.confirm_question(current_user, @question)
-      SendNotificationsJob.perform_async(@question)
+      SendNotificationsJob.perform_async(@question.id)
       respond_with(@question)
     else 
       render :new
@@ -57,8 +57,7 @@ class QuestionsController < ApplicationController
  end
 
   def list
-    regions = current_user.notification_setting.provinces
-    @questions = Question.select_by_regions(regions)
+    @questions = current_user.notification_setting.select_questions(false)
   end
 
   private

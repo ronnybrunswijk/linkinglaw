@@ -71,7 +71,7 @@ Stel(/^als ondernemer heb ik een vraag opgevoerd die ik daadwerkelijk wil stelle
 end
 
 Dan(/^wil ik daarbij ook het rechtsgebied, waarop de vraag betrekking heeft, kunnen selecteren$/) do
-  @practice_area = PracticeArea.last
+  @practice_area = PracticeArea.uniq.first
   select @practice_area.subject,  from: 'question_practice_area_id'
   click_button "Plaats vraag"
 end

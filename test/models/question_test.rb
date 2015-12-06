@@ -110,7 +110,7 @@ class QuestionTest < ActiveSupport::TestCase
   end
   
   test 'practice area association' do
-    question = FactoryGirl.create(:question, :with_practice_area)
+    question = FactoryGirl.create(:question, :with_aansprakelijkheidsrecht)
     assert_not_nil question.practice_area  
   end
 
@@ -135,46 +135,70 @@ class QuestionTest < ActiveSupport::TestCase
     assert_equal "Limburg", question.province.name
   end
 
-  test 'select questions by region' do
-      expected_question = FactoryGirl.create(:question, :for_brabos), FactoryGirl.create(:question, :for_limbos)    
-      FactoryGirl.create(:question, :for_sealanders)
+  ######################################################################################
+  # SCENARIOS FOR QUERIES WITH IMMEDIATE INTERVAL
+  #
+  # Scenario 1: question from specific region (Zeeland)
+  #     outcome: selected lawyers should have included 'Zeeland' in their region settings 
+  #              and have their interval set to immediately (hours => 0)
+  #
+  # Scenario 2: question from specific region (Zeeland) and a specific practice area (aansprakelijkheidsrecht)
+  #     outcome: selected lawyers should have included 'Zeeland' in their region settings 
+  #              and have 'aansprakelijkheidsrecht' included in their practice area settings
+  #              and have their interval set to immediately (hours => 0)
+  #
+  test 'select lawyers to notify for question from specific region immediately' do
 
-      regions = Province.where(name: ["Limburg","Noord-Brabant"])
-      actual_questions = Question.select_by_regions(regions)    
-      assert_equal expected_question.sort, actual_questions.sort
+    question = FactoryGirl.create(:question, :from_zeeland)
+  
+    lawyer = FactoryGirl.create(:lawyer)
+    lawyer.notification_setting.provinces = [question.province]
+    lawyer.save
+    # create some extra lawyers that shouldn't appear in selection
+    create_lawyers_without_immediate_interval_zeeland_region_and_aansprakelijkheidrecht()
+  
+    actual_lawyers = question.select_lawyers_to_notify_immediately()
+    
+    assert_equal [lawyer], actual_lawyers
+
   end
   
-  test 'select questions for notification setting with daily interval' do
-    
-      questions = FactoryGirl.create_list(:questions, 3)
-      point_in_time = DateTime.current.beginning_of_hour 
+  test 'select lawyers to notify immediately for question about specific practice area and from specific region' do
 
-      question1 = questions[0]
-      question1.created_at = point_in_time
-      question1.save
-      
-      question2 = questions[1]
-      question2.created_at = point_in_time - 24.hours
-      question2.save
-      
-      question3 = questions[2]
-      question3.created_at = point_in_time - 25.hours    
-      question3.save
-      
-      notification_setting = FactoryGirl.create(:notification_setting,:with_daily_interval)
-      notification_setting.next_point_in_time = point_in_time
-      found_questions = Question.select_questions_asked_after(notification_setting)
-      
-      assert_equal 2, found_questions.size
-      assert_equal question1, found_questions[0]
-      assert_equal question2, found_questions[1]
-      
-  end
+    question = FactoryGirl.create(:question, :from_zeeland, :with_aansprakelijkheidsrecht)
   
-  test 'select question by practice area' do
+    lawyer = FactoryGirl.create(:lawyer)
+    lawyer.notification_setting.provinces = [question.province]
+    lawyer.notification_setting.practice_areas = [question.practice_area]
+    lawyer.save
+    # create some extra lawyers that shouldn't appear in selection
+    create_lawyers_without_immediate_interval_zeeland_region_and_aansprakelijkheidrecht()
     
-
+    lawyer_with_zeeland_region = FactoryGirl.create(:lawyer)
+    lawyer_with_zeeland_region.notification_setting.provinces = [question.province]
+    lawyer_with_zeeland_region.save
     
-  end   
+    lawyer_with_aansprakelijkheidsrecht = FactoryGirl.create(:lawyer)
+    lawyer_with_aansprakelijkheidsrecht.notification_setting.practice_areas = [question.practice_area]
+    lawyer_with_aansprakelijkheidsrecht.save
 
+    actual_lawyers = question.select_lawyers_to_notify_immediately()
+    
+    assert_equal [lawyer], actual_lawyers
+
+  end  
+  
+  private 
+
+    def create_lawyers_without_immediate_interval_zeeland_region_and_aansprakelijkheidrecht
+      FactoryGirl.create(:lawyer, :with_daily_notification)
+      FactoryGirl.create(:lawyer, :without_notification)    
+      FactoryGirl.create(:lawyer, :with_friesland_region)
+      FactoryGirl.create(:lawyer, :with_contractenrecht)
+    end
+  #
+  # END SCENARIOS FOR QUERIES WITH IMMEDIATE INTERVAL
+  #################################################################
+  
+  
 end

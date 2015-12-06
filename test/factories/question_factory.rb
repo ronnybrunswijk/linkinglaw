@@ -25,8 +25,12 @@ FactoryGirl.define do
        description "description"
        province { FactoryGirl.create(:friesland)} 
 
-       trait :with_practice_area do
+       trait :with_aansprakelijkheidsrecht do
            practice_area { FactoryGirl.create(:aansprakelijkheidsrecht) }        
+       end
+
+       trait :with_contractenrecht do
+           practice_area { FactoryGirl.create(:contractenrecht) }        
        end
 
        trait :with_answers do
@@ -35,17 +39,26 @@ FactoryGirl.define do
             end
        end       
 
-       trait :for_sealanders do
+       trait :from_zeeland do
             province { FactoryGirl.create(:zeeland)}
        end
 
-       trait :for_limbos do
+       trait :from_limburg do
             province { FactoryGirl.create(:limburg)}
        end
 
-       trait :for_brabos do
+       trait :from_noord_brabant do
             province { FactoryGirl.create(:noord_brabant)}
        end
+
+       trait :from_noord_holland do
+            province { FactoryGirl.create(:noord_holland)}
+       end
+
+       trait :created_25_hours_ago do
+            created_at DateTime.current.beginning_of_hour - 25.hours
+       end
+       
    end
 
    factory :questions, class: Question do
