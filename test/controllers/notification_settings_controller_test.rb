@@ -21,7 +21,7 @@ class NotificationSettingsControllerTest < ActionController::TestCase
         
         assert_nil notification_setting.interval
         
-        point_in_time = DateTime.current
+        point_in_time = DateTime.current 
         put :update, id: notification_setting.id, notification_setting: {
                                                 "next_point_in_time(1i)" => point_in_time.year,
                                                 "next_point_in_time(2i)" => point_in_time.month,                                                

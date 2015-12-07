@@ -30,10 +30,10 @@ class NotificationSettingsController < ApplicationController
 
   def update
     if @notification_setting.update(notification_setting_params)
-      # if next_point_in_time is already passed then set to future time based on interval
       if @notification_setting.interval.hours == 24
         next_point_in_time = @notification_setting.next_point_in_time
-        if DateTime.current.beginning_of_minute >= next_point_in_time.beginning_of_minute
+        # if next_point_in_time has already passed then set next day
+        if next_point_in_time <= DateTime.current
           next_point_in_time += @notification_setting.interval.hours.hours
         end
         @notification_setting.next_point_in_time = next_point_in_time.beginning_of_hour
