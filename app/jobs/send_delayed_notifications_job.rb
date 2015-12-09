@@ -11,7 +11,7 @@ class SendDelayedNotificationsJob
          notification_setting = lawyer.notification_setting
          questions = notification_setting.select_questions(true)
          notification_setting.update_next_point_in_time                  
-         NotificationMailer.notify_lawyer(lawyer,questions).deliver!         
+         NotificationMailer.notify_lawyer(lawyer,questions).deliver! if not questions.empty?         
       end
    end
 
