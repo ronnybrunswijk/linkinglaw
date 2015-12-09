@@ -14,7 +14,7 @@ class NotificationSettingsControllerTest < ActionController::TestCase
     end
 
 
-    test 'update notification setting with future next point in time and daily interval' do
+    test 'update notification setting with future notification time and daily interval' do
         
         notification_setting = FactoryGirl.create(:notification_setting_empty)
         interval = FactoryGirl.create(:daily)
@@ -23,11 +23,11 @@ class NotificationSettingsControllerTest < ActionController::TestCase
         
         point_in_time = DateTime.current 
         put :update, id: notification_setting.id, notification_setting: {
-                                                "next_point_in_time(1i)" => point_in_time.year,
-                                                "next_point_in_time(2i)" => point_in_time.month,                                                
-                                                "next_point_in_time(3i)" => point_in_time.day,                                                
-                                                "next_point_in_time(4i)" => point_in_time.hour,
-                                                "next_point_in_time(5i)" => "52",                                                                                                                                               
+                                                "next_notification_time(1i)" => point_in_time.year,
+                                                "next_notification_time(2i)" => point_in_time.month,                                                
+                                                "next_notification_time(3i)" => point_in_time.day,                                                
+                                                "next_notification_time(4i)" => point_in_time.hour,
+                                                "next_notification_time(5i)" => "52",                                                                                                                                               
                                                 interval_id: interval.id
                                               }
         
@@ -35,11 +35,11 @@ class NotificationSettingsControllerTest < ActionController::TestCase
         refute_nil notification_setting.interval
         assert_equal interval, notification_setting.interval
         date_format = "%Y-%m-%d %H:%M"
-        assert_equal point_in_time.beginning_of_hour.strftime(date_format), notification_setting.next_point_in_time.strftime(date_format)
+        assert_equal point_in_time.beginning_of_hour.strftime(date_format), notification_setting.next_notification_time.strftime(date_format)
         
     end
 
-    test 'update notification setting with passed next point in time and daily interval' do
+    test 'update notification setting with passed notification time and daily interval' do
         
         notification_setting = FactoryGirl.create(:notification_setting_empty)
         interval = FactoryGirl.create(:daily)
@@ -48,25 +48,25 @@ class NotificationSettingsControllerTest < ActionController::TestCase
         
         point_in_time = DateTime.current - 8.hours
         put :update, id: notification_setting.id, notification_setting: {
-                                                "next_point_in_time(1i)" => point_in_time.year,
-                                                "next_point_in_time(2i)" => point_in_time.month,                                                
-                                                "next_point_in_time(3i)" => point_in_time.day,                                                
-                                                "next_point_in_time(4i)" => point_in_time.hour,
-                                                "next_point_in_time(5i)" => "35",                                                                                               
+                                                "next_notification_time(1i)" => point_in_time.year,
+                                                "next_notification_time(2i)" => point_in_time.month,                                                
+                                                "next_notification_time(3i)" => point_in_time.day,                                                
+                                                "next_notification_time(4i)" => point_in_time.hour,
+                                                "next_notification_time(5i)" => "35",                                                                                               
                                                 interval_id: interval.id
                                               }
         
         notification_setting.reload
         assert_equal interval, notification_setting.interval
         date_format = "%Y-%m-%d %H:%M"
-        assert_equal (point_in_time.beginning_of_hour + 24.hours).strftime(date_format), notification_setting.next_point_in_time.strftime(date_format)
+        assert_equal (point_in_time.beginning_of_hour + 24.hours).strftime(date_format), notification_setting.next_notification_time.strftime(date_format)
         
     end
     
     test 'update notification setting with immediate interval' do
        
        notification_setting = FactoryGirl.create(:notification_setting, :with_daily_interval)
-       refute_nil notification_setting.next_point_in_time
+       refute_nil notification_setting.next_notification_time
    
        interval = FactoryGirl.create(:immediately)
        
@@ -77,7 +77,7 @@ class NotificationSettingsControllerTest < ActionController::TestCase
        notification_setting.reload
        
        assert_equal interval, notification_setting.interval
-       assert_nil notification_setting.next_point_in_time
+       assert_nil notification_setting.next_notification_time
         
     end
     

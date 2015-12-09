@@ -2,12 +2,12 @@
 #
 # Table name: notification_settings
 #
-#  id                 :integer          not null, primary key
-#  created_at         :datetime
-#  updated_at         :datetime
-#  user_id            :integer
-#  next_point_in_time :datetime
-#  interval_id        :integer
+#  id                     :integer          not null, primary key
+#  created_at             :datetime
+#  updated_at             :datetime
+#  user_id                :integer
+#  next_notification_time :datetime
+#  interval_id            :integer
 #
 # Indexes
 #
@@ -25,7 +25,7 @@ FactoryGirl.define do
         end
         
         trait :with_daily_interval do
-           next_point_in_time DateTime.current.beginning_of_hour
+           next_notification_time DateTime.current.beginning_of_hour
            interval { FactoryGirl.create(:daily) }            
         end
         

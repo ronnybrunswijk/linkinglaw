@@ -2,12 +2,12 @@
 #
 # Table name: notification_settings
 #
-#  id                 :integer          not null, primary key
-#  created_at         :datetime
-#  updated_at         :datetime
-#  user_id            :integer
-#  next_point_in_time :datetime
-#  interval_id        :integer
+#  id                     :integer          not null, primary key
+#  created_at             :datetime
+#  updated_at             :datetime
+#  user_id                :integer
+#  next_notification_time :datetime
+#  interval_id            :integer
 #
 # Indexes
 #
@@ -22,7 +22,7 @@ class NotificationSetting < ActiveRecord::Base
   
   def self.select_lawyers_to_notify_periodically
       now = DateTime.current.beginning_of_hour
-      User.joins(:notification_setting).where('notification_settings.next_point_in_time = ?', now)
+      User.joins(:notification_setting).where('notification_settings.next_notification_time = ?', now)
   end
 
   def select_questions(include_interval)
@@ -61,9 +61,9 @@ class NotificationSetting < ActiveRecord::Base
      questions
   end
 
-  def update_next_point_in_time
-      new_next_point_in_time = next_point_in_time + interval.hours.hours
-      update_attribute(:next_point_in_time, new_next_point_in_time)
+  def update_next_notification_time
+      new_next_notification_time = next_notification_time + interval.hours.hours
+      update_attribute(:next_notification_time, new_next_notification_time)
   end
   
 end

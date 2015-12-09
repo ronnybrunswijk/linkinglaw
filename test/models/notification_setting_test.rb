@@ -2,12 +2,12 @@
 #
 # Table name: notification_settings
 #
-#  id                 :integer          not null, primary key
-#  created_at         :datetime
-#  updated_at         :datetime
-#  user_id            :integer
-#  next_point_in_time :datetime
-#  interval_id        :integer
+#  id                     :integer          not null, primary key
+#  created_at             :datetime
+#  updated_at             :datetime
+#  user_id                :integer
+#  next_notification_time :datetime
+#  interval_id            :integer
 #
 # Indexes
 #
@@ -40,20 +40,20 @@ class NotificationSettingTest < ActiveSupport::TestCase
     lawyers = NotificationSetting.select_lawyers_to_notify_periodically()
     
     assert_equal 1, lawyers.size
-    refute_nil lawyers[0].notification_setting.next_point_in_time    
+    refute_nil lawyers[0].notification_setting.next_notification_time    
 
   end
 
   test 'update next point in time for notification setting with daily interval' do
     
     notification_setting = FactoryGirl.create(:notification_setting, :with_daily_interval)
-    old_next_point_in_time = notification_setting.next_point_in_time
+    passed_next_notification_time = notification_setting.next_notification_time
     
-    notification_setting.update_next_point_in_time
+    notification_setting.update_next_notification_time
     
-    new_next_point_in_time = notification_setting.next_point_in_time
+    new_next_notification_time = notification_setting.next_notification_time
     
-    assert_equal old_next_point_in_time + 24.hours, new_next_point_in_time
+    assert_equal passed_next_notification_time + 24.hours, new_next_notification_time
     
   end
   

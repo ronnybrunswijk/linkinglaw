@@ -7,7 +7,7 @@ Dan(/^wil ik de mogelijkheid hebben om in te stellen dat ik (\d+) keer per dag o
     @daily_interval = Interval.find_by(hours: 24)
     @hour_option = 18
     choose "notification_setting_interval_id_#{@daily_interval.id}"
-    select(@hour_option.to_s, from: "notification_setting_next_point_in_time_4i")
+    select(@hour_option.to_s, from: "notification_setting_next_notification_time_4i")
     click_button 'Bewaar'    
 end
 
@@ -15,7 +15,7 @@ Dan(/^er zeker van zijn dat mijn frequentie instellingen bewaard blijven$/) do
     @current_user.reload
     notification_setting = @current_user.notification_setting
     assert_equal @daily_interval, notification_setting.interval
-    assert_equal @hour_option, notification_setting.next_point_in_time.hour 
+    assert_equal @hour_option, notification_setting.next_notification_time.hour 
 end
 
 Stel(/^mijn frequentie van berichtgeving is ingesteld op 'Meteen'$/) do

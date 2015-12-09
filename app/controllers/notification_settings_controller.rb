@@ -31,14 +31,14 @@ class NotificationSettingsController < ApplicationController
   def update
     if @notification_setting.update(notification_setting_params)
       if @notification_setting.interval.hours == 24
-        next_point_in_time = @notification_setting.next_point_in_time
-        # if next_point_in_time has already passed then set next day
-        if next_point_in_time <= DateTime.current
-          next_point_in_time += @notification_setting.interval.hours.hours
+        next_notification_time = @notification_setting.next_notification_time
+        # if next notification time has already passed then set next day
+        if next_notification_time <= DateTime.current
+          next_notification_time += @notification_setting.interval.hours.hours
         end
-        @notification_setting.next_point_in_time = next_point_in_time.beginning_of_hour
+        @notification_setting.next_notification_time = next_notification_time.beginning_of_hour
       else
-        @notification_setting.next_point_in_time = nil
+        @notification_setting.next_notification_time = nil
       end
       flash[:notice] = 'NotificationSetting was successfully updated.' if @notification_setting.save
     end
@@ -56,7 +56,7 @@ class NotificationSettingsController < ApplicationController
     end
 
     def notification_setting_params
-      params.require(:notification_setting).permit(:next_point_in_time, 
+      params.require(:notification_setting).permit(:next_notification_time, 
                                                    :interval_id, 
                                                    province_ids: [], 
                                                    practice_area_ids: [])
