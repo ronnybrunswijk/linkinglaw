@@ -24,7 +24,8 @@ class QuestionsController < ApplicationController
     @question.user = current_user
     if params[:create]
       flash[:notice] = t(:save_success, scope: [:questions, :notifications]) if @question.save
-      UserMailer.delay.confirm_question(current_user, @question)
+#      UserMailer.delay.confirm_question(current_user, @question)
+      UserMailer.confirm_question(current_user, @question).deliver!      
       SendNotificationsJob.perform_async(@question.id)
       respond_with(@question)
     else 
