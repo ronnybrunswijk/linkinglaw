@@ -1,4 +1,4 @@
-$(document).on 'page:change', ->
+$(document).on 'ready page:change', ->
   set_time_select_visibility()
   register_time_select_change_handler()
     

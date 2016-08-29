@@ -1,4 +1,4 @@
-$(document).on 'page:change', ->
+$(document).on 'ready page:change', ->
   $("#sign_in_user_review, #sign_in_user, #new_user").bind("ajax:success", (e, data, status, xhr) ->
       update_auth_token(xhr)
       if e.target.id == "sign_in_user_review"

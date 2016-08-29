@@ -1,12 +1,9 @@
-<% provide :title, "Log in" %>
+<% provide :title, "Inloggen" %>
+<h3 style="text-align:center;margin-top:100px;"><%= t(:sign_in, scope: [:devise, :sessions]) %></h3>
 <div class="authform">
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %>
-    <h3><%= t(:sign_in, scope: [:devise, :sessions]) %></h3>
     <%= devise_error_messages! %>
     <div class="form-group">
-      <%- if devise_mapping.registerable? %>
-        <%= link_to t(:sign_up, scope: [:devise, :registrations]), new_registration_path(resource_name), class: 'right'  %>
-      <% end -%>
       <%= f.label :email %>
       <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
     </div>
@@ -17,14 +14,22 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
     </div>
-    <%= f.submit t(:sign_in, scope: [:devise, :sessions]), :class => 'button right' %>
     <% if devise_mapping.rememberable? -%>
-      <div class="checkbox" style="width:150px">
+      <div class="checkbox">
         <label>
           <%= f.check_box :remember_me %> <%= t(:remember_me, scope: [:devise, :sessions]) %>
         </label>
       </div>
     <% end -%>
+    <%= f.submit t(:sign_in, scope: [:devise, :sessions]), :class => 'button full-width' %>
   <% end %>
+  
 </div>
+<div style="text-align:center;">
+    Heb je geen account?<br>
+    <%- if devise_mapping.registerable? %>
+        <%= link_to t(:sign_up, scope: [:devise, :registrations]), new_registration_path(resource_name)  %>
+    <% end -%>
+</div>
+
 

@@ -9,7 +9,7 @@ end
 
 Als(/^ik dan naar registratieformulier voor de juridisch professional ga$/) do
   click_link "signup-lawyer"
-  page.find('title', "Registreren Juridiscche Professional", visible: false) 
+  page.find('title', "Account aanmaken Juridiscche Professional", visible: false) 
 end
 
 Dan(/^wil ik alle noodzakelijke gegevens kunnen opvoeren en verzenden$/) do
@@ -17,7 +17,7 @@ Dan(/^wil ik alle noodzakelijke gegevens kunnen opvoeren en verzenden$/) do
   fill_in_account
   fill_in_profile
   
-  click_button "Registreren" 
+  click_button "Account aanmaken" 
 end
 
 Dan(/^daarna verwittigd worden over dat mijn registratie gelukt is$/) do
@@ -45,7 +45,7 @@ end
 
 Stel(/^ik bevind me als juridische professional op de registratie pagina voor de juridische professionals$/) do
   visit '/users/sign_up?type=lawyer'
-  page.find('title','Registreren juridische professional',visible: false)
+  page.find('title','Account aanmaken Juridische Professional',visible: false)
 end
 
 Als(/^ik dan mijn functie wil opgeven, terwijl die niet voorkomt in de lijst met te selecteren functies$/) do
@@ -60,7 +60,7 @@ Dan(/^wil de mogelijkheid hebben, waarmee ik toch mijn functie kan opgeven$/) do
   select 'Anders', from: 'professions'
   fill_in 'user_profile_attributes_profession', with: @profession
   
-  click_button "Registreren"
+  click_button "Account aanmaken"
 end
 
 Dan(/^dat de functie correct wordt geregistreerd in het systeem$/) do

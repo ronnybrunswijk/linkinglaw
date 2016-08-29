@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bootstrap-sass'
-gem 'devise'
+gem 'devise', '~> 4.1.1'
 gem 'pg'
 gem 'therubyracer', :platform=>:ruby
 gem 'unicorn'
@@ -41,6 +41,7 @@ group :test do
   gem 'launchy'
   gem 'poltergeist'
   gem 'mocha'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
 end
 
 ### tafoege

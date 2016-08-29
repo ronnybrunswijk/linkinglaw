@@ -1,6 +1,6 @@
 professions = ["Advocaat","Jurist","Fiscalist"]
 
-$(document).on 'page:change', ->
+$(document).on 'ready page:change', ->
   init_profession()
   init_rating()
   

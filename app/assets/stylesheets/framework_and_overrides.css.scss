@@ -96,5 +96,33 @@ form div.pad-b-10px {
 
 body, main {
 //  background-color: transparent
-  background-color: #eeedf1;
+  background-color: #f5f5f5;
+  margin: 0;
+  height: 100%;
+}
+
+// custom overrides
+.navbar-inverse {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.well, .authform form, form .authform, .authform fieldset {
+       background-color: white;
+}
+
+.authform {
+	 padding-top:10px;
+	 margin-top:100px;
+}
+
+.btn-primary, .submit, .authform .button, .button-xs {
+	      background-color: #ef5350;
+	      border-color: #ef5350;
+}
+
+.btn-primary:hover, .submit:hover, .authform .button:hover, .button-xs:hover {
+  color: white;
+  background-color: #E53935;
+  border-color: #E53935;
 }

@@ -44,7 +44,7 @@ nl:
       no_change: 'Laat de invoervelden blanco, indien je je wachtwoord niet wilt wijzigen.'
       enter_current: 'Voer je huidige wachtwoord in om de wijzigingen door te voeren.'
     registrations:
-      sign_up: 'Registreren'
+      sign_up: 'Account aanmaken'
       signed_up_but_unconfirmed: 'Je ontvangt via e-mail instructies hoe je je account kunt activeren.'
       signed_up_but_inactive: 'Je bent inschreven. Je kon alleen niet automatisch ingelogd worden omdat je account nog niet geactiveerd is.'
       signed_up_but_locked: 'Je bent inschreven. Je kon alleen niet automatisch ingelogd worden omdat je account geblokkeerd is.'
@@ -57,8 +57,8 @@ nl:
       cancel: "Account opheffen"
       cancel_my: "Hef mijn account op"
     sessions:
-      sign_in: 'Log in'
-      sign_out: 'Log uit'
+      sign_in: 'Inloggen'
+      sign_out: 'Uitloggen'
       forgot_password: 'Wachtwoord vergeten?'
       remember_me: 'Onthoud mijn gegevens'
       signed_in: 'Je bent succesvol ingelogd.'

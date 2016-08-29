@@ -1,4 +1,4 @@
-$(document).on 'page:change', ->
+$(document).on 'ready page:change', ->
   $('#modify_question').bind 'click', (e) ->
     $('form#new_question').attr({action: '/questions/modify'}) 
 
