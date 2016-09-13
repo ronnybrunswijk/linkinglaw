@@ -1,6 +1,13 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-h1 {
+#tagline, h1 {
    text-align:center;
 }
+
+#tagline {
+    font-size: 3rem;
+}
+
+
+
