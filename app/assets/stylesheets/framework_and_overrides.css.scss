@@ -126,7 +126,18 @@ body, main {
   border-color: #E53935;
 }
 
-a:hover, a:visited, a {
+a:hover, a:visited, a, a:focus {
   color: white !important;
   text-decoration: none !important;
+  background-color: transparent;
+}
+
+.btn-default {
+  background-color: transparent;
+  border-color: white;
+}
+
+.btn-default:hover, a:hover {
+    background-color:white;
+    color: #16a085; 
 }
